@@ -712,7 +712,7 @@ focus_tree = {
 		}
 		if = {
 		limit = { has_country_leader = { ruling_only = yes name = "Huey Long" } }
-		country_event = { id = ustates.6302 days = 6 }
+		country_event = { id = ustates.55 days = 6 }
 		}
 		}
 		prerequisite = {
@@ -841,8 +841,9 @@ focus_tree = {
 	focus = {# Garner Triumphs
 		id = USA_garner_wins
 		icon = GFX_USA_cactusjack
-		cost = 6.00
+		cost = 1.00
 		available = {
+				has_country_leader = { ruling_only = yes name = "John Nance Garner" }
 				has_country_flag = USA_president_inaugurated
 				has_global_flag = USA_garner_is_president
 			}
@@ -861,6 +862,9 @@ focus_tree = {
 		id = USA_Garner_free_trade
 		icon = GFX_USA_sweep_farm_tariffs
 		cost = 6.00
+		available = {
+				has_country_leader = { ruling_only = yes name = "John Nance Garner" }
+			}
 		prerequisite = {
 			focus = USA_garner_wins
 		}
@@ -885,6 +889,9 @@ focus_tree = {
 		id = USA_rural_investments
 		icon = GFX_USA_rural_investments
 		cost = 6.00
+		available = {
+				has_country_leader = { ruling_only = yes name = "John Nance Garner" }
+			}
 		prerequisite = {
 			focus = USA_Garner_free_trade
 		}
@@ -936,6 +943,9 @@ focus_tree = {
 		id = USA_austerity
 		icon = GFX_USA_austerity_measures
 		cost = 6.00
+		available = {
+				has_country_leader = { ruling_only = yes name = "John Nance Garner" }
+			}
 		prerequisite = {
 			focus = USA_rural_investments
 		}
@@ -949,13 +959,13 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus USA_austerity"
 			swap_ideas = {
 			remove_idea = USA_black_monday
-			add_idea = USA_black_monday2_garner
+			add_idea = USA_austerity_garner
 			}
 			add_stability = 0.05
 			add_political_power = 20
 			hidden_effect = {
 			country_event = {
-			id = ustates.93
+			id = ustates.92
 			days = 2
 				}
 			}
@@ -966,6 +976,9 @@ focus_tree = {
 		id = USA_smash_radicals
 		icon = GFX_goal_TEX_fight_the_terrorists
 		cost = 6.00
+		available = {
+				has_country_leader = { ruling_only = yes name = "John Nance Garner" }
+			}
 		prerequisite = {
 			focus = USA_garner_wins
 		}
@@ -983,7 +996,7 @@ focus_tree = {
 			add_popularity = { ideology = totalist popularity = -0.04 }
 			hidden_effect = {
 			country_event = {
-			id = ustates.9104
+			id = ustates.9103
 			days = 10
 				}
 			}
@@ -994,6 +1007,9 @@ focus_tree = {
 		id = USA_undermine_old_democrats
 		icon = GFX_HOL_crackdown_natpop
 		cost = 3.00
+		available = {
+				has_country_leader = { ruling_only = yes name = "John Nance Garner" }
+			}
 		prerequisite = {
 			focus = USA_garner_wins
 		}
@@ -1017,6 +1033,9 @@ focus_tree = {
 		id = USA_hoovers_boys
 		icon = GFX_USA_directors_boys
 		cost = 2.00
+		available = {
+				has_country_leader = { ruling_only = yes name = "John Nance Garner" }
+			}
 		prerequisite = {
 			focus = USA_smash_radicals
 		}
@@ -1044,6 +1063,9 @@ focus_tree = {
 		id = USA_reassert_democrats
 		icon = GFX_NEE_democratic_machine
 		cost = 6.00
+		available = {
+				has_country_leader = { ruling_only = yes name = "John Nance Garner" }
+			}
 		prerequisite = {
 			focus = USA_hoovers_boys
 		}
@@ -1059,6 +1081,7 @@ focus_tree = {
 			add_popularity = { ideology = authoritarian_democrat popularity = -0.03 }
 			add_popularity = { ideology = paternal_autocrat popularity = -0.03 }
 			add_popularity = { ideology = national_populist popularity = -0.03 }
+			remove_ideas = USA_klan_activity_idea
 			hidden_effect = {
 			country_event = {
 			id = ustates.1051
@@ -1072,6 +1095,9 @@ focus_tree = {
 		id = USA_army_expansion
 		icon = GFX_goal_USA_general_macarthur
 		cost = 6.00
+		available = {
+				has_country_leader = { ruling_only = yes name = "John Nance Garner" }
+			}
 		prerequisite = {
 			focus = USA_hoovers_boys
 		}
@@ -1091,6 +1117,9 @@ focus_tree = {
 		id = USA_finish_anarchists
 		icon = GFX_goal_USA_antileftist_action
 		cost = 6.00
+		available = {
+				has_country_leader = { ruling_only = yes name = "John Nance Garner" }
+			}
 		prerequisite = {
 			focus = USA_reassert_democrats
 		}
@@ -1108,6 +1137,8 @@ focus_tree = {
 			add_popularity = { ideology = radical_socialist popularity = -0.03 }
 			add_popularity = { ideology = syndicalist popularity = -0.1 }
 			add_popularity = { ideology = totalist popularity = -0.05 }
+			remove_ideas = USA_syndicalist_strike_idea
+			remove_ideas = USA_new_year_strike_idea
 			hidden_effect = {
 			country_event = {
 			id = ustates.99
@@ -1121,6 +1152,9 @@ focus_tree = {
 		id = USA_yay_liquor
 		icon = GFX_goal_liberty
 		cost = 6.00
+		available = {
+				has_country_leader = { ruling_only = yes name = "John Nance Garner" }
+			}
 		prerequisite = {
 			focus = USA_reassert_democrats
 		}
@@ -1135,6 +1169,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus USA_yay_liquor"
+			swap_ideas = {
+			remove_idea = USA_austerity_garner
+			add_idea = USA_black_monday2_garner
+			}
 			add_political_power = 40
 			add_popularity = { ideology = social_conservative popularity = 0.03 }
 		}
@@ -1144,6 +1182,9 @@ focus_tree = {
 		id = USA_sovereignity_of_legislature
 		icon = GFX_USA_senate
 		cost = 6.00
+		available = {
+				has_country_leader = { ruling_only = yes name = "John Nance Garner" }
+			}
 		prerequisite = {
 			focus = USA_yay_liquor
 		}
@@ -1160,10 +1201,3171 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus USA_sovereignity_of_legislature"
 			add_political_power = 50
 			add_popularity = { ideology = social_conservative popularity = 0.05 }
-			remove_idea = USA_political_crisis
+			remove_ideas = USA_black_monday
+			remove_ideas = USA_black_monday2
+			remove_ideas = USA_great_depression
+			remove_ideas = USA_great_depression_garner_2
+			remove_ideas = USA_austerity_garner 
+			remove_ideas = USA_black_monday2_garner
+			remove_ideas = USA_political_crisis
 		}
 	}
 	
+	focus = {# Last Bastion of American Democracy
+		id = USA_last_bastion
+		icon = GFX_goal_liberty
+		cost = 5.00
+		available = {
+			OR = {
+				has_country_flag = USA_had_1936_election
+				has_country_flag = USA_macarthur_coup
+			}
+			OR = {
+				has_global_flag = USA_civil_war_avoided_flag
+				has_global_flag = USA_civil_war_over_flag
+			}
+		}
+		x = 72
+		y = 15
+		ai_will_do = {
+			factor = 100
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_last_bastion"
+			custom_effect_tooltip = unlock_focuses
+		}
+	}
+	
+	### Social Democrats ###
+	focus = {# Farmer-Labor Elected
+		id = USA_social_democrats_in_power
+		icon = GFX_CAL_progressive_victory
+		cost = 5.00
+		prerequisite = {
+			focus = USA_last_bastion
+		}
+		available = {
+			has_government = social_democrat
+		}
+		bypass = { has_government = social_democrat }
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_last_bastion
+		x = -21
+		y = 1
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_social_democrats_in_power"
+			custom_effect_tooltip = unlock_focuses
+		}
+	}
+
+	focus = {# Progress Tax
+		id = USA_wealth_taxation
+		icon = GFX_CAL_rich_taxation
+		cost = 5.00
+		prerequisite = {
+			focus = USA_social_democrats_in_power
+		}
+		available = {
+			has_government = social_democrat
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_democrats_in_power
+		x = 0
+		y = 1
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_wealth_taxation"
+			add_ideas = CAL_progressive_taxation_idea
+			add_war_support = 0.05
+			add_popularity = { ideology = social_democrat popularity = 0.05 }
+		}
+	}
+	
+	focus = {# Resettlement Administration
+		id = USA_resettlement_adminstration
+		icon = GFX_CAL_ra
+		cost = 5.00
+		prerequisite = {
+			focus = USA_wealth_taxation
+		}
+		available = {
+			has_government = social_democrat
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_democrats_in_power
+		x = 1
+		y = 2
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_resettlement_adminstration"
+			add_ideas = CAL_resettlement_adminstration_idea
+			add_manpower = 5000
+		}
+	}
+	
+	focus = {# Public Works
+		id = USA_new_public_works
+		icon = GFX_CAL_pwa
+		cost = 5.00
+		prerequisite = {
+			focus = USA_wealth_taxation
+		}
+		available = {
+			has_government = social_democrat
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_democrats_in_power
+		x = -1
+		y = 2
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_public_works"
+			swap_ideas = {
+			remove_idea = CAL_progressive_taxation_idea
+			add_idea = CAL_progressive_taxation_2
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {# Farm Credit Administration
+		id = USA_farm_credit_act
+		icon = GFX_CAL_farm_bankruptcy_act
+		cost = 5.00
+		prerequisite = {
+			focus = USA_new_public_works
+		}
+		prerequisite = {
+			focus = USA_resettlement_adminstration
+		}
+		available = {
+			has_government = social_democrat
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_democrats_in_power
+		x = 0
+		y = 3
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_farm_credit_act"
+			swap_ideas = {
+			remove_idea = CAL_progressive_taxation_2
+			add_idea = CAL_progressive_taxation_3
+			}
+			add_popularity = { ideology = social_democrat popularity = 0.05 }
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+		}
+	}
+	
+	focus = {# Country Life Movement
+		id = USA_country_life_movement
+		icon = GFX_focus_AUS_agriculture
+		cost = 5.00
+		prerequisite = {
+			focus = USA_social_democrats_in_power
+		}
+		available = {
+			has_government = social_democrat
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_democrats_in_power
+		x = 3
+		y = 1
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_country_life_movement"
+			add_ideas = CAL_progressive_agenda
+			add_popularity = { ideology = social_democrat popularity = 0.03 }
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+					}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+
+	focus = {# Encourage Temperance
+		id = USA_encourage_temperance
+		icon = GFX_CAL_encourage_temperance
+		cost = 5.00
+		prerequisite = {
+			focus = USA_country_life_movement
+		}
+		available = {
+			has_government = social_democrat
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_democrats_in_power
+		x = 3
+		y = 2
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_encourage_temperance"
+			swap_ideas = {
+			remove_idea = CAL_progressive_agenda
+			add_idea = CAL_progressive_agenda_2
+			}
+			add_political_power = 20
+			add_popularity = { ideology = social_democrat popularity = 0.02 }
+			hidden_effect = {
+			country_event = {
+			id = ustates.313
+			days = 7
+				}
+			}
+		}
+	}
+	
+	focus = {# Citizen Education
+		id = USA_citizen_education
+		icon = GFX_CAL_citizen_education
+		cost = 5.00
+		prerequisite = {
+			focus = USA_encourage_temperance
+		}
+		available = {
+			has_government = social_democrat
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_democrats_in_power
+		x = 3
+		y = 3
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_citizen_education"
+			swap_ideas = {
+			remove_idea = CAL_progressive_agenda_2
+			add_idea = CAL_progressive_agenda_3
+			}
+			add_research_slot = 1
+			add_stability = 0.03
+			add_popularity = { ideology = social_democrat popularity = 0.05 }
+			add_war_support = 0.05
+		}
+	}
+	
+	focus = {# Fight Big Money
+		id = USA_removing_money_from_politics
+		icon = GFX_goal_generic_tackle_corruption
+		cost = 5.00
+		prerequisite = {
+			focus = USA_social_democrats_in_power
+		}
+		available = {
+			has_government = social_democrat
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_democrats_in_power
+		x = -3
+		y = 1
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_removing_money_from_politics"
+			add_ideas = CAL_new_nationalism_idea1
+			add_political_power = 50
+			add_popularity = { ideology = social_liberal popularity = 0.01}
+			add_popularity = { ideology = social_democrat popularity = 0.03}
+			add_popularity = { ideology = radical_socialist popularity = 0.01}
+		}
+	}
+	
+	focus = {# Worker's Compensation
+		id = USA_workers_compensation
+		icon = GFX_CAL_workers_compensation_act
+		cost = 5.00
+		prerequisite = {
+			focus = USA_removing_money_from_politics
+		}
+		available = {
+			has_government = social_democrat
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_democrats_in_power
+		x = -3
+		y = 2
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_workers_compensation"
+			swap_ideas = {
+			remove_idea = CAL_new_nationalism_idea1
+			add_idea = CAL_new_nationalism_idea2
+			}
+			add_popularity = { ideology = social_democrat popularity = 0.05 }
+		}
+	}
+
+	focus = {# New Anti-Trust Laws
+		id = USA_new_anti_trust_laws
+		icon = GFX_CAL_new_antitrust_laws
+		cost = 5.00
+		prerequisite = {
+			focus = USA_workers_compensation
+		}
+		available = {
+			has_government = social_democrat
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_democrats_in_power
+		x = -3
+		y = 3
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_new_anti_trust_laws"
+			swap_ideas = {
+			remove_idea = CAL_new_nationalism_idea2
+			add_idea = CAL_new_nationalism_idea3
+			}	
+			add_political_power = 50
+			add_stability = 0.04
+		}
+	}
+
+	focus = {# National Railroads
+		id = USA_national_railroads
+		icon = GFX_goal_production
+		cost = 5.00
+		prerequisite = {
+			focus = USA_new_anti_trust_laws
+		}
+		prerequisite = {
+			focus = USA_farm_credit_act
+		}
+		available = {
+			has_government = social_democrat
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_democrats_in_power
+		x = -2
+		y = 4
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_public_works"
+			swap_ideas = {
+			remove_idea = CAL_new_nationalism_idea3
+			add_idea = CAL_new_nationalism_idea4
+			}
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1
+				uses = 1
+				category = industry
+			}
+			country_event = {
+			id = pacificstates.74
+			days = 2
+			}
+		}
+	}
+	
+	focus = {# Credit Union Recognition
+		id = USA_credit_unions
+		icon = GFX_CAL_support_credit_unions
+		cost = 5.00
+		prerequisite = {
+			focus = USA_citizen_education
+		}
+		prerequisite = {
+			focus = USA_farm_credit_act
+		}
+		available = {
+			has_government = social_democrat
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_democrats_in_power
+		x = 2
+		y = 4
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_credit_unions" 
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_popularity = { ideology = social_democrat popularity = 0.05 }
+			add_stability = 0.05
+			add_political_power = 15
+		}
+	}
+	
+	focus = {# Fight Crime
+		id = USA_fight_crime
+		icon = GFX_goal_generic_stable_government
+		cost = 5.00
+		prerequisite = {
+			focus = USA_farm_credit_act
+		}
+		available = {
+			has_government = social_democrat
+			NOT = {
+			has_war_with = TEX
+			}
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_democrats_in_power
+		x = 0
+		y = 4
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_fight_crime"
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_popularity = { ideology = social_democrat popularity = 0.01 }
+			add_manpower = 2000
+		}
+	}
+	
+	focus = {# New Nationalism
+		id = USA_new_nationalism
+		icon = GFX_CAL_new_nationalism
+		cost = 5.00
+		prerequisite = {
+			focus = USA_national_railroads
+		}
+		prerequisite = {
+			focus = USA_credit_unions
+		}
+		available = {
+			OR = {
+				has_government = social_democrat
+			}
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_democrats_in_power
+		x = 0
+		y = 5
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAL_new_nationalism"
+			swap_ideas = {
+			remove_idea = CAL_new_nationalism_idea4
+			add_idea = CAL_new_nationalism_idea5
+			}
+			add_war_support = 0.05
+			add_political_power = 50
+		}
+	}
+	
+	focus = {# Food Stamps
+		id = USA_food_stamps
+		icon = GFX_CAL_food_stamps
+		cost = 5.00
+		prerequisite = {
+			focus = USA_new_nationalism
+		}
+		available = {
+			OR = {
+				has_government = social_democrat
+			}
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_democrats_in_power
+		x = -1
+		y = 6
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_food_stamps"
+			swap_ideas = {
+			remove_idea = CAL_progressive_taxation_3
+			add_idea = CAL_progressive_taxation_4
+			}
+			add_popularity = { ideology = social_democrat popularity = 0.02 }
+		}
+	}
+	
+	focus = {# Quota Act
+		id = USA_quota_act
+		icon = GFX_CAL_quota_act
+		cost = 5.00
+		prerequisite = {
+			focus = USA_new_nationalism
+		}
+		available = {
+				has_government = social_democrat
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_democrats_in_power
+		x = 1
+		y = 6
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_quota_act"
+			swap_ideas = {
+			remove_idea = CAL_progressive_agenda_3
+			add_idea = CAL_progressive_agenda_4
+			}
+			add_popularity = { ideology = social_democrat popularity = 0.05 }
+			add_stability = 0.08
+		}
+	}
+
+	focus = {# Fair Labor Standards
+		id = USA_fair_labor_standards
+		icon = GFX_goal_workers_rights
+		cost = 5.00
+		prerequisite = {
+			focus = USA_social_liberals_in_power
+			focus = USA_social_democrats_in_power
+		}
+		available = {
+			OR = {
+				has_government = social_liberal
+				has_government = market_liberal
+			}
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_liberals_in_power
+		x = -6
+		y = 1
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_labor_relations_act"
+			add_ideas = CAL_rights_of_labor_idea
+			add_stability = 0.03
+		}
+	}
+	
+	focus = {# Rural Electrification Administration
+		id = USA_rural_electrification_administration
+		icon = GFX_CAL_rea
+		cost = 5.00
+		prerequisite = {
+			focus = USA_fair_labor_standards
+		}
+		available = {
+			OR = {
+				has_government = social_democrat
+				has_government = social_liberal
+			}
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_fair_labor_standards
+		x = -1
+		y = 1
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_rural_electrification_administration"
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					infrastructure > 0
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					infrastructure > 0
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					infrastructure > 0
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {# National Housing Act
+		id = USA_national_housing
+		icon = GFX_CAL_national_housing
+		cost = 5.00
+		prerequisite = {
+			focus = USA_fair_labor_standards
+		}
+		available = {
+			OR = {
+				has_government = social_democrat
+				has_government = social_liberal
+			}
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_fair_labor_standards
+		x = 1
+		y = 1
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_national_housing"
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {# Social Security
+		id = USA_social_security
+		icon = GFX_focus_generic_concessions
+		cost = 5.00
+		prerequisite = {
+			focus = USA_rural_electrification_administration
+		}
+		prerequisite = {
+			focus = USA_national_housing
+		}
+		available = {
+			OR = {
+				has_government = social_democrat
+				has_government = social_liberal
+			}
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_fair_labor_standards
+		x = 0
+		y = 2
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_social_security"
+			swap_ideas = {
+			remove_idea = CAL_rights_of_labor_idea
+			add_idea = CAL_rights_of_labor_idea_2
+			}
+			add_war_support = 0.03
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {# Progressives Elected
+		id = USA_social_liberals_in_power
+		icon = GFX_CAL_liberal_union_party
+		cost = 5.00
+		prerequisite = {
+			focus = USA_last_bastion
+		}
+		available = {
+			has_government = social_liberal
+		}
+		bypass = { has_government = social_liberal }
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_last_bastion
+		x = -9
+		y = 1
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_social_liberals_in_power"
+			custom_effect_tooltip = unlock_focuses
+		}
+	}
+	
+	focus = {# Liberal Taxation
+		id = USA_progressive_taxation
+		icon = GFX_goal_HOL_progressive_tax
+		cost = 5.00
+		prerequisite = {
+			focus = USA_social_liberals_in_power
+		}
+		available = {
+			has_government = social_liberal
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_liberals_in_power
+		x = 0
+		y = 1
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_progressive_taxation"
+			add_ideas = CAL_new_freedom_1
+			add_popularity = { ideology = social_liberal popularity = 0.03 }
+			add_political_power = 30
+		}
+	}
+	
+	focus = {# Works Progress Administration
+		id = USA_public_works
+		icon = GFX_CAL_wpa
+		cost = 5.00
+		prerequisite = {
+			focus = USA_progressive_taxation
+		}
+		available = {
+			has_government = social_liberal
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_liberals_in_power
+		x = -1
+		y = 2
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_public_works"
+			swap_ideas = {
+			remove_idea = CAL_new_freedom_1
+			add_idea = CAL_new_freedom_2
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {# Create the CCC
+		id = USA_create_the_ccc
+		icon = GFX_CAL_ccc
+		cost = 5.00
+		prerequisite = {
+			focus = USA_progressive_taxation
+		}
+		available = {
+			has_government = social_liberal
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_liberals_in_power
+		x = 1
+		y = 2
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_create_the_ccc"
+			add_stability = 0.05
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			hidden_effect = {
+			country_event = {
+			id = ustates.292
+			days = 80
+				}
+			country_event = {
+			id = ustates.291
+			days = 120
+				}
+			}
+		}
+	}
+	
+	focus = {# National Youth Administration
+		id = USA_national_youth_adminstration
+		icon = GFX_CAL_NYA
+		cost = 5.00
+		prerequisite = {
+			focus = USA_public_works
+		}
+		prerequisite = {
+			focus = USA_create_the_ccc
+		}
+		available = {
+			has_government = social_liberal
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_liberals_in_power
+		x = 0
+		y = 3
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_national_youth_adminstration"
+			swap_ideas = {
+			remove_idea = CAL_new_freedom_2
+			add_idea = CAL_new_freedom_3
+			}
+			increase_ruling_party_popularity_by_5 = yes
+			add_stability = 0.05
+		}
+	}
+
+	focus = {# Chautauqua
+		id = USA_chautauqua
+		icon = GFX_goal_support_democracy
+		cost = 5.00
+		prerequisite = {
+			focus = USA_social_liberals_in_power
+		}
+		available = {
+			has_government = social_liberal
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_liberals_in_power
+		x = -3
+		y = 1
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_chautauqua"
+			add_ideas = CAL_chautauqua_idea
+			add_political_power = 50
+		}
+	}
+
+	focus = {# Brain Trust
+		id = USA_brain_trust
+		icon = GFX_goal_brain
+		cost = 5.00
+		prerequisite = {
+			focus = USA_chautauqua
+		}
+		available = {
+			has_government = social_liberal
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_liberals_in_power
+		x = -3
+		y = 2
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_brain_trust"
+			add_ideas = CAL_brain_trust_idea
+			add_political_power = 50
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1
+				uses = 1
+				category = industry
+			}
+			hidden_effect = {
+			country_event = {
+			id = ustates.301
+			days = 95
+				}
+			}
+		}
+	}
+	
+	focus = {# Liberal unions
+		id = USA_liberal_unions
+		icon = GFX_goal_tblra_union_agreement
+		cost = 5.00
+		prerequisite = {
+			focus = USA_brain_trust
+		}
+		available = {
+			has_government = social_liberal
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_liberals_in_power
+		x = -3
+		y = 3
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_liberal_unions"
+			add_stability = 0.03
+			add_political_power = 35
+			add_popularity = { ideology = social_liberal popularity = 0.05 }
+		}
+	}
+	
+	focus = {# Banking Act
+		id = USA_banking_act
+		icon = GFX_goal_generic_government_deals
+		cost = 5.00
+		prerequisite = {
+			focus = USA_social_liberals_in_power
+		}
+		available = {
+			has_government = social_liberal
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_liberals_in_power
+		x = 3
+		y = 1
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_banking_act"
+			add_ideas = CAL_new_liberal_securities
+			add_stability = 0.05
+			add_popularity = { ideology = social_liberal popularity = 0.05 }
+		}
+	}
+	
+	focus = {# Farm Security Act
+		id = USA_farm_security_act
+		icon = GFX_goal_agricultural_aid
+		cost = 5.00
+		prerequisite = {
+			focus = USA_banking_act
+		}
+		available = {
+			has_government = social_liberal
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_liberals_in_power
+		x = 3
+		y = 2
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_farm_security_act"
+			swap_ideas = {
+			remove_idea = CAL_new_liberal_securities
+			add_idea = CAL_new_liberal_securities_2
+			}
+			add_stability = 0.05
+			add_popularity = { ideology = social_liberal popularity = 0.03 }
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {# Medicare
+		id = USA_medicare
+		icon = GFX_goal_generic_stable_government
+		cost = 5.00
+		prerequisite = {
+			focus = USA_farm_security_act
+		}
+		available = {
+			has_government = social_liberal
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_liberals_in_power
+		x = 3
+		y = 3
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_medicare"
+			swap_ideas = {
+			remove_idea = CAL_new_liberal_securities_2
+			add_idea = CAL_new_liberal_securities_3
+			}
+			add_tech_bonus = {
+				name = USA_progressive_medicare
+				bonus = 1
+				uses = 1
+				category = hospital_tech
+			}
+			add_popularity = { ideology = social_liberal popularity = 0.05 }
+		}
+	}
+	
+	focus = {# Mathematical Table Project
+		id = USA_mathematical_tables_project
+		icon = GFX_goal_brain
+		cost = 5.00
+		prerequisite = {
+			focus = USA_liberal_unions
+		}
+		prerequisite = {
+			focus = USA_national_youth_adminstration
+		}
+		available = {
+			has_government = social_liberal
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_liberals_in_power
+		x = -2
+		y = 4
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_mathematical_tables_project"
+			swap_ideas = { 
+			remove_idea = CAL_brain_trust_idea
+			add_idea = CAL_brain_trust_idea_2
+			}
+			add_tech_bonus = {
+				name = electronics_bonus
+				bonus = 1
+				uses = 2
+				category = electronics
+			}
+		}
+	}
+	
+	focus = {# Support Free Trade
+		id = USA_free_trade1
+		icon = GFX_goal_AST_new_markets
+		cost = 5.00
+		prerequisite = {
+			focus = USA_national_youth_adminstration
+		}
+		available = {
+			has_government = social_liberal
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_liberals_in_power
+		x = 0
+		y = 4
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_free_trade1"
+			add_ideas = free_trade
+			add_popularity = { ideology = social_liberal popularity = 0.03 }
+			add_tech_bonus = {
+				name = assembly_bonus
+				bonus = 0.5
+				uses = 1
+				category = industry
+			}
+		}
+	}
+	
+	focus = {# AAA
+		id = USA_agricultural_adjustment
+		icon = GFX_CAL_aaa
+		cost = 5.00
+		prerequisite = {
+			focus = USA_national_youth_adminstration
+		}
+		prerequisite = {
+			focus = USA_medicare
+		}
+		available = {
+			has_government = social_liberal
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_liberals_in_power
+		x = 2
+		y = 4
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus GFX_CAL_aaa"
+			swap_ideas = { 
+			remove_idea = CAL_new_liberal_securities_3
+			add_idea = CAL_new_liberal_securities_4
+			}
+			add_political_power = 75
+			add_stability = 0.05
+			hidden_effect = {
+			country_event = {
+			id = ustates.296
+			days = 120
+				}
+			}
+		}
+	}
+	
+	focus = {# Labor-Relations Act
+		id = USA_labor_relations_act
+		icon = GFX_america_goal_eagle_deal
+		cost = 5.00
+		prerequisite = {
+			focus = USA_agricultural_adjustment
+		}
+		prerequisite = {
+			focus = USA_mathematical_tables_project
+		}
+		available = {
+			has_government = social_liberal
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_liberals_in_power
+		x = 0
+		y = 5
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_labor_relations_act"
+			add_popularity = { ideology = social_liberal popularity = 0.05 }
+			swap_ideas = {
+			remove_idea = CAL_new_freedom_3
+			add_idea = CAL_new_freedom_4
+			}
+		}
+	}
+	
+	focus = {# Suspend Gold
+		id = USA_freed_currency
+		icon = GFX_goal_gold_reserve
+		cost = 5.00
+		prerequisite = {
+			focus = USA_labor_relations_act
+		}
+		available = {
+			has_government = social_liberal
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_liberals_in_power
+		x = 1
+		y = 6
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_freed_currency"
+			swap_ideas = {
+			remove_idea = CAL_new_freedom_4
+			add_idea = CAL_new_freedom_5
+			}
+			add_stability = -0.02
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {# Federal Project Number One
+		id = USA_federal_one
+		icon = GFX_CAL_federal_project_one
+		cost = 5.00
+		prerequisite = {
+			focus = USA_labor_relations_act
+		}
+		available = {
+			has_government = social_liberal
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_liberals_in_power
+		x = -1
+		y = 6
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_free_trade1"
+			add_popularity = { ideology = social_liberal popularity = 0.08 }
+			add_manpower = 4500
+			add_political_power = 60
+			add_war_support = 0.1
+			hidden_effect = {
+			country_event = {
+			id = pacificstates.311
+			days = 50
+				}
+			}
+		}
+	}
+
+	focus = {# Settlement Movement
+		id = USA_settelment_movement
+		icon = GFX_goal_factory_complex
+		cost = 5.00
+			prerequisite = {
+			focus = USA_market_liberals_in_power
+			focus = USA_social_liberals_in_power
+		}
+		available = {
+			OR = {
+				has_government = market_liberal
+				has_government = social_liberal
+			}
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_liberals_in_power
+		x = 6
+		y = 1
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_settelment_movement"
+			add_manpower = 10000
+			add_stability = -0.02
+			every_owned_state = {
+				limit = {
+					is_controlled_by = USA
+					OR = {
+						state = 387
+						state = 379
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			every_owned_state = {
+				limit = {
+					is_controlled_by = USA
+					OR = {
+						state = 386
+						state = 385
+						state = 378
+						state = 829
+						state = 797
+						state = 798
+					}
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {# Securities Act
+		id = USA_securities_act
+		icon = GFX_goal_KTG_Certificate_Focus
+		cost = 5.00
+		prerequisite = {
+			focus = USA_settelment_movement
+		}
+		available = {
+			OR = {
+				has_government = market_liberal
+				has_government = social_liberal
+			}
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_settelment_movement
+		x = 1
+		y = 1
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_securities_act"
+			add_stability = 0.05
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {# Trust Busting
+		id = USA_trust_busting
+		icon = GFX_goal_Centralised_Government
+		cost = 5.00
+		prerequisite = {
+			focus = USA_settelment_movement
+		}
+		available = {
+			OR = {
+				has_government = market_liberal
+				has_government = social_liberal
+			}
+			has_idea = USA_economic_recovery_idea
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_settelment_movement
+		x = -1
+		y = 1
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_trust_busting"
+			add_ideas = CAL_market_efficiency_idea_1
+			add_popularity = { ideology = social_liberal popularity = 0.05 }
+		}
+	}
+
+	focus = {# Efficiency Movement
+		id = USA_efficiency_movement
+		icon = GFX_goal_great_science
+		cost = 5.00
+		prerequisite = {
+			focus = USA_trust_busting
+		}
+		prerequisite = {
+			focus = USA_securities_act
+		}
+		available = {
+			has_government = social_liberal
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_settelment_movement
+		x = 0
+		y = 2
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_efficiency_movement"
+			swap_ideas = { 
+			remove_idea = CAL_market_efficiency_idea_1
+			add_idea = CAL_market_efficiency_idea_2
+			}
+			add_stability = 0.05
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1
+				uses = 1
+				category = industry
+			}
+		}
+	}
+
+	focus = {# Republicans in Power
+		id = USA_market_liberals_in_power
+		icon = GFX_CAL_gop_victory
+		cost = 5.00
+		prerequisite = {
+			focus = USA_last_bastion
+		}
+		available = {
+			has_government = market_liberal
+		}
+		bypass = { has_government = market_liberal }
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_last_bastion
+		x = 3
+		y = 1
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_market_liberals_in_power"
+			custom_effect_tooltip = unlock_focuses
+			add_popularity = { ideology = market_liberal popularity = 0.02 }
+		}
+	}
+	
+	focus = {# Soften Regulations
+		id = USA_soften_regulations
+		icon = GFX_goal_generic_trade
+		cost = 5.00
+		prerequisite = {
+			focus = USA_market_liberals_in_power
+		}
+		available = {
+			has_government = market_liberal
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_market_liberals_in_power
+		x = 0
+		y = 1
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_soften_regulations"
+			add_ideas = CAL_deregulated_economy
+			add_political_power = 50
+		}
+	}
+
+	focus = {# Small business Support
+		id = USA_small_business_support
+		icon = GFX_goal_production
+		cost = 5.00
+		prerequisite = {
+			focus = USA_soften_regulations
+		}
+		available = {
+			has_government = market_liberal
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_market_liberals_in_power
+		x = 1
+		y = 2
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_small_business_support"
+			swap_ideas = {
+			remove_idea = CAL_deregulated_economy
+			add_idea = CAL_deregulated_economy_2
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {# Protect Industry
+		id = USA_protect_industry
+		icon = GFX_goal_manage_industries
+		cost = 5.00
+		prerequisite = {
+			focus = USA_soften_regulations
+		}
+		available = {
+			has_government = market_liberal
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_market_liberals_in_power
+		x = -1
+		y = 2
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_protect_industry"
+			add_ideas = CAL_industrial_tariffs_idea
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1
+				uses = 1
+				category = industry
+			}
+		}
+	}
+	
+	focus = {# American Laissez Fair
+		id = USA_american_laisze_faire
+		icon = GFX_goal_capitalist_system
+		cost = 5.00
+		prerequisite = {
+			focus = USA_small_business_support
+		}
+		prerequisite = {
+			focus = USA_protect_industry
+		}
+		available = {
+			has_government = market_liberal
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_market_liberals_in_power
+		x = 0
+		y = 3
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_american_laisze_faire"
+			swap_ideas = {
+			remove_idea = CAL_deregulated_economy_2
+			add_idea = CAL_deregulated_economy_3
+			}
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 1
+				uses = 2
+				category = industry
+			}
+			hidden_effect = {
+			country_event = {
+			id = ustates.273
+			days = 40
+				}
+			}
+		}
+	}
+
+	focus = {# Celebrate Charity
+		id = USA_incentivize_charity
+		icon = GFX_CAL_charity
+		cost = 5.00
+		prerequisite = {
+			focus = USA_market_liberals_in_power
+		}
+		available = {
+			has_government = market_liberal
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_market_liberals_in_power
+		x = -3
+		y = 1
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_incentivize_charity"
+			add_ideas = CAL_gospel_of_wealth
+			add_manpower = 500
+			add_stability = 0.05
+			add_political_power = 25
+			add_popularity = { ideology = market_liberal popularity = 0.04 }
+			hidden_effect = {
+			country_event = {
+			id = ustates.278
+			days = 20
+				}
+			}
+		}
+	}
+	
+	focus = {# Education Philanthropy
+		id = USA_education_philanthropy
+		icon = GFX_goal_KTG_Bookstack
+		cost = 5.00
+		prerequisite = {
+			focus = USA_incentivize_charity
+		}
+		available = {
+			has_government = market_liberal
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_market_liberals_in_power
+		x = -3
+		y = 2
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_education_philanthropy"
+			swap_ideas = {
+			remove_idea = CAL_gospel_of_wealth
+			add_idea = CAL_gospel_of_wealth_2
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = CAL_gained_last_tech_slot }
+				}
+				set_country_flag = CAL_gained_last_tech_slot
+				add_research_slot = 1
+			}
+		}
+	}
+	
+	focus = {# Hollywood Glamor
+		id = USA_hollywood_glamor
+		icon = GFX_CAL_hollywood_glamour
+		cost = 5.00
+		prerequisite = {
+			focus = USA_education_philanthropy
+		}
+		available = {
+			has_government = market_liberal
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_market_liberals_in_power
+		x = -3
+		y = 3
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_hollywood_glamor"
+			add_ideas = CAL_republican_hollywood_idea
+			add_political_power = 25
+			add_stability = 0.05
+			add_popularity = { ideology = market_liberal popularity = 0.08 }
+			hidden_effect = {
+			country_event = {
+			id = ustates.275
+			days = 40
+				}
+			}
+		}
+	}
+	
+	focus = {# Local Budgeting
+		id = USA_local_budgeting
+		icon = GFX_goal_bag_of_money
+		cost = 5.00
+		prerequisite = {
+			focus = USA_market_liberals_in_power
+		}
+		available = {
+			has_government = market_liberal
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_market_liberals_in_power
+		x = 3
+		y = 1
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_local_budgeting"
+			add_ideas = CAL_local_budgeting
+			add_political_power = 30
+			add_popularity = { ideology = market_liberal popularity = 0.03 }
+			add_stability = 0.03
+		}
+	}
+	
+	focus = {# Naval Expansion 
+		id = USA_naval_expansion
+		icon = GFX_goal_TEX_naval_prominence
+		cost = 5.00
+		prerequisite = {
+			focus = USA_local_budgeting
+		}
+		available = {
+			has_government = market_liberal
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_market_liberals_in_power
+		x = 3
+		y = 2
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_naval_expansion"
+			add_popularity = { ideology = market_liberal popularity = 0.05 }
+			add_equipment_to_stockpile = {
+			type = convoy
+			amount = 150
+			producer = USA
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
+			hidden_effect = {
+			country_event = {
+			id = ustates.282
+			days = 70
+				}
+			}
+		}
+	}
+	
+	focus = {# Infrastructure Investment
+		id = USA_infastructure_investment
+		icon = GFX_goal_construction
+		cost = 5.00
+		prerequisite = {
+			focus = USA_naval_expansion
+		}
+		available = {
+			has_government = market_liberal
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_market_liberals_in_power
+		x = 3
+		y = 3
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_infastructure_investment"
+			add_stability = 0.05
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					infrastructure > 0
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					infrastructure > 0
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					infrastructure > 0
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					infrastructure > 0
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {# Reduce Subsidies
+		id = USA_reduce_subsidies
+		icon = GFX_focus_empty_coffers
+		cost = 5.00
+		prerequisite = {
+			focus = USA_infastructure_investment
+		}
+		prerequisite = {
+			focus = USA_american_laisze_faire
+		}
+		available = {
+			has_government = market_liberal
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_market_liberals_in_power
+		x = 2
+		y = 4
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_reduce_subsidies"
+			add_political_power = 60
+			add_stability = -0.02
+			add_popularity = { ideology = market_liberal popularity = 0.08 }
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					infrastructure > 0
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					infrastructure > 0
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {# Loosen Immigrantion
+		id = USA_give_me_your_poor
+		icon = GFX_CAL_immigration
+		cost = 5.00
+		prerequisite = {
+			focus = USA_hollywood_glamor
+		}
+		prerequisite = {
+			focus = USA_american_laisze_faire
+		}
+		available = {
+			has_government = market_liberal
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_market_liberals_in_power
+		x = -2
+		y = 4
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_give_me_your_poor"
+			add_ideas = CAL_give_me_your_poor_idea
+			add_manpower = 9500
+			add_political_power = -20
+			add_popularity = { ideology = market_liberal popularity = 0.05 }
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					infrastructure > 0
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					infrastructure > 0
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			hidden_effect = {
+			country_event = {
+			id = ustates.283
+			days = 45
+				}
+			country_event = {
+			id = ustates.284
+			days = 100
+				}
+			}
+		}
+	}
+	
+	focus = {# Good Neighbor Policy
+		id = USA_good_neighbor_policy
+		icon = GFX_CAL_good_neighbor
+		cost = 5.00
+		prerequisite = {
+			focus = USA_american_laisze_faire
+		}
+		available = {
+			has_government = market_liberal
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_market_liberals_in_power
+		x = 0
+		y = 4
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_good_neighbor_policy"
+			add_ideas = CAL_american_trade
+			add_stability = 0.05
+		}
+	}
+
+	focus = {# New Liberalism
+		id = USA_new_liberalism
+		icon = GFX_goal_Fight_for_Freedom
+		cost = 5.00
+		prerequisite = {
+			focus = USA_give_me_your_poor
+		}
+		prerequisite = {
+			focus = USA_reduce_subsidies
+		}
+		available = {
+			has_government = market_liberal
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_market_liberals_in_power
+		x = 0
+		y = 5
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_new_liberalism"
+			swap_ideas = {
+			remove_idea = CAL_deregulated_economy_3
+			add_idea = CAL_deregulated_economy_4
+			}
+			add_political_power = 50
+			add_stability = 0.05
+			add_popularity = { ideology = market_liberal popularity = 0.1 }
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {# Farm Education Campaign
+		id = USA_education_campaign
+		icon = GFX_goal_agriculture
+		cost = 5.00
+		prerequisite = {
+			focus = USA_new_liberalism
+		}
+		available = {
+			has_government = market_liberal
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_market_liberals_in_power
+		x = 1
+		y = 6
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_education_campaign"
+			add_ideas = CAL_farm_education_idea
+			add_stability = 0.05
+			add_manpower = 1000
+			add_popularity = { ideology = market_liberal popularity = 0.05 }
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+		}
+	}
+	
+	focus = {# Advocate Tolerance
+		id = USA_tolerance_campaign
+		icon = GFX_goal_break_rifle
+		cost = 5.00
+		prerequisite = {
+			focus = USA_new_liberalism
+		}
+		available = {
+			has_government = market_liberal
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_market_liberals_in_power
+		x = -1
+		y = 6
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_tolerance_campaign"
+			add_stability = 0.08
+			add_political_power = 50
+			add_manpower = 2000
+		}
+	}
+
+	focus = {# Social Gospel
+		id = USA_social_gospel
+		icon = GFX_BEL_Improve_Catholic_Relations
+		cost = 5.00
+		prerequisite = {
+			focus = USA_market_liberals_in_power
+			focus = USA_social_conservatives_in_power
+		}
+		available = {
+			OR = {
+				has_government = social_conservative
+				has_government = market_liberal
+			}
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_market_liberals_in_power
+		x = 6
+		y = 1
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_social_gospel"
+			add_ideas = CAL_social_gospel_idea1
+		}
+	}
+
+	focus = {# Labor-Management Act
+		id = USA_labor_management
+		icon = GFX_goal_generic_intelligence_exchange
+		cost = 5.00
+		prerequisite = {
+			focus = USA_social_gospel
+		}
+		available = {
+			OR = {
+				has_government = social_conservative
+				has_government = market_liberal
+			}
+			OR = {
+				has_idea = CAL_social_gospel_idea1
+				has_idea = CAL_social_gospel_idea2
+			}
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_gospel
+		x = 1
+		y = 1
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_labor_management"
+			add_political_power = 30
+			add_stability = 0.05
+			add_popularity = { ideology = syndicalist popularity = -0.03 }
+			add_popularity = { ideology = totalist popularity = -0.03 }
+		}
+	}
+
+	focus = {# Fiscal Reform
+		id = USA_fiscal_reform
+		icon = GFX_goal_constitutional_guarantees
+		cost = 5.00
+		prerequisite = {
+			focus = USA_social_gospel
+		}
+		available = {
+			OR = {
+				has_government = social_conservative
+				has_government = market_liberal
+			}
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_gospel
+		x = -1
+		y = 1
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_fiscal_reform"
+			swap_ideas = {
+				remove_idea = CAL_social_gospel_idea1
+				add_idea = CAL_social_gospel_idea2
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+
+	focus = {# Bureau of the Budget
+		id = USA_bureau_of_the_budget
+		icon = GFX_goal_government_icon
+		cost = 5.00
+		prerequisite = {
+			focus = USA_fiscal_reform
+		}
+		prerequisite = {
+			focus = USA_labor_management
+		}
+		available = {
+			OR = {
+				has_government = social_conservative
+				has_government = market_liberal
+			}
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_gospel
+		x = 0
+		y = 2
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_bureau_of_the_budget"
+			swap_ideas = {
+				remove_idea = CAL_social_gospel_idea2
+				add_idea = CAL_social_gospel_idea3
+			}
+			increase_ruling_party_popularity_by_5 = yes
+			add_stability = 0.08
+		}
+	}
+
+	focus = {# Democrats Elected
+		id = USA_social_conservatives_in_power
+		icon = GFX_CAL_democratic_victory
+		cost = 5.00
+		prerequisite = {
+			focus = USA_last_bastion
+		}
+		available = {
+			has_government = social_conservative
+		}
+		bypass = { has_government = social_conservative }
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		cancel_if_invalid = yes
+		relative_position_id = USA_last_bastion
+		x = 15
+		y = 1
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_social_conservatives_in_power"
+			add_popularity = { ideology = social_conservative popularity = 0.03 }
+		}
+	}
+
+	focus = {# Welfare Reform
+		id = USA_welfare_reform
+		icon = GFX_goal_constitutional_guarantees
+		cost = 5.00
+		prerequisite = {
+			focus = USA_social_conservatives_in_power
+		}
+		available = {
+			has_government = social_conservative
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_conservatives_in_power
+		x = -3
+		y = 1
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_welfare_reform"
+			add_political_power = 20
+			country_event = { 
+			id = pacificstates.252
+			days = 1
+			}
+		}
+	}
+
+	focus = {# Levering Act
+		id = USA_levering_act
+		icon = GFX_CAL_levering_act
+		cost = 5.00
+		prerequisite = {
+			focus = USA_welfare_reform
+		}
+		available = {
+			has_government = social_conservative
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_conservatives_in_power
+		x = -3
+		y = 2
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_levering_act"
+			hidden_effect = {
+			country_event = { 
+			id = pacificstates.253
+			days = 14
+				}
+			}
+			add_popularity = { ideology = social_conservative popularity = 0.05 }
+			add_popularity = { ideology = syndicalist popularity = -0.03 }
+			add_popularity = { ideology = totalist popularity = -0.03 }
+			add_stability = 0.03
+			add_war_support = 0.03
+		}
+	}
+	
+	focus = {# Increase Defense Spending
+		id = USA_increase_defense_spending
+		icon = GFX_goal_constitutional_guarantees
+		cost = 5.00
+		prerequisite = {
+			focus = USA_levering_act
+		}
+		available = {
+			has_government = social_conservative
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_conservatives_in_power
+		x = -3
+		y = 3
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_increase_defense_spending"
+			add_manpower = 10000
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = radar_tech
+			}
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = artillery
+			}
+		}
+	}
+
+	focus = {# Support Businesses
+		id = USA_support_business
+		icon = GFX_focus_generic_industry_3
+		cost = 5.00
+		prerequisite = {
+			focus = USA_social_conservatives_in_power
+		}
+		available = {
+			has_government = social_conservative
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_conservatives_in_power
+		x = 0
+		y = 1
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_support_business"
+			add_ideas = CAL_conservative_business
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			hidden_effect = {
+			country_event = {
+			id = pacificstates.254
+			days = 3
+				}
+			}
+		}
+	}
+
+	focus = {# State's Rights
+		id = USA_states_autonomy
+		icon = GFX_goal_volunteer_alliance
+		cost = 5.00
+		prerequisite = {
+			focus = USA_support_business
+		}
+		available = {
+			has_government = social_conservative
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_conservatives_in_power
+		x = -1
+		y = 2
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_states_rights"
+			add_ideas = CAL_states_autonomy_idea
+			add_stability = 0.05
+			add_popularity = { ideology = social_conservative popularity = 0.05 }
+			add_stability = 0.03
+			add_political_power = -30
+		}
+	}
+
+	focus = {# Business Grants
+		id = USA_business_grants
+		icon = GFX_goal_generic_positive_trade_relations
+		cost = 5.00
+		prerequisite = {
+			focus = USA_support_business
+		}
+		available = {
+			has_government = social_conservative
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_conservatives_in_power
+		x = 1
+		y = 2
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_business_grants"
+			swap_ideas = {
+			remove_idea = CAL_conservative_business
+			add_idea = CAL_business_grants_idea
+			}
+		}
+	}
+	
+	focus = {# America's Business is Business
+		id = USA_america_business_is_business
+		icon = GFX_focus_generic_the_giant_wakes
+		cost = 5.00
+		prerequisite = {
+			focus = USA_business_grants
+		}
+		prerequisite = {
+			focus = USA_states_autonomy
+		}
+		available = {
+			has_government = social_conservative
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_conservatives_in_power
+		x = 0
+		y = 3
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_america_business_is_business"
+			swap_ideas = {
+			remove_idea = CAL_business_grants_idea
+			add_idea = CAL_business_grants_idea_2
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					dockyard > 0
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {# Public Schooling
+		id = USA_public_schooling
+		icon = GFX_goal_KTG_Bookstack
+		cost = 5.00
+		prerequisite = {
+			focus = USA_social_conservatives_in_power
+		}
+		available = {
+			has_government = social_conservative
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_conservatives_in_power
+		x = 3
+		y = 1
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_public_schooling"
+			add_ideas = CAL_moral_education_idea
+			add_stability = 0.03
+		}
+	}
+
+	focus = {# Patriotic Shorts 
+		id = USA_patriotic_shorts
+		icon = GFX_CAL_patriotic_shorts
+		cost = 5.00
+		prerequisite = {
+			focus = USA_public_schooling
+		}
+		available = {
+			has_government = social_conservative
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_conservatives_in_power
+		x = 3
+		y = 2
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_patriotic_shorts"
+			add_popularity = { ideology = social_conservative popularity = 0.05 }
+			add_political_power = 45
+			add_war_support = 0.05
+			add_manpower = 1200
+			hidden_effect = {
+			country_event = { id = ustates.255 days = 45 }
+			}
+		}
+	}
+	
+	focus = {# Moral Education
+		id = USA_moral_education
+		icon = GFX_BEL_Catholic_Education
+		cost = 5.00
+		prerequisite = {
+			focus = USA_patriotic_shorts
+		}
+		available = {
+			has_government = social_conservative
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_conservatives_in_power
+		x = 3
+		y = 3
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_moral_education"
+			swap_ideas = {
+			remove_idea = CAL_moral_education_idea
+			add_idea = CAL_moral_education_idea_2
+			}
+			add_popularity = { ideology = social_conservative popularity = 0.03 }
+		}
+	}
+	
+	focus = {# Family Law
+		id = USA_family_law
+		icon = GFX_america_goal_champagn
+		cost = 5.00
+		prerequisite = {
+			focus = USA_moral_education
+		}
+		prerequisite = {
+			focus = USA_america_business_is_business
+		}
+		available = {
+			has_government = social_conservative
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_conservatives_in_power
+		x = 2
+		y = 4
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_family_law"
+			add_ideas = CAL_family_law_idea
+			add_political_power = 30
+			add_stability = 0.05
+		}
+	}
+
+	focus = {# Expand National Guard
+		id = USA_expand_national_guard
+		icon = GFX_CAL_national_guard
+		cost = 5.00
+		prerequisite = {
+			focus = USA_america_business_is_business
+			}
+		prerequisite = {
+			focus = USA_increase_defense_spending
+			}
+		available = {
+			has_government = social_conservative
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_conservatives_in_power
+		x = -2
+		y = 4
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_expand_national_guard"
+			add_stability = 0.05
+			add_war_support = 0.05
+			add_manpower = 10000
+		}
+	}
+	
+	focus = {# Entente Support
+		id = USA_entente_support
+		icon = GFX_goal_entente_arms_trade
+		cost = 5.00
+		prerequisite = {
+			focus = USA_america_business_is_business
+		}
+		available = {
+			has_government = social_conservative
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_conservatives_in_power
+		x = 0
+		y = 4
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_entente_support"
+			add_war_support = 0.03
+			hidden_effect = {
+			country_event = {
+			id = ustates.258
+			days = 2
+				}
+			}
+		}
+	}
+	
+	focus = {# Self Regulation
+		id = USA_self_regulation
+		icon = GFX_CAL_self_regulation
+		cost = 5.00
+		prerequisite = {
+			focus = USA_expand_national_guard
+		}
+		prerequisite = {
+			focus = USA_family_law
+		}
+		available = {
+			has_government = social_conservative
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_conservatives_in_power
+		x = 0
+		y = 5
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_self_regulation"
+			swap_ideas = {
+			remove_idea = CAL_business_grants_idea_2
+			add_idea = CAL_business_grants_idea_3
+			}
+			hidden_effect = {
+			country_event = {
+			id = ustates.259
+			days = 30
+				}
+			country_event = {
+			id = ustates.260
+			days = 60
+				}
+			country_event = {
+			id = ustates.261
+			days = 100
+				}
+			}
+		}
+	}
+	
+	focus = {# Hay's Code
+		id = USA_hays_code
+		icon = GFX_CAL_hays_code
+		cost = 5.00
+		prerequisite = {
+			focus = USA_self_regulation
+		}
+		available = {
+			has_government = social_conservative
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_conservatives_in_power
+		x = 1
+		y = 6
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_hays_code"
+			swap_ideas = {
+			remove_idea = CAL_family_law_idea
+			add_idea = CAL_family_law_idea_2
+			}
+			add_stability = 0.05
+			add_popularity = { ideology = social_conservative popularity = 0.05 }
+			hidden_effect = {
+			country_event = { 
+			id = pacificstates.271
+			days = 120
+				}
+			country_event = { 
+			id = pacificstates.272
+			days = 170
+				}
+			}
+		}
+	}
+	
+	focus = {# Protect Symbols
+		id = USA_stop_desecration
+		icon = GFX_goal_American_Service
+		cost = 5.00
+		prerequisite = {
+			focus = USA_self_regulation
+			}
+		available = {
+			has_government = social_conservative
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		relative_position_id = USA_social_conservatives_in_power
+		x = -1
+		y = 6
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_stop_desecration"
+			swap_ideas = {
+			remove_idea = CAL_moral_education_idea_2
+			add_idea = CAL_moral_education_idea_3
+			}
+			add_popularity = { ideology = social_conservative popularity = 0.05 }
+			add_political_power = 45
+			add_stability = 0.05
+			add_war_support = 0.05
+		}
+	}
+
 	###Republican Home Plan###
 	focus = {# Curtis/Landon
 		id = USA_the_republicans
@@ -1197,6 +4399,9 @@ focus_tree = {
 				has_country_leader = { ruling_only = yes name = "Charles Curtis" }
 				NOT = {
 				has_country_flag = USA_compromise_failed
+				}
+				NOT = {
+				has_country_flag = USA_revolt_against_compromise_flag
 				}
 			}
 			
@@ -1289,7 +4494,7 @@ focus_tree = {
 			hidden_effect = {
 			if = {
 			limit = { NOT = {
-			has_country_flag = negotiations_complete}
+			has_global_flag = USA_civil_war_avoided_flag }
 				}
 			country_event = { id = ustates.6902 days = 4 }
 			set_country_flag = USA_compromise_failed
@@ -1298,7 +4503,7 @@ focus_tree = {
 			hidden_effect = {
 			if = {
 			limit = {
-			has_country_flag = negotiations_complete }
+			has_country_flag = USA_civil_war_avoided_flag }
 			country_event = { id = ustates.74 days = 200 }
 				}
 			}
@@ -1336,6 +4541,7 @@ focus_tree = {
 			hidden_effect = {
 			add_to_variable = { var = SPA_strength value = -1 }
 			}
+			remove_ideas = USA_new_year_strike_idea
 		}
 	}
 	
@@ -1437,10 +4643,10 @@ focus_tree = {
 		icon = GFX_USA_old_guard
 		cost = 6.00
 		available = {
-			OR = {
-				has_country_leader = { ruling_only = yes name = "Alf Landon" }
-				has_country_leader = { ruling_only = yes name = "Charles Curtis" }
-			}
+			has_country_leader = { ruling_only = yes name = "Charles Curtis" }
+		}
+		mutually_exclusive = {
+			focus = USA_new_republicans
 		}
 		prerequisite = {
 			focus = USA_return_to_normalcy
@@ -1559,13 +4765,13 @@ focus_tree = {
 		icon = GFX_USA_new_republicans
 		cost = 6.00
 		available = {
-			OR = {
-				has_country_leader = { ruling_only = yes name = "Alf Landon" }
-				has_country_leader = { ruling_only = yes name = "Charles Curtis" }
-			}
+			has_country_leader = { ruling_only = yes name = "Alf Landon" }
 		}
 		prerequisite = {
 			focus = USA_return_to_normalcy
+		}
+		mutually_exclusive = {
+			focus = USA_curtis_in_charge
 		}
 		relative_position_id = USA_the_republicans
 		x = 2
@@ -1633,8 +4839,8 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus USA_landon_plan"
 			swap_ideas = {
-			remove_idea = USA_great_depression_3
-			add_idea = USA_great_depression_4
+			remove_idea = USA_great_depression_2
+			add_idea = USA_great_depression_3
 			}
 			add_popularity = { ideology = market_liberal popularity = 0.05 }
 			add_stability = 0.05
@@ -1665,7 +4871,13 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus USA_i_will_not_promise"
-			custom_effect_tooltip = unlock_focuses
+			swap_ideas = {
+			remove_idea = USA_great_depression_3
+			add_idea = USA_great_depression_4
+			}
+			add_popularity = { ideology = social_liberal popularity = 0.02 }
+			add_political_power = 30
+			add_stability = 0.04
 		}
 	}
 	
@@ -1692,8 +4904,10 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus USA_unite_federal_americans"
 			custom_effect_tooltip = unlock_focuses
+			remove_ideas = USA_great_depression_4
+			remove_ideas = USA_black_monday2
+			}
 		}
-	}
 	
 	###Norris Rooseveltian Plan###
 	focus = {# Chad Norris
@@ -1747,6 +4961,7 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus USA_progressive_collaboration"
 			add_stability = 0.05
 			add_popularity = { ideology = social_democrat popularity = 0.05 }
+			remove_ideas = USA_syndicalist_strike_idea
 		}
 	}
 	
@@ -1778,6 +4993,7 @@ focus_tree = {
 			hidden_effect = {
 			country_event = { id = ustates.112 days = 7 }
 			}
+			remove_ideas = USA_new_year_strike_idea
 		}
 	}
 	
@@ -2320,7 +5536,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus USA_fight_the_debt"
-			custom_effect_tooltip = unlock_decision_tooltip
+			remove_ideas = USA_great_depression_Norris_2
+			remove_ideas = USA_black_monday
+			add_stability = 0.05
+			add_political_power = 20
 		}
 	}
 	
@@ -2343,90 +5562,261 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus USA_model_legislature"
+			remove_ideas = USA_southern_occupation_2
+			remove_ideas = USA_black_monday2
 			add_political_power = 50
 			add_stability = 0.03
 		}
 	}
 	
 	### Post Civil War ###	
-	focus = {# Constitutional Convention
-		id = USA_constitutional_convention
-		icon = GFX_goal_government_icon
-		cost = 6.00
+	focus = {# Victory in the Civil War
+		id = USA_mac_victory
+		icon = GFX_goal_USA_general_macarthur
+		cost = 0.00
 		available = {
 			has_global_flag = USA_civil_war_over_flag
 		}
-		x = 22
+		bypass = {
+			has_global_flag = USA_civil_war_over_flag
+		}
+		x = 26
 		y = 10
 		ai_will_do = {
 			factor = 100
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus USA_constitutional_convention"
-			if = {
-				limit = { has_government = paternal_autocrat }
-				country_event = { id = ustates.116 days = 1 }
-				else = {
-					country_event = { id = ustates.117 days = 1 }
-				}
-			}
+			custom_effect_tooltip = unlock_focuses
 		}
 	}
 
 	###Post Civil War - Liberal Mandate ###
 	focus = {# Democracy Triumphs
-		id = USA_classical_liberal_mandate
-		icon = GFX_goal_support_democracy
-		cost = 6.00
+		id = USA_SPQA
+		icon = GFX_goal_USA_spqa
+		cost = 1.00
 		available = {
-			OR = {
-				has_country_flag = macarthur_gives_up_power
-				has_country_flag = USA_classical_liberal_mandate_flag
-			}
-		}
-		bypass = {
-			OR = {
-				has_country_flag = macarthur_gives_up_power
-				has_country_flag = USA_classical_liberal_mandate_flag
-			}
+			has_country_flag = USA_spqa_flag
 		}
 		prerequisite = {
-			focus = USA_constitutional_convention
+			focus = USA_national_rehabilition
 		}
-		relative_position_id = USA_constitutional_convention
-		x = -11
+		mutually_exclusive = {
+			focus = USA_classical_liberal_mandate
+		}
+		relative_position_id = USA_national_rehabilitation
+		x = 11
+		y = 14
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_SPQA"
+			custom_effect_tooltip = unlock_focuses
+			country_event = { id = ustates.3122 days = 1 }
+			country_event = { id = ustates.3123 days = 2 }						add_popularity = { ideology = market_liberal popularity = 0.05 }
+			add_popularity = { ideology = social_conservative popularity = 0.05 }
+		}
+	}
+
+	
+	focus = {# Protect Congressional Authority
+		id = USA_congressional_authority
+		icon = GFX_goal_USA_congressional_authority
+		cost = 1.00
+		prerequisite = {
+			focus = USA_SPQA
+		}
+		relative_position_id = USA_SPQA
+		x = -1
 		y = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_defend_the_republic"
+			add_ideas = USA_congressional_authority_idea
+			add_stability = 0.05
+		}
+	}
+
+	focus = {# New Amendments
+		id = USA_new_amendments
+		icon = GFX_goal_new_treaty
+		cost = 1.00
+		prerequisite = {
+			focus = USA_SPQA
+		}
+		relative_position_id = USA_SPQA
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_new_amendments"
+			add_ideas = USA_new_amendments_idea
+			add_popularity = { ideology = paternal_autocrat popularity = -0.03 }
+			add_popularity = { ideology = authoritarian_democrat popularity = -0.03 }
+			add_political_power = 25
+			add_stability = 0.05
+		}
+	}
+
+	focus = {# Congress Restored
+		id = USA_congress_restored
+		icon = GFX_goal_USA_congressional_restoration
+		cost = 1.00
+		prerequisite = {
+			focus = USA_congressional_authority
+		}
+		prerequisite = {
+			focus = USA_new_amendments
+		}
+		relative_position_id = USA_SPQA
+		x = 0
+		y = 2
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_congress_restored"
+			country_event = { id = ustates.3124 days = 15 }
+			remove_ideas = USA_martial_law_idea
+			add_political_power = 30
+		}
+	}
+
+	focus = {# Democracy Triumphs
+		id = USA_classical_liberal_mandate
+		icon = GFX_goal_USA_american_cincinnatus
+		cost = 1.00
+		available = {
+			has_country_flag = USA_cincinnatus_flag
+		}
+		bypass = {
+			has_country_flag = USA_cincinnatus_flag
+		}
+		mutually_exclusive = {
+			focus = USA_SPQA
+		}
+		prerequisite = {
+			focus = USA_national_rehabilition
+		}
+		relative_position_id = USA_national_rehabilitation
+		x = 15
+		y = 14
 		ai_will_do = {
 			factor = 50
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus USA_classical_liberal_mandate"
 			custom_effect_tooltip = unlock_focuses
+			country_event = { days = 1 id = ustates.3126 }
+			country_event = { days = 2 id = ustates.3127 }	
+			country_event = { days = 3 id = ustates.3128 }
+			add_popularity = { ideology = social_conservative popularity = 0.02 }
+			add_popularity = { ideology = market_liberal popularity = 0.02 }
+			add_popularity = { ideology = social_liberal popularity = 0.02 }
+			add_popularity = { ideology = social_democrat popularity = 0.02 }
+		}
+	}
+
+	focus = {# Defenders of Democracy
+		id = USA_defend_the_republic
+		icon = GFX_USA_defenders_of_the_republic
+		cost = 1.00
+		prerequisite = {
+			focus = USA_classical_liberal_mandate
+		}
+		relative_position_id = USA_classical_liberal_mandate
+		x = -1
+		y = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_defend_the_republic"
+			add_ideas = USA_defenders_of_republicanism_idea
+			add_stability = 0.05
+		}
+	}
+
+	focus = {# The American Legion
+		id = USA_the_american_legion
+		icon = GFX_USA_reforming_the_legion
+		cost = 1.00
+		prerequisite = {
+			focus = USA_classical_liberal_mandate
+		}
+		relative_position_id = USA_classical_liberal_mandate
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_the_american_legion"
+			add_popularity = { ideology = paternal_autocrat popularity = -0.03 }
+			add_popularity = { ideology = authoritarian_democrat popularity = -0.03 }
+			add_political_power = 30
+			add_stability = 0.05
+			add_manpower = 2000
+		}
+	}
+
+	focus = {# Congress Freed
+		id = USA_congress_freed
+		icon = GFX_USA_congress_released
+		cost = 1.00
+		prerequisite = {
+			focus = USA_defend_the_republic
+		}
+		prerequisite = {
+			focus = USA_the_american_legion
+		}
+		relative_position_id = USA_classical_liberal_mandate
+		x = 0
+		y = 2
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_the_american_legion"
+			country_event = { id = ustates.3125 days = 10 }
+			remove_ideas = USA_martial_law_idea
+			add_political_power = 20
 		}
 	}
 
 	focus = {#Future of the AFP
 		id = USA_future_of_the_afp
-		icon = GFX_goal_ideology_market_liberal
+		icon = GFX_goal_TEX_reconcile_the_right_2
 		cost = 6.00
 		prerequisite = {
-			focus = USA_classical_liberal_mandate
+			focus = USA_congress_freed
+			focus = USA_congress_restored
 		}
 		relative_position_id = USA_classical_liberal_mandate
-		x = -3
-		y = 1
+		x = -5
+		y = 3
 		ai_will_do = {
 			factor = 40
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus USA_future_of_the_afp"
-			add_ideas = USA_american_values_ideas
+			custom_effect_tooltip = ACW_combat_minuteman
+			custom_effect_tooltip = USA_political_recovery_tooltip
+			USA_political_recovery = yes
+			add_popularity = { ideology = authoritarian_democrat popularity = -0.06 }
+			add_political_power = 25
 		}
 	}
 	
 	focus = {# Court Populists
 		id = USA_court_populists
-		icon = GFX_goal_KTG_Bookstack
+		icon = GFX_BBR_approach_afp
 		cost = 6.00
 		prerequisite = {
 			focus = USA_future_of_the_afp
@@ -2435,20 +5825,28 @@ focus_tree = {
 			focus = USA_political_traditionalism
 		}
 		relative_position_id = USA_classical_liberal_mandate
-		x = -4
-		y = 2
+		x = -6
+		y = 4
 		ai_will_do = {
 			factor = 50
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus USA_court_populists"
-			add_research_slot = 1
+			custom_effect_tooltip = ACW_combat_minuteman
+			custom_effect_tooltip = USA_political_recovery_tooltip
+			USA_political_recovery = yes
+			increase_ruling_party_popularity_by_5 = yes
+			add_political_power = 4
+			modify_country_flag = {
+				flag = ACW_minutemen_resistance
+				value = -2
+			}
 		}
 	}
 	
 	focus = {# Traditional Politicians
 		id = USA_political_traditionalism
-		icon = GFX_goal_KTG_Bookstack
+		icon = GFX_goal_continuous_def_against_influence
 		cost = 6.00
 		prerequisite = {
 			focus = USA_future_of_the_afp
@@ -2457,28 +5855,34 @@ focus_tree = {
 			focus = USA_court_populists
 		}
 		relative_position_id = USA_classical_liberal_mandate
-		x = -2
-		y = 2
+		x = -4
+		y = 4
 		ai_will_do = {
 			factor = 50
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus USA_political_traditionalism"
-			add_research_slot = 1
+			custom_effect_tooltip = USA_political_recovery_tooltip
+			USA_political_recovery = yes
+			add_stability = 0.04
+			add_popularity = { ideology = social_conservative popularity = 0.02 }
+			add_popularity = { ideology = market_liberal popularity = 0.02 }
+			add_popularity = { ideology = social_liberal popularity = 0.02 }
+			add_popularity = { ideology = social_democrat popularity = 0.02 }
 		}
 	}
 	
 	focus = {# American Values
 		id = USA_american_values1
-		icon = GFX_goal_ideology_market_liberal
+		icon = GFX_focus_usa_guarantee_the_american_dream
 		cost = 6.00
 		prerequisite = {
 			focus = USA_political_traditionalism
 			focus = USA_court_populists
 		}
 		relative_position_id = USA_classical_liberal_mandate
-		x = -3
-		y = 3
+		x = -5
+		y = 5
 		ai_will_do = {
 			factor = 40
 		}
@@ -2490,29 +5894,34 @@ focus_tree = {
 	
 	focus = {# Finish the SPA
 		id = USA_finish_spa
-		icon = GFX_goal_constitutional_guarantees
+		icon = GFX_goal_CSA_organizing_the_party
 		cost = 6.00
 		prerequisite = {
-			focus = USA_classical_liberal_mandate
-		}
-		mutually_exclusive = {
-			focus = USA_moderate_the_spa
+			focus = USA_congress_freed
+			focus = USA_congress_restored
 		}
 		relative_position_id = USA_classical_liberal_mandate
-		x = 3
-		y = 1
+		x = 1
+		y = 3
 		ai_will_do = {
 			factor = 50
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus USA_bill_of_rights"
+			custom_effect_tooltip = ACW_combat_socialists
 			custom_effect_tooltip = USA_political_recovery_tooltip
-			USA_increase_recovery = yes
+			USA_political_recovery = yes
+			add_popularity = { ideology = syndicalist popularity = -0.03 }
+			add_popularity = { ideology = totalist popularity = -0.03 }
+			modify_country_flag = {
+				flag = ACW_socialist_resistance
+				value = -2
+			}
 		}
 	}
 	focus = {# Local Controls
 		id = USA_local_control
-		icon = GFX_goal_constitutional_guarantees
+		icon = GFX_goal_CSA_calm_moderates
 		cost = 6.00
 		prerequisite = {
 			focus = USA_finish_spa
@@ -2521,20 +5930,27 @@ focus_tree = {
 			focus = USA_maintain_nationalizations
 		}
 		relative_position_id = USA_classical_liberal_mandate
-		x = 4
-		y = 2
+		x = 2
+		y = 4
 		ai_will_do = {
 			factor = 50
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus USA_bill_of_rights"
+			custom_effect_tooltip = ACW_combat_socialists
 			custom_effect_tooltip = USA_political_recovery_tooltip
-			USA_increase_recovery = yes
+			USA_political_recovery = yes
+			modify_country_flag = {
+				flag = ACW_socialist_resistance
+				value = -2
+			}
+			add_stability = 0.05
+			increase_ruling_party_popularity_by_5 = yes
 		}
 	}
 	focus = {# Maintain Nationalizations
 		id = USA_maintain_nationalizations
-		icon = GFX_goal_constitutional_guarantees
+		icon = GFX_goal_continuous_suppression
 		cost = 6.00
 		prerequisite = {
 			focus = USA_finish_spa
@@ -2543,15 +5959,30 @@ focus_tree = {
 			focus = USA_local_control
 		}
 		relative_position_id = USA_classical_liberal_mandate
-		x = 2
-		y = 2
+		x = 0
+		y = 4
 		ai_will_do = {
 			factor = 50
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus USA_bill_of_rights"
 			custom_effect_tooltip = USA_political_recovery_tooltip
-			USA_increase_recovery = yes
+			USA_political_recovery = yes
+			add_political_power = 75
+			add_command_power = 20
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
 		}
 	}
 	focus = {# Fate of the Unions
@@ -2563,8 +5994,8 @@ focus_tree = {
 			focus = USA_local_control
 		}
 		relative_position_id = USA_classical_liberal_mandate
-		x = 3
-		y = 3
+		x = 1
+		y = 5
 		ai_will_do = {
 			factor = 40
 		}
@@ -2575,134 +6006,77 @@ focus_tree = {
 	}
 	focus = {# Freedman's Bureau
 		id = USA_fight_the_poll_tax
-		icon = GFX_goal_ideology_social_liberal
+		icon = GFX_goal_continuous_boost_freedom
 		cost = 6.00
 		prerequisite = {
-			focus = USA_classical_liberal_mandate
+			focus = USA_congress_freed
+			focus = USA_congress_restored
 		}
 		mutually_exclusive = {
 			focus = USA_redeemer_collaboration
 		}
 		relative_position_id = USA_classical_liberal_mandate
-		x = 1
-		y = 1
+		x = -1
+		y = 3
 		ai_will_do = {
 			factor = 50
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus USA_fight_the_poll_tax"
+			custom_effect_tooltip = ACW_combat_klan
 			custom_effect_tooltip = USA_political_recovery_tooltip
-			USA_increase_recovery = yes
+			USA_political_recovery = yes
+			add_popularity = { ideology = national_populist popularity = -0.05 }
+			add_war_support = 0.05
+			add_political_power = 45
+			increase_ruling_party_popularity_by_5 = yes
+			modify_country_flag = {
+				flag = ACW_klan_resistance
+				value = -2
+			}
 		}
 	}
 	
 	focus = {# Redeemer Collaboration
 		id = USA_redeemer_collaboration
-		icon = GFX_goal_ideology_social_liberal
+		icon = GFX_goal_TEX_shake_hands_with_dixie
 		cost = 6.00
 		prerequisite = {
-			focus = USA_classical_liberal_mandate
+			focus = USA_congress_freed
+			focus = USA_congress_restored
 		}
 		mutually_exclusive = {
 			focus = USA_fight_the_poll_tax
 		}
 		relative_position_id = USA_classical_liberal_mandate
-		x = -1
-		y = 1
+		x = -3
+		y = 3
 		ai_will_do = {
 			factor = 50
 		}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus USA_defend_democracy"
+			log = "[GetDateText]: [Root.GetName]: Focus USA_redeemer_collaboration"
+			custom_effect_tooltip = ACW_combat_klan
 			custom_effect_tooltip = USA_political_recovery_tooltip
-			USA_increase_recovery = yes
+			USA_political_recovery = yes
+			add_popularity = { ideology = national_populist popularity = 0.03 }
+			add_stability = 0.05
+			add_political_power = 40
+			increase_ruling_party_popularity_by_5 = yes
+			modify_country_flag = {
+				flag = ACW_klan_resistance
+				value = -2
+			}
 		}
 	}
 	
 	focus = {# Focus the Radical Redshirts
 		id = USA_hit_radical_redshirts
-		icon = GFX_goal_liberty
+		icon = GFX_focus_generic_anti_fascist_diplomacy
 		cost = 6.00
 		prerequisite = {
 			focus = USA_fight_the_poll_tax
 			focus = USA_redeemer_collaboration
-		}
-		relative_position_id = USA_classical_liberal_mandate
-		x = 0
-		y = 2
-		ai_will_do = {
-			factor = 50
-		}
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus USA_civil_liberties"
-			increase_ruling_party_popularity_by_5 = yes
-			add_war_support = 0.05
-		}
-	}
-	
-	focus = {# Ending Jim Crow
-		id = USA_end_jim_crow
-		icon = GFX_goal_ideology_social_liberal
-		cost = 6.00
-		prerequisite = {
-			focus = USA_hit_radical_redshirts
-		}
-		mutually_exclusive = {
-			focus = USA_traditional_machines
-		}
-		relative_position_id = USA_classical_liberal_mandate
-		x = 1
-		y = 3
-		ai_will_do = {
-			factor = 50
-		}
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus USA_defend_democracy"
-			custom_effect_tooltip = USA_political_recovery_tooltip
-			USA_increase_recovery = yes
-		}
-	}
-	
-	focus = {# Traditional Machines
-		id = USA_traditional_machines
-		icon = GFX_goal_ideology_social_liberal
-		cost = 6.00
-		prerequisite = {
-			focus = USA_hit_radical_redshirts
-		}
-		mutually_exclusive = {
-			focus = USA_end_jim_crow
-		}
-		relative_position_id = USA_classical_liberal_mandate
-		x = -1
-		y = 3
-		ai_will_do = {
-			factor = 50
-		}
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus USA_defend_democracy"
-			custom_effect_tooltip = USA_political_recovery_tooltip
-			USA_increase_recovery = yes
-		}
-	}
-	
-	focus = {# Trial of the Federalists
-		id = USA_trial_of_the_federalists
-		icon = GFX_goal_ideology_social_liberal
-		cost = 6.00
-		prerequisite = {
-			focus = USA_american_values1
-		}
-		prerequisite = {
-			focus = USA_esmwt
-		}
-		prerequisite = {
-			focus = USA_traditional_machines
-			focus = USA_end_jim_crow
-		}
-		mutually_exclusive = {
-			focus = USA_loyal_army
-			focus = USA_salute_the_patriots
 		}
 		relative_position_id = USA_classical_liberal_mandate
 		x = -2
@@ -2711,103 +6085,27 @@ focus_tree = {
 			factor = 50
 		}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus USA_trial_of_the_federalists"
+			log = "[GetDateText]: [Root.GetName]: Focus USA_civil_liberties"
+			custom_effect_tooltip = ACW_combat_legion
 			custom_effect_tooltip = USA_political_recovery_tooltip
-			USA_increase_recovery = yes
+			USA_political_recovery = yes
+			increase_ruling_party_popularity_by_5 = yes
+			modify_country_flag = {
+				flag = ACW_black_legion_resistance
+				value = -3
+			}
 		}
 	}
 	
-	focus = {# Reintegrated Army
-		id = USA_loyal_army
-		icon = GFX_goal_ideology_social_liberal
+	focus = {# Ending Jim Crow
+		id = USA_end_jim_crow
+		icon = GFX_BBR_intellectual_appeal
 		cost = 6.00
 		prerequisite = {
-			focus = USA_american_values1
-		}
-		prerequisite = {
-			focus = USA_esmwt
-		}
-		prerequisite = {
-			focus = USA_traditional_machines
-			focus = USA_end_jim_crow
+			focus = USA_hit_radical_redshirts
 		}
 		mutually_exclusive = {
-			focus = USA_trial_of_the_federalists
-			focus = USA_salute_the_patriots
-		}
-		relative_position_id = USA_classical_liberal_mandate
-		x = 0
-		y = 4
-		ai_will_do = {
-			factor = 50
-		}
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus USA_loyal_army"
-			custom_effect_tooltip = USA_political_recovery_tooltip
-			USA_increase_recovery = yes
-		}
-	}
-	
-	focus = {# Salute The Patriots
-		id = USA_salute_the_patriots
-		icon = GFX_goal_ideology_social_liberal
-		cost = 6.00
-		prerequisite = {
-			focus = USA_american_values1
-		}
-		prerequisite = {
-			focus = USA_esmwt
-		}
-		prerequisite = {
 			focus = USA_traditional_machines
-			focus = USA_end_jim_crow
-		}
-		mutually_exclusive = {
-			focus = USA_trial_of_the_federalists
-			focus = USA_loyal_army
-		}
-		relative_position_id = USA_classical_liberal_mandate
-		x = 2
-		y = 4
-		ai_will_do = {
-			factor = 50
-		}
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus USA_salute_the_patriots"
-			custom_effect_tooltip = USA_political_recovery_tooltip
-			USA_increase_recovery = yes
-		}
-	}
-	
-	focus = {# GI Bill
-		id = USA_the_gi_bill
-		icon = GFX_goal_ideology_social_conservative
-		cost = 5.00
-		prerequisite = {
-			focus = USA_trial_of_the_federalists
-			focus = USA_loyal_army
-			focus = USA_salute_the_patriots
-		}
-		relative_position_id = USA_classical_liberal_mandate
-		x = 1
-		y = 5
-		ai_will_do = {
-			factor = 50
-		}
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus USA_malice_and_charity"
-			country_event = { id = ustates.118 days = 1 }
-		}
-	}
-	
-	focus = {# Malice and Charity
-		id = USA_malice_and_charity
-		icon = GFX_goal_ideology_social_conservative
-		cost = 6.00
-		prerequisite = {
-			focus = USA_trial_of_the_federalists
-			focus = USA_loyal_army
-			focus = USA_salute_the_patriots
 		}
 		relative_position_id = USA_classical_liberal_mandate
 		x = -1
@@ -2816,7 +6114,252 @@ focus_tree = {
 			factor = 50
 		}
 		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_defend_democracy"
+			add_stability = -0.03
+			add_popularity = { ideology = national_populist popularity = -0.03 }
+			add_manpower = 1500
+		}
+	}
+	
+	focus = {# Traditional Machines
+		id = USA_traditional_machines
+		icon = GFX_focus_usa_voter_registration_act
+		cost = 6.00
+		prerequisite = {
+			focus = USA_hit_radical_redshirts
+		}
+		mutually_exclusive = {
+			focus = USA_end_jim_crow
+		}
+		relative_position_id = USA_classical_liberal_mandate
+		x = -3
+		y = 5
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_defend_democracy"
+			add_stability = 0.08
+			add_political_power = 40
+		}
+	}
+	
+	focus = {# Trial of the Federalists
+		id = USA_trial_of_the_federalists
+		icon = GFX_goal_USA_mac_in_command
+		cost = 6.00
+		available = {
+			has_country_flag = USA_spqa_flag
+		}
+		prerequisite = {
+			focus = USA_american_values1
+		}
+		prerequisite = {
+			focus = USA_esmwt
+		}
+		prerequisite = {
+			focus = USA_traditional_machines
+			focus = USA_end_jim_crow
+		}
+		mutually_exclusive = {
+			focus = USA_loyal_army
+			focus = USA_salute_the_patriots
+		}
+		relative_position_id = USA_classical_liberal_mandate
+		x = -4
+		y = 6
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_trial_of_the_federalists"
+			country_event = { id = ustates.3145 days = 3 }
+			country_event = { id = ustates.3146 days = 5 }
+			add_manpower = -3000
+			add_war_support = -0.05
+			add_popularity = { ideology = paternal_autocrat popularity = -0.08 }
+			add_political_power = 70
+		}
+	}
+	
+	focus = {# Reintegrated Army
+		id = USA_loyal_army
+		icon = GFX_goal_USA_selective_service
+		cost = 6.00
+		available = {
+			has_country_flag = USA_cincinnatus_flag
+		}
+		prerequisite = {
+			focus = USA_american_values1
+		}
+		prerequisite = {
+			focus = USA_esmwt
+		}
+		prerequisite = {
+			focus = USA_traditional_machines
+			focus = USA_end_jim_crow
+		}
+		mutually_exclusive = {
+			focus = USA_trial_of_the_federalists
+			focus = USA_salute_the_patriots
+		}
+		relative_position_id = USA_classical_liberal_mandate
+		x = -2
+		y = 6
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_loyal_army"
+			add_stability = 0.05
+			add_political_power = 25
+		}
+	}
+	
+	focus = {# Salute The Patriots
+		id = USA_salute_the_patriots
+		icon = GFX_goal_USA_grand_leadership
+		cost = 6.00
+		available = {
+			has_country_flag = USA_cincinnatus_flag
+		}
+		prerequisite = {
+			focus = USA_american_values1
+		}
+		prerequisite = {
+			focus = USA_esmwt
+		}
+		prerequisite = {
+			focus = USA_traditional_machines
+			focus = USA_end_jim_crow
+		}
+		mutually_exclusive = {
+			focus = USA_trial_of_the_federalists
+			focus = USA_loyal_army
+		}
+		relative_position_id = USA_classical_liberal_mandate
+		x = 0
+		y = 6
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_salute_the_patriots"
+			add_popularity = { ideology = paternal_autocrat popularity = 0.05 }
+			add_political_power = -40
+			army_experience = 25
+			add_command_power = 20
+			add_manpower = 25000
+		}
+	}
+	
+	focus = {# GI Bill
+		id = USA_the_gi_bill
+		icon = GFX_goal_generic_construct_civilian
+		cost = 5.00
+		prerequisite = {
+			focus = USA_trial_of_the_federalists
+			focus = USA_loyal_army
+			focus = USA_salute_the_patriots
+		}
+		relative_position_id = USA_classical_liberal_mandate
+		x = -1
+		y = 7
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_the_gi_bill"
+			add_stability = 0.05
+			add_war_support = 0.08
+			add_command_power = 30.5
+			army_experience = 15
+			increase_ruling_party_popularity_by_5 = yes
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {# Malice and Charity
+		id = USA_malice_and_charity
+		icon = GFX_goal_generic_improve_relations
+		cost = 6.00
+		prerequisite = {
+			focus = USA_trial_of_the_federalists
+			focus = USA_loyal_army
+			focus = USA_salute_the_patriots
+		}
+		relative_position_id = USA_classical_liberal_mandate
+		x = -3
+		y = 7
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus USA_malice_and_charity"
+			custom_effect_tooltip = USA_political_recovery_tooltip
+			USA_political_recovery = yes
 			country_event = { id = ustates.118 days = 1 }
 		}
 	}
@@ -2832,8 +6375,8 @@ focus_tree = {
 			focus = USA_malice_and_charity
 		}
 		relative_position_id = USA_classical_liberal_mandate
-		x = 0
-		y = 6
+		x = -2
+		y = 8
 		ai_will_do = {
 			factor = 50
 		}
@@ -2851,7 +6394,9 @@ focus_tree = {
 		cost = 6.00
 		prerequisite = {
 			focus = USA_classical_liberal_mandate
-			focus = USA_martial_law
+			focus = USA_restore_democracy
+			focus = USA_american_caeser
+			focus = USA_SPQA
 		}
 		relative_position_id = USA_classical_liberal_mandate
 		x = 11
@@ -3029,6 +6574,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus USA_rebuild_americas_industry"
+			custom_effect_tooltip = USA_economic_recovery_tooltip
+			COR_increase_recovery = yes = yes
 			add_tech_bonus = {
 				name = industrial_bonus
 				bonus = 1
@@ -3060,6 +6607,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus USA_economic_investments"
+			custom_effect_tooltip = USA_economic_recovery_tooltip
+			COR_increase_recovery = yes = yes
 			random_owned_state = {
 				limit = {
 					is_core_of = USA
@@ -3120,8 +6669,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus USA_review_the_fed"
-			custom_effect_tooltip = USA_political_recovery_tooltip
-			USA_increase_recovery = yes
+			custom_effect_tooltip = USA_economic_recovery_tooltip
+			COR_increase_recovery = yes = yes
 		}
 	}
 	
@@ -3144,7 +6693,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus USA_american_industry"
 			custom_effect_tooltip = USA_economic_recovery_tooltip
-			USA_depression_recovery = yes
+			COR_increase_recovery = yes = yes
 		}
 	}
 
@@ -3232,7 +6781,6 @@ focus_tree = {
 				}
 				add_building_construction = { type = infrastructure	level = 1 instant_build = yes }
 			}
-			USA_depression_recovery = yes
 		}
 	}
 
@@ -3251,12 +6799,13 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus USA_rebuild_agriculture"
+			custom_effect_tooltip = USA_economic_recovery_tooltip
+			COR_increase_recovery = yes = yes
 			add_tech_bonus = {
 				bonus = 1
 				uses = 2
 				category = industry
 			}
-			USA_depression_recovery = yes
 		}
 	}
 
@@ -3376,12 +6925,6 @@ focus_tree = {
 		prerequisite = {
 			focus = USA_aviation_industry
 		}
-		available = {
-			OR = {
-				has_idea = USA_civil_war_depression_idea
-				has_idea = USA_economic_recovery_idea
-			}
-		}
 		relative_position_id = USA_begin_reconstruction
 		x = 2
 		y = 3
@@ -3391,7 +6934,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus USA_farming_subsidies"
 			custom_effect_tooltip = USA_economic_recovery_tooltip
-			USA_depression_recovery = yes
+			COR_increase_recovery = yes = yes
 		}
 	}
 
@@ -3563,19 +7106,22 @@ focus_tree = {
 	focus = {# Martial Law
 		id = USA_martial_law
 		icon = GFX_goal_ideology_authoritarian_democrat
-		cost = 6.00
-		prerequisite = {
-			focus = USA_constitutional_convention
+		cost = 1.00
+		available = {
+			has_country_leader = { ruling_only = yes name = "Douglas MacArthur" } 
 		}
-		relative_position_id = USA_constitutional_convention
-		x = 10
+		prerequisite = {
+			focus = USA_mac_victory
+		}
+		relative_position_id = USA_mac_victory
+		x = 0
 		y = 1
 		ai_will_do = {
 			factor = 50
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus USA_martial_law"
-			add_ideas = USA_martial_law
+			add_ideas = USA_martial_law_idea
 			add_political_power = 50
 			add_stability = 0.05
 		}
@@ -3583,7 +7129,7 @@ focus_tree = {
 	focus = {# Americanism
 		id = USA_americanism
 		icon = GFX_goal_usa
-		cost = 6.00
+		cost = 1.00
 		prerequisite = {
 			focus = USA_martial_law
 		}
@@ -3595,15 +7141,13 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus USA_americanism"
-			custom_effect_tooltip = USA_political_recovery_tooltip
-			USA_political_recovery = yes
 			add_stability = 0.05
 		}
 	}
 	focus = {# Root out Traitors
 		id = USA_root_out_traitors
 		icon = GFX_goal_purge_opposition
-		cost = 6.00
+		cost = 1.00
 		prerequisite = {
 			focus = USA_martial_law
 		}
@@ -3623,7 +7167,7 @@ focus_tree = {
 	focus = {# Loyal Officers
 		id = USA_loyal_officers
 		icon = GFX_focus_generic_military_mission
-		cost = 6.00
+		cost = 1.00
 		prerequisite = {
 			focus = USA_martial_law
 		}
@@ -3644,7 +7188,7 @@ focus_tree = {
 	focus = {# National Rehabilitation
 		id = USA_national_rehabilition
 		icon = GFX_goal_ideology_paternal_autocrat
-		cost = 6.00
+		cost = 2.00
 		prerequisite = {
 			focus = USA_americanism
 		}
@@ -3662,8 +7206,6 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus USA_national_rehabilition"
-			custom_effect_tooltip = USA_political_recovery_tooltip
-			USA_political_recovery = yes
 			country_event = { id = ustates.120 days = 1 }
 			random_owned_state = {
 				limit = {
@@ -3693,111 +7235,284 @@ focus_tree = {
 			}
 		}
 	}
-	focus = {# The American Cinncinatus
+	focus = {# The American Junta
 		id = USA_restore_democracy
-		icon = GFX_goal_USA_american_cincinnatus
-		cost = 6.00
+		icon = GFX_USA_american_junta
+		cost = 1.00
 		mutually_exclusive = { focus = USA_american_caeser }
 		prerequisite = {
 			focus = USA_national_rehabilition
 		}
-		relative_position_id = USA_martial_law
+		available = {
+			has_country_flag = USA_mac_shared_power
+		}
+		relative_position_id = USA_national_rehabilitation
+		x = 36
+		y = 14
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_restore_democracy"
+			add_popularity = { ideology = authoritarian_democrat popularity = 0.05 }
+			add_political_power = -30
+			add_stability = 0.05
+		}
+	}
+	focus = {# The American Legion
+		id = USA_american_legion
+		icon = GFX_USA_reforming_the_legion
+		cost = 1.00
+		prerequisite = {
+			focus = USA_restore_democracy
+		}
+		relative_position_id = USA_restore_democracy
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_the_american_legion"
+			add_ideas = USA_defenders_of_militarism_idea
+			add_popularity = { ideology = authoritarian_democrat popularity = 0.05 }
+			add_manpower = 2500
+		}
+	}
+	focus = {# Defenders of Democracy
+		id = USA_defending_the_republic
+		icon = GFX_USA_defenders_of_the_republic
+		cost = 1.00
+		prerequisite = {
+			focus = USA_restore_democracy
+		}
+		relative_position_id = USA_restore_democracy
+		x = -1
+		y = 1
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_defend_the_republic"
+			country_event = {
+				id = ustates.3133
+				days = 5
+				}
+			add_stability = 0.05
+		}
+	}
+	focus = {# The Committee
+		id = USA_the_committee
+		icon = GFX_USA_congress_released
+		cost = 1.00
+		prerequisite = {
+			focus = USA_american_legion
+		}
+		prerequisite = {
+			focus = USA_defending_the_republic
+		}
+		relative_position_id = USA_restore_democracy
+		x = 0
+		y = 2
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_the_committee"
+			country_event = {
+				id = ustates.3129
+				days = 5
+				}
+			remove_ideas = USA_martial_law_idea
+			add_stability = 0.05
+			add_popularity = { ideology = authoritarian_democrat popularity = 0.05 }
+		}
+	}
+	focus = {# Navy Support
+		id = USA_navy_support
+		icon = GFX_goal_navy_decision
+		cost = 6.00
+		prerequisite = {
+			focus = USA_the_committee
+		}
+		relative_position_id = USA_restore_democracy
 		x = -2
 		y = 3
 		ai_will_do = {
 			factor = 50
 		}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus USA_restore_democracy"
-			add_popularity = { ideology = paternal_autocrat popularity = -0.05 }
-			add_political_power = -30
-			add_stability = 0.05
-			custom_effect_tooltip = USA_political_recovery_tooltip
-			USA_political_recovery = yes
-		}
-	}
-	focus = {# The American Legion
-		id = USA_the_american_legion
-		icon = GFX_USA_reforming_the_legion
-		cost = 6.00
-		prerequisite = {
-			focus = USA_restore_democracy
-		}
-		relative_position_id = USA_martial_law
-		x = -1
-		y = 4
-		ai_will_do = {
-			factor = 50
-		}
-		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus USA_the_american_legion"
-			add_popularity = { ideology = paternal_autocrat popularity = -0.03 }
-			add_political_power = 25
-			add_stability = 0.05
-			add_manpower = 2000
+			custom_effect_tooltip = USA_political_recovery_tooltip
+			USA_political_recovery = yes
+			country_event = {
+				id = ustates.3121
+				days = 5
+				}
+			add_popularity = { ideology = authoritarian_democrat popularity = 0.02 }
 		}
 	}
-	focus = {# Defenders of Democracy
-		id = USA_defend_the_republic
-		icon = GFX_USA_defenders_of_the_republic
+	focus = {# Air Power
+		id = USA_air_power
+		icon = GFX_goal_USA_freedom_fighters
 		cost = 6.00
 		prerequisite = {
-			focus = USA_restore_democracy
+			focus = USA_navy_support
 		}
-		relative_position_id = USA_martial_law
-		x = -3
+		relative_position_id = USA_restore_democracy
+		x = -2
 		y = 4
 		ai_will_do = {
 			factor = 50
 		}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus USA_defend_the_republic"
-			add_ideas = USA_defenders_of_republicanism_idea
-			add_stability = 0.05
+			log = "[GetDateText]: [Root.GetName]: Focus USA_air_power"
 			custom_effect_tooltip = USA_political_recovery_tooltip
 			USA_political_recovery = yes
+			add_ideas = USA_air_power_idea
+			add_stability = 0.01
+			add_popularity = { ideology = authoritarian_democrat popularity = 0.02 }
 		}
 	}
-	focus = {# Congress Freed
-		id = USA_congress_freed
+	focus = {# Congress Courted
+		id = USA_congress_courted
 		icon = GFX_USA_congress_released
 		cost = 6.00
 		prerequisite = {
-			focus = USA_the_american_legion
+			focus = USA_the_committee
+		}
+		relative_position_id = USA_restore_democracy
+		x = 2
+		y = 3
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_congress_courted"
+			custom_effect_tooltip = USA_political_recovery_tooltip
+			USA_political_recovery = yes
+			add_popularity = { ideology = authoritarian_democrat popularity = 0.05 }
+			add_political_power = -5
+			country_event = {
+				id = ustates.3134
+				days = 5
+				}
+		}
+	}
+	focus = {# Civilianization
+		id = USA_civilianization
+		icon = GFX_goal_USA_grand_leadership
+		cost = 6.00
+		prerequisite = {
+			focus = USA_congress_courted
+		}
+		relative_position_id = USA_restore_democracy
+		x = 2
+		y = 4
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_civilianization"
+			custom_effect_tooltip = USA_political_recovery_tooltip
+			USA_political_recovery = yes
+			add_stability = 0.02
+			add_popularity = { ideology = authoritarian_democrat popularity = 0.08 }
+			add_political_power = 50
+		}
+	}
+	focus = {# Court the Generals
+		id = USA_court_generals
+		icon = GFX_USA_triumvirate
+		cost = 6.00
+		prerequisite = {
+			focus = USA_the_committee
+		}
+		relative_position_id = USA_restore_democracy
+		x = 0
+		y = 3
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_court_generals"
+			custom_effect_tooltip = USA_political_recovery_tooltip
+			USA_political_recovery = yes
+			country_event = {
+				id = ustates.3120
+				days = 5
+				}
+			add_stability = 0.05
+			add_popularity = { ideology = authoritarian_democrat popularity = 0.05 }
+		}
+	}
+	focus = {# Backroom Deals
+		id = USA_backroom_deals
+		icon = GFX_CAL_prohibition
+		cost = 6.00
+		prerequisite = {
+			focus = USA_court_generals
+		}
+		relative_position_id = USA_restore_democracy
+		x = 0
+		y = 4
+		ai_will_do = {
+			factor = 50
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_backroom_deals"
+			custom_effect_tooltip = USA_political_recovery_tooltip
+			USA_political_recovery = yes
+			add_ideas = USA_the_triumvirate
+			add_stability = 0.10
+			add_popularity = { ideology = authoritarian_democrat popularity = 0.05 }
+		}
+	}
+	focus = {# Patriot Patry
+		id = USA_patriot_party
+		icon = GFX_goal_National_Security_Act
+		cost = 6.00
+		prerequisite = {
+			focus = USA_backroom_deals
 		}
 		prerequisite = {
-			focus = USA_defend_the_republic
+			focus = USA_air_power
 		}
-		relative_position_id = USA_martial_law
-		x = -2
+		prerequisite = {
+			focus = USA_civilianization
+		}
+		relative_position_id = USA_restore_democracy
+		x = 0
 		y = 5
 		ai_will_do = {
 			factor = 50
 		}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus USA_the_american_legion"
+			log = "[GetDateText]: [Root.GetName]: Focus USA_civilianization"
 			add_stability = 0.15
-			add_popularity = { ideology = paternal_autocrat popularity = -0.1 }
-			add_political_power = -50
+			add_popularity = { ideology = authoritarian_democrat popularity = 0.1 }
+			add_political_power = 50
 			hidden_effect = {
-			country_event = ustates.1289
-			days = 1
+			country_event = {
+				id = ustates.312
+				days = 2
+				}
 			}
 		}
 	}
 	focus = {# American Caesar
 		id = USA_american_caeser
 		icon = GFX_USA_american_caesar
-		cost = 6.00
-		available = { has_country_flag = macarthur_keeps_power_flag }
-		bypass = { has_country_flag = macarthur_keeps_power_flag }
+		cost = 1.00
+		available = { has_country_flag = USA_mac_caesar }
+		bypass = { has_country_flag = USA_mac_caesar }
 		mutually_exclusive = { focus = USA_restore_democracy }
 		prerequisite = {
 			focus = USA_national_rehabilition
 		}
-		relative_position_id = USA_martial_law
-		x = 2
-		y = 3
+		relative_position_id = USA_national_rehabilitation
+		x = 42
+		y = 14
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus USA_american_caeser"
 			add_ideas = USA_american_caeser_idea
@@ -3811,6 +7526,12 @@ focus_tree = {
 				id = ustates.1280
 				days = 5
 				}
+				if = {	
+					limit = { has_country_leader = { name = "Douglas MacArthur" ruling_only = yes } }
+					set_country_leader_portrait = {
+						portrait = "gfx/leaders/USA/Portrait_USA_gen_douglas_macarthur_caesar.tga"
+					}
+				}
 			}
 		}
 	}
@@ -3818,7 +7539,7 @@ focus_tree = {
 	focus = {# 2nd APL
 		id = USA_fbi_cointelpro
 		icon = GFX_goal_USA_2nd_American_Protective_League
-		cost = 6.00
+		cost = 1.00
 		prerequisite = {
 			focus = USA_american_caeser
 		}
@@ -3840,12 +7561,9 @@ focus_tree = {
 	focus = {# Office of War Information
 		id = USA_office_of_war_information
 		icon = GFX_USA_SIS
-		cost = 6.00
+		cost = 1.00
 		prerequisite = {
 			focus = USA_american_caeser
-		}
-		available = {
-			has_idea = USA_cointelpro_idea
 		}
 		relative_position_id = USA_american_caeser
 		x = -1
@@ -3866,7 +7584,7 @@ focus_tree = {
 	focus = {# Control Congress
 		id = USA_control_congress
 		icon = GFX_goal_Centralised_Government
-		cost = 6.00
+		cost = 1.00
 		prerequisite = {
 			focus = USA_fbi_cointelpro
 		}
@@ -3885,6 +7603,7 @@ focus_tree = {
 			remove_idea = USA_american_caeser_idea
 			add_idea = USA_american_caeser_idea_2
 			}
+			remove_ideas = USA_martial_law_idea
 			add_stability = 0.05
 			add_political_power = 50
 			add_command_power = 15
@@ -3912,6 +7631,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus USA_nationalize_boy_scouts"
+			custom_effect_tooltip = USA_political_recovery_tooltip
+			USA_political_recovery = yes
 			add_ideas = USA_national_youth_idea
 			add_popularity = { ideology = paternal_autocrat popularity = 0.05 }
 			add_war_support = 0.1
@@ -3933,6 +7654,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus USA_army_education"
+			custom_effect_tooltip = USA_political_recovery_tooltip
+			USA_political_recovery = yes
 			swap_ideas = {
 			remove_idea = USA_national_youth_idea
 			add_idea = USA_national_youth_idea_2
@@ -3961,6 +7684,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus USA_loyalty_to_macarthur"
+			custom_effect_tooltip = USA_political_recovery_tooltip
+			USA_political_recovery = yes
 			swap_ideas = {
 			remove_idea = USA_american_caeser_idea_2
 			add_idea = USA_american_caeser_idea_3
@@ -3968,6 +7693,12 @@ focus_tree = {
 			add_political_power = 45
 			add_stability = 0.05
 			add_command_power = 40
+			hidden_effect = {
+			country_event = {
+				id = ustates.312
+				days = 30
+				}
+			}
 		}
 	}
 	
@@ -3986,6 +7717,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus USA_loyalty_to_macarthur"
+			custom_effect_tooltip = USA_political_recovery_tooltip
+			USA_political_recovery = yes
 			swap_ideas = {
 			remove_idea = USA_american_caeser_idea_3
 			add_idea = USA_american_caeser_idea_4
@@ -4010,6 +7743,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus USA_allien_sedition_acts"
+			custom_effect_tooltip = USA_political_recovery_tooltip
+			USA_political_recovery = yes
 			add_political_power = 35
 			add_stability = 0.03
 			add_popularity = { ideology = syndicalist popularity = -0.05 }
@@ -4032,6 +7767,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus USA_empower_the_army"
+			custom_effect_tooltip = USA_political_recovery_tooltip
+			USA_political_recovery = yes
 			add_ideas = USA_empowered_army_idea
 			add_stability = -0.03
 			army_experience = 20
@@ -4059,16 +7796,13 @@ focus_tree = {
 		prerequisite = {
 			focus = USA_army_education
 		}
-		mutually_exclusive = {
-		focus = USA_the_junta }
-		
 		available = {
 		NOT = {
 			has_country_flag = USA_mac_shared_power
 			}
 		}
 		relative_position_id = USA_american_caeser
-		x = 1
+		x = 0
 		y = 5
 		ai_will_do = {
 			factor = 100
@@ -4095,7 +7829,7 @@ focus_tree = {
 			focus = USA_american_stratocracy
 		}
 		relative_position_id = USA_american_caeser
-		x = 1
+		x = -1
 		y = 6
 		ai_will_do = {
 			factor = 50
@@ -4121,7 +7855,7 @@ focus_tree = {
 			focus = USA_all_american_legion
 		}
 		relative_position_id = USA_american_caeser
-		x = 1
+		x = -1
 		y = 7
 		ai_will_do = {
 			factor = 50
@@ -4144,7 +7878,7 @@ focus_tree = {
 			focus = USA_american_stratocracy
 		}
 		relative_position_id = USA_american_caeser
-		x = 3
+		x = 1
 		y = 6
 		ai_will_do = {
 			factor = 50
@@ -4168,7 +7902,7 @@ focus_tree = {
 			focus = USA_little_troopers
 		}
 		relative_position_id = USA_american_caeser
-		x = 3
+		x = 1
 		y = 7
 		ai_will_do = {
 			factor = 50
@@ -4192,7 +7926,7 @@ focus_tree = {
 			focus = USA_baracks_capitalism
 		}
 		relative_position_id = USA_american_caeser
-		x = 2
+		x = 0
 		y = 8
 		ai_will_do = {
 			factor = 50
@@ -4211,53 +7945,16 @@ focus_tree = {
 		}
 	}
 	
-	focus = {# American Junta
-		id = USA_the_junta
-		icon = GFX_USA_american_junta
-		cost = 6.00
-		mutually_exclusive = { focus = USA_american_stratocracy }
-		prerequisite = {
-			focus = USA_empower_the_army
-		}
-		prerequisite = {
-			focus = USA_constitutional_amending
-		}
-		prerequisite = {
-			focus = USA_army_education
-		}
-		available = {
-			NOT = {
-			has_country_flag = USA_defeated_wcc
-			}
-		}
-		relative_position_id = USA_american_caeser
-		x = -1
-		y = 5
-		ai_will_do = {
-			factor = 100
-		}
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus USA_the_junta"
-			swap_ideas = {
-			remove_idea = USA_empowered_army_idea
-			add_idea = USA_empowered_army_idea_2Junta
-			}
-			add_stability = 0.15
-			army_experience = 0.05
-			add_political_power = -40
-		}
-	}
-	
 	focus = {# Taxation
 		id = USA_civil_autonomy
 		icon = GFX_goal_civil_service
 		cost = 6.00
 		prerequisite = {
-			focus = USA_the_junta
+			focus = USA_patriot_party
 		}
-		relative_position_id = USA_american_caeser
-		x = -1
-		y = 6
+		relative_position_id = USA_patriot_party
+		x = 1
+		y = 1
 		ai_will_do = {
 			factor = 100
 		}
@@ -4359,9 +8056,9 @@ focus_tree = {
 		prerequisite = {
 			focus = USA_civil_autonomy
 		}
-		relative_position_id = USA_american_caeser
-		x = -1
-		y = 7
+		relative_position_id = USA_patriot_party
+		x = 1
+		y = 2
 		ai_will_do = {
 			factor = 100
 		}
@@ -4427,11 +8124,11 @@ focus_tree = {
 		icon = GFX_goal_government_icon
 		cost = 6.00
 		prerequisite = {
-			focus = USA_the_junta
+			focus = USA_patriot_party
 		}
-		relative_position_id = USA_american_caeser
-		x = -3
-		y = 6
+		relative_position_id = USA_patriot_party
+		x = -1
+		y = 1
 		ai_will_do = {
 			factor = 100
 		}
@@ -4450,9 +8147,9 @@ focus_tree = {
 		prerequisite = {
 			focus = USA_limited_elections
 		}
-		relative_position_id = USA_american_caeser
-		x = -3
-		y = 7
+		relative_position_id = USA_patriot_party
+		x = -1
+		y = 2
 		ai_will_do = {
 			factor = 100
 		}
@@ -4512,9 +8209,9 @@ focus_tree = {
 		prerequisite = {
 			focus = USA_military_purchases
 		}
-		relative_position_id = USA_american_caeser
-		x = -2
-		y = 8
+		relative_position_id = USA_patriot_party
+		x = 0
+		y = 3
 		ai_will_do = {
 			factor = 100
 		}
@@ -4542,7 +8239,7 @@ focus_tree = {
 		y = 0
 		
 		offset = {
-			x = -9
+			x = 0
 			y = 0
 			trigger = {
 				has_global_flag = USA_civil_war_avoided_flag
@@ -4589,7 +8286,6 @@ focus_tree = {
 			army_experience = 15
 			hidden_effect = {
 				country_event = { id = ustates.619 days = 670 }
-				country_event = { id = ustates.621 days = 15 }
 				country_event = { id = ustates.625 days = 45 }
 				country_event = { id = ustates.626 days = 70 }
 				country_event = { id = ustates.616 days = 140 }
@@ -4910,7 +8606,7 @@ focus_tree = {
 			NOT = {
 				country_exists = TEX
 				country_exists = CSA
-				country_exists = USA
+				country_exists = COR
 			}
 		}
 		x = 0
@@ -4928,6 +8624,7 @@ focus_tree = {
 				country_event = { id = ustates.627 days = 70 }#Pentagon Construction
 				country_event = { id = ustates.651 days = 35 }#AUS Trials
 				country_event = { id = ustates.652 days = 45 }#PSA Trials
+				country_event = { id = ustates.6520 days = 55 }#CAR Trials
 			}
 			custom_effect_tooltip = USA_trials_will_begin
 		}
@@ -5802,27 +9499,10 @@ focus_tree = {
 		}
 		relative_position_id = USA_expand_the_USAAC
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus USA_flexible_bombers"
-			if = {
-				limit = { NOT = { has_tech = tactical_bomber1 } }
-				hidden_effect = {
-					set_technology = { tactical_bomber1 = 1 }
-				}
-				custom_effect_tooltip = TEX_unlock_bomber_1
-				else_if = {
-					limit = { NOT = { has_tech = tactical_bomber2 } }
-					hidden_effect = {
-						set_technology = { tactical_bomber2 = 1 }
-					}
-					custom_effect_tooltip = TEX_unlock_bomber_2
-				}
-				else = {
-					add_tech_bonus = {
-						bonus = 1
-						uses = 1
-						category = tactical_bomber
-					}
-				}
+				add_tech_bonus = {
+					bonus = 1.5
+					uses = 1
+				category = tactical_bomber
 			}
 		}
 	}
@@ -6000,9 +9680,6 @@ focus_tree = {
 		cost = 5.00
 		prerequisite = {
 			focus = USA_reform_plan
-		}
-		available = {
-			always = no
 		}
 		mutually_exclusive = {
 			focus = USA_McNair_Plan
@@ -6292,9 +9969,6 @@ focus_tree = {
 		cost = 5.00
 		prerequisite = {
 			focus = USA_macarthur_army_plan
-		}
-		available = {
-			always = no
 		}
 		x = 0
 		y = 1
@@ -6993,7 +10667,7 @@ focus_tree = {
 		}
 		cost = 6.00
 		x = 64
-		y = 7
+		y = 8
 		
 		offset = {
 			x = -9
@@ -7501,7 +11175,7 @@ focus_tree = {
 
 	focus = {# New Admirals
 		id = USA_new_admirals
-		icon = GFX_TRM_kolchak_cap
+		icon = GFX_goal_USA_new_admirals
 		cost = 6.00
 		prerequisite = {
 			focus = USA_battleships
@@ -7760,6 +11434,589 @@ focus_tree = {
 		}
 	}
 
+	focus = {# Repatriation
+		id = USA_repatriation
+		icon = GFX_mexican_repatriation
+		cost = 5.00
+		available = {
+		OR = {
+		has_global_flag = USA_civil_war_avoided_flag
+			has_global_flag = USA_civil_war_over_flag
+			}
+		}
+		mutually_exclusive = {
+		focus = USA_quota_adjustments
+		focus = USA_national_immigration_act
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		cancel_if_invalid = yes
+		x = 75
+		y = 9
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_mexican_repatriation"
+			country_event = {
+			id = pacificstates.327
+			days = 5
+			}
+			add_stability = 0.05
+			increase_ruling_party_popularity_by_5 = yes
+			add_political_power = 50
+		}
+	}
+	
+	focus = {# Quota Adjustments
+		id = USA_quota_adjustments
+		icon = GFX_quota_adjustments
+		cost = 5.00
+		mutually_exclusive = {
+		focus = USA_repatriation
+		focus = USA_national_immigration_act
+		}
+		available = {
+			OR = {
+		has_global_flag = USA_civil_war_avoided_flag
+			has_global_flag = USA_civil_war_over_flag
+			}
+			NOT = {
+			has_government = paternal_autocrat
+			has_government = national_populist
+			}
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		cancel_if_invalid = yes
+		relative_position_id = USA_repatriation
+		x = 2
+		y = 0
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_quota_adjustments"
+			add_stability = 0.03
+			add_manpower = 3000
+		}
+	}
+	
+	focus = {# National Immigration Act Reform
+		id = USA_national_immigration_act
+		icon = GFX_immigration_act_reformed
+		cost = 5.00
+		mutually_exclusive = {
+		focus = USA_quota_adjustments
+		focus = USA_repatriation
+		}
+		available = {
+			OR = {
+		has_global_flag = USA_civil_war_avoided_flag
+			has_global_flag = USA_civil_war_over_flag
+			}
+			NOT = {
+			OR = {
+			has_government = authoritarian_democrat
+			has_government = paternal_autocrat
+			has_government = national_populist
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		cancel_if_invalid = yes
+		relative_position_id = USA_repatriation
+		x = 4
+		y = 0
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_national_immigration_act"
+			add_ideas = CAL_NIAR_idea
+			add_manpower = 5000
+			add_opinion_modifier = {
+			target = MEX
+			modifier = small_increase
+			}
+			add_opinion_modifier = {
+			target = CHI
+			modifier = small_increase
+			}
+			add_opinion_modifier = {
+			target = JAP
+			modifier = small_increase
+			}
+			decrease_ruling_party_popularity_by_5 = yes
+		}
+	}
+	
+	### Anti-Civil Rights###
+
+	focus = {# Federal Ban on Race Mixing
+		id = USA_ban_race_mixing
+		icon = GFX_ban_on_race_mixing
+		cost = 5.00
+		prerequisite = {
+		focus = USA_repatriation
+		}
+		mutually_exclusive = {
+		focus = USA_denounce_race_hatred
+		}
+		available = {
+			OR = {
+			has_government = social_conservative
+			has_government = authoritarian_democrat
+			}
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		cancel_if_invalid = yes
+		relative_position_id = USA_repatriation
+		x = 1
+		y = 1
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_ban_race_mixing"
+			add_political_power = 50
+			add_command_power = 10
+			modify_country_flag = {
+				flag = ACW_klan_resistance
+				value = -2
+			}
+		}
+	}
+	
+	focus = {# Jazz Crackdown
+		id = USA_jazz_crackdown
+		icon = GFX_jazz_cracdown
+		cost = 5.00
+		prerequisite = {
+		focus = USA_ban_race_mixing
+		}
+		mutually_exclusive = {
+		focus = USA_conditional_black_aid
+		focus = USA_negro_bureau
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		cancel_if_invalid = yes
+		relative_position_id = USA_ban_race_mixing
+		x = -1
+		y = 1
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_jazz_crackdown"
+			add_political_power = 20
+			add_popularity = { ideology = social_liberal popularity = -0.03 }
+			add_popularity = { ideology = social_democrat popularity = -0.03 }
+			add_popularity = { ideology = radical_socialist popularity = -0.02 }
+
+		}
+	}
+	
+	focus = {# Blind Eye
+		id = USA_blind_eye
+		icon = GFX_turn_blind_eye
+		cost = 5.00
+		prerequisite = {
+		focus = USA_jazz_crackdown
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		cancel_if_invalid = yes
+		relative_position_id = USA_ban_race_mixing
+		x = -1
+		y = 2
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_blind_eye"
+			add_popularity = { ideology = syndicalist popularity = -0.05 }
+			add_popularity = { ideology = totalist popularity = -0.05 }
+			add_political_power = 25
+			add_war_support = 0.05
+			modify_country_flag = {
+				flag = ACW_klan_resistance
+				value = -2
+			}
+		}
+	}
+	
+	focus = {# Denounce Rate Hatred
+		id = USA_denounce_race_hatred
+		icon = GFX_denounce_race_hatred
+		cost = 5.00
+		prerequisite = {
+		focus = USA_repatriation
+		focus = USA_quota_adjustments
+		focus = USA_national_immigration_act
+		}
+		mutually_exclusive = {
+		focus = USA_ban_race_mixing
+		}
+		available = {
+			OR = {
+			has_government = social_conservative
+			has_government = market_liberal
+			has_government = social_liberal
+			has_government = social_democrat
+			}
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		cancel_if_invalid = yes
+		relative_position_id = USA_ban_race_mixing
+		x = 2
+		y = 0
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_denounce_race_hatred"
+			add_political_power = -20
+			add_stability = 0.08
+			add_manpower = 1000
+			hidden_effect = {
+			country_event = {
+			id = ustates.308
+			days = 15
+				}
+			}
+		}
+	}
+	
+	focus = {# Limited Support
+		id = USA_conditional_black_aid
+		icon = GFX_conditional_black_help
+		cost = 5.00
+		prerequisite = {
+		focus = USA_denounce_race_hatred
+		focus = USA_ban_race_mixing
+		}
+		available = {
+		NOT = {
+			has_government = paternal_autocrat
+		}
+		}
+		mutually_exclusive = {
+		focus = USA_jazz_crackdown
+		focus = USA_negro_bureau
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		cancel_if_invalid = yes
+		relative_position_id = USA_ban_race_mixing
+		x = 1
+		y = 1
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_conditional_black_aid"
+			add_political_power = 20
+			add_stability = 0.04
+			increase_ruling_party_popularity_by_5 = yes
+		}
+	}
+	
+	focus = {# Oppose Integration
+		id = USA_oppose_radicals
+		icon = GFX_oppose_radicals
+		cost = 5.00
+		prerequisite = {
+		focus = USA_conditional_black_aid
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		cancel_if_invalid = yes
+		relative_position_id = USA_ban_race_mixing
+		x = 1
+		y = 2
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_oppose_radicals"
+			add_popularity = { ideology = syndicalist popularity = -0.02 }
+			add_popularity = { ideology = totalist popularity = -0.02 }
+			add_popularity = { ideology = paternal_autocrat popularity = -0.02 }
+			modify_country_flag = {
+				flag = ACW_klan_resistance
+				value = -1
+			}
+		}
+	}
+	
+	focus = {# Negro Bureau
+		id = USA_negro_bureau
+		icon = GFX_negro_bureau
+		cost = 5.00
+		prerequisite = {
+		focus = USA_denounce_race_hatred
+		}
+		available = {
+		NOT = {
+			has_government = social_conservative
+			has_government = authoritarian_democrat
+			has_government = paternal_autocrat
+			has_government = national_populist
+			}
+		}
+		mutually_exclusive = {
+		focus = USA_conditional_black_aid
+		focus = USA_jazz_crackdown
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		cancel_if_invalid = yes
+		relative_position_id = USA_ban_race_mixing
+		x = 3
+		y = 1
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_negro_bureau"
+			add_ideas = CAL_negro_bureau_idea
+			add_manpower = 15000
+			increase_ruling_party_popularity_by_5 = yes
+			add_stability = -0.03
+			hidden_effect = {
+			country_event = {
+			id = ustates.290
+			days = 20
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = USA
+					is_controlled_by = USA
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	focus = {# Fund Black Education
+		id = USA_fund_black_education
+		icon = GFX_fund_black_education
+		cost = 5.00
+		prerequisite = {
+		focus = USA_negro_bureau
+		}
+		available = {
+			NOT = {
+			has_government = social_conservative
+			has_government = authoritarian_democrat
+			has_government = paternal_autocrat
+			has_government = national_populist
+			}
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		cancel_if_invalid = yes
+		relative_position_id = USA_ban_race_mixing
+		x = 3
+		y = 2
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_fund_black_education"
+			swap_ideas = {
+			remove_idea = CAL_negro_bureau_idea
+			add_idea = CAL_negro_bureau_idea_2
+			}
+		}
+	}
+	
+	focus = {# Hire Black Americans
+		id = USA_hire_black_americans
+		icon = GFX_hire_black_americans
+		cost = 5.00
+		prerequisite = {
+		focus = USA_oppose_radicals
+		focus = USA_fund_black_education
+		}
+		available = {
+			OR = {
+			has_government = social_conservative
+			has_government = market_liberal
+			has_government = social_liberal
+			has_government = social_democrat
+			has_government = radical_socialist
+			}
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		cancel_if_invalid = yes
+		relative_position_id = USA_repatriation
+		x = 3
+		y = 4
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_hire_black_americans"
+			add_political_power = -45
+			add_manpower = 10000
+			increase_ruling_party_popularity_by_5 = yes
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = CAL
+					is_controlled_by = CAL
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = CAL
+					is_controlled_by = CAL
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = CAL
+					is_controlled_by = CAL
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = CAL
+					is_controlled_by = CAL
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = CAL
+					is_controlled_by = CAL
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = CAL
+					is_controlled_by = CAL
+					industrial_complex > 0
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	
+	focus = {# New Lily White Movement
+		id = USA_lily_white_movement
+		icon = GFX_new_lily_white_movement
+		cost = 5.00
+		prerequisite = {
+		focus = USA_blind_eye
+		focus = USA_oppose_radicals
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		cancel_if_invalid = yes
+		relative_position_id = USA_ban_race_mixing
+		x = 0
+		y = 3
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_lily_white_movement"
+			add_political_power = 75
+			add_command_power = 30
+			increase_ruling_party_popularity_by_5 = yes
+		}
+	}
+	
+	focus = {# Local Segregation
+		id = USA_increase_segregation
+		icon = GFX_fund_local_segregation
+		cost = 5.00
+		prerequisite = {
+		focus = USA_lily_white_movement
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		cancel_if_invalid = yes
+		relative_position_id = USA_ban_race_mixing
+		x = -1
+		y = 4
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAL_increase_segregation"
+			add_ideas = CAL_increased_segregation_idea
+			add_political_power = 35
+			add_stability = 0.1
+			add_war_support = 0.05
+		}
+	}
+	
+	focus = {# Calm Racial Conservatives
+		id = USA_support_seperatism
+		icon = GFX_calm_racial_conservatives
+		cost = 5.00
+		prerequisite = {
+		focus = USA_lily_white_movement
+		focus = USA_hire_black_americans
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		cancel_if_invalid = yes
+		relative_position_id = USA_ban_race_mixing
+		x = 1
+		y = 4
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_support_seperatism"
+			add_popularity = { ideology = paternal_autocrat popularity = -0.02 }
+			add_stability = 0.05
+			add_war_support = 0.03
+		}
+	}
+	
+	focus = {# Encourage Integration
+		id = USA_encourage_integration
+		icon = GFX_encourage_integration
+		cost = 5.00
+		prerequisite = {
+		focus = USA_hire_black_americans
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		available_if_capitulated = yes
+		cancel_if_invalid = yes
+		relative_position_id = USA_ban_race_mixing
+		x = 3
+		y = 4
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus USA_encourage_integration"
+			add_political_power = -50
+			add_manpower = 25000
+		}
+	}
 
 		#Foreign Policy
 	focus = {
@@ -7767,18 +12024,18 @@ focus_tree = {
 		icon = GFX_goal_usa
 		cost = 5.00
 		available = {
-			custom_trigger_tooltip = {
-				tooltip = USA_civil_war_victor
+				OR = {
 				has_global_flag = USA_civil_war_over_flag
+				has_global_flag = USA_civil_war_avoided_flag
+				}
 				NOT = {
 					country_exists = CAL
 					country_exists = CSA
 					country_exists = TEX
 				}
-			}
 			is_subject = no
 			is_major = yes
-			has_army_manpower = { size > 250000 }
+			has_army_manpower = { size > 105000 }
 		}
 		ai_will_do = {
 			factor = 40
@@ -7789,7 +12046,7 @@ focus_tree = {
 		}
 		available_if_capitulated = no
 		cancel_if_invalid = yes
-		x = 121
+		x = 80
 		y = 0
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus USA_back_in_business"
@@ -8014,7 +12271,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus USA_look_inward"
-			add_ideas = CAL_look_inward
+			add_ideas = CAL_look_inward_idea
 			add_stability = 0.10
 			add_political_power = 100
 			random_owned_controlled_state = {
@@ -8330,9 +12587,6 @@ focus_tree = {
 		cost = 1.5
 		prerequisite = {
 			focus = USA_anti_imperialism
-		}
-		mutually_exclusive = {
-			focus = USA_fortress_america
 		}
 		available = {
 			is_subject = no
@@ -8811,9 +13065,6 @@ focus_tree = {
 		prerequisite = {
 			focus = USA_new_interventionism
 		}
-		mutually_exclusive = {
-			focus = USA_fortress_america
-		}
 		available = {
 			is_subject = no
 			NOT = {
@@ -8923,6 +13174,9 @@ focus_tree = {
 		available = {
 			is_subject = no
 		}
+		mutually_exclusive = {
+			focus = USA_warn_japan
+		}
 		relative_position_id = USA_new_interventionism
 		x = -2
 		y = 3
@@ -9025,9 +13279,6 @@ focus_tree = {
 		}
 		prerequisite = {
 			focus = USA_longer_reach
-		}
-		mutually_exclusive = {
-			focus = USA_fortress_america
 		}
 		available = {
 			is_subject = no
@@ -9769,9 +14020,19 @@ focus_tree = {
 		available = {
 			is_subject = no
 			is_in_faction = no
-			not_has_democratic_government = yes
+			OR = {
+			has_government = authoritarian_democrat
+			has_government = paternal_autocrat
+			has_government = national_populist
+			has_country_leader = { ruling_only = yes name = "Harry F. Byrd" }
+			has_country_leader = { ruling_only = yes name = "James E. Murray" }
+			has_country_leader = { ruling_only = yes name = "William Averell Harriman" }
+			has_country_leader = { ruling_only = yes name = "Strom Thurmond" }
+			has_country_leader = { ruling_only = yes name = "Douglas MacArthur" }
+			}
 		}
-		x = 128
+		relative_position_id = USA_back_in_business
+		x = 7
 		y = 1
 
 		ai_will_do = {
@@ -9795,8 +14056,9 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus USA_american_imperialism"
+			create_faction = "league_of_american_states"
 			add_ideas = USA_american_imperialism_idea
-			add_war_support = 0.15
+			add_war_support = 0.05
 			add_popularity = { ideology = paternal_autocrat popularity = 0.03 }
 			add_popularity = { ideology = national_populist popularity = 0.03 }
 			add_stability = -0.05
@@ -9912,7 +14174,7 @@ focus_tree = {
 			focus = USA_make_mexico_friendly
 		}
 		mutually_exclusive = {
-			focus = USA_sphere_of_influence
+			focus = USA_stop_south_american_syndicalism
 		}
 		available = {
 			is_major = yes
@@ -10071,6 +14333,7 @@ focus_tree = {
 			add_war_support = 0.1
 			add_political_power = 30
 			add_manpower = 3000
+			unlock_decision_category_tooltip = USA_new_monroe_doctrine
 		}
 	}
 	

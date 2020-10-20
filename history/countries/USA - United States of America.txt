@@ -192,23 +192,23 @@ create_country_leader = {# Jack Reed
 	picture = "gfx/leaders/CSA/Portrait_CSA_Jack_Reed.tga"
 	expire = "1965.1.1"
 	ideology = totalist_subtype
-	traits = {}
+	traits = { our_right_to_survive }
 }
 create_country_leader = {# Jack Reed
 	name = "Jack Reed"
 	desc = "POLITICS_JACK_REED_DESC"
-	picture = "gfx/leaders/USA/Portrait_Jack_Reed.tga"
+	picture = "gfx/leaders/CSA/Portrait_CSA_Jack_Reed.tga"
 	expire = "1965.1.1"
 	ideology = syndicalist_subtype
-	traits = {}
+	traits = { our_right_to_survive }
 }
 create_country_leader = {# Jack Reed
 	name = "Jack Reed"
 	desc = "POLITICS_JACK_REED_DESC"
-	picture = "gfx/leaders/USA/Portrait_Jack_Reed.tga"
+	picture = "gfx/leaders/CSA/Portrait_CSA_Jack_Reed.tga"
 	expire = "1965.1.1"
 	ideology = radical_socialist_subtype
-	traits = {}
+	traits = { our_right_to_survive }
 }
 create_country_leader = {# George Norris
 	name = "George Norris"
@@ -216,7 +216,7 @@ create_country_leader = {# George Norris
 	picture = "gfx/leaders/USA/Portrait_George_W_Norris.tga"
 	expire = "1965.1.1"
 	ideology = social_democrat_subtype
-	traits = {}
+	traits = { the_fighting_liberal }
 }
 create_country_leader = {# Herbert Hoover
 	name = "Herbert Hoover"
@@ -224,7 +224,7 @@ create_country_leader = {# Herbert Hoover
 	picture = "gfx/leaders/USA/Portrait_Hoover.tga"
 	expire = "1965.1.1"
 	ideology = social_liberal_subtype
-	traits = {}
+	traits = { indecisive }
 }
 create_country_leader = {# Herbert Hoover
 	name = "Herbert Hoover"
@@ -232,7 +232,7 @@ create_country_leader = {# Herbert Hoover
 	picture = "gfx/leaders/USA/Portrait_Hoover.tga"
 	expire = "1965.1.1"
 	ideology = market_liberal_subtype
-	traits = {}
+	traits = { indecisive }
 }
 create_country_leader = {# John Nance Garner
 	name = "John Nance Garner"
@@ -240,7 +240,7 @@ create_country_leader = {# John Nance Garner
 	picture = "Portrait_USA_John_Nance_Garner.tga"
 	expire = "1965.1.1"
 	ideology = social_conservative_subtype
-	traits = {}
+	traits = { strict_austerity_adherent cactus_jack }
 }
 create_country_leader = {# Huey Long
 	name = "Huey Long"
@@ -248,31 +248,31 @@ create_country_leader = {# Huey Long
 	picture = "gfx/leaders/USA/Portrait_TEX_Huey_Long.tga"
 	expire = "1965.1.1"
 	ideology = authoritarian_democrat_subtype
-	traits = {}
+	traits = { the_kingfish }
 }
 create_country_leader = {# William H. Murray
 	name = "William H. Murray"
 	desc = "POLITICS_WILLIAM_H_MURRAY_DESC"
-	picture = "gfx/leaders/CUS/Portrait_William_H_Murray_2.tga"
+	picture = "gfx/leaders/COR/Portrait_William_H_Murray_2.tga"
 	expire = "1965.1.1"
 	ideology = paternal_autocrat_subtype
-	traits = {}
+	traits = { alfalfa_bill }
 }
 create_country_leader = {# William H. Murray
 	name = "William H. Murray"
 	desc = "POLITICS_WILLIAM_H_MURRAY_DESC"
-	picture = "gfx/leaders/CUS/Portrait_William_H_Murray_2.tga"
+	picture = "gfx/leaders/COR/Portrait_William_H_Murray_2.tga"
 	expire = "1965.1.1"
 	ideology = national_populist_subtype
-	traits = {}
+	traits = { alfalfa_bill }
 }
 
 add_ideas = {
 	### cabinet ###
-	USA_Herbert_Hoover_hog_sli
+	USA_Herbert_Hoover_hog_mli
 	USA_Henry_Lewis_Stimson_for_sli
 	USA_Roy_Dikeman_Chapin_Sr_eco_mli
-	USA_Charles_Evans_Hughes_Sr_sec_sli
+	USA_Charles_Evans_Hughes_Sr_sec_mli
 	# national ideas
 	USA_great_depression
 	USA_political_crisis
@@ -369,7 +369,7 @@ create_corps_commander = {# Clarence Huebner
 create_corps_commander = {# Edward H. Brooks
 	name = "Edward H. Brooks"
 	desc = "USA_EDWARD_BROOKS_ARMY_DESC"
-	portrait_path = "gfx/leaders/USA/Portrait_USA_edward_brooks.dds"
+	portrait_path = "gfx/leaders/USA/Portrait_USA_Edward_Brooks_KR.tga"
 	traits = {
 		trait_engineer
 		trait_reckless
@@ -433,7 +433,7 @@ create_corps_commander = {# Joseph Stilwell
 create_corps_commander = {# Leonard Gerow
 	name = "Leonard Gerow"
 	desc = "USA_LEONARD_GEROW_ARMY_DESC"
-	portrait_path = "gfx/leaders/USA/Portrait_USA_leonard_t_gerow.dds"
+	portrait_path = "gfx/leaders/USA/Portrait_USA_Leonard_Gerow_KR.tga"
 	traits = { armor_officer }
 	skill = 3
 	attack_skill = 3
@@ -441,6 +441,20 @@ create_corps_commander = {# Leonard Gerow
 	planning_skill = 2
 	logistics_skill = 3
 	id = 74
+}
+create_corps_commander = {# John L. Hines
+	name = "John L. Hines"
+#	desc = "TEX_JOHN_HINES_DESC"
+	portrait_path = "gfx/leaders/COR/Portrait_COR_John_Hines.tga"
+	traits = {
+		armor_officer
+	}
+	skill = 3
+	attack_skill = 3
+	defense_skill = 3
+	planning_skill = 2
+	logistics_skill = 2
+	id = 14511
 }
 create_corps_commander = {# Leslie McNair
 	name = "Leslie McNair"
@@ -462,7 +476,7 @@ create_corps_commander = {# Leslie McNair
 create_corps_commander = {# Lloyd Fredendall
 	name = "Lloyd Fredendall"
 	desc = "USA_LLOYD_FREDENDALL_ARMY_DESC"
-	portrait_path = "gfx/leaders/USA/Portrait_USA_lloyd_fredendall.dds"
+	portrait_path = "gfx/leaders/USA/Portrait_USA_Lloyd_Fredendall_KR.tga"
 	traits = {
 		old_guard
 		infantry_officer
@@ -496,7 +510,7 @@ create_corps_commander = {# Lucian Truscott
 create_corps_commander = {# Oscar Griswold
 	name = "Oscar Griswold"
 	desc = "USA_OSCAR_GRISWOLD_ARMY_DESC"
-	portrait_path = "gfx/leaders/USA/Portrait_USA_oscar_griswold.dds"
+	portrait_path = "gfx/leaders/USA/Portrait_USA_oscar_griswold_HOTB.tga"
 	traits = { infantry_officer  }
 	skill = 2
 	attack_skill = 2
@@ -636,7 +650,7 @@ create_corps_commander = {# Edwin F. Harding
 create_corps_commander = {# Smedley Butler
 	name = "Smedley Butler"
 	desc = "USA_SMEDLEY_BUTLER_ARMY_DESC"
-	portrait_path = "gfx/leaders/CSA/Portrait_CSA_smedly_butler_G.tga"
+	portrait_path = "gfx/leaders/USA/Portrait_USA_smedly_butler_G.tga"
 	traits = {
 		offensive_doctrine
 		inspirational_leader
@@ -649,18 +663,18 @@ create_corps_commander = {# Smedley Butler
 	logistics_skill = 4
 	id = 100
 }
-create_corps_commander = {# Herbert Holdridge
-	name = "Herbert Charles Heitke"
-	desc = "USA_HERBERT_HOLDRIDGE_ARMY_DESC"
-	portrait_path = "gfx/leaders/CSA/Portrait_CSA_herbert_holdridge.tga"
-	traits = { trickster }
-	skill = 3
-	attack_skill = 2
-	defense_skill = 2
-	planning_skill = 4
-	logistics_skill = 2
-	id = 102
-}
+#create_corps_commander = {# Herbert Holdridge
+	#name = "Herbert Charles Heitke"
+	#desc = "USA_HERBERT_HOLDRIDGE_ARMY_DESC"
+	#portrait_path = "gfx/leaders/CSA/Portrait_CSA_herbert_holdridge.tga"
+	#traits = { trickster }
+	#skill = 3
+	#attack_skill = 2
+	#defense_skill = 2
+	#planning_skill = 4
+	#logistics_skill = 2
+	#id = 102
+#}
 create_corps_commander = {# George Van Horn Moseley
 	name = "George Van Horn Moseley"
 	desc = "USA_GEORGE_VAN_HORN_MOSELEY_ARMY_DESC"
@@ -679,7 +693,7 @@ create_corps_commander = {# George Van Horn Moseley
 create_corps_commander = {# George S. Patton Jr.
 	name = "George S. Patton"
 	desc = "USA_GEORGE_PATTON_ARMY_DESC"
-	portrait_path = "gfx/leaders/TEX/Portrait_TEX_george_patton.tga"
+	portrait_path = "gfx/leaders/USA/Portrait_USA_George_Patton.tga"
 	traits = {
 		trickster
 		armor_officer
@@ -764,16 +778,6 @@ create_navy_leader = {# Frank Jack Fletcher
 	maneuvering_skill = 2
 	coordination_skill = 3
 }
-create_navy_leader = {# Harold Rainsford Stark
-	name = "Harold Rainsford Stark"
-	portrait_path = "gfx/leaders/USA/Portrait_USA_harold_rainsford_stark.dds"
-	traits = {spotter blockade_runner}
-	skill = 2
-	attack_skill = 2
-	defense_skill = 2
-	maneuvering_skill = 1
-	coordination_skill = 2
-}
 create_navy_leader = {# Raymond A. Spruance
 	name = "Raymond A. Spruance"
 	portrait_path = "gfx/leaders/USA/Portrait_USA_raymond_a_spruance.dds"
@@ -793,6 +797,19 @@ create_navy_leader = {# William D. Leahy
 	defense_skill = 3
 	maneuvering_skill = 3
 	coordination_skill = 4
+}
+create_navy_leader = {# Harold Stassen
+	name = "Harold Stassen"
+	portrait_path = "gfx/leaders/TEX/Portrait_TEX_Harold_Stassen.tga"
+	traits = {
+		safety_first
+		politically_connected
+	}
+	skill = 2
+	attack_skill = 2
+	defense_skill = 2
+	maneuvering_skill = 2
+	coordination_skill = 2
 }
 create_navy_leader = {# Alfred M. Pride
 	name = "Alfred M. Pride"
@@ -823,6 +840,34 @@ create_navy_leader = {# Willis Augustus Lee
 	defense_skill = 2
 	maneuvering_skill = 1
 	coordination_skill = 2
+}
+
+### Operatives ###
+if = {
+	limit = { has_dlc = "La Resistance" }
+	create_operative_leader = {
+		name = "William J. Donovan"
+		GFX = GFX_portrait_william_donovan
+		traits = {
+			operative_natural_orator
+			operative_tough
+		}
+		bypass_recruitment = no
+		available_to_spy_master = yes
+		nationalities = { CSA COR USA TEX CAL NEE WCC }
+	}
+	create_operative_leader = {
+		name = "Sterling Hayden"
+		GFX = GFX_portrait_HOTB_sterling_hayden
+		traits = {
+			operative_infiltrator
+			operative_tough
+			operative_well_groomed
+		}
+		bypass_recruitment = no
+		available_to_spy_master = yes
+		nationalities = { CSA COR USA TEX CAL NEE WCC }
+	}
 }
 
 USA_start_naval_variant = yes

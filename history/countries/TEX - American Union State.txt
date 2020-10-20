@@ -106,7 +106,7 @@ create_country_leader = {
 	picture = "Portrait_TEX_Huey_Long.tga"
 	expire = "1965.1.1"
 	ideology = authoritarian_democrat_subtype
-	traits = {}
+	traits = { the_kingfish }
 }
 create_country_leader = {
 	name = "William Dudley Pelley"
@@ -114,7 +114,7 @@ create_country_leader = {
 	picture = "Portrait_TEX_William_Dudley_Pelley.tga"
 	expire = "1965.1.1"
 	ideology = social_conservative_subtype
-	traits = {}
+	traits = { authoritarian_tendencies }
 }
 create_country_leader = {
 	name = "E. W. Marland"
@@ -122,23 +122,23 @@ create_country_leader = {
 	picture = "gfx/leaders/TEX/TEX_E_W_Marland.tga"
 	expire = "1965.1.1"
 	ideology = market_liberal_subtype
-	traits = {}
+	traits = { economic_reformer }
 }
 create_country_leader = {
-	name = "Philip La Follette"
-	desc = "POLITICS_Philip_La_Follette"
+	name = "Philip Fox La Follette."
+	desc = "POLITICS_PHILIP_FOLLETTE_DESC"
 	picture = "gfx/leaders/TEX/Portrait_USA_Philip_La_Follette.tga"
 	expire = "1965.1.1"
 	ideology = social_liberal_subtype
-	traits = {}
+	traits = { spirit_of_fighting_bob }
 }
 create_country_leader = {
 	name = "Tom Pendergast"
 	desc = "POLITICS_TOM_PENDERGAST_DESC"
-	picture = "Portrait_TEX_Huey_Long.tga"
+	picture = "Portrait_Tom_Pendergast.tga"
 	expire = "1965.1.1"
 	ideology = paternal_autocrat_subtype
-	traits = {}
+	traits = { political_boss }
 }
 
 add_ideas = {
@@ -189,7 +189,7 @@ create_corps_commander = {# Joseph "Lightning Joe" Lawton Collins
 	portrait_path = "gfx/leaders/TEX/Portrait_TEX_Joseph_Collins.tga"
 	traits = {
 		artillery_officer
-		artillery_specialistr
+		artillery_specialist
 	}
 	skill = 3
 	attack_skill = 3
@@ -201,7 +201,7 @@ create_corps_commander = {# Joseph "Lightning Joe" Lawton Collins
 create_corps_commander = {# Courtney Hodges
 	name = "Courtney Hicks Hodges"
 	desc = "TEX_COURTNEY_HODGES_ARMY_DESC"
-	portrait_path = "gfx/leaders/USA/Portrait_USA_Cortney_Hodges.dds"
+	portrait_path = "gfx/leaders/TEX/Portrait_TEX_Courtney_Hicks_Hodges.tga"
 	traits = {
 		panzer_leader
 		career_officer
@@ -226,6 +226,20 @@ create_corps_commander = {# William Hood Simpson
 	planning_skill = 2
 	logistics_skill = 2
 	id = 969
+}
+create_corps_commander = {# Earl C. Long
+	name = "Earl C. Long"
+	desc = "TEX_EARL_C_LONG_DESC"
+	portrait_path = "gfx/leaders/TEX/Portrait_Earl_C_Long.tga"
+	traits = { 
+		naval_invader
+	}
+	skill = 3
+
+	attack_skill = 3
+	defense_skill = 2
+	planning_skill = 3
+	logistics_skill = 3
 }
 create_corps_commander = {# Claire Lee Chennault
 	name = "Claire Lee Chennault"
@@ -257,6 +271,37 @@ create_corps_commander = {# Walton Walker
 	planning_skill = 2
 	logistics_skill = 2
 	id = 945
+}
+create_corps_commander = {# Maxwell D. Taylor
+	name = "Maxwell D. Taylor"
+	desc = "TEX_MAXWELL_TAYLOR_ARMY_DESC"
+	portrait_path = "gfx/leaders/TEX/Portrait_TEX_maxwell_d_taylor.tga"
+	traits = {
+		paratrooper
+		career_officer
+		commando
+	}
+	skill = 1
+	attack_skill = 1
+	defense_skill = 1
+	planning_skill = 2
+	logistics_skill = 2
+	id = 947
+}
+create_corps_commander = {# Bibb Graves
+	name = "Bibb Graves"
+	desc = "TEX_BIBB_GRAVES_ARMY_DESC"
+	portrait_path = "gfx/leaders/TEX/Portrait_TEX_Bibb_Graves.tga"
+	traits = {
+		old_guard
+		politically_connected
+	}
+	skill = 1
+	attack_skill = 2
+	defense_skill = 1
+	planning_skill = 1
+	logistics_skill = 1
+	id = 9471
 }
 create_corps_commander = {# Matthew Ridgway
 	name = "Matthew Ridgway"
@@ -349,6 +394,31 @@ create_corps_commander = {# Pedro del Valle
 	logistics_skill = 2
 	id = 939
 }
+create_corps_commander = {# Demas Thurlow Craw
+	name = "Demas T. Craw"
+	portrait_path = "gfx/leaders/TEX/Portrait_TEX_Thurlow_Craw.tga"
+	traits = { trickster }
+	skill = 2
+	attack_skill = 1
+	defense_skill = 2
+	planning_skill = 2
+	logistics_skill = 2
+}
+create_corps_commander = {# Fox Conner
+	name = "Fox Conner"
+	desc = "USA_FOX_CONNER_ARMY_DESC"
+	portrait_path = "gfx/leaders/TEX/Portrait_TEX_Fox_Conner.tga"
+	traits = {
+		old_guard
+		politically_connected
+	}
+	skill = 3
+	attack_skill = 3
+	defense_skill = 2
+	planning_skill = 3
+	logistics_skill = 2
+	id = 988
+}
 ### Navy Leader
 create_navy_leader = {# Samuel Murray Robinson
 	name = "Samuel Murray Robinson"
@@ -389,6 +459,21 @@ create_navy_leader = {# Arthur L. Bristol
 	defense_skill = 2
 	maneuvering_skill = 2
 	coordination_skill = 2
+}
+create_navy_leader = { #Auto-Generated
+	name = "Lyndon Baines Johnson"
+	portrait_path = "gfx/leaders/TEX/Portrait_TEX_LBJ_navy.tga"
+	traits = {
+		politically_connected
+		navy_media_personality
+		air_controller
+	}
+	skill = 1
+	attack_skill = 1
+	defense_skill = 2
+	maneuvering_skill = 1
+	coordination_skill = 1
+	id = 89998
 }
 
 USA_start_naval_variant = yes

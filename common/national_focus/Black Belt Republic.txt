@@ -18,8 +18,12 @@ focus_tree = {
 		icon = GFX_BBR_ABB
 		available = {
 			has_government = totalist
+			has_country_leader = { ruling_only = yes name = "Duse Muhammad" }
 		}
-		cost = 2.00
+		bypass = {
+			has_country_flag = BBR_abb_in_charge
+		}
+		cost = 1.00
 		x = 2
 		y = 0
 		ai_will_do = {
@@ -28,6 +32,12 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus BBR_abb"
 			custom_effect_tooltip = unlock_focuses
+			hidden_effect = {
+			country_event = {
+				id = bbr.8000
+				days = 2
+				}
+			}
 			add_popularity = { ideology = totalist popularity = 0.03 }
 		}
 	}
@@ -49,6 +59,12 @@ focus_tree = {
 			add_ideas = BBR_the_crusaders_idea
 			add_political_power = 45
 			add_popularity = { ideology = totalist popularity = 0.05 }
+			hidden_effect = {
+			country_event = {
+				id = bbr.8005
+				days = 20
+				}
+			}
 		}
 	}
 	focus = {# Racial Expropriation
@@ -57,6 +73,14 @@ focus_tree = {
 		cost = 6.00
 		prerequisite = {
 			focus = BBR_the_crusaders
+		}
+		select_effect = {
+		hidden_effect = {
+			country_event = {
+				id = bbr.8000
+				days = 12
+				}
+			}
 		}
 		relative_position_id = BBR_abb
 		x = -1
@@ -69,6 +93,7 @@ focus_tree = {
 			add_popularity = { ideology = totalist popularity = 0.03 }
 			add_political_power = 75
 			add_stability = -0.05
+			add_manpower = -6100
 			random_owned_state = {
 				limit = {
 					is_core_of = BBR
@@ -135,6 +160,12 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus BBR_children_of_the_sun"
 			add_ideas = BBR_children_of_the_sun_idea
 			add_popularity = { ideology = totalist popularity = 0.1 }
+			hidden_effect = {
+			country_event = {
+				id = bbr.8006
+				days = 60
+				}
+			}
 		}
 	}
 	focus = {# Pharoism
@@ -156,6 +187,13 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus BBR_the_black_pharoah"
 			add_ideas = BBR_the_black_pharoah_idea
+			hidden_effect = {
+			country_event = {
+				id = bbr.8002
+				days = 1
+				}
+			}
+			set_cosmetic_tag = BBR_totalist_pharaonist
 			add_political_power = 100
 			add_stability = 0.05
 			add_war_support = 0.05
@@ -304,6 +342,14 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus BBR_internationale_collaboration"
 			add_popularity = { ideology = totalist popularity = 0.03 }
+			FRA = {
+			add_opinion_modifier = { target = BBR modifier = medium_increase }
+			add_equipment_to_stockpile = {
+			type = infantry_equipment_1
+			amount = 75
+			producer = BBR
+				}
+			}
 		}
 	}
 	focus = {# State Farms
@@ -422,6 +468,14 @@ focus_tree = {
 		ai_will_do = {
 			factor = 50
 		}
+		select_effect = {
+		hidden_effect = {
+			country_event = {
+				id = bbr.8004
+				days = 10
+				}
+			}
+		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus BBR_black_nobility"
 			swap_ideas = {
@@ -445,7 +499,7 @@ focus_tree = {
 	focus = {# Claim the Ancient World
 		id = BBR_claim_greece
 		icon = GFX_BBR_reclaim_ancient_world
-		cost = 6.00
+		cost = 3.00
 		prerequisite = {
 			focus = BBR_black_nobility
 		}
@@ -460,6 +514,12 @@ focus_tree = {
 			swap_ideas = {
 			remove_idea = BBR_the_black_pharoah_idea_2
 			add_idea = BBR_the_black_pharoah_idea_3
+			}
+			hidden_effect = {
+			country_event = {
+				id = bbr.8003
+				days = 3
+				}
 			}
 			add_popularity = { ideology = totalist popularity = 0.05 }
 			add_political_power = 50
@@ -478,9 +538,12 @@ focus_tree = {
 	focus = {# Vanguard
 		id = BBR_the_vanguard
 		icon = GFX_BBR_socialist_vanguard
-		cost = 6.00
+		cost = 1.00
 		available = {
 			has_government = totalist
+			NOT = {
+			has_country_leader = { ruling_only = yes name = "Duse Muhammad" }
+			}
 		}
 		x = 13
 		y = 0
@@ -605,6 +668,14 @@ focus_tree = {
 		ai_will_do = {
 			factor = 50
 		}
+		select_effect = {
+		hidden_effect = {
+			country_event = {
+				id = bbr.33
+				days = 25
+				}
+			}
+		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus BBR_rapid_nationalization"
 			add_political_power = 55
@@ -685,6 +756,9 @@ focus_tree = {
 		id = BBR_black_communist_league
 		icon = GFX_BBR_new_communist_league
 		cost = 6.00
+		available = {
+		has_country_leader = { ruling_only = yes name = "Ben J. Davis" }
+		}
 		prerequisite = {
 			focus = BBR_rapid_nationalization
 		}
@@ -814,6 +888,14 @@ focus_tree = {
 		prerequisite = {
 			focus = BBR_black_communist_league
 		}
+		select_effect = {
+		hidden_effect = {
+			country_event = {
+				id = bbr.27
+				days = 15
+				}
+			}
+		}
 		relative_position_id = BBR_the_vanguard
 		x = -3
 		y = 3
@@ -833,6 +915,20 @@ focus_tree = {
 		cost = 6.00
 		prerequisite = {
 			focus = BBR_the_southern_upsurge
+		}
+		select_effect = {
+		hidden_effect = {
+			country_event = {
+				id = bbr.32
+				days = 17
+				}
+			}
+		hidden_effect = {
+			country_event = {
+			id = bbr.37
+			days = 40
+				}
+			}
 		}
 		relative_position_id = BBR_the_vanguard
 		x = -3
@@ -956,7 +1052,10 @@ focus_tree = {
 	focus = {# Harry Haywood
 		id = BBR_black_trade_unity_league
 		icon = GFX_BBR_trade_union_unity_league
-		cost = 6.00
+		cost = 4.00
+		available = {
+		has_country_leader = { ruling_only = yes name = "Harry Haywood" }
+		}
 		prerequisite = {
 			focus = BBR_rapid_nationalization
 		}
@@ -991,6 +1090,12 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus BBR_hammer_and_hoe"
 			add_ideas = BBR_haywood_economics
+			hidden_effect = {
+			country_event = {
+				id = bbr.29
+				days = 15
+				}
+			}
 			random_owned_controlled_state = {
 				limit = { has_resources_amount = { resource = steel amount > 1 } }
 				add_resource = {
@@ -1117,6 +1222,14 @@ focus_tree = {
 			focus = BBR_hammer_and_hoe
 		}
 		relative_position_id = BBR_the_vanguard
+		select_effect = {
+		hidden_effect = {
+			country_event = {
+			id = bbr.38
+			days = 40
+				}
+			}
+		}
 		x = -1
 		y = 5
 		ai_will_do = {
@@ -1166,7 +1279,10 @@ focus_tree = {
 	focus = {# James W. Ford
 		id = BBR_sp_centralists
 		icon = GFX_BBR_centralists
-		cost = 6.00
+		cost = 5.00
+		available = {
+		has_country_leader = { ruling_only = yes name = "James W. Ford" }
+		}
 		prerequisite = {
 			focus = BBR_rapid_nationalization
 		}
@@ -1380,6 +1496,14 @@ focus_tree = {
 		ai_will_do = {
 			factor = 50
 		}
+		select_effect = {
+		hidden_effect = {
+			country_event = {
+			id = bbr.35
+			days = 34
+				}
+			}
+		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus BBR_unite_the_left"
 			add_popularity = { ideology = totalist popularity = 0.1 }
@@ -1447,6 +1571,12 @@ focus_tree = {
 			add_popularity = { ideology = market_liberal popularity = -0.05 }
 			add_popularity = { ideology = social_conservative popularity = -0.05 }
 			add_popularity = { ideology = paternal_autocrat popularity = -0.1 }
+			hidden_effect = {
+			country_event = {
+			id = bbr.34
+			days = 1
+				}
+			}
 		}
 	}
 	focus = {# Government Plants
@@ -1512,7 +1642,7 @@ focus_tree = {
 		available = {
 			has_government = syndicalist
 		}
-		cost = 6.00
+		cost = 1.00
 		x = 24
 		y = 0
 		ai_will_do = {
@@ -1576,6 +1706,14 @@ focus_tree = {
 		y = 2
 		ai_will_do = {
 			factor = 50
+		}
+		select_effect = {
+		hidden_effect = {
+			country_event = {
+			id = bbr.36
+			days = 40
+				}
+			}
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus BBR_overthrow_of_capital"
@@ -1767,7 +1905,22 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus BBR_the_internationale_struggle"
 			add_popularity = { ideology = syndicalist popularity = 0.03 }
+			add_war_support = 0.05
 			add_ideas = BBR_internationale_aid
+			FRA = {
+			add_opinion_modifier = { target = BBR modifier = large_increase }
+			add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 300
+			producer = BBR
+				}
+			}
+			hidden_effect = {
+			country_event = {
+				id = bbr.25
+				days = 15
+				}
+			}
 		}
 	}
 	focus = {# Syndicalist Media
@@ -1839,6 +1992,14 @@ focus_tree = {
 		cost = 6.00
 		prerequisite = {
 			focus = BBR_workers_coupons
+		}
+		select_effect = {
+		hidden_effect = {
+			country_event = {
+				id = bbr.26
+				days = 20
+				}
+			}
 		}
 		relative_position_id = BBR_iwu
 		x = 1
@@ -2016,8 +2177,9 @@ focus_tree = {
 		icon = GFX_BBR_socialist_party
 		available = {
 			has_government = radical_socialist
+			has_country_flag = BBR_rad_socs_win
 		}
-		cost = 6.00
+		cost = 1.00
 		x = 32
 		y = 0
 		ai_will_do = {
@@ -2034,6 +2196,9 @@ focus_tree = {
 		cost = 6.00
 		prerequisite = {
 			focus = BBR_socialist_party
+		}
+		available = {
+			has_government = radical_socialist
 		}
 		relative_position_id = BBR_socialist_party
 		x = -1
@@ -2087,6 +2252,9 @@ focus_tree = {
 		cost = 6.00
 		prerequisite = {
 			focus = BBR_socialist_party
+		}
+		available = {
+			has_government = radical_socialist
 		}
 		relative_position_id = BBR_socialist_party
 		x = 1
@@ -2155,12 +2323,15 @@ focus_tree = {
 	focus = {# Solidarity Economics
 		id = BBR_solidarity_economics
 		icon = GFX_BBR_solidarity_economics
-		cost = 6.00
+		cost = 5.50
 		prerequisite = {
 			focus = BBR_national_resources
 		}
 		prerequisite = {
 			focus = BBR_capital_buyout
+		}
+		available = {
+			has_government = radical_socialist
 		}
 		relative_position_id = BBR_socialist_party
 		x = 0
@@ -2194,6 +2365,9 @@ focus_tree = {
 		cost = 6.00
 		prerequisite = {
 			focus = BBR_solidarity_economics
+		}
+		available = {
+			has_government = radical_socialist
 		}
 		relative_position_id = BBR_socialist_party
 		x = 0
@@ -2240,6 +2414,9 @@ focus_tree = {
 		cost = 6.00
 		prerequisite = {
 			focus = BBR_coop_leagues
+		}
+		available = {
+			has_government = radical_socialist
 		}
 		relative_position_id = BBR_socialist_party
 		x = 0
@@ -2329,6 +2506,9 @@ focus_tree = {
 		prerequisite = {
 			focus = BBR_solidarity_economics
 		}
+		available = {
+			has_government = radical_socialist
+		}
 		relative_position_id = BBR_socialist_party
 		x = -2
 		y = 3
@@ -2368,9 +2548,12 @@ focus_tree = {
 	focus = {# Romanticism
 		id = BBR_preserve_the_land
 		icon = GFX_BBR_land_preservation
-		cost = 6.00
+		cost = 4.50
 		prerequisite = {
 			focus = BBR_land_redistribution
+		}
+		available = {
+			has_government = radical_socialist
 		}
 		relative_position_id = BBR_socialist_party
 		x = -2
@@ -2426,9 +2609,12 @@ focus_tree = {
 	focus = {# African American Identity
 		id = BBR_african_american_identity
 		icon = GFX_BBR_american_identity
-		cost = 6.00
+		cost = 5.00
 		prerequisite = {
 			focus = BBR_solidarity_economics
+		}
+		available = {
+			has_government = radical_socialist
 		}
 		relative_position_id = BBR_socialist_party
 		x = 2
@@ -2447,9 +2633,12 @@ focus_tree = {
 	focus = {# The Talented Tenth
 		id = BBR_the_talented_tenth
 		icon = GFX_BBR_talented_tenth
-		cost = 6.00
+		cost = 5.00
 		prerequisite = {
 			focus = BBR_african_american_identity
+		}
+		available = {
+			has_government = radical_socialist
 		}
 		relative_position_id = BBR_socialist_party
 		x = 2
@@ -2467,9 +2656,12 @@ focus_tree = {
 	focus = {# Promote Freethought
 		id = BBR_freethought_societies
 		icon = GFX_BBR_lodges
-		cost = 6.00
+		cost = 5.00
 		prerequisite = {
 			focus = BBR_the_talented_tenth
+		}
+		available = {
+			has_government = radical_socialist
 		}
 		relative_position_id = BBR_socialist_party
 		x = 3
@@ -2487,9 +2679,12 @@ focus_tree = {
 	focus = {# Center for the Arts
 		id = BBR_center_for_the_arts
 		icon = GFX_BBR_art_centers
-		cost = 6.00
+		cost = 5.00
 		prerequisite = {
 			focus = BBR_the_talented_tenth
+		}
+		available = {
+			has_government = radical_socialist
 		}
 		relative_position_id = BBR_socialist_party
 		x = 1
@@ -2507,9 +2702,12 @@ focus_tree = {
 	focus = {# Insurance Societies
 		id = BBR_insurance_societies
 		icon = GFX_BBR_insurance_societies
-		cost = 6.00
+		cost = 5.00
 		prerequisite = {
 			focus = BBR_freethought_societies
+		}
+		available = {
+			has_government = radical_socialist
 		}
 		relative_position_id = BBR_socialist_party
 		x = 3
@@ -2529,9 +2727,12 @@ focus_tree = {
 	focus = {# Old Folks Homes
 		id = BBR_old_folks_home
 		icon = GFX_BBR_young_and_old
-		cost = 6.00
+		cost = 5.50
 		prerequisite = {
 			focus = BBR_the_group_economy
+		}
+		available = {
+			has_government = radical_socialist
 		}
 		relative_position_id = BBR_socialist_party
 		x = 0
@@ -2556,6 +2757,9 @@ focus_tree = {
 		prerequisite = {
 			focus = BBR_preserve_the_land
 		}
+		available = {
+			has_government = radical_socialist
+		}
 		relative_position_id = BBR_socialist_party
 		x = -1
 		y = 5
@@ -2574,9 +2778,12 @@ focus_tree = {
 	focus = {# Birth Control
 		id = BBR_birth_control
 		icon = GFX_CAL_pivot_of_civilization
-		cost = 6.00
+		cost = 5.00
 		prerequisite = {
 			focus = BBR_preserve_the_land
+		}
+		available = {
+			has_government = radical_socialist
 		}
 		relative_position_id = BBR_socialist_party
 		x = -3
@@ -2597,6 +2804,9 @@ focus_tree = {
 		cost = 6.00
 		prerequisite = {
 			focus = BBR_birth_control
+		}
+		available = {
+			has_government = radical_socialist
 		}
 		relative_position_id = BBR_socialist_party
 		x = -3
@@ -2676,6 +2886,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus BBR_american_party"
+			add_popularity = { ideology =authoritarian_democrat popularity = 0.02 }
 		}
 	}
 	focus = {# Work with Socialists
@@ -2684,6 +2895,9 @@ focus_tree = {
 		cost = 6.00
 		prerequisite = {
 			focus = BBR_american_party
+		}
+		available = {
+			has_government = authoritarian_democrat
 		}
 		relative_position_id = BBR_american_party
 		x = -2
@@ -2719,6 +2933,9 @@ focus_tree = {
 		cost = 6.00
 		prerequisite = {
 			focus = BBR_approach_local_socialists
+		}
+		available = {
+			has_government = authoritarian_democrat
 		}
 		relative_position_id = BBR_american_party
 		x = -2
@@ -2756,6 +2973,9 @@ focus_tree = {
 		prerequisite = {
 			focus = BBR_approach_the_afp
 		}
+		available = {
+			has_government = authoritarian_democrat
+		}
 		relative_position_id = BBR_american_party
 		x = -2
 		y = 3
@@ -2780,6 +3000,29 @@ focus_tree = {
 		prerequisite = {
 			focus = BBR_crush_race_separatists
 		}
+		available = {
+			has_government = authoritarian_democrat
+		}
+		select_effect = {
+		hidden_effect = {
+		country_event = {
+			id = bbr.41
+			days = 20
+			}
+		}
+		hidden_effect = {
+		country_event = {
+			id = bbr.42
+			days = 28
+			}
+		}
+		hidden_effect = {
+		country_event = {
+			id = bbr.45
+			days = 40
+			}
+		}
+		}
 		relative_position_id = BBR_american_party
 		x = -3
 		y = 4
@@ -2803,6 +3046,9 @@ focus_tree = {
 		prerequisite = {
 			focus = BBR_american_party
 		}
+		available = {
+			has_government = authoritarian_democrat
+		}
 		relative_position_id = BBR_american_party
 		x = 0
 		y = 1
@@ -2823,6 +3069,9 @@ focus_tree = {
 		cost = 6.00
 		prerequisite = {
 			focus = BBR_american_recruitment_effort
+		}
+		available = {
+			has_government = authoritarian_democrat
 		}
 		relative_position_id = BBR_american_party
 		x = 0
@@ -2849,6 +3098,9 @@ focus_tree = {
 		prerequisite = {
 			focus = BBR_integration_through_service
 		}
+		available = {
+			has_government = authoritarian_democrat
+		}
 		relative_position_id = BBR_american_party
 		x = 0
 		y = 3
@@ -2857,6 +3109,12 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus BBR_american_traditions"
+			hidden_effect = {
+			country_event = {
+			id = bbr.48
+			days = 10
+			}
+		}
 			add_war_support = 0.1
 			add_political_power = 50
 			add_manpower = 1200
@@ -2870,6 +3128,9 @@ focus_tree = {
 		cost = 6.00
 		prerequisite = {
 			focus = BBR_american_party
+		}
+		available = {
+			has_government = authoritarian_democrat
 		}
 		relative_position_id = BBR_american_party
 		x = 2
@@ -2913,6 +3174,9 @@ focus_tree = {
 		cost = 6.00
 		prerequisite = {
 			focus = BBR_fair_play
+		}
+		available = {
+			has_government = authoritarian_democrat
 		}
 		relative_position_id = BBR_american_party
 		x = 2
@@ -2968,6 +3232,9 @@ focus_tree = {
 		cost = 6.00
 		prerequisite = {
 			focus = BBR_paternal_economics
+		}
+		available = {
+			has_government = authoritarian_democrat
 		}
 		relative_position_id = BBR_american_party
 		x = 2
@@ -3029,6 +3296,9 @@ focus_tree = {
 		prerequisite = {
 			focus = BBR_american_traditions
 		}
+		available = {
+			has_government = authoritarian_democrat
+		}
 		relative_position_id = BBR_american_party
 		x = -1
 		y = 4
@@ -3058,6 +3328,9 @@ focus_tree = {
 		prerequisite = {
 			focus = BBR_american_traditions
 		}
+		available = {
+			has_government = authoritarian_democrat
+		}
 		relative_position_id = BBR_american_party
 		x = 1
 		y = 4
@@ -3072,6 +3345,12 @@ focus_tree = {
 			}
 			add_popularity = { ideology = authoritarian_democrat popularity = 0.08 }
 			add_stability = 0.05
+			hidden_effect = {
+			country_event = {
+			id = bbr.5100
+			days = 65
+				}
+			}
 		}
 	}
 	focus = {# National Projects
@@ -3080,6 +3359,9 @@ focus_tree = {
 		cost = 6.00
 		prerequisite = {
 			focus = BBR_new_infrastructure
+		}
+		available = {
+			has_government = authoritarian_democrat
 		}
 		relative_position_id = BBR_american_party
 		x = 3
@@ -3153,6 +3435,9 @@ focus_tree = {
 		prerequisite = {
 			focus = BBR_full_honors_act
 		}
+		available = {
+			has_government = authoritarian_democrat
+		}
 		relative_position_id = BBR_american_party
 		x = 0
 		y = 5
@@ -3171,6 +3456,9 @@ focus_tree = {
 		cost = 6.00
 		prerequisite = {
 			focus = BBR_democratize_congress
+		}
+		mutually_exclusive = {
+		focus = BBR_captain_at_the_helm
 		}
 		relative_position_id = BBR_american_party
 		x = -1
@@ -3191,6 +3479,9 @@ focus_tree = {
 		cost = 6.00
 		prerequisite = {
 			focus = BBR_democratize_congress
+		}
+		mutually_exclusive = {
+		focus = BBR_washingtonianism
 		}
 		relative_position_id = BBR_american_party
 		x = 1
@@ -3221,17 +3512,21 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus BBR_ally_long"
+			TEX = {
+			add_opinion_modifier = { target = BBR modifier = medium_increase }
+			}
 		}
 	}
 	focus = {# Farm Coops
 		id = BBR_farm_coops
 		icon = GFX_goal_agricultural_aid
-		cost = 6.00
+		cost = 5.00
 		prerequisite = {
 			focus = BBR_socialist_party
 			focus = BBR_socialist_party_moderate
 		}
-		x = -4
+		relative_position_id = BBR_socialist_party
+		x = 4
 		y = 1
 		ai_will_do = {
 			factor = 50
@@ -3263,7 +3558,7 @@ focus_tree = {
 		available = {
 			has_government = social_democrat
 		}
-		cost = 6.00
+		cost = 1.00
 		x = 40
 		y = 0
 		ai_will_do = {
@@ -3353,6 +3648,12 @@ focus_tree = {
 					type = industrial_complex
 					level = 1
 					instant_build = yes
+				}
+			}
+			hidden_effect = {
+			country_event = {
+				id = bbr.51
+				days = 3
 				}
 			}
 		}
@@ -3535,6 +3836,12 @@ focus_tree = {
 					type = industrial_complex
 					level = 1
 					instant_build = yes
+				}
+			}
+			hidden_effect = {
+			country_event = {
+			id = bbr.5100
+			days = 55
 				}
 			}
 		}
@@ -3938,6 +4245,12 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus BBR_entente_trade"
 			add_ideas = BBR_entente_trade_idea
+			hidden_effect = {
+				country_event = {
+					id = bbr.2300
+					days = 120
+				}
+			}
 		}
 	}
 	focus = {# Accumulation of Wealth
@@ -4037,6 +4350,12 @@ focus_tree = {
 					type = industrial_complex
 					level = 1
 					instant_build = yes
+				}
+			}
+			hidden_effect = {
+			country_event = {
+			id = bbr.5100
+			days = 80
 				}
 			}
 		}
@@ -4320,6 +4639,12 @@ focus_tree = {
 			add_popularity = { ideology = syndicalist popularity = -0.03 }
 			add_popularity = { ideology = paternal_autocrat popularity = -0.03 }
 			add_popularity = { ideology = national_populist popularity = -0.03 }
+			hidden_effect = {
+			country_event = {
+				id = bbr.5500
+				days = 15
+				}
+			}
 			add_equipment_to_stockpile = {
 			type = infantry_equipment_1
 			amount = 120
@@ -4410,6 +4735,12 @@ focus_tree = {
 			add_popularity = { ideology = syndicalist popularity = -0.04 }
 			add_popularity = { ideology = social_liberal popularity = 0.05 }
 			add_stability = 0.05
+			hidden_effect = {
+			country_event = {
+			id = bbr.5100
+			days = 100
+				}
+			}
 		}
 	}
 	focus = {# Attack Idleness
@@ -4818,6 +5149,12 @@ focus_tree = {
 			remove_idea = BBR_economic_independence_idea
 			add_idea = BBR_economic_independence_idea_2
 			}
+			hidden_effect = {
+			country_event = {
+			id = bbr.5100
+			days = 200
+				}
+			}
 		}
 	}
 	focus = {# Anti-Corruption
@@ -4862,6 +5199,12 @@ focus_tree = {
 			add_war_support = -0.1
 			add_stability = 0.05
 			add_popularity = { ideology = social_conservative popularity = 0.03 }
+			hidden_effect = {
+			country_event = {
+			id = bbr.52
+			days = 45
+				}
+			}
 		}
 	}
 	focus = {# MegaChurches
@@ -5039,6 +5382,20 @@ focus_tree = {
 		prerequisite = {
 			focus = BBR_rights_of_the_negro
 		}
+		select_effect = {
+		hidden_effect = {
+			country_event = {
+				id = bbr.1205
+				days = 25
+				}
+			}
+		hidden_effect = {
+			country_event = {
+				id = bbr.1206
+				days = 36
+				}
+			}
+		}
 		relative_position_id = BBR_unia
 		x = 0
 		y = 2
@@ -5072,6 +5429,12 @@ focus_tree = {
 			add_manpower = 400
 			add_popularity = { ideology = paternal_autocrat popularity = 0.05 }
 			add_political_power = 40
+			hidden_effect = {
+			country_event = {
+				id = bbr.1207
+				days = 30
+				}
+			}
 		}
 	}
 	focus = {# Black Cross Nurses
@@ -5104,7 +5467,7 @@ focus_tree = {
 	focus = {# Liberia Connections
 		id = BBR_liberian_connections
 		icon = GFX_BBR_liberian_connection
-		cost = 6.00
+		cost = 5.00
 		prerequisite = {
 			focus = BBR_black_cross_nurses
 		}
@@ -5116,8 +5479,17 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus BBR_liberian_connections"
-			add_popularity = { ideology = paternal_autocrat popularity = 0.05 }
+			LIB = {
+			add_popularity = { ideology = paternal_autocrat popularity = 0.03 }
+			add_opinion_modifier = { target = BBR modifier = small_increase }
+			}
 			add_political_power = 30
+			LIB = {
+			country_event = {
+			id = bbr.1200
+			days = 1
+				}
+			}
 		}
 	}
 	focus = {# Black Star Steamship Line
@@ -5325,6 +5697,12 @@ focus_tree = {
 			add_political_power = 100
 			add_popularity = { ideology = paternal_autocrat popularity = 0.2 }
 			add_command_power = 25
+			hidden_effect = {
+			country_event = {
+				id = bbr.1204
+				days = 6
+				}
+			}
 		}
 	}
 	focus = {# Nation of Islam
@@ -5398,6 +5776,18 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus BBR_law_of_allah"
+			hidden_effect = {
+			country_event = {
+				id = bbr.1210
+				days = 160
+				}
+			}
+			hidden_effect = {
+			country_event = {
+				id = bbr.1215
+				days = 75
+				}
+			}
 			add_popularity = { ideology = totalist popularity = -0.05 }
 			add_popularity = { ideology = syndicalist popularity = -0.05 }
 			add_popularity = { ideology = radical_socialist popularity = -0.05 }
@@ -5410,6 +5800,7 @@ focus_tree = {
 			add_stability = 0.05
 		}
 	}
+	
 	focus = {# Crush Whites
 		id = BBR_crush_the_white_devil
 		icon = GFX_BBR_no_whites
@@ -5491,6 +5882,14 @@ focus_tree = {
 		prerequisite = {
 			focus = BBR_law_of_allah
 		}
+		select_effect = {
+		hidden_effect = {
+			country_event = {
+				id = bbr.1212
+				days = 20
+				}
+			}
+		}
 		relative_position_id = BBR_nation_of_islam
 		x = -3
 		y = 3
@@ -5536,19 +5935,12 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus BBR_national_savings_plan"
-			add_stability = 0.05
-			add_political_power = 35
-			random_owned_state = {
-				limit = {
-					is_core_of = BBR
-					is_controlled_by = BBR
-					industrial_complex > 0
-				}
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
+			add_stability = -0.03
+			add_political_power = -20
+			hidden_effect = {
+			country_event = {
+				id = bbr.1214
+				days = 1095
 				}
 			}
 			random_owned_state = {
@@ -5561,19 +5953,6 @@ focus_tree = {
 				add_building_construction = {
 					type = industrial_complex
 					level = 1
-					instant_build = yes
-				}
-			}
-			random_owned_state = {
-				limit = {
-					is_core_of = BBR
-					is_controlled_by = BBR
-					industrial_complex > 0
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 2
 					instant_build = yes
 				}
 			}
@@ -5742,6 +6121,12 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus BBR_the_prophet"
 			add_ideas = BBR_the_prophet_idea
+			hidden_effect = {
+			country_event = {
+				id = bbr.1211
+				days = 5
+				}
+			}
 			add_political_power = 125
 			add_war_support = 0.05
 			add_popularity = { ideology = national_populist popularity = 0.05 }
@@ -5762,6 +6147,10 @@ focus_tree = {
 		has_government = paternal_autocrat
 			}
 		}
+		mutually_exclusive = {
+		focus = BBR_american_identity
+		focus = BBR_spreading_the_revolution
+		}
 		ai_will_do = {
 			factor = 20
 		}
@@ -5769,6 +6158,27 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus BBR_pan_afrikan_identity"
 			add_threat = 5
 			add_war_support = 0.1
+			if = {
+			limit = { 
+			BBR = {
+			OR = {
+			has_government = totalist
+			has_government = paternal_autocrat
+				}
+				}
+			}
+			annex_country = {
+			target = LIB
+			transfer_troops = yes
+				}
+			}
+			}
+			else_if = {
+			limit = { 
+			BBR = {
+			has_government = national_populist
+				}
+			}
 			create_wargoal = {
 				type = annex_everything
 				target = LIB
@@ -5846,12 +6256,6 @@ focus_tree = {
 		y = 2
 		ai_will_do = {
 			factor = 50
-		}
-		select_effect = {
-		add_timed_idea = {
-			idea = BBR_haitian_integration
-			days = 61
-			}
 		}
 		completion_reward = {
 		log = "[GetDateText]: [Root.GetName]: Focus BBR_take_haiti"
@@ -6042,6 +6446,18 @@ focus_tree = {
 	focus = {# The Revolution Spreads
 		id = BBR_spreading_the_revolution
 		icon = GFX_BBR_hub_of_revolution
+		mutually_exclusive = {
+		focus = BBR_american_identity
+		focus = BBR_pan_afrikan_identity
+		}
+		available = {
+		OR = {
+			has_government = totalist
+			has_government = syndicalist
+			has_government = radical_socialist
+			}
+			has_country_flag = BBR_election_held
+		}
 		cost = 6.00
 		x = 101
 		y = 0
@@ -6130,7 +6546,7 @@ focus_tree = {
 	focus = {# Liberate the Carribeans
 		id = BBR_liberate_the_carribeans
 		icon = GFX_goal_revolution
-		cost = 6.00
+		cost = 1.00
 		mutually_exclusive = {
 			focus = BBR_dominate_carribeans
 		}
@@ -6146,6 +6562,22 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus BBR_liberate_the_carribeans"
+			add_war_support = 0.05
+			if = {
+			limit = { CUB = { has_socialist_government = no }
+			}
+			create_wargoal = { type = puppet_wargoal_focus target = CUB }
+			}
+			if = {
+			limit = { HAI = { has_socialist_government = no }
+			}
+			create_wargoal = { type = puppet_wargoal_focus target = HAI }
+			}
+			if = {
+			limit = { DOM = { has_socialist_government = no }
+			}
+			create_wargoal = { type = puppet_wargoal_focus target = DOM }
+			}
 		}
 	}
 	focus = {# Entente Ultimatum
@@ -6163,6 +6595,11 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus BBR_entente_ultimatum"
+			if = {
+			limit = { DOM = { has_socialist_government = no }
+			}
+			create_wargoal = { type = liberate_wargoal target = DOM }
+			}
 		}
 	}
 	focus = {# The Liberian Revolution
@@ -6180,12 +6617,18 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus BBR_liberian_revolution"
+			create_wargoal = { type = puppet_wargoal_focus target = LIB }
+			LIB = {
+			add_popularity = { ideology = totalist popularity = 0.01 }
+			add_popularity = { ideology = syndicalist popularity = 0.01 }
+			add_popularity = { ideology = radical_socialist popularity = 0.01 }
+			}
 		}
 	}
 	focus = {# Fund Socialist Rebels
 		id = BBR_fund_rebels
 		icon = GFX_ITA_syndicalist_unite
-		cost = 6.00
+		cost = 5.00
 		prerequisite = {
 			focus = BBR_liberian_revolution
 		}
@@ -6197,6 +6640,17 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus BBR_fund_rebels"
+			add_war_support = 0.05
+			NFA = {
+			add_stability = -0.02
+			add_popularity = { ideology = syndicalist popularity = 0.01 }
+			}
+			MAF = {
+			add_stability = -0.02
+			add_popularity = { ideology = syndicalist popularity = 0.01 }
+			}
+			create_wargoal = { type = liberate_wargoal target = NFA }
+			create_wargoal = { type = liberate_wargoal target = MAF }
 		}
 	}
 	focus = {# Going Further South
@@ -6214,12 +6668,37 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus BBR_the_cause_down_south"
+			if = {
+			limit = { MEX = { has_socialist_government = no }
+			}
+			create_wargoal = { type = puppet_wargoal_focus target = MEX }
+			}
+			if = {
+			limit = { GUA = { has_socialist_government = no }
+			}
+			create_wargoal = { type = puppet_wargoal_focus target = GUA }
+			}
+			if = {
+			limit = { PAN = { has_socialist_government = no }
+			}
+			create_wargoal = { type = puppet_wargoal_focus target = PAN }
+			}
+			if = {
+			limit = { NIC = { has_socialist_government = no }
+			}
+			create_wargoal = { type = puppet_wargoal_focus target = NIC }
+			}
+			if = {
+			limit = { ELS = { has_socialist_government = no }
+			}
+			create_wargoal = { type = puppet_wargoal_focus target = ELS }
+			}
 		}
 	}
 	focus = {# Join the Internationale
 		id = BBR_join_the_internationale
 		icon = GFX_goal_FRA_Internationale_Congress
-		cost = 6.00
+		cost = 2.00
 		prerequisite = {
 			focus = BBR_support_csa
 		}
@@ -6231,12 +6710,26 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus BBR_join_the_internationale"
+			FRA = { add_to_faction = BBR }
 		}
 	}
 	focus = {# American Identity
 		id = BBR_american_identity
 		icon = GFX_goal_USA_eagle
-		cost = 6.00
+		cost = 1.00
+		mutually_exclusive = {
+		focus = BBR_spreading_the_revolution
+		focus = BBR_pan_afrikan_identity
+		}
+		available = {
+		OR = {
+			has_government = authoritarian_democrat
+			has_government = social_conservative
+			has_government = market_liberal
+			has_government = social_liberal
+			has_government = social_democrat
+			}
+		}
 		x = 107
 		y = 0
 		ai_will_do = {
@@ -6244,6 +6737,17 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus BBR_american_identity"
+			add_stability = 0.05
+			add_political_power = 25
+			USA = {
+			add_opinion_modifier = { target = BBR modifier = medium_increase }
+			}
+			TEX = {
+			add_opinion_modifier = { target = BBR modifier = medium_increase }
+			}
+			NEE = {
+			add_opinion_modifier = { target = BBR modifier = medium_increase }
+			}
 		}
 	}
 	focus = {# Focus Internally
@@ -6283,34 +6787,22 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus BBR_defend_the_border"
-			add_building_construction = {
-				type = bunker
-				province = 12735
-				level = 3
-				instant_build = yes
-			}
-			random_owned_state = {
-				limit = {
-					is_core_of = BBR
-					is_controlled_by = BBR
-				}
+			1113 = {
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = bunker
 					level = 2
 					instant_build = yes
+					province = 12735
 				}
 			}
-			random_owned_state = {
-				limit = {
-					is_core_of = BBR
-					is_controlled_by = BBR
-				}
+			1113 = {
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = bunker
 					level = 2
 					instant_build = yes
+					province = 1587
 				}
 			}
 		}
@@ -6393,7 +6885,6 @@ focus_tree = {
 				limit = {
 					is_core_of = BBR
 					is_controlled_by = BBR
-					anti_air_building > 0
 				}
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
@@ -6406,11 +6897,10 @@ focus_tree = {
 				limit = {
 					is_core_of = BBR
 					is_controlled_by = BBR
-					anti_air_building > 0
 				}
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
-					type = anti_air_building
+					type = anti_air_building 
 					level = 2
 					instant_build = yes
 				}
@@ -6419,7 +6909,6 @@ focus_tree = {
 				limit = {
 					is_core_of = BBR
 					is_controlled_by = BBR
-					anti_air_building > 0
 				}
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
@@ -6447,9 +6936,15 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus BBR_trench_training"
 			add_equipment_to_stockpile = {
 			type = support_equipment
-			amount = 100
+			amount = 200
 			producer = BBR
 			}
+			add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 200
+			producer = BBR
+			}
+			army_experience = 10
 		}
 	}
 	focus = {# Negotiate with the West
@@ -6471,6 +6966,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus BBR_american_confederation"
+			increase_ruling_party_popularity_by_5 = yes
+			add_political_power = 75
 		}
 	}
 	focus = {# Reclaim the States
@@ -6491,6 +6988,12 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus BBR_reclaim_the_states"
+			add_war_support = 0.05
+			add_command_power = 5
+			add_manpower = 3000
+			USA = {
+			add_claim_by = BBR
+			}
 		}
 	}
 	focus = {# Finish CAR
@@ -6508,6 +7011,16 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus BBR_finish_car"
+			add_war_support = 0.03
+			create_wargoal = {
+			type = annex_everything
+			target = COR
+			}
+			add_state_core = 1118
+			add_state_core = 370
+			add_state_core = 366
+			add_state_core = 365
+			add_state_core = 367
 		}
 	}
 	focus = {# Route the Feds
@@ -6525,6 +7038,16 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus BBR_route_the_feds"
+			add_state_core = 1104
+			add_state_core = 362
+			create_wargoal = {
+			type = annex_everything
+			target = USA
+			}
+			create_wargoal = {
+			type = annex_everything
+			target = WCC
+			}
 		}
 	}
 	focus = {# American Federation
@@ -6545,6 +7068,25 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus BBR_american_federation"
+			add_manpower = 5000
+			add_state_core = 361
+			add_state_core = 930
+			create_wargoal = {
+			type = annex_everything
+			target = NEE
+			}
+			create_wargoal = {
+			type = annex_everything
+			target = CSA
+			}
+			create_wargoal = {
+			type = annex_everything
+			target = CAL
+			}
+			create_wargoal = {
+			type = annex_everything
+			target = TEX
+			}
 		}
 	}
 	focus = {# Conditional Reintegration
@@ -6553,6 +7095,14 @@ focus_tree = {
 		cost = 6.00
 		mutually_exclusive = {
 		focus = BBR_a_new_america
+		}
+		available = {
+		has_global_flag = USA_civil_war_over_flag
+		OR = {
+		TEX = { exists = yes }
+		CSA = { exists = yes }
+		CAL = { exists = yes }
+			}
 		}
 		prerequisite = {
 			focus = BBR_american_federation
@@ -6565,6 +7115,33 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus BBR_conditional_reintegration"
+			if = {
+			limit = { TEX = { exists = yes } }
+			TEX = { 
+			country_event = { 
+				id = amcivwar.505
+				days = 2
+					}
+				}
+			}
+			if = {
+			limit = { CSA = { exists = yes } }
+			CSA = { 
+			country_event = { 
+				id = amcivwar.505
+				days = 2
+					}
+				}
+			}
+			if = {
+			limit = { CAL = { exists = yes } }
+			CAL = { 
+			country_event = { 
+				id = amcivwar.505
+				days = 2
+					}
+				}
+			}
 		}
 	}
 	focus = {# A New America
@@ -6576,6 +7153,31 @@ focus_tree = {
 		prerequisite = {
 			focus = BBR_american_federation
 		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = BBR_controls_all_american_states
+				owns_state = 361 #Maryland
+				owns_state = 371 #Louisiana
+				owns_state = 395 #Illinois
+				owns_state = 797 #San Francisco
+				owns_state = 932 #Massachusetts
+				COR = {
+				exists = no
+				}
+				CSA = {
+				exists = no
+				}
+				CAL = {
+				exists = no
+				}
+				USA = {
+				exists = no
+				}
+				TEX = {
+				exists = no
+				}
+			}
+		}
 		relative_position_id = BBR_american_identity
 		cost = 6.00
 		x = 1
@@ -6585,6 +7187,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus BBR_a_new_america"
+			add_political_power = 30
+			add_manpower = 1000
+			set_cosmetic_tag = NEE_america
 		}
 	}
 	focus = {# Defend the new State
@@ -6607,6 +7212,11 @@ focus_tree = {
 		id = BBR_page_doctrine
 		icon = GFX_BBR_page_plan
 		cost = 6.00
+		mutually_exclusive = { 
+		focus = BBR_young_plan
+		focus = BBR_davis_plan
+		focus = BBR_flipper_doctrine
+		}
 		prerequisite = {
 			focus = BBR_defend_the_new_state
 		}
@@ -6630,7 +7240,7 @@ focus_tree = {
 	}
 	focus = {# Conscription
 		id = BBR_volunteer_obligations
-		icon = GFX_goal_generic_allies_build_infantry
+		icon = GFX_BBR_mass_conscription
 		cost = 6.00
 		prerequisite = {
 			focus = BBR_page_doctrine
@@ -6707,7 +7317,6 @@ focus_tree = {
 			amount = 205
 			producer = BBR
 			}
-			producer = BBR
 			}
 		}
 	focus = {# Hit and Run tactics
@@ -6806,6 +7415,11 @@ focus_tree = {
 		id = BBR_young_plan
 		icon = GFX_BBR_pan_afrikan_identity
 		cost = 6.00
+		mutually_exclusive = { 
+		focus = BBR_page_doctrine
+		focus = BBR_davis_plan
+		focus = BBR_flipper_doctrine
+		}
 		prerequisite = {
 			focus = BBR_defend_the_new_state
 		}
@@ -6843,7 +7457,9 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus BBR_new_cavalry_units"
 			add_ideas = BBR_cavalry_bonus
+			hidden_effect = {
 			load_oob = "ACW_BBR_young_cavalry" 
+			}
 		}
 	}
 	focus = {# Infantry Morale
@@ -6966,14 +7582,16 @@ focus_tree = {
 		}
 		relative_position_id = BBR_defend_the_new_state
 		x = 0
-		y = 1
+		y = 2
 		ai_will_do = {
 			factor = 50
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus BBR_buffalo_soldiers"
 			add_manpower = 10000
+			hidden_effect = {
 			load_oob = "ACW_BBR_Buffalo_Soldiers"
+			}
 		}
 	}
 	focus = {# Tuskeegee Airmen
@@ -6985,7 +7603,7 @@ focus_tree = {
 		}
 		relative_position_id = BBR_defend_the_new_state
 		x = 0
-		y = 2
+		y = 3
 		ai_will_do = {
 			factor = 50
 		}
@@ -7014,7 +7632,7 @@ focus_tree = {
 		}
 		relative_position_id = BBR_defend_the_new_state
 		x = 0
-		y = 3
+		y = 4
 		ai_will_do = {
 			factor = 50
 		}
@@ -7038,7 +7656,12 @@ focus_tree = {
 	focus = {# Davis Plan
 		id = BBR_davis_plan
 		icon = GFX_BBR_davis_plan
-		cost = 6.00
+		cost = 3.00
+		mutually_exclusive = { 
+		focus = BBR_page_doctrine
+		focus = BBR_young_plan
+		focus = BBR_flipper_doctrine
+		}
 		prerequisite = {
 			focus = BBR_defend_the_new_state
 		}
@@ -7222,7 +7845,12 @@ focus_tree = {
 	focus = {# Flipper Doctine
 		id = BBR_flipper_doctrine
 		icon = GFX_BBR_flipper_plan
-		cost = 6.00
+		cost = 3.00
+		mutually_exclusive = { 
+		focus = BBR_page_doctrine
+		focus = BBR_young_plan
+		focus = BBR_davis_plan
+		}
 		prerequisite = {
 			focus = BBR_defend_the_new_state
 		}
@@ -7362,7 +7990,7 @@ focus_tree = {
 				name = artillery_bonus
 				bonus = 1
 				uses = 2
-				category = antiair
+				category = cat_anti_air
 			}
 			add_tech_bonus = {
 				name = CAR_Overwhelming_Firepower
@@ -7377,7 +8005,7 @@ focus_tree = {
 		icon = GFX_focus_generic_tank_destroyer
 		cost = 6.00
 		prerequisite = {
-			focus = BBR_long_range_ballistics_development
+			focus = BBR_advanced_fortifications
 			focus = BBR_movement_focus
 		}
 		relative_position_id = BBR_flipper_doctrine
@@ -7408,7 +8036,7 @@ focus_tree = {
 				name = artillery_bonus
 				bonus = 1
 				uses = 1
-				category = antiair
+				category = cat_anti_air
 			}
 		}
 	}
@@ -7416,6 +8044,9 @@ focus_tree = {
 		id = BBR_submarine_contracts
 		icon = GFX_goal_generic_navy_submarine
 		cost = 6.00
+		prerequisite = {
+			focus = BBR_long_range_ballistics_development
+		}
 		prerequisite = {
 			focus = BBR_advanced_fortifications
 		}

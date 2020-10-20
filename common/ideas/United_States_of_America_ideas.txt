@@ -117,7 +117,7 @@ ideas = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_great_depression_garner_1"}
 			picture = usa_great_depression_2
 			modifier = {
-				recruitable_population_factor = 0.02
+				conscription_factor = 0.02
 				dig_in_speed_factor	= 0.05
 				navy_max_range = -0.1
 			}
@@ -255,12 +255,12 @@ ideas = {
 		### Civil War Ideas ###
 		amcivwar_idea = { #Fighting for America
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea amcivwar_idea"}
+			picture = usa_great_depression_2
 			available = {
 				has_global_flag = USA_civil_war_begun_flag
 				NOT = { has_global_flag = USA_civil_war_over_flag }
 			}
 			modifier = {
-				surrender_limit = 0.10
 				war_support_factor = 0.20
 				training_time_army_factor = -0.10
 				conscription_factor = 0.25
@@ -313,6 +313,11 @@ ideas = {
 				attack_bonus_against = 0.25
 				defense_bonus_against = 0.25
 			}
+			targeted_modifier = {
+				tag = WCC
+				attack_bonus_against = 0.25
+				defense_bonus_against = 0.25
+			}
 			removal_cost = -1
 			picture = guns_shield
 		}
@@ -352,6 +357,34 @@ ideas = {
 			}
 			targeted_modifier = {
 				tag = CAL
+				attack_bonus_against = 0.25
+				defense_bonus_against = 0.25
+			}
+			removal_cost = -1
+			picture = guns_shield
+		}
+		ACW_nationalist_front_idea = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea ACW_nationalist_front_idea"}
+			available = {
+				country_exists = COR
+				has_war_with = COR
+			}
+			targeted_modifier = {
+				tag = COR
+				attack_bonus_against = 0.25
+				defense_bonus_against = 0.25
+			}
+			removal_cost = -1
+			picture = guns_shield
+		}
+		ACW_bbr_front_idea = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea ACW_bbr_front_idea"}
+			available = {
+				country_exists = BBR
+				has_war_with = BBR
+			}
+			targeted_modifier = {
+				tag = BBR
 				attack_bonus_against = 0.25
 				defense_bonus_against = 0.25
 			}
@@ -822,7 +855,7 @@ ideas = {
 			on_add = {log = "[GetDateText]: [Root.GetName]: add idea ACW_black_nationalist_resistance_1"}
 			allowed = { always = no }
 			removal_cost = -1
-			picture = federalist_activity
+			picture = black_nationalist
 			modifier = {
 				encryption = -0.05
 				military_leader_cost_factor	= 0.1
@@ -835,7 +868,7 @@ ideas = {
 			on_add = {log = "[GetDateText]: [Root.GetName]: add idea ACW_black_nationalist_resistance_2"}
 			allowed = { always = no }
 			removal_cost = -1
-			picture = federalist_activity
+			picture = black_nationalist
 			modifier = {
 				encryption = -0.05
 				military_leader_cost_factor	= 0.1
@@ -848,7 +881,7 @@ ideas = {
 			on_add = {log = "[GetDateText]: [Root.GetName]: add idea ACW_black_nationalist_resistance_3"}
 			allowed = { always = no }
 			removal_cost = -1
-			picture = federalist_activity
+			picture = black_nationalist
 			modifier = {
 				encryption = -0.05
 				military_leader_cost_factor	= 0.1
@@ -861,7 +894,7 @@ ideas = {
 			on_add = {log = "[GetDateText]: [Root.GetName]: add idea ACW_black_nationalist_resistance_4"}
 			allowed = { always = no }
 			removal_cost = -1
-			picture = federalist_activity
+			picture = black_nationalist
 			modifier = {
 				encryption = -0.05
 				military_leader_cost_factor	= 0.1
@@ -965,10 +998,10 @@ ideas = {
 			removal_cost = -1
 			picture = generic_disjointed_gov
 		}
-
 		USA_civil_war_war_aftermath_idea = { #Civil War Depression
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_civil_war_war_aftermath_idea"}
 			picture = great_depression
+			allowed = { always = no }
 			modifier = {
 				production_factory_max_efficiency_factor = -0.2
 				production_factory_start_efficiency_factor = -0.1
@@ -978,23 +1011,23 @@ ideas = {
 				production_speed_buildings_factor = -0.25
 			}
 		}
-		
 		USA_civil_war_war_aftermath_idea2 = { #Civil War Depression
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_civil_war_war_aftermath_idea2"}
 			picture = great_depression
+			allowed = { always = no }
 			modifier = {
 				production_factory_max_efficiency_factor = -0.15
 				production_factory_start_efficiency_factor = -0.08
-				production_factory_efficiency_gain_factor = -0.03
+				production_factory_efficiency_gain_factor = -0.05
 				industrial_capacity_factory = -0.15
 				consumer_goods_factor = 0.2
 				production_speed_buildings_factor = -0.2
 			}
 		}
-		
 		USA_civil_war_war_aftermath_idea3 = { #Civil War Depression
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_civil_war_war_aftermath_idea3"}
 			picture = great_depression
+			allowed = { always = no }
 			modifier = {
 				production_factory_max_efficiency_factor = -0.1
 				production_factory_start_efficiency_factor = -0.08
@@ -1004,33 +1037,32 @@ ideas = {
 				production_speed_buildings_factor = -0.15
 			}
 		}
-		
 		USA_civil_war_war_aftermath_idea4 = { #Civil War Depression
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_civil_war_war_aftermath_idea4"}
 			picture = great_depression
+			allowed = { always = no }
 			modifier = {
 				production_factory_max_efficiency_factor = -0.05
-				production_factory_start_efficiency_factor = -0.5
-				production_factory_efficiency_gain_factor = -0.05
+				production_factory_start_efficiency_factor = -0.05
+				production_factory_efficiency_gain_factor = -0.03
 				industrial_capacity_factory = -0.1
 				consumer_goods_factor = 0.1
 				production_speed_buildings_factor = -0.1
 			}
 		}
-		
 		USA_civil_war_war_aftermath_idea5 = { #Civil War Depression
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_civil_war_war_aftermath_idea5"}
 			picture = great_depression
+			allowed = { always = no }
 			modifier = {
 				production_factory_max_efficiency_factor = -0.03
 				production_factory_start_efficiency_factor = -0.03
-				production_factory_efficiency_gain_factor = -0.05
+				production_factory_efficiency_gain_factor = -0.01
 				industrial_capacity_factory = -0.05
 				consumer_goods_factor = 0.05
 				production_speed_buildings_factor = -0.05
 			}
 		}
-
 		USA_native_code_talkers_idea = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_native_code_talkers_idea"}
 			picture = Recruitment_Crisis
@@ -1107,9 +1139,83 @@ ideas = {
 			}
 		}
 		### Mac and Cheese ###
+		USA_righteous_nation = {
+			on_add = {log = "[GetDateText]: [Root.GetName]: add idea USA_righteous_nation"}
+			allowed = { always = no }
+			removal_cost = -1
+			picture = FRA_national_mobilization_focus
+			modifier = {
+				army_morale_factor = 0.20
+				land_reinforce_rate = 0.10
+				army_speed_factor = 0.15
+				local_manpower = 0.1
+				stability_factor = 0.1
+			}
+		}
+		USA_western_betrayal = { #Western Betrayal
+		on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_western_betrayal"}
+		picture = USA_american_stratocracy
+		modifier = {
+			army_org_Factor = 0.03
+			army_attack_factor = 0.02
+			army_speed_factor = 0.05
+			army_morale_factor = 0.05
+			political_power_gain = -0.02
+			war_support_weekly = 0.003
+			stability_factor = -0.1
+			}
+		}
+		USA_the_triumvirate = { #The Triumvirate
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_the_triumvirate"}
+			picture = usa_war_department
+			modifier = {
+				experience_gain_army_factor = 0.1
+				political_power_gain = 0.02
+				max_planning = 0.05
+				army_org_Factor = 0.05
+				local_resources_factor = -0.05
+			}
+		}
+		USA_army_dominance = { #Army Dominance
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_army_dominance"}
+			allowed = { always = no }
+			removal_cost = -1
+			picture = big_entente_idea
+			modifier = {
+				max_planning = 0.05
+				army_attack_factor = 0.02
+				army_defence_factor = 0.02
+				land_reinforce_rate = 0.03
+				experience_gain_factor = 0.05
+			}
+		}
+		USA_navy_input = { # Navy Input
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_navy_input"}
+			allowed = { always = no }
+			removal_cost = -1
+			picture = escort_effort_focus
+			modifier = {
+				convoy_escort_efficiency = 0.05
+				invasion_preparation = -0.10
+				industrial_capacity_dockyard = 0.02
+				navy_max_range_factor = 0.10
+			}
+		}
+		USA_air_power_idea = { #Air Power
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_air_power_idea"}
+			allowed = { always = no }
+			removal_cost = -1
+			picture = generic_artillery_regiments
+			modifier = {
+				air_cas_efficiency = 0.03
+				army_bonus_air_superiority_factor = 0.02
+				air_ace_generation_chance_factor = 0.05
+				experience_gain_air = 0.03
+			}
+		}
 		USA_empowered_army_idea = { #Empowered Army
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_empowered_army_idea"}
-			picture = general_staff
+			picture = USA_empowered_army
 			modifier = {
 				army_org_Factor = 0.05
 				political_power_gain = 0.02
@@ -1119,7 +1225,7 @@ ideas = {
 		}
 		USA_empowered_army_idea_2 = { #Empowered Army
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_empowered_army_idea_2"}
-			picture = general_staff
+			picture = USA_american_stratocracy
 			modifier = {
 				army_org_Factor = 0.08
 				political_power_gain = 0.05
@@ -1131,7 +1237,7 @@ ideas = {
 		}
 		USA_empowered_army_idea_3 = { #Empowered Army
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_empowered_army_idea_3"}
-			picture = general_staff
+			picture = USA_american_stratocracy
 			modifier = {
 				army_org_Factor = 0.08
 				political_power_gain = 0.05
@@ -1144,18 +1250,7 @@ ideas = {
 		}
 		USA_empowered_army_idea_2Junta = { #Empowered Army
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_empowered_army_idea_2Junta"}
-			picture = general_staff
-			modifier = {
-				army_org_Factor = 0.05
-				army_morale	= 0.1
-				political_power_gain = 0.01
-				stability_weekly = 0.003
-				conscription = 0.01
-			}
-		}
-		USA_empowered_army_idea_2Junta = { #Empowered Army
-			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_empowered_army_idea_2Junta"}
-			picture = general_staff
+			picture = USA_american_junta
 			modifier = {
 				army_org_Factor = 0.05
 				army_morale	= 0.1
@@ -1166,7 +1261,7 @@ ideas = {
 		}
 		USA_empowered_army_idea_3Junta = { #Empowered Army
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_empowered_army_idea_3Junta"}
-			picture = general_staff
+			picture = USA_american_junta
 			modifier = {
 				army_org_Factor = 0.05
 				army_morale	= 0.3
@@ -1216,7 +1311,7 @@ ideas = {
 		}
 		USA_barracks_capitalism_idea = { #Barracks Capitalism
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_barracks_capitalism_idea"}
-			picture = general_staff
+			picture = USA_barrack_capitalism
 			modifier = {
 				political_power_gain = 0.02
 				war_support_weekly = 0.05
@@ -1238,9 +1333,9 @@ ideas = {
 				stability_factor = -0.1
 			}
 		}
-		USA_defenders_of_republicanism_idea = { #Empowered Army
+		USA_defenders_of_republicanism_idea = { #Republican Legion
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_defenders_of_republicanism_idea"}
-			picture = general_staff
+			picture = USA_republican_loyalism
 			modifier = {
 				stability_weekly = 0.005
 				conscription = 0.01
@@ -1249,17 +1344,36 @@ ideas = {
 				forced_surrender_limit = 0.1
 			}
 		}
-		USA_martial_law_idea = { #Martial Law
-			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_martial_law_idea"}
-			picture = general_staff
+		USA_defenders_of_militarism_idea = { #Military Legion
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_defenders_of_republicanism_idea"}
+			picture = USA_republican_loyalism
 			modifier = {
-				political_power_gain = 0.005
-				monthly_population = -0.1
-				local_non_core_manpower	= 0.05
-				stability_factor = -0.05
-				conversion_cost_civ_to_mil_factor = -0.1
-				production_speed_buildings_factor = 0.03
-				production_factory_efficiency_gain_factor = -0.02
+				stability_weekly = 0.002
+				conscription = 0.02
+				defensive_war_stability_factor = 0.5
+				weekly_manpower = 120
+				local_manpower = 0.05
+				forced_surrender_limit = 0.05
+			}
+		}
+		USA_congressional_authority_idea = { #Congressional Authority
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_congressional_authority_idea"}
+			picture = USA_republican_loyalism
+			modifier = {
+				stability_weekly = 0.008
+				conscription = 0.01
+				defensive_war_stability_factor = 0.3
+				weekly_manpower = 50
+				forced_surrender_limit = 0.1
+			}
+		}
+		USA_new_amendments_idea = { #New Amendments
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_new_amendments_idea"}
+			picture = USA_republican_loyalism
+			modifier = {
+				stability_weekly = 0.002
+				political_power_gain = 0.02
+				monthly_population = 0.05
 			}
 		}
 		USA_martial_law_idea = { #Martial Law
@@ -1277,7 +1391,7 @@ ideas = {
 		}
 		USA_american_caeser_idea = { #American Caeser
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_american_caeser_idea"}
-			picture = general_staff
+			picture = USA_lifetime_president_1
 			modifier = {
 				political_power_gain = 0.005
 				max_command_power = 25
@@ -1289,7 +1403,7 @@ ideas = {
 		}
 		USA_american_caeser_idea_2 = { #American Caeser
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_american_caeser_idea_2"}
-			picture = general_staff
+			picture = USA_lifetime_president_2
 			modifier = {
 				political_power_gain = 0.008
 				max_command_power = 40
@@ -1302,7 +1416,7 @@ ideas = {
 		}
 		USA_american_caeser_idea_3 = { #American Caeser
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_american_caeser_idea_3"}
-			picture = general_staff
+			picture = USA_cic_1
 			modifier = {
 				political_power_gain = 0.01
 				max_command_power = 70
@@ -1314,7 +1428,7 @@ ideas = {
 		}
 		USA_american_caeser_idea_4 = { #American Caeser
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_american_caeser_idea_4"}
-			picture = general_staff
+			picture = USA_cic_2
 			modifier = {
 				political_power_gain = 0.015
 				max_command_power = 100
@@ -1326,7 +1440,7 @@ ideas = {
 		}
 		USA_american_caeser_idea_5 = { #American Caeser
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_american_caeser_idea_5"}
-			picture = general_staff
+			picture = USA_american_chief
 			modifier = {
 				political_power_gain = 0.02
 				max_command_power = 150
@@ -1339,7 +1453,7 @@ ideas = {
 		}
 		USA_american_protective_league_idea = { #American Protective League
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_american_protective_league_idea"}
-			picture = general_staff
+			picture = USA_protective_league
 			modifier = {
 				political_power_gain = 0.02
 				stability_weekly = 0.01
@@ -1350,7 +1464,7 @@ ideas = {
 		}
 		USA_american_protective_league_idea_2 = { #American Protective League 2
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_american_protective_league_idea_2"}
-			picture = general_staff
+			picture = USA_protective_legion
 			modifier = {
 				political_power_gain = 0.04
 				stability_weekly = 0.02
@@ -1361,7 +1475,7 @@ ideas = {
 		}
 		USA_office_of_war_information_idea = { #American Caeser
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_office_of_war_information_idea"}
-			picture = general_staff
+			picture = USA_office_of_war_info
 			modifier = {
 				mobilization_speed = 0.05
 				war_support_weekly = 0.003
@@ -1756,7 +1870,7 @@ ideas = {
 				max_command_power = 50
 				max_command_power_mult = 0.15
 				army_org_factor = 0.15
-				army_morale	= 0.2
+				army_morale_factor	= 0.2
 				max_planning = 0.2
 				max_commander_army_size	= 4
 			}
@@ -1770,7 +1884,7 @@ ideas = {
 				max_command_power = 50
 				max_command_power_mult = 0.2
 				army_org_factor = 0.15
-				army_morale	= 0.2
+				army_morale_factor	= 0.2
 				max_planning = 0.25
 				max_commander_army_size	= 5
 			}
@@ -1786,7 +1900,7 @@ ideas = {
 				army_org_factor = 0.2
 				recon_factor = 0.1
 				special_forces_out_of_supply_factor = -0.1
-				army_morale	= 0.3
+				army_morale_factor	= 0.25
 				max_planning = 0.3
 				max_commander_army_size	= 5
 			}
@@ -1802,7 +1916,7 @@ ideas = {
 				army_org_factor = 0.3
 				recon_factor = 0.1
 				special_forces_out_of_supply_factor = -0.1
-				army_morale	= 0.4
+				army_morale_factor	= 0.25
 				river_crossing_factor = -0.1
 				max_planning = 0.35
 				encryption_factor = 0.05
@@ -1824,7 +1938,7 @@ ideas = {
 				recon_factor = 0.1
 				river_crossing_factor = -0.2
 				special_forces_out_of_supply_factor = -0.1
-				army_morale	= 0.5
+				army_morale_factor	= 0.30
 				max_planning = 0.4
 				encryption_factor = 0.05
 				naval_invasion_penalty = -0.1
@@ -2470,6 +2584,25 @@ ideas = {
 				guarantee_cost = -20
 			}
 		}
+		USA_league_of_america_3 = {
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_league_of_america_3"}
+			allowed = { always = no }
+			removal_cost = -1
+			picture = USA_fighting_for_america
+			targeted_modifier = {
+				tag = USA
+				trade_cost_for_target_factor = -0.75
+				extra_trade_to_target_factor = 0.75
+			}
+			modifier = {
+				training_time_army_factor = -0.15
+				planning_speed = 0.15
+				consumer_goods_factor = -0.10
+				production_speed_industrial_complex_factor = 0.12
+				production_speed_infrastructure_factor = 0.12
+				guarantee_cost = -30
+			}
+		}
 		USA_arsenal_of_democracy_idea = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea USA_arsenal_of_democracy_idea"}
 			allowed = { always = no }
@@ -2650,10 +2783,11 @@ ideas = {
 		}
 	}
 	### Industrial Companies ###
+	### Industrial Companies ###
 	industrial_concern = {
 		kr_att = { #AT&T
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_att"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 358 }
 			visible = {
 				if = {
@@ -2670,7 +2804,7 @@ ideas = {
 		}
 		kr_general_electric = { #General Electric
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_general_electric"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 796 }
 			visible = {
 				if = {
@@ -2689,7 +2823,7 @@ ideas = {
 		}
 		kr_ibm = { #IBM
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_ibm"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 796 }
 			visible = {
 				if = {
@@ -2706,7 +2840,7 @@ ideas = {
 		}
 		kr_raytheon = { #Raytheon
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_raytheon"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 932 }
 			visible = {
 				if = {
@@ -2722,7 +2856,7 @@ ideas = {
 		}
 		kr_westinghouse = { #Westinghouse
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_westinghouse"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 360 }
 			visible = {
 				if = {
@@ -2741,7 +2875,7 @@ ideas = {
 		}
 		kr_bethlehem_steel = { #Bethlehem Steel
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_bethlehem_steel"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 360 }
 			visible = {
 				if = {
@@ -2764,7 +2898,7 @@ ideas = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_phelps_dodge"}
 			allowed = {
 				OR = {
-					tag = USA
+					is_american_tag = yes
 					tag = LEC
 				}
 			}
@@ -2800,7 +2934,7 @@ ideas = {
 		}
 		kr_bfgoodrich = { #BFGoodrich
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_bfgoodrich"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 261 }
 			visible = {
 				if = {
@@ -2817,13 +2951,7 @@ ideas = {
 		}
 		kr_dupont = { #DuPont
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_dupont"}
-			allowed = { tag = USA
-			NOT = {
-			NEE = {
-			exists = yes
-				}
-				}
-			}
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 930 }
 			visible = {
 				if = {
@@ -2839,7 +2967,7 @@ ideas = {
 		}
 		kr_gulf_oil = { #gulf oil
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_gulf_oil"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 360 }
 			visible = {
 				if = {
@@ -2854,9 +2982,26 @@ ideas = {
 			modifier = { production_speed_synthetic_refinery_factor = 0.3 }
 			research_bonus = { synth_resources = 0.1 }
 		}
+		kr_magnolia_petroleum = { #Magnolia Petroleum
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_magnolia_petroleum"}
+			allowed = { is_american_tag = yes }
+			available = { owns_state = 375 }
+			visible = {
+				if = {
+					limit = { NOT = { tag = TEX } }
+					OR = {
+						has_country_flag = USA_industrial_companies_allowed
+						NOT = { has_global_flag = USA_civil_war_begun_flag }
+					}
+				}
+			}
+			traits = { chemical_producer }
+			modifier = { production_speed_synthetic_refinery_factor = 0.3 }
+			research_bonus = { synth_resources = 0.1 }
+		}
 		kr_standard_oil = { #Standard Oil
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_standard_oil"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 797 }
 			visible = {
 				if = {
@@ -2877,14 +3022,14 @@ ideas = {
 		}
 		kr_wood_river_oil = { #Wood River Oil
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_wood_river_oil"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = {
 				controls_state = 383
 				owns_state = 383
 			}
 			visible = {
 				if = {
-					limit = { NOT = { tag = USA } }
+					limit = { NOT = { tag = TEX } }
 					OR = {
 						has_country_flag = USA_industrial_companies_allowed
 						NOT = { has_global_flag = USA_civil_war_begun_flag }
@@ -2904,7 +3049,7 @@ ideas = {
 		designer = yes
 		kr_auto_ordnance_company = { #Auto-Ordnance Company
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_auto_ordnance_company"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 395 }
 			visible = {
 				if = {
@@ -2920,7 +3065,7 @@ ideas = {
 		}
 		kr_browning = { #Browning Arms
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_browning"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 380 }
 			visible = {
 				if = {
@@ -2936,11 +3081,11 @@ ideas = {
 		}
 		kr_colt = { #Colt
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_colt"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 366 }
 			visible = {
 				if = {
-					limit = { NOT = { tag = USA } }
+					limit = { NOT = { tag = COR } }
 					OR = {
 						has_country_flag = USA_weapon_companies_allowed
 						NOT = { has_global_flag = USA_civil_war_begun_flag }
@@ -2952,7 +3097,7 @@ ideas = {
 		}
 		kr_federal_laboratories = { #Federal Laboratories
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_federal_laboratories"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 361 }
 			visible = {
 				if = {
@@ -2968,7 +3113,7 @@ ideas = {
 		}
 		kr_harrington_and_richardson = { #Harrington and Richardson
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_harrington_and_richardson"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 796 }
 			visible = {
 				if = {
@@ -2984,7 +3129,7 @@ ideas = {
 		}
 		kr_marble_arms = { #Marble Arms
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_marble_arms"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 393 }
 			visible = {
 				if = {
@@ -3000,7 +3145,7 @@ ideas = {
 		}
 		kr_marlin = { #Marlin Firearms
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_marlin"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 931 }
 			visible = {
 				if = {
@@ -3016,7 +3161,7 @@ ideas = {
 		}
 		kr_remington = { #Remington Arms
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_remington"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 382 }
 			visible = {
 				if = {
@@ -3032,7 +3177,7 @@ ideas = {
 		}
 		kr_sacramento_army_arsenal = { #Sacremento Army Arsenal
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_sacramento_army_arsenal"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 378 }
 			visible = {
 				has_global_flag = ACW_pacific_states_revolted
@@ -3049,7 +3194,7 @@ ideas = {
 		}
 		kr_savage_arms = { #Savage Arms
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_savage_arms"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 796 }
 			visible = {
 				if = {
@@ -3065,7 +3210,7 @@ ideas = {
 		}
 		kr_smith_and_wesson = { #Smith & Wesson
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_smith_and_wesson"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 932 }
 			visible = {
 				if = {
@@ -3081,7 +3226,7 @@ ideas = {
 		}
 		kr_springfield_armory = { #Springfield Armory
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_springfield_armory"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 932 }
 			visible = {
 				if = {
@@ -3097,7 +3242,7 @@ ideas = {
 		}
 		kr_western_cartridge_company = { #Western Cartridge
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_western_cartridge_company"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 395 }
 			visible = {
 				if = {
@@ -3113,7 +3258,7 @@ ideas = {
 		}
 		kr_winchester_repeating_arms = { #Winchester Repeating Arms
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_winchester_repeating_arms"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 931 }
 			visible = {
 				if = {
@@ -3129,7 +3274,7 @@ ideas = {
 		}
 		kr_american_car_and_foundry = { #American Car and Foundry
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_american_car_and_foundry"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 359 }
 			visible = {
 				if = {
@@ -3145,7 +3290,7 @@ ideas = {
 		}
 		kr_army_ordnance_department = { #Army Ordence Department
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_army_ordnance_department"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = {
 				controls_state = 362
 				owns_state = 362
@@ -3164,7 +3309,7 @@ ideas = {
 		}
 		kr_rock_island_arsenal = { #Rock Island Arsenal
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_rock_island_arsenal"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 395 }
 			visible = {
 				if = {
@@ -3180,7 +3325,7 @@ ideas = {
 		}
 		kr_watervliet_arsenal = { #Watervliet Arsenal
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_watervliet_arsenal"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 796 }
 			visible = {
 				if = {
@@ -3196,7 +3341,7 @@ ideas = {
 		}
 		kr_buick = { #Buick
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_buick"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 393 }
 			visible = {
 				if = {
@@ -3212,11 +3357,11 @@ ideas = {
 		}
 		kr_cushman = { #Cushman
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_cushman"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 384 }
 			visible = {
 				if = {
-					limit = { NOT = { tag = USA } }
+					limit = { NOT = { tag = TEX } }
 					OR = {
 						has_country_flag = USA_heavy_equipment_companies_allowed
 						NOT = { has_global_flag = USA_civil_war_begun_flag }
@@ -3228,7 +3373,7 @@ ideas = {
 		}
 		kr_hudson = { #Hudson
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_hudson"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 393 }
 			visible = {
 				if = {
@@ -3244,7 +3389,7 @@ ideas = {
 		}
 		kr_kenworth_motor_truck = { #Kenworth Motor Truck
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_kenworth_motor_truck"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 386 }
 			visible = {
 				has_global_flag = ACW_pacific_states_revolted
@@ -3261,7 +3406,7 @@ ideas = {
 		}
 		kr_mack = { #Mack
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_mack"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 358 }
 			visible = {
 				if = {
@@ -3277,7 +3422,7 @@ ideas = {
 		}
 		kr_marmon_herrington = { #Marmon-Herrington
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_marmon_herrington"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 396 }
 			visible = {
 				if = {
@@ -3293,7 +3438,7 @@ ideas = {
 		}
 		kr_nash_motors = { #Nash Motors
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_nash_motors"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 394 }
 			visible = {
 				if = {
@@ -3309,7 +3454,7 @@ ideas = {
 		}
 		kr_studebaker = { #Studebaker
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_studebaker"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 396 }
 			visible = {
 				if = {
@@ -3325,7 +3470,7 @@ ideas = {
 		}
 		kr_willys = { #Willys
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_willys"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 261 }
 			visible = {
 				if = {
@@ -3341,7 +3486,7 @@ ideas = {
 		}
 		kr_davis = { #Davis
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_davis"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 798 }
 			visible = {
 				has_global_flag = ACW_pacific_states_revolted
@@ -3363,7 +3508,7 @@ ideas = {
 		designer = yes
 		kr_american_bantam = { #American Bantam
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_american_bantam"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 360 }
 			visible = {
 				if = {
@@ -3379,7 +3524,7 @@ ideas = {
 		}
 		kr_caterpillar = { #Caterpillar
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_caterpillar"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 395 }
 			visible = {
 				if = {
@@ -3393,9 +3538,25 @@ ideas = {
 			traits = { small_tank_producer_mass_1 }
 			research_bonus = { armor = 0.1 }
 		}
+		kr_chrysler = { #Chrysler
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_chrysler"}
+			allowed = { is_american_tag = yes }
+			available = { owns_state = 365 }
+			visible = {
+				if = {
+					limit = { NOT = { tag = COR } }
+					OR = {
+						has_country_flag = USA_heavy_equipment_companies_allowed
+						NOT = { has_global_flag = USA_civil_war_begun_flag }
+					}
+				}
+			}
+			traits = { small_tank_producer_offense_1 }
+			research_bonus = { armor = 0.1 }
+		}
 		kr_cunningham = { #Cunningham
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_cunningham"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 796 }
 			visible = {
 				if = {
@@ -3411,11 +3572,11 @@ ideas = {
 		}
 		kr_dorris = { #Dorris
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_dorris"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 373 }
 			visible = {
 				if = {
-					limit = { NOT = { tag = USA } }
+					limit = { NOT = { tag = COR } }
 					OR = {
 						has_country_flag = USA_heavy_equipment_companies_allowed
 						NOT = { has_global_flag = USA_civil_war_begun_flag }
@@ -3427,7 +3588,7 @@ ideas = {
 		}
 		kr_packard = { #Packard
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_packard"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 393 }
 			visible = {
 				if = {
@@ -3443,7 +3604,7 @@ ideas = {
 		}
 		kr_american_locomotive_company = { #American Locomotive Company
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_american_locomotive_company"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 796 }
 			visible = {
 				if = {
@@ -3459,7 +3620,7 @@ ideas = {
 		}
 		kr_dodge = { #Dodge
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_dodge"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 393 }
 			visible = {
 				if = {
@@ -3475,7 +3636,7 @@ ideas = {
 		}
 		kr_fisher_tank_arsenal = { #Fisher Tank Arsenal
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_fisher_tank_arsenal"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 393 }
 			visible = {
 				if = {
@@ -3491,7 +3652,7 @@ ideas = {
 		}
 		kr_pacific_car_and_foundry = { #Pacific Car and Foundry
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_pacific_car_and_foundry"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 386 }
 			visible = {
 				has_global_flag = ACW_pacific_states_revolted
@@ -3506,9 +3667,25 @@ ideas = {
 			traits = { medium_tank_producer_mass_1 }
 			research_bonus = { armor = 0.1 }
 		}
+		kr_stutz = { #Stutz
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_stutz"}
+			allowed = { is_american_tag = yes }
+			available = { owns_state = 366 }
+			visible = {
+				if = {
+					limit = { NOT = { tag = COR } }
+					OR = {
+						has_country_flag = USA_heavy_equipment_companies_allowed
+						NOT = { has_global_flag = USA_civil_war_begun_flag }
+					}
+				}
+			}
+			traits = { medium_tank_producer_mass_1 }
+			research_bonus = { armor = 0.1 }
+		}
 		kr_white_motor = { #White Motor
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_white_motor"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 261 }
 			visible = {
 				if = {
@@ -3534,13 +3711,29 @@ ideas = {
 					}
 				}
 			}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			traits = { heavy_tank_producer_defense_1 }
+			research_bonus = { armor = 0.1 }
+		}
+		kr_ford = { #Ford
+			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_ford"}
+			allowed = { is_american_tag = yes }
+			available = { owns_state = 365 }
+			visible = {
+				if = {
+					limit = { NOT = { tag = COR } }
+					OR = {
+						has_country_flag = USA_heavy_equipment_companies_allowed
+						NOT = { has_global_flag = USA_civil_war_begun_flag }
+					}
+				}
+			}
+			traits = { heavy_tank_producer_offense_2 }
 			research_bonus = { armor = 0.1 }
 		}
 		kr_general_motors = { #General Motors
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_general_motors"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 393 }
 			visible = {
 				if = {
@@ -3561,11 +3754,11 @@ ideas = {
 		designer = yes
 		kr_ingalls_shipbuilding = { #Ingalls Shipbuilding
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_ingalls_shipbuilding"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 370 }
 			visible = {
 				if = {
-					limit = { NOT = { tag = TEX } }
+					limit = { NOT = { tag = COR } }
 					OR = {
 						has_country_flag = USA_naval_companies_allowed
 						NOT = { has_global_flag = USA_civil_war_begun_flag }
@@ -3595,7 +3788,7 @@ ideas = {
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_norfolk_naval_shipyard"}
 			allowed = {
 				OR = {
-					tag = USA
+					is_american_tag = yes
 					tag = LEC
 				}
 			}
@@ -3627,7 +3820,7 @@ ideas = {
 		}
 		kr_kaiser_shipyards = { #Kaiser Shipyards
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_kaiser_shipyards"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 797 }
 			visible = {
 				if = {
@@ -3647,7 +3840,7 @@ ideas = {
 		}
 		kr_new_york_shipbuilding = { #New York Shipbuilding
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_new_york_shipbuilding"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 358 }
 			visible = {
 				if = {
@@ -3663,7 +3856,7 @@ ideas = {
 		}
 		kr_electric_boat = { #Electric Boat
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_electric_boat"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 931 }
 			visible = {
 				if = {
@@ -3679,7 +3872,7 @@ ideas = {
 		}
 		kr_higgins = { #Higgins
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_higgins"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 371 }
 			visible = {
 				if = {
@@ -3695,7 +3888,7 @@ ideas = {
 		}
 		kr_mare_island_naval_shipyard = { #Mare Island Naval Shipyard
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_mare_island_naval_shipyard"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 797 }
 			visible = {
 				if = {
@@ -3715,7 +3908,7 @@ ideas = {
 		}
 		kr_philadelphia_naval_shipyard = { #Philadelphia Naval Shipyard
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_philadelphia_naval_shipyard"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 360 }
 			visible = {
 				if = {
@@ -3736,11 +3929,11 @@ ideas = {
 		designer = yes
 		kr_beechcraft = { #Beechcraft
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_beechcraft"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 383 }
 			visible = {
 				if = {
-					limit = { NOT = { tag = USA } }
+					limit = { NOT = { tag = TEX } }
 					OR = {
 						has_country_flag = USA_aviation_companies_allowed
 						NOT = { has_global_flag = USA_civil_war_begun_flag }
@@ -3752,7 +3945,7 @@ ideas = {
 		}
 		kr_bell = { #Bell
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_bell"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 796 }
 			visible = {
 				if = {
@@ -3768,7 +3961,7 @@ ideas = {
 		}
 		kr_consolidated = { #Consolidated
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_consolidated"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 395 }
 			visible = {
 				if = {
@@ -3784,7 +3977,7 @@ ideas = {
 		}
 		kr_grumman = { #Grumman
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_grumman"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 358 }
 			visible = {
 				if = {
@@ -3800,7 +3993,7 @@ ideas = {
 		}
 		kr_lockheed = { #Lockheed
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_lockheed"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 798 }
 			visible = {
 				if = {
@@ -3820,7 +4013,7 @@ ideas = {
 		}
 		kr_north_american_aviation = { #North American Aviation
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_north_american_aviation"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 361 }
 			visible = {
 				if = {
@@ -3836,7 +4029,7 @@ ideas = {
 		}
 		kr_pan_american_airways = { #Pan American Airways
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_pan_american_airways"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 366 }
 			visible = {
 				has_global_flag = USA_civil_war_over_flag
@@ -3846,11 +4039,11 @@ ideas = {
 		}
 		kr_ryan = { #Ryan
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_ryan"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 363 }
 			visible = {
 				if = {
-					limit = { NOT = { tag = TEX } }
+					limit = { NOT = { tag =COR } }
 					OR = {
 						has_country_flag = USA_aviation_companies_allowed
 						NOT = { has_global_flag = USA_civil_war_begun_flag }
@@ -3862,7 +4055,7 @@ ideas = {
 		}
 		kr_vultee = { #Vultee
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_vultee"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 798 }
 			visible = {
 				if = {
@@ -3882,7 +4075,7 @@ ideas = {
 		}
 		kr_brewster = { #Brewster
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_brewster"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 358 }
 			visible = {
 				if = {
@@ -3893,12 +4086,12 @@ ideas = {
 					}
 				}
 			}
-			traits = { nav_cas_producer_offense_1 }
+			traits = { nav_cas_producer_mass_2 }
 			research_bonus = { air_equipment = 0.1 }
 		}
 		kr_curtiss_wright = { #Curtiss-Wright
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_curtiss_wright"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 796 }
 			visible = {
 				if = {
@@ -3914,7 +4107,7 @@ ideas = {
 		}
 		kr_fairchild = { #Fairchild
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_fairchild"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 361 }
 			visible = {
 				if = {
@@ -3930,7 +4123,7 @@ ideas = {
 		}
 		kr_hughes = { #Hughes
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_hughes"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 798 }
 			visible = {
 				if = {
@@ -3950,7 +4143,7 @@ ideas = {
 		}
 		kr_northrop_corporation = { #Northrop Corporation
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_northrop_corporation"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 798 }
 			visible = {
 				if = {
@@ -3970,7 +4163,7 @@ ideas = {
 		}
 		kr_vought = { #Vought
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_vought"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 358 }
 			visible = {
 				if = {
@@ -3986,7 +4179,7 @@ ideas = {
 		}
 		kr_boeing = { #Boeing
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_boeing"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 930 }
 			visible = {
 				if = {
@@ -4002,7 +4195,7 @@ ideas = {
 		}
 		kr_douglas = { #Douglas
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_douglas"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 798 }
 			visible = {
 				if = {
@@ -4022,7 +4215,7 @@ ideas = {
 		}
 		kr_glenn_l_martin_company = { #Glenn L. Martin Company
 			on_add = { log = "[GetDateText]: [Root.GetName]: add idea kr_glenn_l_martin_company"}
-			allowed = { tag = USA }
+			allowed = { is_american_tag = yes }
 			available = { owns_state = 798 }
 			visible = {
 				if = {

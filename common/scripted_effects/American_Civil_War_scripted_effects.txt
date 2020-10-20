@@ -3,7 +3,7 @@ USA_initial_events = {
 		country_event = { id = amcivwar.311 hours = 8 } #MacArthur's Warning
 		country_event = { id = amcivwar.300 days = 2 } #New England riots
 		country_event = { id = amcivwar.310 days = 15 } #Nevada
-		country_event = { id = amcivwar.312 days = 25 } #Deadline Running Out
+		country_event = { id = amcivwar.312 days = 20 } #Deadline Running Out
 	}
 	JAP = {
 		country_event = { id = japfor.225 days = 30 }
@@ -36,6 +36,9 @@ CSA_initial_events = {
 			}
 		}
 		hidden_effect = {
+		if = {
+			limit = { NOT = { has_global_flag = USA_CSA_existed } }
+		}
 		country_event = { id = csa.150 days = 6 } # Initialization event
 		country_event = { id = amcivwar.32 days = 10 } # Revolutionary Military
 		country_event = { id = amcivwar.44 days = 21 } # Revolutionary Staff Leader
@@ -62,6 +65,9 @@ TEX_initial_events = {
 			}
 		}
 		hidden_effect = {
+		if = {
+			limit = { NOT = { has_global_flag = USA_TEX_existed } }
+		}
 		country_event = { id = unionstate.26 days = 5 } #Initial Events - Texas Rangers
 		country_event = { id = unionstate.3002 days = 2 } #The Old Regulars
 		country_event = { id = unionstate.3004 days = 10 } #Minneapolis Syndicalists Strike
@@ -78,6 +84,9 @@ TEX_initial_events = {
 
 CAL_initial_events = {
 	hidden_effect = {
+	if = {
+			limit = { NOT = { has_global_flag = USA_CAL_existed } }
+	}
 	CAL = {
 		country_event = { id = pacificstates.150 days = 1 } #Initial Events
 		country_event = { id = amcivwar.77 days = 7 } #Chief of Staff
@@ -89,7 +98,49 @@ CAL_initial_events = {
 	}
 }
 
+COR_initial_events = {
+	COR = {
+		if = {
+			limit = {
+				USA = { has_global_flag = USA_murray_is_president }
+			}
+			add_timed_idea = {
+				idea = COR_righteous_nation
+				days = 360
+			}
+		}
+	}
+	hidden_effect = {
+	if = {
+			limit = { NOT = { has_global_flag = USA_COR_existed } }
+	}
+	COR = {
+			country_event = { id = amcivwar.800 days = 7 } #Chief of Staff
+			country_event = { id = amcivwar.801 days = 14 } #Chief of Army
+			country_event = { id = amcivwar.802 days = 21 } #Chief of Air Force
+			country_event = { id = constate.150 days = 21 } #Southern Governors
+	}
+	set_global_flag = USA_COR_existed
+	}
+}
+
+WCC_initial_events = {
+	hidden_effect = {
+	if = {
+			limit = { NOT = { has_global_flag = USA_WCC_existed } }
+	}
+	WCC = {
+		country_event = { id = amcivwar.900 days = 10 } #Init
+		country_event = { id = amcivwar.901 days = 60 } #Recruitment
+	}
+	set_global_flag = USA_WCC_existed
+	}
+}
+
 USA_release_CSA = {
+	if = {
+			limit = { NOT = { has_global_flag = USA_CSA_existed } }
+	}
 	hidden_effect = {
 		CSA = {
 			add_state_core = 395
@@ -378,6 +429,9 @@ USA_release_CSA = {
 }
 
 USA_release_TEX = {
+	if = {
+			limit = { NOT = { has_global_flag = USA_TEX_existed } }
+	}
 	hidden_effect = {
 	transfer_ship = { prefer_name = "USS Iowa" type = SH_battleship target = TEX }
 		transfer_ship = { prefer_name = "USS Texas" type = SH_battleship target = TEX }
@@ -504,8 +558,8 @@ USA_release_TEX = {
 
 		set_country_flag = Huey_Long_dead
 		set_country_flag = Charles_Coughlin_dead
-		set_country_flag = Henry_Ford_dead
 		set_country_flag = Gerald_K_Smith_dead
+		set_country_flag = Joseph_'Lightning_Joe'_Lawton_Collins_dead
 
 		TEX = {
 			load_oob = "USA_civil_war_aus_army"
@@ -681,6 +735,9 @@ USA_release_TEX = {
 }
 
 USA_release_COR = {
+	if = {
+			limit = { NOT = { has_global_flag = USA_COR_existed } }
+	}
 	hidden_effect = {
 		transfer_ship = { prefer_name = "USS Idaho" type = SH_battleship target = COR }
 		transfer_ship = { prefer_name = "USS Mississippi" type = SH_battleship target = COR }
@@ -743,17 +800,7 @@ USA_release_COR = {
 			value = 5
 			}
 		}
-
-		if = {
-			limit = {
-				USA = { has_country_flag = USA_murray_is_president }
-			}
-			add_timed_idea = {
-				idea = COR_righteous_nation
-				days = 360
-			}
-		}
-			
+		
 		USA = {
 			if = {
 			limit = { has_idea = USA_klan_activity_idea }
@@ -829,6 +876,9 @@ USA_release_COR = {
 		set_country_flag = Robert_Rice_Reynolds_dead
 		set_country_flag = Strom_Thurmond_dead
 		set_country_flag = John_Elliott_Rankin_dead
+		set_country_flag = Henry_Ford_dead
+		set_country_flag = Joseph_T_McNarney_dead
+		set_country_flag = Nathan_Bedford_Forrest_III_dead
 		
 		every_navy_leader = {
 			limit = { has_id = 63 } #William Halsey Jr.
@@ -992,6 +1042,9 @@ USA_release_COR = {
 }
 
 USA_release_WCC = {
+	if = {
+			limit = { NOT = { has_global_flag = USA_WCC_existed } }
+	}
 	hidden_effect = {
 		WCC = {
 			add_state_core = 376
@@ -1015,21 +1068,26 @@ USA_release_WCC = {
 			flag = ACW_minutemen_resistance
 			value = 6
 			}
+			add_ideas = {
+				WCC_Dwight_D_Eisenhower_hog_ade
+				WCC_Patrick_J_Hurley_for_ade
+				WCC_James_Garesche_Ord_eco_ade
+				WCC_Leonard_T_Gerow_sec_ade
+				WCC_Omar_Nelson_Bradley_cos
+				WCC_Dwight_D_Eisenhower_carm
+			}
 		}
 
 		USA = {
 			if = {
 			limit = { has_idea = USA_great_depression }
-			swap_ideas = {
 			remove_ideas = USA_great_depression
 				}
 			}
 			if = {
 			limit = { has_idea = USA_political_crisis }
-			swap_ideas = {
 			remove_ideas = USA_political_crisis
 				}
-			}
 			WCC = { transfer_technology = yes }
 			if = {
 				set_cosmetic_tag = USA_ACW
@@ -1064,10 +1122,40 @@ USA_release_WCC = {
 					add_manpower = 75000
 				}
 			}
-		}
+			create_corps_commander = {#More Unit Leaders to deal with WCC staff
+				name = "Hugh S. Johnson"
+				portrait_path = "gfx/leaders/USA/Portrait_Hugh_S_Johnson.tga"
+				traits = { 
+					politically_connected 
+					trait_cautious 
+				}
+				skill = 2
+				attack_skill = 1
+				defense_skill = 2
+				planning_skill = 2
+				logistics_skill = 1
+			}
+			create_corps_commander = {#More Unit Leaders to deal with WCC staff
+				name = "John R. Hodge"
+				portrait_path = "gfx/leaders/USA/Portrait_john_r_hodge.tga"
+				traits = { 
+					air_commander 
+					naval_invader 
+				}
+				skill = 2
+				attack_skill = 3
+				defense_skill = 1
+				planning_skill = 2
+				logistics_skill = 1
+			}
 		
 		remove_unit_leader = 88 #Bradley
 		remove_unit_leader = 90 #Ike
+		remove_unit_leader = 68 #Keyes
+		remove_unit_leader = 96 #Ord
+		remove_unit_leader = 98 #Harding
+		remove_unit_leader = 82 #Griswold
+		remove_unit_leader = 74 #Gerow
 
 		set_country_flag = Martin_Dies_Jr_dead
 		set_country_flag = Walter_Bedell_'Beetle'_Smith_dead
@@ -1092,7 +1180,7 @@ USA_release_WCC = {
 		
 		every_state = {
 			limit = {
-				is_core_of = AUS
+				is_core_of = TEX
 				NOT = { is_core_of = WCC }
 				NOT = { is_claimed_by = WCC }
 			}
@@ -1118,8 +1206,30 @@ USA_release_WCC = {
 		}
 
 		USA = {
-		puppet = WCC
+			puppet = WCC
 		}
+		WCC = {
+			set_politics = {
+				ruling_party = authoritarian_democrat
+				last_election = "1936.11.08"
+				election_frequency = 48
+				elections_allowed = no
+			}
+
+			set_popularities = {
+				totalist = 0
+				syndicalist = 0
+				radical_socialist = 0
+				social_democrat = 5
+				social_liberal = 10
+				market_liberal = 20
+				social_conservative = 25
+				authoritarian_democrat = 20
+				paternal_autocrat = 15
+				national_populist = 5
+			}
+		}
+
 		WCC = {
 			add_equipment_to_stockpile = { 
 			type = fighter_equipment
@@ -1146,6 +1256,9 @@ USA_release_WCC = {
 }
 
 USA_release_CAL = {
+	if = {
+			limit = { NOT = { has_global_flag = USA_CAL_existed } }
+	}
 	hidden_effect = {
 		set_global_flag = ACW_pacific_states_revolted
 
@@ -1220,6 +1333,8 @@ USA_release_CAL = {
 		set_country_flag = Chester_William_Nimitz_Sr_dead
 		set_country_flag = John_Lesesne_DeWitt_dead
 		set_country_flag = William_Randolph_Hearst_Sr_dead
+		set_country_flag = Alexander_Vandegrift_dead
+		set_country_flag = James_Harold_Doolittle_dead
 
 		CAL = {
 			load_oob = "USA_civil_war_psa_army"
@@ -1338,6 +1453,11 @@ COR_release_BBR = {
 			}
 			add_ideas = {
 				extensive_conscription
+				war_economy
+				BBR_WEB_Du_Bois_hog_rso
+				BBR_Theophilus_Lewis_for_rso
+				BBR_Howard_Thurman_eco_rso
+				BBR_Sterling_Allen_Brown_sec_rso
 			}
 		}
 	}
@@ -1345,6 +1465,22 @@ COR_release_BBR = {
 
 USA_civil_war_begins = {
 	hidden_effect = {
+		USA = {
+		remove_ideas = {
+		USA_great_depression
+		USA_great_depression_2
+		USA_great_depression_3
+		USA_great_depression_4
+		USA_great_depression_garner_1
+		USA_great_depression_garner_2
+		USA_black_monday
+		USA_black_monday2
+		USA_austerity_garner
+		USA_black_monday2_garner
+		USA_great_depression_Norris_1
+		USA_great_depression_Norris_2
+					}
+				}
 		set_global_flag = USA_civil_war_begun_flag
 		NIC = {
 			country_event = {
@@ -1702,7 +1838,7 @@ USA_civil_war_ends = {
 						civilian_economy
 						volunteer_only
 						USA_civil_war_political_aftermath_idea
-						USA_civil_war_depression_idea
+						USA_civil_war_war_aftermath_idea
 					}
 				}
 			}
@@ -1712,8 +1848,8 @@ USA_civil_war_ends = {
 					add_ideas = {
 						civilian_economy
 						volunteer_only
-						USA_civil_war_political_aftermath_idea
-						USA_civil_war_depression_idea
+						TEX_political_instability_1
+						TEX_national_recovery_idea1
 					}
 				}
 			}
@@ -1724,7 +1860,7 @@ USA_civil_war_ends = {
 						civilian_economy
 						volunteer_only
 						USA_civil_war_political_aftermath_idea
-						USA_civil_war_depression_idea
+						USA_civil_war_war_aftermath_idea
 					}
 				}
 			}
@@ -1735,7 +1871,7 @@ USA_civil_war_ends = {
 						civilian_economy
 						volunteer_only
 						USA_civil_war_political_aftermath_idea
-						USA_civil_war_depression_idea
+						USA_civil_war_war_aftermath_idea
 					}
 				}
 			}
@@ -1746,7 +1882,7 @@ USA_civil_war_ends = {
 						civilian_economy
 						volunteer_only
 						USA_civil_war_political_aftermath_idea
-						USA_civil_war_depression_idea
+						USA_civil_war_war_aftermath_idea
 					}
 				}
 			}
@@ -1859,6 +1995,26 @@ USA_demobilize_forces = {
 			delete_unit_template_and_units = { division_template = "AUS Militia" }
 		}
 	}
+	COR = {
+		if = {
+			limit = { has_template = "CAR Militia" }
+			delete_unit_template_and_units = { division_template = "CAR Militia" }
+		}
+		if = {
+			limit = { has_template = "CAR Garrison" }
+			delete_unit_template_and_units = { division_template = "CAR Garrison" }
+		}
+	}
+	WCC = {
+		if = {
+			limit = { has_template = "National Guard Division" }
+			delete_unit_template_and_units = { division_template = "National Guard Division" }
+		}
+		if = {
+			limit = { has_template = "Army-National Guard Division" }
+			delete_unit_template_and_units = { division_template = "Army-National Guard Division" }
+		}
+	}
 	USA = {
 		if = {
 			limit = { has_template = "Loyalist Cavalry Guard" }
@@ -1915,6 +2071,8 @@ ACW_surrender_effect = {
 					is_controlled_by = CAL
 					is_controlled_by = USA
 					is_controlled_by = NEE
+					is_controlled_by = WCC
+					is_controlled_by = COR
 				}
 			}
 			controller = { transfer_state = PREV }
@@ -2029,8 +2187,8 @@ USA_political_recovery = {
 	else_if = {
 		limit = { has_idea = USA_civil_war_political_aftermath_idea6 }
 			remove_ideas = USA_civil_war_political_aftermath_idea6
+		}
 	}
-}
 
 USA_depression_recovery = {
 	if = {
@@ -2176,7 +2334,243 @@ CSA_increase_recovery = {
 		limit = { has_idea = USA_civil_war_war_aftermath_idea5 }
 			remove_ideas = USA_civil_war_war_aftermath_idea5
 	}
+}
+
 CSA_increase_political_recovery = {
+	if = {
+		limit = { has_idea = USA_civil_war_political_aftermath_idea }
+		swap_ideas = {
+			remove_idea = USA_civil_war_political_aftermath_idea
+			add_idea = USA_civil_war_political_aftermath_idea2
+		}
+	}
+	else_if = {
+		limit = { has_idea = USA_civil_war_political_aftermath_idea2 }
+		swap_ideas = {
+			remove_idea = USA_civil_war_political_aftermath_idea2
+			add_idea = USA_civil_war_political_aftermath_idea3
+		}
+	}
+	else_if = {
+		limit = { has_idea = USA_civil_war_political_aftermath_idea3 }
+		swap_ideas = {
+			remove_idea = USA_civil_war_political_aftermath_idea3
+			add_idea = USA_civil_war_political_aftermath_idea4
+		}
+	}
+	else_if = {
+		limit = { has_idea = USA_civil_war_political_aftermath_idea4 }
+		swap_ideas = {
+			remove_idea = USA_civil_war_political_aftermath_idea4
+			add_idea = USA_civil_war_political_aftermath_idea5
+		}
+	}
+	else_if = {
+		limit = { has_idea = USA_civil_war_political_aftermath_idea5 }
+		swap_ideas = {
+			remove_idea = USA_civil_war_political_aftermath_idea5
+			add_idea = USA_civil_war_political_aftermath_idea6
+		}
+	}
+	else_if = {
+		limit = { has_idea = USA_civil_war_political_aftermath_idea6 }
+			remove_ideas = USA_civil_war_political_aftermath_idea6
+	}
+}
+
+COR_increase_recovery = {
+	if = {
+		limit = { has_idea = USA_civil_war_war_aftermath_idea }
+		swap_ideas = {
+			remove_idea = USA_civil_war_war_aftermath_idea
+			add_idea = USA_civil_war_war_aftermath_idea2
+		}
+	}
+	else_if = {
+		limit = { has_idea = USA_civil_war_war_aftermath_idea2 }
+		swap_ideas = {
+			remove_idea = USA_civil_war_war_aftermath_idea2
+			add_idea = USA_civil_war_war_aftermath_idea3
+		}
+	}
+	else_if = {
+		limit = { has_idea = USA_civil_war_war_aftermath_idea3 }
+		swap_ideas = {
+			remove_idea = USA_civil_war_war_aftermath_idea3
+			add_idea = USA_civil_war_war_aftermath_idea4
+		}
+	}
+	else_if = {
+		limit = { has_idea = USA_civil_war_war_aftermath_idea4 }
+		swap_ideas = {
+			remove_idea = USA_civil_war_war_aftermath_idea4
+			add_idea = USA_civil_war_war_aftermath_idea5
+		}
+	}
+	else_if = {
+		limit = { has_idea = USA_civil_war_war_aftermath_idea5 }
+			remove_ideas = USA_civil_war_war_aftermath_idea5
+		}
+	}
+
+COR_increase_political_recovery = {
+	if = {
+		limit = { has_idea = USA_civil_war_political_aftermath_idea }
+		swap_ideas = {
+			remove_idea = USA_civil_war_political_aftermath_idea
+			add_idea = USA_civil_war_political_aftermath_idea2
+		}
+	}
+	else_if = {
+		limit = { has_idea = USA_civil_war_political_aftermath_idea2 }
+		swap_ideas = {
+			remove_idea = USA_civil_war_political_aftermath_idea2
+			add_idea = USA_civil_war_political_aftermath_idea3
+		}
+	}
+	else_if = {
+		limit = { has_idea = USA_civil_war_political_aftermath_idea3 }
+		swap_ideas = {
+			remove_idea = USA_civil_war_political_aftermath_idea3
+			add_idea = USA_civil_war_political_aftermath_idea4
+		}
+	}
+	else_if = {
+		limit = { has_idea = USA_civil_war_political_aftermath_idea4 }
+		swap_ideas = {
+			remove_idea = USA_civil_war_political_aftermath_idea4
+			add_idea = USA_civil_war_political_aftermath_idea5
+		}
+	}
+	else_if = {
+		limit = { has_idea = USA_civil_war_political_aftermath_idea4 }
+		swap_ideas = {
+			remove_idea = USA_civil_war_political_aftermath_idea4
+			add_idea = USA_civil_war_political_aftermath_idea5
+		}
+	}
+	else_if = {
+		limit = { has_idea = USA_civil_war_political_aftermath_idea5 }
+		swap_ideas = {
+			remove_idea = USA_civil_war_political_aftermath_idea5
+			add_idea = USA_civil_war_political_aftermath_idea6
+		}
+	}
+	else_if = {
+		limit = { has_idea = USA_civil_war_political_aftermath_idea6 }
+			remove_ideas = USA_civil_war_political_aftermath_idea6
+	}
+}
+
+CAL_increase_recovery = {
+	if = {
+		limit = { has_idea = USA_civil_war_war_aftermath_idea }
+		swap_ideas = {
+			remove_idea = USA_civil_war_war_aftermath_idea
+			add_idea = USA_civil_war_war_aftermath_idea2
+		}
+	}
+	else_if = {
+		limit = { has_idea = USA_civil_war_war_aftermath_idea2 }
+		swap_ideas = {
+			remove_idea = USA_civil_war_war_aftermath_idea2
+			add_idea = USA_civil_war_war_aftermath_idea3
+		}
+	}
+	else_if = {
+		limit = { has_idea = USA_civil_war_war_aftermath_idea3 }
+		swap_ideas = {
+			remove_idea = USA_civil_war_war_aftermath_idea3
+			add_idea = USA_civil_war_war_aftermath_idea4
+		}
+	}
+	else_if = {
+		limit = { has_idea = USA_civil_war_war_aftermath_idea4 }
+		swap_ideas = {
+			remove_idea = USA_civil_war_war_aftermath_idea4
+			add_idea = USA_civil_war_war_aftermath_idea5
+		}
+	}
+	else_if = {
+		limit = { has_idea = USA_civil_war_war_aftermath_idea5 }
+			remove_ideas = USA_civil_war_war_aftermath_idea5
+		}
+	}
+
+CAL_increase_political_recovery = {
+	if = {
+		limit = { has_idea = USA_civil_war_political_aftermath_idea }
+		swap_ideas = {
+			remove_idea = USA_civil_war_political_aftermath_idea
+			add_idea = USA_civil_war_political_aftermath_idea2
+		}
+	}
+	else_if = {
+		limit = { has_idea = USA_civil_war_political_aftermath_idea2 }
+		swap_ideas = {
+			remove_idea = USA_civil_war_political_aftermath_idea2
+			add_idea = USA_civil_war_political_aftermath_idea3
+		}
+	}
+	else_if = {
+		limit = { has_idea = USA_civil_war_political_aftermath_idea3 }
+		swap_ideas = {
+			remove_idea = USA_civil_war_political_aftermath_idea3
+			add_idea = USA_civil_war_political_aftermath_idea4
+		}
+	}
+	else_if = {
+		limit = { has_idea = USA_civil_war_political_aftermath_idea4 }
+		swap_ideas = {
+			remove_idea = USA_civil_war_political_aftermath_idea4
+			add_idea = USA_civil_war_political_aftermath_idea5
+		}
+	}
+	else_if = {
+		limit = { has_idea = USA_civil_war_political_aftermath_idea5 }
+		swap_ideas = {
+			remove_idea = USA_civil_war_political_aftermath_idea5
+			add_idea = USA_civil_war_political_aftermath_idea6
+		}
+	}
+	else_if = {
+		limit = { has_idea = USA_civil_war_political_aftermath_idea6 }
+			remove_ideas = USA_civil_war_political_aftermath_idea6
+		}
+	}
+
+WCC_increase_recovery = {
+	if = {
+		limit = { has_idea = USA_civil_war_war_aftermath_idea }
+		swap_ideas = {
+			remove_idea = USA_civil_war_war_aftermath_idea
+			add_idea = USA_civil_war_war_aftermath_idea2
+		}
+	}
+	else_if = {
+		limit = { has_idea = USA_civil_war_war_aftermath_idea2 }
+		swap_ideas = {
+			remove_idea = USA_civil_war_war_aftermath_idea2
+			add_idea = USA_civil_war_war_aftermath_idea3
+		}
+	}
+	else_if = {
+		limit = { has_idea = USA_civil_war_war_aftermath_idea3 }
+		swap_ideas = {
+			remove_idea = USA_civil_war_war_aftermath_idea3
+			add_idea = USA_civil_war_war_aftermath_idea4
+		}
+	}
+	else_if = {
+		limit = { has_idea = USA_civil_war_war_aftermath_idea4 }
+		swap_ideas = {
+			remove_idea = USA_civil_war_war_aftermath_idea4
+			add_idea = USA_civil_war_war_aftermath_idea5
+		}
+	}
+}
+
+WCC_increase_political_recovery = {
 	if = {
 		limit = { has_idea = USA_civil_war_political_aftermath_idea }
 		swap_ideas = {
@@ -2291,6 +2685,34 @@ remove_ACW_cores = {
 			ROOT = { NOT = { tag = TEX } }
 		}
 		remove_claim_by = TEX
+	}
+	if = {
+		limit = {
+			is_core_of = COR
+			ROOT = { NOT = { tag = COR } }
+		}
+		remove_core_of = COR
+	}
+	if = {
+		limit = {
+			is_claimed_by = COR
+			ROOT = { NOT = { tag = COR } }
+		}
+		remove_claim_by = COR
+	}	
+	if = {
+		limit = {
+			is_core_of = WCC
+			ROOT = { NOT = { tag = WCC } }
+		}
+		remove_core_of = WCC
+	}
+	if = {
+		limit = {
+			is_claimed_by = WCC
+			ROOT = { NOT = { tag = WCC } }
+		}
+		remove_claim_by = WCC
 	}
 	if = {
 		limit = {

@@ -1,6 +1,6 @@
 ﻿#############################################
 # Combined Syndicates of America Events
-# By Herkles
+# By Clothcoat
 #############################################
 
 add_namespace = csa
@@ -13,7 +13,7 @@ country_event = { # Socialist Constitution - Property Debate
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.1000"}
 	title = csa.1000.t
 	desc = csa.1000.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 
@@ -21,6 +21,14 @@ country_event = { # Socialist Constitution - Property Debate
 	
 	option = { #The Laborists win out
 		name = csa.1000.a	
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = totalist
+			popularity = 0.02
+		}
 		hidden_effect = {
 		country_event = {
 			id = csa.1001
@@ -38,6 +46,14 @@ country_event = { # Socialist Constitution - Property Debate
 	}
 	option = { # The Nationalists win out
 		name = csa.1000.b
+		add_popularity = {
+			ideology = radical_socialist
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = totalist
+			popularity = 0.03
+		}
 		hidden_effect = {
 		country_event = {
 			id = csa.1001
@@ -60,7 +76,7 @@ country_event = { # Socialist Constitution - Social Radicalism
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.1001"}
 	title = csa.1001.t
 	desc = csa.1001.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 
@@ -83,7 +99,15 @@ country_event = { # Socialist Constitution - Social Radicalism
 				}
 			}
 		}
-		name = csa.1001.a	
+		name = csa.1001.a
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = totalist
+			popularity = 0.03
+		}	
 		country_event = {
 			id = csa.1002
 			days = 7
@@ -117,6 +141,14 @@ country_event = { # Socialist Constitution - Social Radicalism
 			}
 		}
 		name = csa.1001.b
+		add_popularity = {
+			ideology = radical_socialist
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = totalist
+			popularity = 0.02
+		}
 		country_event = {
 			id = csa.1002
 			days = 7
@@ -139,7 +171,7 @@ country_event = { # Socialist Constitution - Voting Rights
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.1002"}
 	title = csa.1002.t
 	desc = csa.1002.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 
@@ -166,12 +198,22 @@ country_event = { # Socialist Constitution - Voting Rights
 				}
 			}
 		}
-		name = csa.1002.a	
+		name = csa.1002.a
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.08
+		}
 		country_event = {
 			id = csa.1003
 			days = 6
 			hidden_effect = {
 			set_country_flag = CSA_Laborite_Plan
+			}
+		}
+		hidden_effect = {
+			modify_country_flag = {
+			flag = CSA_afl
+			value = 1
 			}
 		}
 	}
@@ -193,12 +235,22 @@ country_event = { # Socialist Constitution - Voting Rights
 			}
 		}
 		name = csa.1002.b
+		add_popularity = {
+			ideology = radical_socialist
+			popularity = 0.08
+		}
 		country_event = {
 			id = csa.1003
 			days = 6
 			}
 		hidden_effect = {
 		set_country_flag = CSA_Nationalist_Plan
+		}
+		hidden_effect = {
+			modify_country_flag = {
+			flag = CSA_nationalists
+			value = 1
+			}
 		}
 	}
 	option = { # The Centralist Plan
@@ -223,6 +275,10 @@ country_event = { # Socialist Constitution - Voting Rights
 			}
 		}
 		name = csa.1002.c
+		add_popularity = {
+			ideology = totalist
+			popularity = 0.12
+		}
 		country_event = {
 			id = csa.1003
 			days = 6
@@ -230,15 +286,25 @@ country_event = { # Socialist Constitution - Voting Rights
 		hidden_effect = {
 		set_country_flag = CSA_Centralist_Plan
 		}
+		hidden_effect = {
+			modify_country_flag = {
+			flag = CSA_burnham
+			value = 1
+			}
+			modify_country_flag = {
+			flag = CSA_browder
+			value = 1
+			}
+		}
 	}
 }
 
-country_event = { # Socialist Congressional Election Arrives
+country_event = { # Socialist Election Arrives
 	id = csa.1003
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.1003"}
 	title = csa.1003.t
 	desc = csa.1003.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 
@@ -270,6 +336,10 @@ country_event = { # Socialist Congressional Election Arrives
 		NOT = {
 		has_country_flag = CSA_Laborite_Plan
 		}
+		has_country_flag = {
+			flag = CSA_nationalists
+			value > 2
+			}
 		}
 		hidden_effect = {
 		country_event = {
@@ -307,6 +377,12 @@ country_event = { # Socialist Congressional Election Arrives
 			}
 		}
 		name = csa.1003.b
+		trigger = {
+		has_country_flag = {
+			flag = CSA_afl
+			value > 2
+			}
+		}
 		set_country_flag = CSA_constitutional_convention_done
 		hidden_effect = {
 		set_country_flag = CSA_AFL_In_Power
@@ -339,15 +415,24 @@ country_event = { # Socialist Congressional Election Arrives
 			}
 		}
 		name = csa.1003.c
+		trigger = {
+		has_country_flag = {
+			flag = CSA_browder
+			value > 2
+			}
+		}
 		set_country_flag = CSA_constitutional_convention_done
 		hidden_effect = {
+			add_ideas = CSA_Ernest_Hemingway_for_tot
+			add_ideas = CSA_Gus_Hall_eco_tot
+			add_ideas = CSA_Steve_Nelson_sec_tot
 			create_country_leader = {
 				name = "Earl Browder"
 				desc = "POLITICS_EARL_BROWDER_DESC"
 				picture = "Portrait_CSA_Earl_Bowder.tga"
 				expire = "1965.1.1"
 				ideology = totalist_subtype
-				traits = {}
+				traits = { the_director }
 			}
 		}
 		set_politics = {
@@ -386,19 +471,38 @@ country_event = { # Socialist Congressional Election Arrives
 			}
 		}
 		name = csa.1003.e
+		trigger = {
+		has_country_flag = {
+			flag = CSA_burnham
+			value > 2
+			}
+		}
 		hidden_effect = {
 		set_country_flag = CSA_burnham_is_leader
-		}
 		set_country_flag = CSA_constitutional_convention_done
+			add_ideas = CSA_Joseph_Zack_Kornfeder_for_tot
+			add_ideas = CSA_Frederick_L_Ackerman_eco_tot
+			add_ideas = CSA_Lawrence_Dennis_sec_tot 
+		}
 		hidden_effect = {
 			create_country_leader = {
 				name = "James Burnham"
 				desc = "POLITICS_JAMES_BURNHAM_DESC"
-				picture = "gfx/leaders/CSA/Portrait_CSA_burnham.dds"
+				picture = "gfx/leaders/CSA/Portrait_CSA_burnham.tga"
 				expire = "1965.1.1"
 				ideology = totalist_subtype
-				traits = { }
+				traits = { managerialist }
 			}
+		}
+		set_politics = {
+			ruling_party = totalist
+			election_frequency = 48
+			elections_allowed = yes
+		}
+		set_party_name = {
+			ideology = totalist
+			long_name = CSA_totalist_syndicalism_party_long
+			name = CSA_totalist_syndicalism_party
 		}
 	}
 }
@@ -408,7 +512,7 @@ country_event = { # Constitutional Convention begins
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.1"}
 	title = csa.1.t
 	desc = csa.1.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 
@@ -417,27 +521,33 @@ country_event = { # Constitutional Convention begins
 		hidden_effect = {
 			create_country_leader = {
 				name = "CSA Central Committee"
-				desc = "CSA_CENTRAL_COMITTEE_DESC"
+				desc = "POLITICS_CSA_CENTRAL_COMITTEE_DESC"
 				picture = "Portrait_CSA_committee.tga"
 				expire = "1965.1.1"
 				ideology = radical_socialist_subtype
-				traits = {}
+				traits = {
+					our_right_to_survive
+				}
 			}
 			create_country_leader = {
 				name = "CSA Central Committee"
-				desc = "CSA_CENTRAL_COMITTEE_DESC"
+				desc = "POLITICS_CSA_CENTRAL_COMITTEE_DESC"
 				picture = "Portrait_CSA_committee.tga"
 				expire = "1965.1.1"
 				ideology = syndicalist_subtype
-				traits = {}
+				traits = {
+					our_right_to_survive
+				}
 			}
 			create_country_leader = {
 				name = "CSA Central Committee"
-				desc = "CSA_CENTRAL_COMITTEE_DESC"
+				desc = "POLITICS_CSA_CENTRAL_COMITTEE_DESC"
 				picture = "Portrait_CSA_committee.tga"
 				expire = "1965.1.1"
 				ideology = totalist_subtype
-				traits = {}
+				traits = {
+					our_right_to_survive
+				}
 			}
 			set_country_flag = {
 				flag = CSA_centralists
@@ -460,7 +570,7 @@ country_event = { # Socialist Constitution - System of Government
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.2"}
 	title = csa.2.t
 	desc = csa.2.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 
@@ -543,7 +653,7 @@ country_event = { # Socialist Constitution - Framework
 			has_country_flag = CSA_party
 		}
 	}
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 
@@ -564,7 +674,7 @@ country_event = { # Socialist Constitution - Judiciary
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.5"}
 	title = csa.5.t
 	desc = csa.5.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 
@@ -633,12 +743,12 @@ country_event = { # Socialist Constitution - Judiciary
 	}
 }
 
-country_event = { # Socialist Constitution - Congress and the President
+country_event = { # Socialist Constitution - the President
 	id = csa.7
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.7"}
 	title = csa.7.t
 	desc = csa.7.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 
@@ -755,7 +865,7 @@ country_event = { # Socialist Constitution - Centralization or decentralization
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.8"}
 	title = csa.8.t
 	desc = csa.8.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 
@@ -861,7 +971,7 @@ country_event = { # Socialist Constitution - The Capital
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.9"}
 	title = csa.9.t
 	desc = csa.9.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 
@@ -936,7 +1046,7 @@ country_event = { # Constitutional Convention over
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.10"}
 	title = csa.10.t
 	desc = csa.10.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 
@@ -1021,7 +1131,7 @@ country_event = { # Socialist Constitution - Election
 	id = csa.11
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.11"}
 	title = csa.11.t
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	desc = {
 		text = csa.11.d.usas
@@ -1108,12 +1218,16 @@ country_event = { # Socialist Constitution - Election
 		}
 		set_country_flag = CSA_constitutional_convention_done
 		hidden_effect = {
+			add_ideas = CSA_Ernest_Hemingway_for_tot
+			add_ideas = CSA_Gus_Hall_eco_tot
+			add_ideas = CSA_Steve_Nelson_sec_tot
 		create_country_leader = {
 				name = "Earl Browder"
 				desc = "POLITICS_EARL_BROWDER_DESC"
 				picture = "gfx/leaders/CSA/Browder_2.tga"
 				expire = "1965.1.1"
 				ideology = totalist_subtype
+				traits = { the_director }
 			}
 		}
 		set_politics = {
@@ -1154,13 +1268,16 @@ country_event = { # Socialist Constitution - Election
 		set_country_flag = CSA_foster_is_leader
 		set_country_flag = CSA_constitutional_convention_done
 		hidden_effect = {
+			add_ideas = CSA_Sam_Darcy_for_tot
+			add_ideas = CSA_John_J_Ballam_eco_tot
+			add_ideas = CSA_Jack_Shulman_sec_tot
 			create_country_leader = {
 				name = "William Z. Foster"
 				desc = "POLITICS_WILLIAM_FOSTER_DESC"
 				picture = "Portrait_CSA_William_Z_Foster.tga"
 				expire = "1965.1.1"
 				ideology = totalist_subtype
-				traits = {}
+				traits = { prince_of_terror }
 			}
 		}
 		set_politics = {
@@ -1207,13 +1324,16 @@ country_event = { # Socialist Constitution - Election
 		set_country_flag = CSA_burnham_is_leader
 		set_country_flag = CSA_constitutional_convention_done
 		hidden_effect = {
+			add_ideas = CSA_Joseph_Zack_Kornfeder_for_tot
+			add_ideas = CSA_Frederick_L_Ackerman_eco_tot
+			add_ideas = CSA_Lawrence_Dennis_sec_tot 
 			create_country_leader = {
 				name = "James Burnham"
 				desc = "POLITICS_JAMES_BURNHAM_DESC"
 				picture = "gfx/leaders/CSA/Portrait_CSA_burnham.tga"
 				expire = "1965.1.1"
 				ideology = totalist_subtype
-				traits = { }
+				traits = { managerialist }
 			}
 		}
 		
@@ -1247,7 +1367,7 @@ country_event = { # Trial of the American First
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.12"}
 	title = csa.12.t
 	desc = csa.12.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 
@@ -1308,7 +1428,7 @@ country_event = { # Trial of the Old Federalist
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.13"}
 	title = csa.13.t
 	desc = csa.13.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 
@@ -1372,7 +1492,7 @@ country_event = { # Revolutionary Art
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.14"}
 	title = csa.14.t
 	desc = csa.14.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 		tag = CSA
@@ -1393,7 +1513,7 @@ country_event = { # Architecture of the new America
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.15"}
 	title = csa.15.t
 	desc = csa.15.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 		tag = CSA
@@ -1437,7 +1557,7 @@ country_event = { # fighting racism
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.16"}
 	title = csa.16.t
 	desc = csa.16.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 		tag = CSA
@@ -1463,7 +1583,7 @@ country_event = { # The New American Woman
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.17"}
 	title = csa.17.t
 	desc = csa.17.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 		tag = CSA
@@ -1495,7 +1615,7 @@ country_event = { # Redistributing wealth
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.18"}
 	title = csa.18.t
 	desc = csa.18.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 		tag = CSA
@@ -1520,7 +1640,7 @@ country_event = { # Land Redistribution
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.19"}
 	title = csa.19.t
 	desc = csa.19.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 		tag = CSA
@@ -1547,7 +1667,7 @@ country_event = { # Dealing with Reactionaries
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.20"}
 	title = csa.20.t
 	desc = csa.20.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 		tag = CSA
@@ -1599,12 +1719,18 @@ country_event = { # Education reform
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.21"}
 	title = csa.21.t
 	desc = csa.21.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 		tag = CSA
 		has_completed_focus = CSA_social_revolution
 		has_completed_focus = CSA_revolutionary_education
+		NOT = {
+				has_country_leader = {
+				ruling_only = yes
+				name = "John Dewey"
+				}
+			}
 	}
 
 	mean_time_to_happen = {
@@ -1619,12 +1745,41 @@ country_event = { # Education reform
 	}
 }
 
+country_event = { # Education reform (Dewey)
+	id = csa.2100
+	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.2100"}
+	title = csa.2100.t
+	desc = csa.2100.d
+	picture = GFX_report_event_USA_congress
+
+	trigger = {
+		tag = CSA
+		has_completed_focus = CSA_social_revolution
+		has_completed_focus = CSA_revolutionary_education
+		has_country_leader = {
+				ruling_only = yes
+				name = "John Dewey"
+				}
+	}
+
+	mean_time_to_happen = {
+		months = 11
+	}
+
+	fire_only_once = yes
+
+	option = { # Flavor
+		name = csa.2100.a
+		add_political_power = 50
+	}
+}
+
 country_event = { # New Industries
 	id = csa.22
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.22"}
 	title = csa.22.t
 	desc = csa.22.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 		tag = CSA
@@ -1655,12 +1810,11 @@ country_event = { # Resistance to social changes
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.23"}
 	title = csa.23.t
 	desc = csa.23.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 		tag = CSA
-		has_completed_focus = CSA_social_revolution
-		has_completed_focus = CSA_equality_for_all
+		has_completed_focus = CSA_illegalize_racism
 	}
 
 	mean_time_to_happen = {
@@ -1680,11 +1834,11 @@ country_event = { # family law
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.24"}
 	title = csa.24.t
 	desc = csa.24.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 		tag = CSA
-		has_completed_focus = CSA_womens_liberation
+		has_completed_focus = CSA_social_revolution
 	}
 
 	fire_only_once = yes
@@ -1714,7 +1868,7 @@ country_event = { # family law
 			ideology = syndicalist
 			popularity = 0.02
 		}
-		add_stability = -0.02
+		add_stability = -0.05
 	}
 }
 
@@ -1732,22 +1886,40 @@ country_event = { # Centralist IWW Faction
 
 	option = { # Big Bill Haywood
 		name = csa.25.a
+		set_country_flag = CSA_1940_iww_election_haywood
+		add_ideas = {
+				CSA_William_F_Dunne_for_syn
+				CSA_Harry_Bridges_eco_syn
+				CSA_Lee_Pressman_sec_syn
+			}
 		create_country_leader = {
 			name = "Big Bill Haywood"
 			desc = "POLITICS_BIG_BILL_HAYWOOD_DESC"
 			picture = "gfx/leaders/CSA/Bill_Haywood.tga"
 			expire = "1965.1.1"
 			ideology = syndicalist_subtype
-			traits = {}
+			traits = { big_bill }
 		}
 		set_politics = {
 			ruling_party = syndicalist
 			election_frequency = 48
 			elections_allowed = yes
 		}
+		hidden_effect = {
+		country_event = {
+		id = csa.37
+		days = 3
+		}
+		}
 	}
 	option = { # James P. Cannon
 		name = csa.25.b
+		set_country_flag = CSA_1940_iww_election_cannon
+		add_ideas = {
+				CSA_Arne_Swabeck_for_syn
+				CSA_Vincent_R_Dunne_eco_syn
+				CSA_Eugene_Dennis_sec_syn
+			}
 		create_country_leader = {
 				name = "James P. Cannon"
 				desc = "POLITICS_JAMES_CANNON_DESC"
@@ -1755,6 +1927,7 @@ country_event = { # Centralist IWW Faction
 				expire = "1965.1.1"
 				ideology = syndicalist_subtype
 				traits = {
+					smooth_talking_charmer
 				}
 			}
 		set_politics = {
@@ -1762,9 +1935,21 @@ country_event = { # Centralist IWW Faction
 			election_frequency = 48
 			elections_allowed = yes
 		}
+		hidden_effect = {
+		country_event = {
+		id = csa.37
+		days = 3
+		}
+		}
 	}
 	option = { # Arturo Giovannitti
 		name = csa.25.c
+		set_country_flag = CSA_1940_iww_election_giovannitti
+		add_ideas = {
+				CSA_Arne_Swabeck_for_syn
+				CSA_Vincent_R_Dunne_eco_syn
+				CSA_Lee_Pressman_sec_syn
+			}
 		create_country_leader = {
 			name = "Arturo Giovannitti"
 			desc = "POLITICS_ARTURO_GIOVANNITTI_DESC"
@@ -1772,6 +1957,7 @@ country_event = { # Centralist IWW Faction
 			expire = "1965.1.1"
 			ideology = syndicalist_subtype
 			traits = {
+				great_survivor
 			}
 		}
 		set_politics = {
@@ -1779,16 +1965,29 @@ country_event = { # Centralist IWW Faction
 			election_frequency = 48
 			elections_allowed = yes
 		}
+		hidden_effect = {
+		country_event = {
+		id = csa.37
+		days = 3
+		}
+		}
 	}
 	option = { # Harry Bridges
 		name = csa.25.e
+		set_country_flag = CSA_1940_iww_election_bridges
+		add_ideas = {
+				CSA_William_F_Dunne_for_syn
+				CSA_Elizabeth_Nord_eco_syn
+				CSA_Eugene_Dennis_sec_syn
+			}
 		create_country_leader = {
 					name = "Harry Bridges"
 					desc = "POLITICS_HARRY_BRIDGES_DESC"
-					picture = "Portrait_CSA_Harry_Bridges.tga"
+					picture = "CSA_Harry_Bridges.tga"
 					expire = "1965.1.1"
 					ideology = syndicalist_subtype
 					traits = {
+						anarchist_zeal
 					}
 				}
 		set_politics = {
@@ -1796,9 +1995,21 @@ country_event = { # Centralist IWW Faction
 			election_frequency = 48
 			elections_allowed = yes
 		}
+		hidden_effect = {
+		country_event = {
+		id = csa.37
+		days = 3
+		}
+		}
 	}
 	option = { # Elmer Allison
-		name = csa.25.e
+		name = csa.25.f
+		set_country_flag = CSA_1940_iww_election_allison
+		add_ideas = {
+				CSA_Max_Shachtman_for_syn
+				CSA_Elizabeth_Nord_eco_syn
+				CSA_Eugene_Dennis_sec_syn
+			}
 		create_country_leader = {
 				name = "Elmer Allison"
 				desc = "POLITICS_ELMER_ALLISON_DESC"
@@ -1806,6 +2017,7 @@ country_event = { # Centralist IWW Faction
 				expire = "1965.1.1"
 				ideology = syndicalist_subtype
 				traits = {
+					editor
 				}
 			}
 		set_politics = {
@@ -1813,9 +2025,21 @@ country_event = { # Centralist IWW Faction
 			election_frequency = 48
 			elections_allowed = yes
 		}
+		hidden_effect = {
+		country_event = {
+		id = csa.37
+		days = 3
+		}
+		}
 	}
-	option = { # Elmer Allison
-		name = csa.25.e
+	option = { # Ludwig Katterfeld
+		name = csa.25.g
+		set_country_flag = CSA_1940_iww_election_katterfeld
+		add_ideas = {
+				CSA_Max_Shachtman_for_syn
+				CSA_Harry_Bridges_eco_syn
+				CSA_Lee_Pressman_sec_syn
+			}
 		create_country_leader = {
 				name = "Ludwig E. Katterfeld"
 				desc = "POLITICS_LUDWIG_KATTERFELD_DESC"
@@ -1823,12 +2047,19 @@ country_event = { # Centralist IWW Faction
 				expire = "1965.1.1"
 				ideology = radical_socialist_subtype
 				traits = {
+					editor
 					}
 				}
 			set_politics = {
 			ruling_party = syndicalist
 			election_frequency = 48
 			elections_allowed = yes
+		}
+		hidden_effect = {
+		country_event = {
+		id = csa.37
+		days = 3
+		}
 		}
 	}
 }
@@ -1844,23 +2075,41 @@ country_event = { # Orthodox Syndicalist Election
 	is_triggered_only = yes
 
 	option = { # Big Bill Haywood
-		name = csa.25.a
+		name = csa.26.a
+		set_country_flag = CSA_1940_orthodox_election_haywood
+		add_ideas = {
+				CSA_Ralph_Chaplin_for_syn
+				CSA_Paul_Mattick_eco_syn
+				CSA_John_Abt_sec_syn
+			}
 		create_country_leader = {
 			name = "Big Bill Haywood"
 			desc = "POLITICS_BIG_BILL_HAYWOOD_DESC"
 			picture = "gfx/leaders/CSA/Bill_Haywood.tga"
 			expire = "1965.1.1"
 			ideology = syndicalist_subtype
-			traits = {}
+			traits = { big_bill }
 		}
 		set_politics = {
 			ruling_party = syndicalist
 			election_frequency = 48
 			elections_allowed = yes
 		}
+		hidden_effect = {
+		country_event = {
+		id = csa.3700
+		days = 3
+		}
+		}
 	}
 	option = { # Frank T. Johns
-		name = csa.28.b
+		name = csa.26.b
+		set_country_flag = CSA_1940_orthodox_election_johns
+		add_ideas = {
+				CSA_Robert_Minor_for_syn
+				CSA_Bessie_Abramowitz_Hillman_eco_syn
+				CSA_John_Abt_sec_syn
+			}
 		create_country_leader = {
 			name = "Frank T. Johns"
 			desc = "POLITICS_FRANK_JOHNS_DESC"
@@ -1868,6 +2117,7 @@ country_event = { # Orthodox Syndicalist Election
 			expire = "1965.1.1"
 			ideology = syndicalist_subtype
 			traits = {
+				great_survivor
 			}
 		}
 		set_politics = {
@@ -1875,9 +2125,21 @@ country_event = { # Orthodox Syndicalist Election
 			election_frequency = 48
 			elections_allowed = yes
 		}
+		hidden_effect = {
+		country_event = {
+		id = csa.3700
+		days = 3
+		}
+		}
 	}
 	option = { # Elizabeth Gurley Flynn
-		name = csa.28.c
+		name = csa.26.c
+		set_country_flag = CSA_1940_orthodox_election_flynn
+		add_ideas = {
+				CSA_Robert_Minor_for_syn
+				CSA_Frank_Little_eco_syn
+				CSA_John_Abt_sec_syn
+			}
 		create_country_leader = {
 				name = "Elizabeth Gurley Flynn"
 				desc = "POLITICS_ELIZABETH_FLYNN_DESC"
@@ -1886,6 +2148,7 @@ country_event = { # Orthodox Syndicalist Election
 				ideology = syndicalist_subtype
 				female = yes
 				traits = {
+					appeaser
 			}
 		}
 		set_politics = {
@@ -1893,18 +2156,112 @@ country_event = { # Orthodox Syndicalist Election
 			election_frequency = 48
 			elections_allowed = yes
 		}
+		hidden_effect = {
+		country_event = {
+		id = csa.3700
+		days = 3
+		}
+		}
 	}
 	option = { # Robert Minor
-		name = csa.28.c
+		name = csa.26.e
+		set_country_flag = CSA_1940_orthodox_election_minor
+		add_ideas = {
+				CSA_Ralph_Chaplin_for_syn
+				CSA_Frank_Little_eco_syn
+				CSA_John_Abt_sec_syn
+			}
 		create_country_leader = {
 				name = "Robert Minor"
 				desc = "POLITICS_ROBERT_MINOR_DESC"
-				picture = "gfx/leaders/CSA/Bill_Haywood.tga"
+				picture = "gfx/leaders/CSA/Portrait_TXS_Fighting_Bob_Minor.tga"
 				expire = "1965.1.1"
 				ideology = syndicalist_subtype
 				female = yes
 				traits = {
+					fighting_bob
 			}
+		}
+		set_politics = {
+			ruling_party = syndicalist
+			election_frequency = 48
+			elections_allowed = yes
+		}
+		hidden_effect = {
+		country_event = {
+		id = csa.3700
+		days = 3
+		}
+		}
+	}
+}
+
+country_event = { # Anarchist Election
+	id = csa.27
+	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.27"}
+	title = csa.27.t
+	desc = csa.27.d
+	picture = GFX_report_event_election_vote
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { # Emma Goldman
+		name = csa.27.a
+		add_ideas = {
+				CSA_Carlo_Tresca_for_syn
+				CSA_Wyndham_Mortimer_eco_syn
+				CSA_Salaria_Kea_sec_syn
+			}
+		create_country_leader = {
+			name = "Emma Goldman"
+			desc = "POLITICS_EMMA_GOLDMAN_DESC"
+			picture = "gfx/leaders/CSA/Emma_Goldman.tga"
+			expire = "1965.1.1"
+			ideology = syndicalist_subtype
+			traits = { }
+		}
+		set_politics = {
+			ruling_party = syndicalist
+			election_frequency = 48
+			elections_allowed = yes
+		}
+	}
+	option = { # Dorothy Day
+		name = csa.27.b
+		add_ideas = {
+				CSA_Carlo_Tresca_for_syn
+				CSA_Wyndham_Mortimer_eco_syn
+				CSA_Salaria_Kea_sec_syn
+			}
+		create_country_leader = {
+			name = "Dorothy Day"
+			desc = "POLITICS_DOROTHY_DAY_DESC"
+			picture = "gfx/leaders/CSA/Dorothy_Day.tga"
+			expire = "1965.1.1"
+			ideology = syndicalist_subtype
+			traits = { }
+		}
+		set_politics = {
+			ruling_party = syndicalist
+			election_frequency = 48
+			elections_allowed = yes
+		}
+	}
+	option = { # Modest Stein
+		name = csa.27.c
+		add_ideas = {
+				CSA_Carlo_Tresca_for_syn
+				CSA_Wyndham_Mortimer_eco_syn
+				CSA_Salaria_Kea_sec_syn
+			}
+		create_country_leader = {
+			name = "Modest Stein"
+			desc = "POLITICS_MODEST_STEIN_DESC"
+			picture = "gfx/leaders/CSA/Modest_Stein.tga"
+			expire = "1965.1.1"
+			ideology = syndicalist_subtype
+			traits = { }
 		}
 		set_politics = {
 			ruling_party = syndicalist
@@ -2018,81 +2375,73 @@ country_event = { # 1944 Election
 	immediate = {
 		hidden_effect = {
 			if = { # Harry Bridges
-				limit = {
-					has_country_flag = CSA_1944_iww_primary_bridges
-				}
+				limit = { has_country_flag = CSA_1944_iww_primary_bridges }
+				kill_ideology_leader = syndicalist
 				create_country_leader = {
 					name = "Harry Bridges"
 					desc = "POLITICS_HARRY_BRIDGES_DESC"
 					picture = "Portrait_CSA_Harry_Bridges.tga"
 					expire = "1965.1.1"
 					ideology = syndicalist_subtype
-					traits = {}
+					traits = {
+						anarchist_zeal
+					}
 				}
 			}
-			if = { # Frank T. Johns
-				limit = {
-					has_country_flag = CSA_1944_iww_primary_johns
-				}
+			else_if = { # Frank T. Johns
+				limit = { has_country_flag = CSA_1944_iww_primary_johns }
+				kill_ideology_leader = syndicalist
 				create_country_leader = {
 					name = "Frank T. Johns"
 					desc = "POLITICS_FRANK_JOHNS_DESC"
 					picture = "Portrait_CSA_Frank_T_Johns.tga"
 					expire = "1965.1.1"
 					ideology = syndicalist_subtype
-					traits = {}
-				}
-			}
-			if = { # Frank Little
-				limit = {
-					has_country_flag = CSA_1944_iww_primary_little
-				}
-				create_country_leader = {
-					name = "Frank Little"
-					desc = "POLITICS_FRANK_LITTLE_DESC"
-					picture = "Portrait_CSA_Frank_Little.tga"
-					expire = "1965.1.1"
-					ideology = syndicalist_subtype
-					traits = {}
+					traits = {
+						great_survivor
+					}
 				}
 			}
 			if = { # Seymour Stedman
-				limit = {
-					has_country_flag = CSA_1944_cio_primary_stedman
-				}
+				limit = { has_country_flag = CSA_1944_cio_primary_stedman }
+				kill_ideology_leader = radical_socialist
 				create_country_leader = {
 					name = "Seymour Stedman"
 					desc = "POLITICS_SEYMOUR_STEDMAN_DESC"
 					picture = "Portrait_CSA_Seymour_Stedman.tga"
 					expire = "1965.1.1"
 					ideology = radical_socialist_subtype
-					traits = {}
+					traits = {
+						reluctant_interventionist
+					}
 				}
 			}
-			if = { # William E. Rodriguez
-				limit = {
-					has_country_flag = CSA_1944_cio_primary_rodriguez
-				}
+			else_if = { # William E. Rodriguez
+				limit = { has_country_flag = CSA_1944_cio_primary_rodriguez }
+				kill_ideology_leader = radical_socialist
 				create_country_leader = {
 					name = "William E. Rodriguez"
 					desc = "POLITICS_WILLIAM_RODRIGUEZ_DESC"
 					picture = "Portrait_CSA_William_E_Rodriguez.tga"
 					expire = "1965.1.1"
 					ideology = radical_socialist_subtype
-					traits = {}
+					traits = {
+						nationalist_symbol
+					}
 				}
 			}
-			if = { # Morris Hillquit
-				limit = {
-					has_country_flag = CSA_1940_cio_primary_hilquit
-				}
+			else_if = { # Morris Hillquit
+				limit = { has_country_flag = CSA_1944_cio_primary_hilquit }
+				kill_ideology_leader = radical_socialist
 				create_country_leader = {
 					name = "Morris Hillquit"
 					desc = "POLITICS_MORRIS_HILQUIT_DESC"
 					picture = "Portrait_CSA_Morris_Hillquit.tga"
 					expire = "1965.1.1"
 					ideology = radical_socialist_subtype
-					traits = {}
+					traits = {
+						backroom_backstabber
+					}
 				}
 			}
 		}
@@ -2398,7 +2747,7 @@ country_event = { # 1948 Election
 					picture = "Portrait_CSA_Eugene_Dennis.tga"
 					expire = "1965.1.1"
 					ideology = syndicalist_subtype
-					traits = {}
+					traits = { indecisive }
 				}
 			}
 			if = { # Elmer Allison
@@ -2411,7 +2760,9 @@ country_event = { # 1948 Election
 					picture = "Portrait_CSA_Elmer_Allison.tga"
 					expire = "1965.1.1"
 					ideology = syndicalist_subtype
-					traits = {}
+					traits = {
+						editor
+					}
 				}
 			}
 			if = { # Elizabeth Nord
@@ -2424,7 +2775,9 @@ country_event = { # 1948 Election
 					picture = "Portrait_CSA_Elizabeth_Nord.tga"
 					expire = "1965.1.1"
 					ideology = syndicalist_subtype
-					traits = {}
+					traits = {
+						indecisive
+					}
 				}
 			}
 			if = { # David Dubinsky
@@ -2437,7 +2790,9 @@ country_event = { # 1948 Election
 					picture = "Portrait_CSA_David_Dubinsky.tga"
 					expire = "1965.1.1"
 					ideology = radical_socialist_subtype
-					traits = {}
+					traits = {
+						backroom_backstabber
+					}
 				}
 			}
 			if = { # John L. Lewis
@@ -2450,7 +2805,9 @@ country_event = { # 1948 Election
 					picture = "Portrait_CSA_John_Lewis.tga"
 					expire = "1965.1.1"
 					ideology = radical_socialist_subtype
-					traits = {}
+					traits = {
+						prince_of_terror
+					}
 				}
 			}
 			if = { # L. E. Katterfeld
@@ -2463,7 +2820,9 @@ country_event = { # 1948 Election
 					picture = "Portrait_CSA_L_E_Katterfeld.tga"
 					expire = "1965.1.1"
 					ideology = radical_socialist_subtype
-					traits = {}
+					traits = {
+						editor
+					}
 				}
 			}
 		}
@@ -2763,81 +3122,87 @@ country_event = { # 1952 Election
 	immediate = {
 		hidden_effect = {
 			if = { # Eugene Dennis
-				limit = {
-					has_country_flag = CSA_1952_iww_primary_dennis
-				}
+				limit = { has_country_flag = CSA_1952_iww_primary_dennis }
+				kill_ideology_leader = syndicalist
 				create_country_leader = {
 					name = "Eugene Dennis"
 					desc = "POLITICS_EUGENE_DENNIS_DESC"
 					picture = "Portrait_CSA_Eugene_Dennis.tga"
 					expire = "1965.1.1"
 					ideology = syndicalist_subtype
-					traits = {}
+					traits = {
+						indecisive
+					}
 				}
 			}
 			if = { # Henning A. Blomen
-				limit = {
-					has_country_flag = CSA_1952_iww_primary_blomen
-				}
+				limit = { has_country_flag = CSA_1952_iww_primary_blomen }
+				kill_ideology_leader = syndicalist
 				create_country_leader = {
 					name = "Henning A. Blomen"
 					desc = "POLITICS_HENNING_BLOMEN_DESC"
 					picture = "Portrait_CSA_Henning_A_Blomen.tga"
 					expire = "1965.1.1"
 					ideology = syndicalist_subtype
-					traits = {}
+					traits = {
+						captain_of_industry
+					}
 				}
 			}
 			if = { # John Bernard
-				limit = {
-					has_country_flag = CSA_1952_iww_primary_bernard
-				}
+				limit = { has_country_flag = CSA_1952_iww_primary_bernard }
+				kill_ideology_leader = syndicalist
 				create_country_leader = {
 					name = "John Bernard"
 					desc = "POLITICS_JOHN_BERNARD_DESC"
 					picture = "Portrait_CSA_John_Bernard.tga"
 					expire = "1965.1.1"
 					ideology = syndicalist_subtype
-					traits = {}
+					traits = {
+						warmonger
+					}
 				}
 			}
 			if = { # Oakley C. Johnson
-				limit = {
-					has_country_flag = CSA_1952_cio_primary_johnson
-				}
+				limit = { has_country_flag = CSA_1952_cio_primary_johnson }
+				kill_ideology_leader = radical_socialist
 				create_country_leader = {
 					name = "Oakley C. Johnson"
 					desc = "POLITICS_OAKLEY_JOHNSON_DESC"
 					picture = "Portrait_CSA_Oakley_C_Johnson.tga"
 					expire = "1965.1.1"
 					ideology = radical_socialist_subtype
-					traits = {}
+					traits = {
+						editor
+					}
 				}
 			}
 			if = { # Bayard Rustin
-				limit = {
-					has_country_flag = CSA_1952_cio_primary_rustin
-				}
+				limit = { has_country_flag = CSA_1952_cio_primary_rustin }
+				kill_ideology_leader = radical_socialist
 				create_country_leader = {
 					name = "Bayard Rustin"
 					desc = "POLITICS_BAYARD_RUSTIN_DESC"
 					picture = "Portrait_CSA_Bayard_Rustin.tga"
 					expire = "1965.1.1"
 					ideology = radical_socialist_subtype
-					traits = {}
+					traits = {
+						great_survivor
+					}
 				}
 			}
 			if = { # Darlington Hoopes
-				limit = {
-					has_country_flag = CSA_1952_cio_primary_hoopes
-				}
+				limit = { has_country_flag = CSA_1952_cio_primary_hoopes }
+				kill_ideology_leader = radical_socialist
 				create_country_leader = {
 					name = "Darlington Hoopes"
 					desc = "POLITICS_DARLINGTON_HOOPES_DESC"
 					picture = "Portrait_CSA_Darlington_Hoopes.tga"
 					expire = "1965.1.1"
 					ideology = radical_socialist_subtype
-					traits = {}
+					traits = {
+						captain_of_industry
+					}
 				}
 			}
 		}
@@ -2891,7 +3256,7 @@ country_event = { # 1952 Election
 	}
 }
 
-country_event = { # Head of State Election[1940]
+country_event = { # Head of State Election CENTRALIST IWW
 	id = csa.37
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.37"}
 	title = csa.37.t
@@ -2904,7 +3269,7 @@ country_event = { # Head of State Election[1940]
 		name = csa.37.a
 		trigger = {
 			has_government = syndicalist
-			NOT = { has_country_flag = CSA_1940_iww_primary_giovannitti }
+			NOT = { has_country_flag = CSA_1940_iww_election_giovannitti }
 		}
 		add_popularity = {
 			ideology = syndicalist
@@ -2912,11 +3277,68 @@ country_event = { # Head of State Election[1940]
 		}
 		add_ideas = CSA_Arturo_Giovannitti_hog_syn
 	}
-	option = { # Elizabeth Gurley Flynn
+	option = { # James P Cannon
 		name = csa.37.b
 		trigger = {
 			has_government = syndicalist
-			NOT = { has_country_flag = CSA_1940_iww_primary_flynn }
+			NOT = { has_country_flag = CSA_1940_iww_election_cannon }
+		}
+		add_popularity = {
+			ideology = syndicalist
+			popularity = 0.02
+		}
+		add_ideas = CSA_James_P_Cannon_hog_syn
+	}
+	option = { # Elizabeth Nord
+		name = csa.37.c
+		trigger = {
+			has_government = radical_socialist
+		}
+		add_popularity = {
+			ideology = syndicalist
+			popularity = 0.02
+		}
+		add_ideas = CSA_Elizabeth_Nord_hog_syn
+	}
+	option = { # Eugene Dennis
+		name = csa.37.e
+		trigger = {
+			has_government = syndicalist
+		}
+		add_popularity = {
+			ideology = syndicalist
+			popularity = 0.02
+		}
+		add_ideas = CSA_Eugene_Dennis_hog_syn
+	}
+	option = { # Harry Bridges
+		name = csa.37.f
+		trigger = {
+			has_government = syndicalist
+			NOT = { has_country_flag = CSA_1940_iww_election_bridges }
+		}
+		add_popularity = {
+			ideology = syndicalist
+			popularity = 0.02
+		}
+		add_ideas = CSA_Harry_Bridges_hog_syn
+	}
+}
+
+country_event = { # Head of State Election ORTHODOX IWW
+	id = csa.3700
+	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.3700"}
+	title = csa.3700.t
+	desc = csa.3700.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+
+	option = { # Elizabeth Gurley Flynn
+		name = csa.3700.a
+		trigger = {
+			has_government = syndicalist
+			NOT = { has_country_flag = CSA_1940_orthodox_election_flynn }
 		}
 		add_popularity = {
 			ideology = syndicalist
@@ -2924,11 +3346,66 @@ country_event = { # Head of State Election[1940]
 		}
 		add_ideas = CSA_Elizabeth_Gurly_Flynn_hog_syn
 	}
-	option = { # Daniel Hoan
-		name = csa.37.c
+	option = { # Henning A Blomen
+		name = csa.3700.b
+		trigger = {
+			has_government = syndicalist
+		}
+		add_popularity = {
+			ideology = syndicalist
+			popularity = 0.02
+		}
+		add_ideas = CSA_Henning_A_Blomen_hog_syn
+	}
+	option = { # Robert Minor
+		name = csa.3700.c
+		trigger = {
+			has_government = syndicalist
+			NOT = { has_country_flag = CSA_1940_orthodox_election_minor }
+		}
+		add_popularity = {
+			ideology = syndicalist
+			popularity = 0.02
+		}
+		add_ideas = CSA_Robert_Minor_hog_syn
+	}
+}
+
+country_event = { # Head of State Election RADSOCS
+	id = csa.3702
+	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.3702"}
+	title = csa.3702.t
+	desc = csa.3702.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+
+	option = { # John L Lewis
+		name = csa.3702.a
 		trigger = {
 			has_government = radical_socialist
-			NOT = { has_country_flag = CSA_1940_cio_primary_london }
+		}
+		add_popularity = {
+			ideology = radical_socialist
+			popularity = 0.02
+		}
+		add_ideas = CSA_John_L_Lewis_hog_rso
+	}
+	option = { # Bayard Rustin
+		name = csa.3702.b
+		trigger = {
+			has_government = radical_socialist
+		}
+		add_popularity = {
+			ideology = radical_socialist
+			popularity = 0.02
+		}
+		add_ideas = CSA_Bayard_Rustin_hog_rso
+	}
+	option = { # Daniel Hoan
+		name = csa.3702.c
+		trigger = {
+			has_government = radical_socialist
 		}
 		add_popularity = {
 			ideology = radical_socialist
@@ -2937,15 +3414,60 @@ country_event = { # Head of State Election[1940]
 		add_ideas = CSA_Daniel_Hoan_hog_rso
 	}
 	option = { # Meyer London
-		name = csa.37.e
+		name = csa.3702.e
 		trigger = {
 			has_government = radical_socialist
+			NOT = { has_country_flag = CSA_1940_cio_election_london }
 		}
 		add_popularity = {
 			ideology = radical_socialist
 			popularity = 0.02
 		}
 		add_ideas = CSA_Meyer_London_hog_rso
+	}
+}
+
+country_event = { # Head of State Election SOCDEM
+	id = csa.3703
+	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.3703"}
+	title = csa.3703.t
+	desc = csa.3703.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+
+	option = { # Matthew Woll
+		name = csa.3703.a
+		trigger = {
+			has_government = social_democrat
+		}
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.02
+		}
+		add_ideas = CSA_Matthew_Woll_hog_sde
+	}
+	option = { # George Meany
+		name = csa.3703.b
+		trigger = {
+			has_government = social_democrat
+		}
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.02
+		}
+		add_ideas = CSA_George_Meany_hog_sde
+	}
+	option = { # Philip Murray
+		name = csa.3703.c
+		trigger = {
+			has_government = social_democrat
+		}
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.02
+		}
+		add_ideas = CSA_Philip_Murray_hog_sde
 	}
 }
 
@@ -3152,7 +3674,7 @@ country_event = { # Appointing a Second in Command
 		}
 	}
 	desc = csa.50.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 		tag = CSA
@@ -3385,7 +3907,7 @@ country_event = { # The Struggle Begins
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.52"}
 	title = csa.52.t
 	desc = csa.52.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 		tag = CSA
@@ -3407,7 +3929,7 @@ country_event = { # Foster Denounces Browder
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.53"}
 	title = csa.53.t
 	desc = csa.53.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -3418,7 +3940,7 @@ country_event = { # Foster Denounces Browder
 			set_country_flag = CSA_foster_denounces_browder
 			country_event = {
 				id = csa.55
-				days = 180
+				days = 18
 			}
 		}
 	}
@@ -3429,7 +3951,7 @@ country_event = { # Browder Denounces Foster
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.54"}
 	title = csa.54.t
 	desc = csa.54.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 		tag = CSA
@@ -3447,7 +3969,7 @@ country_event = { # Browder Denounces Foster
 			set_country_flag = CSA_browder_denounces_foster
 			country_event = {
 				id = csa.56
-				days = 180
+				days = 18
 			}
 		}
 	}
@@ -3458,13 +3980,15 @@ country_event = { # The Arrest of Foster
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.55"}
 	title = csa.55.t
 	desc = csa.55.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	fire_only_once = yes
 	is_triggered_only = yes
 
 	option = {
 		name = csa.55.a
+		remove_unit_leader = 991
+		set_country_flag = Jack_Shulman_dead
 		hidden_effect = {
 			random_list = {
 				60 = {
@@ -3493,7 +4017,7 @@ country_event = { # The Arrest of Browder
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.56"}
 	title = csa.56.t
 	desc = csa.56.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 		tag = CSA
@@ -3535,7 +4059,7 @@ country_event = { # The Trial of Foster
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.57"}
 	title = csa.57.t
 	desc = csa.57.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 
@@ -3549,7 +4073,7 @@ country_event = { # The Trial of Browder
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.58"}
 	title = csa.58.t
 	desc = csa.58.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 
@@ -3563,7 +4087,7 @@ country_event = { # Foster goes into exile
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.59"}
 	title = csa.59.t
 	desc = csa.59.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 
@@ -3580,7 +4104,7 @@ country_event = { # Browder goes into exile
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.60"}
 	title = csa.60.t
 	desc = csa.60.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 
@@ -3597,7 +4121,7 @@ country_event = { # Foster is killed by American Agent
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.61"}
 	title = csa.61.t
 	desc = csa.61.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 		tag = CSA
@@ -3623,7 +4147,7 @@ country_event = { # Browder is killed by American Agent
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.62"}
 	title = csa.62.t
 	desc = csa.62.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 		tag = CSA
@@ -3648,7 +4172,7 @@ country_event = { # Ministers are sent on vacation(aka killed)
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.63"}
 	title = csa.63.t
 	desc = csa.63.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 		tag = CSA
@@ -3673,7 +4197,7 @@ country_event = { # The Army restructure
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.64"}
 	title = csa.64.t
 	desc = csa.64.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 		tag = CSA
@@ -3719,7 +4243,7 @@ country_event = { # Purging the Right Wing
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.65"}
 	title = csa.65.t
 	desc = csa.65.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 		tag = CSA
@@ -3748,7 +4272,7 @@ country_event = { # The Show trials
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.66"}
 	title = csa.66.t
 	desc = csa.66.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 		tag = CSA
@@ -3774,7 +4298,7 @@ country_event = { # Butler's Coup
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.67"}
 	title = csa.67.t
 	desc = csa.67.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 		tag = CSA
@@ -3818,7 +4342,7 @@ country_event = { # Butler's Coup
 			picture = "Portrait_CSA_smedly_butler_G.tga"
 			expire = "1965.1.1"
 			ideology = radical_socialist_subtype
-			traits = {}
+			traits = { cornered_fox }
 		}
 		set_politics = {
 			ruling_party = radical_socialist
@@ -3848,7 +4372,7 @@ country_event = { # Restoring Democracy
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.68"}
 	title = csa.68.t
 	desc = csa.68.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 
@@ -3860,7 +4384,7 @@ country_event = { # Restoring Democracy
 		}
 	}
 
-	option = {
+	option = { #Democracy
 		name = csa.68.a
 		hidden_effect = {
 			set_country_flag = CSA_had_1940_election
@@ -3873,23 +4397,316 @@ country_event = { # Restoring Democracy
 				elections_allowed = yes
 			}
 			country_event = {
-				id = csa.28
-				days = 215
+				id = csa.27
+				days = 14
 			}
 			country_event = {
 				id = csa.29
-				days = 222
+				days = 21
 			}
 		}
 	}
+	option = { #Military
+		name = csa.68.b
+		hidden_effect = {
+			set_country_flag = CSA_butler_in_charge
+			set_politics = {
+				ruling_party = radical_socialist
+				elections_allowed = no
+			}
+			country_event = {
+				id = csa.6800
+				days = 10
+			}
+
+		}
+	}
 }
+
+country_event = { # Butler's Cabinet
+	id = csa.6800
+	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.6800"}
+	title = csa.6800.t
+	desc = csa.6800.d
+	picture = GFX_report_event_USA_congress
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_government = radical_socialist
+		has_country_leader = {
+			ruling_only = yes
+			name = "Smedly Butler"
+		}
+	}
+
+	option = { #Democratic Government
+		name = csa.6800.a
+		hidden_effect = {
+			set_country_flag = CSA_butler_democrat
+			country_event = {
+				id = csa.6803
+				days = 10
+			}
+			add_ideas = CSA_Meyer_London_hog_rso
+			add_ideas = CSA_Asa_P_Randolph_for_rso
+			add_ideas = CSA_John_Gates_eco_rso
+			add_ideas = CSA_John_Dewey_sec_rso
+			add_ideas = CSA_Joseph_Sharts_int_rso
+		}
+	}
+	
+	option = { #Military Men
+		name = csa.6800.b
+		hidden_effect = {
+			set_country_flag = CSA_butler_military
+			country_event = {
+				id = csa.6803
+				days = 10
+			}
+			add_ideas = CSA_Meyer_London_hog_rso
+			add_ideas = CSA_Asa_P_Randolph_for_rso
+			add_ideas = CSA_John_Gates_eco_rso
+			add_ideas = CSA_John_Dewey_sec_rso
+			add_ideas = CSA_Joseph_Sharts_int_rso 
+			}
+		}	
+	}
+
+country_event = { # Prohibition
+	id = csa.6801
+	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.6801"}
+	title = csa.6801.t
+	desc = csa.6801.d
+	picture = GFX_report_event_USA_reconstruction1
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_government = radical_socialist
+		has_country_leader = {
+			ruling_only = yes
+			name = "Smedly Butler"
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 4
+	}
+
+	option = { # Pass it
+		name = csa.6801.a
+		ai_chance = {
+			factor = 50
+		}
+		add_political_power = 10
+		decrease_ruling_party_popularity_by_5 = yes
+	}
+
+	option = { # Veto it
+		name = csa.6801.b
+		ai_chance = {
+			factor = 50
+		}
+		add_stability = -0.02
+		add_popularity = {
+			ideology = radical_socialist
+			popularity = 0.03
+		}
+	}
+}	
+
+country_event = { # Aid for Veterans
+	id = csa.6802
+	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.6802"}
+	title = csa.6802.t
+	desc = csa.6802.d
+	picture = GFX_report_event_USA_reconstruction1
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_government = radical_socialist
+		has_country_leader = {
+			ruling_only = yes
+			name = "Smedly Butler"
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 8
+	}
+
+	option = { # Pass it
+		name = csa.6802.a
+		ai_chance = {
+			factor = 50
+		}
+		add_political_power = -20
+		add_ideas = CSA_veteran_bill
+	}
+
+	option = { # Veto it
+		name = csa.6802.b
+		ai_chance = {
+			factor = 50
+		}
+		add_stability = -0.02
+		add_popularity = {
+			ideology = radical_socialist
+			popularity = -0.03
+		}
+	}
+}	
+
+country_event = { # A New Government
+	id = csa.6803
+	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.6803"}
+	title = csa.6803.t
+	picture = GFX_report_event_USA_congress
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	desc = {
+	text = csa.6803.d.democrat
+	trigger = {
+			has_country_flag = CSA_butler_democrat
+		}
+	}
+	desc = {
+	text = csa.6803.d.military
+	trigger = {
+			has_country_flag = CSA_butler_military
+		}
+	}
+
+	option = {# Ok
+		name = csa.6803.a
+		add_political_power = 10
+	}
+}
+
+country_event = { # Foreign Policy
+	id = csa.6804
+	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.6804"}
+	title = csa.6804.t
+	desc = csa.6804.d
+	picture = GFX_report_event_USA_congress
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_government = radical_socialist
+		has_country_leader = {
+		ruling_only = yes
+		name = "Smedly Butler"
+		}
+	FRA = {
+	OR = {
+	has_government = social_democrat
+	has_government = radical_socialist
+	has_government = syndicalist			
+		}
+	}
+}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = { # Ask to join the Internationale
+		name = csa.6804.a
+		ai_chance = {
+			factor = 40
+		}
+		add_political_power = 20
+		decrease_ruling_party_popularity_by_1 = yes
+		FRA = {
+		country_event = {
+		id = csa.101
+		days = 2
+		}
+	}
+}
+
+	option = { # Return the favor
+		name = csa.6804.b
+		ai_chance = {
+			factor = 60
+		}
+		country_event = { id = csa.500 days = 2 }
+		add_popularity = {
+			ideology = radical_socialist
+			popularity = 0.03
+		}
+	}
+}	
+
+country_event = { # Foreign Policy
+	id = csa.6805
+	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.6805"}
+	title = csa.6805.t
+	desc = csa.6805.d
+	picture = GFX_report_event_USA_congress
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_government = radical_socialist
+		has_country_leader = {
+		ruling_only = yes
+		name = "Smedly Butler"
+		}
+	FRA = {
+	has_government = totalist		
+	}
+}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = { # Our own faction
+		name = csa.6805.a
+		ai_chance = {
+			factor = 40
+		}
+		add_political_power = 20
+		increase_ruling_party_popularity_by_3 = yes
+		CSA = {
+		country_event = {
+		id = csa.5010
+		days = 2
+		}
+	}
+}
+
+	option = { # Return the favor
+		name = csa.6805.b
+		ai_chance = {
+			factor = 60
+		}
+		country_event = { id = csa.500 days = 2 }
+		decrease_ruling_party_popularity_by_5 = yes
+		}
+	}
+}	
 
 country_event = { # Self Determination in the Black Belt
 	id = csa.69
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.69"}
 	title = csa.69.t
 	desc = csa.69.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 		tag = CSA
@@ -3929,7 +4746,7 @@ country_event = { # Reactions to the Black Belt
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.70"}
 	title = csa.70.t
 	desc = csa.70.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 		tag = CSA
@@ -3954,7 +4771,7 @@ country_event = { # The Great Sedition Trial of Harry Leland Mitchell
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.71"}
 	title = csa.71.t
 	desc = csa.71.d
-	picture = AUS_southern_farmers
+	picture = GFX_report_event_TEX_southern_farmers
 
 	fire_only_once = yes
 
@@ -3982,7 +4799,7 @@ country_event = { # The International Peace Movement Movement disbanded.
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.72"}
 	title = csa.72.t
 	desc = csa.72.d
-	picture = CSA_black_militias
+	picture = GFX_report_event_CSA_black_militias
 
 	fire_only_once = yes
 
@@ -4013,7 +4830,7 @@ country_event = { # Foster dissolves the AFL
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.73"}
 	title = csa.73.t
 	desc = csa.73.d
-	picture = CSA_happy_browder
+	picture = GFX_report_event_CSA_happy_browder
 
 	fire_only_once = yes
 
@@ -4159,7 +4976,7 @@ country_event = { # Primer of God Save the Kaiser
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.76"}
 	title = csa.76.t
 	desc = csa.76.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -4169,12 +4986,12 @@ country_event = { # Primer of God Save the Kaiser
 	}
 }
 
-country_event = { # The Catholic Workers Movement
+country_event = { # The Catholic GFX_report_event_generic_workers Movement
 	id = csa.77
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.77"}
 	title = csa.77.t
 	desc = csa.77.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -4193,7 +5010,7 @@ country_event = { # Grapes of Wrath Film
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.78"}
 	title = csa.78.t
 	desc = csa.78.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -4209,7 +5026,7 @@ country_event = { # Ecosocialism
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.79"}
 	title = csa.79.t
 	desc = csa.79.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -4225,7 +5042,7 @@ country_event = { # revolutionary memorials
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.80"}
 	title = csa.80.t
 	desc = csa.80.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -4242,7 +5059,7 @@ country_event = { # cure for Polio
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.81"}
 	title = csa.81.t
 	desc = csa.81.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 		tag = CSA
@@ -4267,7 +5084,7 @@ country_event = { # Fate of the Boy Scouts
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.82"}
 	title = csa.82.t
 	desc = csa.82.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -4282,12 +5099,12 @@ country_event = { # Fate of the Boy Scouts
 	}
 }
 
-country_event = { # American Artists' Congress
+country_event = { # American Artists' GFX_report_event_USA_congress
 	id = csa.83
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.83"}
 	title = csa.83.t
 	desc = csa.83.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -4298,12 +5115,12 @@ country_event = { # American Artists' Congress
 	}
 }
 
-country_event = { # John Reed Clubs
+country_event = { # Bellamy Clubs
 	id = csa.84
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.84"}
 	title = csa.84.t
 	desc = csa.84.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -4319,9 +5136,10 @@ country_event = { # Paul Robeson Takes A World Tour
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.85"}
 	title = csa.85.t
 	desc = csa.85.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
+		tag = BBR
 		country_exists = SRI
 		country_exists = FRA
 		country_exists = ENG
@@ -4341,7 +5159,7 @@ country_event = { # Unpolluting the Industrial Revolution
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.86"}
 	title = csa.86.t
 	desc = csa.86.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -4357,7 +5175,7 @@ country_event = { # Anthem for the new America
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.87"}
 	title = csa.87.t
 	desc = csa.87.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	immediate = {
 		hidden_effect = {
@@ -4400,7 +5218,7 @@ country_event = { # Stone Mountain Georgia
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.88"}
 	title = csa.88.t
 	desc = csa.88.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -4425,7 +5243,7 @@ country_event = { # Syndicalist Ethics
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.89"}
 	title = csa.89.t
 	desc = csa.89.d
-	picture = CSA_workplace_music
+	picture = GFX_report_event_CSA_workplace_music
 
 	fire_only_once = yes
 
@@ -4466,17 +5284,11 @@ country_event = { # The Family and Freedom Program
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.92"}
 	title = csa.92.t
 	desc = csa.92.d
-	picture = USA_reconstruction1
+	picture = GFX_report_event_USA_reconstruction1
 
 	fire_only_once = yes
 
-	trigger = {
-		tag = CSA
-		has_country_leader = {
-			ruling_only = yes
-			name = "William Z. Foster"
-		}
-	}
+	is_triggered_only = yes
 
 	mean_time_to_happen = {
 		months = 15
@@ -4508,7 +5320,7 @@ country_event = { # The USA Trilogy by John Dos Passos.
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.90"}
 	title = csa.90.t
 	desc = csa.90.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -4536,7 +5348,7 @@ country_event = { # Union Vacations
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.91"}
 	title = csa.91.t
 	desc = csa.91.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -4552,7 +5364,7 @@ country_event = { # Paul Robenson and Woody Guthrie
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.93"}
 	title = csa.93.t
 	desc = csa.93.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -4568,7 +5380,7 @@ country_event = { # 1st World Science Fiction Convention
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.94"}
 	title = csa.94.t
 	desc = csa.94.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -4584,7 +5396,7 @@ country_event = { # Indian Revolution Act
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.95"}
 	title = csa.95.t
 	desc = csa.95.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -4601,7 +5413,7 @@ country_event = { # Travel in america
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.96"}
 	title = csa.96.t
 	desc = csa.96.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -4621,7 +5433,7 @@ country_event = { # Alternative to Hollywood
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.97"}
 	title = csa.97.t
 	desc = csa.97.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 		tag = CSA
@@ -4704,7 +5516,7 @@ country_event = { # World Series(after the revolution)
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.98"}
 	title = csa.98.t
 	desc = csa.98.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -4739,7 +5551,7 @@ country_event = { # Detroit Tigers win
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.99"}
 	title = csa.99.t
 	desc = csa.99.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 
@@ -4753,7 +5565,7 @@ country_event = { # Cincinnati Reds
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.100"}
 	title = csa.100.t
 	desc = csa.100.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 
@@ -4769,7 +5581,7 @@ country_event = { # America wishes to join the Internationale (fired from focus)
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.101"}
 	title = csa.101.t
 	desc = csa.101.d
-	picture = diplomacy2
+	picture = GFX_report_event_generic_diplomacy2
 
 	is_triggered_only = yes
 
@@ -4800,7 +5612,7 @@ country_event = { # France refuses
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.102"}
 	title = csa.102.t
 	desc = csa.102.d
-	picture = diplomacy2
+	picture = GFX_report_event_generic_diplomacy2
 
 	is_triggered_only = yes
 
@@ -4819,7 +5631,7 @@ country_event = { # America protects Hawaii
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.103"}
 	title = csa.103.t
 	desc = csa.103.d
-	picture = diplomacy2
+	picture = GFX_report_event_generic_diplomacy2
 
 	is_triggered_only = yes
 
@@ -4837,7 +5649,7 @@ country_event = { # America protects the Philippines
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.104"}
 	title = csa.104.t
 	desc = csa.104.d
-	picture = diplomacy2
+	picture = GFX_report_event_generic_diplomacy2
 
 	is_triggered_only = yes
 
@@ -4858,7 +5670,7 @@ country_event = { # Boldness in Science
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.126"}
 	title = csa.126.t
 	desc = csa.126.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	fire_only_once = yes
 
@@ -4898,7 +5710,7 @@ country_event = { # No Longer Chained To The Earth.
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.127"}
 	title = csa.127.t
 	desc = csa.127.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 
@@ -4935,7 +5747,7 @@ country_event = { # The Atomic Chain Broken
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.128"}
 	title = csa.128.t
 	desc = csa.128.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 
@@ -4955,7 +5767,7 @@ country_event = { # America is reunited
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.129"}
 	title = csa.129.t
 	desc = csa.129.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	fire_only_once = yes
 
@@ -4986,7 +5798,7 @@ country_event = { # Overtures to Mexico
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.130"}
 	title = csa.130.t
 	desc = csa.130.d
-	picture = diplomacy2
+	picture = GFX_report_event_generic_diplomacy2
 
 	is_triggered_only = yes
 
@@ -5104,7 +5916,7 @@ country_event = { # Mexico has agreed
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.131"}
 	title = csa.131.t
 	desc = csa.131.d
-	picture = diplomacy2
+	picture = GFX_report_event_generic_diplomacy2
 
 	is_triggered_only = yes
 
@@ -5123,7 +5935,7 @@ country_event = { # Mexico has refused
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.132"}
 	title = csa.132.t
 	desc = csa.132.d
-	picture = diplomacy2
+	picture = GFX_report_event_generic_diplomacy2
 
 	is_triggered_only = yes
 
@@ -5163,7 +5975,7 @@ country_event = {
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.151"}
 	title = csa.151.t
 	desc = csa.151.d
-	picture = GFX_USA_reed
+	picture = GFX_report_event_USA_reed
 
 	is_triggered_only = yes
 
@@ -5209,7 +6021,7 @@ country_event = {
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.153"}
 	title = csa.153.t
 	desc = csa.153.d
-	picture = GFX_ACW_american_brigade
+	picture = GFX_report_event_USA_american_brigade
 
 	is_triggered_only = yes
 
@@ -5227,7 +6039,7 @@ country_event = { # Arm Canadian resistance
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.1540"}
 	title = csa.1540.t
 	desc = csa.1540.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -5272,7 +6084,7 @@ country_event = { # Arm Canadian resistance
 		}
 	}
 	option = {
-		name = csa.154.e
+		name = csa.1540.e
 		add_manpower = -2000
 		add_equipment_to_stockpile = {
 			type = infantry_equipment_1
@@ -5286,18 +6098,19 @@ country_event = { # Arm Canadian resistance
 		}
 	}
 }
+
 country_event = { # Responding to small resistance
-	id = csa.155
-	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.155"}
-	title = csa.155.t
-	desc = csa.155.d
+	id = csa.1550
+	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.1550"}
+	title = csa.1550.t
+	desc = csa.1550.d
 	picture = GFX_report_event_CAN_commons1
 
 	fire_only_once = yes
 	is_triggered_only = yes
 
 	option = { #No War
-		name = csa.155.a
+		name = csa.1550.a
 
 		ai_chance = {
 			factor = 100
@@ -5307,17 +6120,17 @@ country_event = { # Responding to small resistance
 	}
 	
 country_event = { # Responding to mild resistance
-	id = csa.156
-	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.156"}
-	title = csa.156.t
-	desc = csa.156.d
+	id = csa.1560
+	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.1560"}
+	title = csa.1560.t
+	desc = csa.1560.d
 	picture = GFX_report_event_CAN_commons1
 
 	fire_only_once = yes
 	is_triggered_only = yes
 
 	option = { #No War
-		name = csa.156.a
+		name = csa.1560.a
 
 		ai_chance = {
 			factor = 100
@@ -5327,7 +6140,7 @@ country_event = { # Responding to mild resistance
 		add_popularity = { ideology = totalist popularity = 0.2}
 		}
 	option = { #War with Burnham
-		name = csa.156.b
+		name = csa.1560.b
 
 		ai_chance = {
 			factor = 0
@@ -5340,17 +6153,17 @@ country_event = { # Responding to mild resistance
 	}
 }
 country_event = { # Responding to Communist resistance
-	id = csa.157
-	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.157"}
-	title = csa.157.t
-	desc = csa.157.d
+	id = csa.1570
+	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.1570"}
+	title = csa.1570.t
+	desc = csa.1570.d
 	picture = GFX_report_event_CAN_commons1
 
 	fire_only_once = yes
 	is_triggered_only = yes
 
 	option = { #No War
-		name = csa.157.a
+		name = csa.1570.a
 
 		ai_chance = {
 			factor = 100
@@ -5359,7 +6172,7 @@ country_event = { # Responding to Communist resistance
 		add_popularity = { ideology = totalist popularity = 0.05}
 		}
 	option = { #War with Burnham
-		name = csa.157.b
+		name = csa.1570.b
 
 		ai_chance = {
 			factor = 0
@@ -5372,17 +6185,17 @@ country_event = { # Responding to Communist resistance
 	}
 }
 country_event = { # Responding to massive resistance
-	id = csa.158
+	id = csa.1580
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.158"}
-	title = csa.158.t
-	desc = csa.158.d
+	title = csa.1580.t
+	desc = csa.1580.d
 	picture = GFX_report_event_CAN_commons1
 
 	fire_only_once = yes
 	is_triggered_only = yes
 
 	option = { #No War
-		name = csa.158.a
+		name = csa.1580.a
 
 		ai_chance = {
 			factor = 70
@@ -5393,7 +6206,7 @@ country_event = { # Responding to massive resistance
 		add_popularity = { ideology = national_populist popularity = 0.04 }
 		}
 	option = { #War with Burnham
-		name = csa.158.b
+		name = csa.1580.b
 
 		ai_chance = {
 			factor = 30
@@ -5411,7 +6224,7 @@ country_event = { # Browder Bows
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.159"}
 	title = csa.159.t
 	desc = csa.159.d
-	picture = GFX_CSA_happy_browder
+	picture = GFX_report_event_CSA_happy_browder
 
 	fire_only_once = yes
 	
@@ -5485,7 +6298,7 @@ country_event = { # Left Socialists get promoted/exiled
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.162"}
 	title = csa.162.t
 	desc = csa.162.d
-	picture = diplomacy1
+	picture = GFX_report_event_generic_diplomacy1
 
 	fire_only_once = yes
 
@@ -5545,7 +6358,7 @@ country_event = { # CSS Youth Wing
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.164"}
 	title = csa.164.t
 	desc = csa.164.d
-	picture = july4
+	picture = GFX_report_event_USA_july4
 	
 	fire_only_once = yes
 
@@ -5569,7 +6382,7 @@ country_event = { # Foster Criticizes Election
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.165"}
 	title = csa.165.t
 	desc = csa.165.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 	
 	fire_only_once = yes
 
@@ -5594,7 +6407,7 @@ country_event = { # Norman Thomas criticizes renewed militarism
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.166"}
 	title = csa.166.t
 	desc = csa.166.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 	
 	trigger = {
 	tag = CSA
@@ -5621,7 +6434,7 @@ country_event = { # Anarchists oppose recent measures
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.167"}
 	title = csa.167.t
 	desc = csa.167.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 	
 	fire_only_once = yes
 	
@@ -5680,7 +6493,7 @@ country_event = { # Four Hour Work Week
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.169"}
 	title = csa.169.t
 	desc = csa.169.d
-	picture = workers
+	picture = GFX_report_event_generic_workers
 	
 	fire_only_once = yes
 	
@@ -5711,7 +6524,7 @@ country_event = { # Energy Accounting
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.170"}
 	title = csa.170.t
 	desc = csa.170.d
-	picture = economic_policy
+	picture = GFX_report_event_generic_economic_policy
 	
 	fire_only_once = yes
 	
@@ -5817,7 +6630,7 @@ country_event = { # Corrupt Managers
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.173"}
 	title = csa.173.t
 	desc = csa.173.d
-	picture = economic_policy
+	picture = GFX_report_event_generic_economic_policy
 	
 	fire_only_once = yes
 	
@@ -5947,7 +6760,7 @@ country_event = { # Continental Constables
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.175"}
 	title = csa.175.t
 	desc = csa.175.d
-	picture = am_police
+	picture = GFX_report_event_USA_police
 	
 	fire_only_once = yes
 	
@@ -5990,8 +6803,9 @@ country_event = { # Social Units
 	fire_only_once = yes
 	
 	trigger = {
-	tag = CSA
-	}
+	has_country_leader = {
+	ruling_only = yes
+	name = "James Burnham" } }
 	
 	is_triggered_only = yes
 	
@@ -6013,7 +6827,7 @@ country_event = { # Social Units
 	
 	option = {
 		name = csa.176.b
-		add_stability = 0.02
+		add_stability = 0.04
 		add_political_power = -30
 		add_popularity = {ideology = totalist popularity = -0.02}
 		add_ideas = CSA_social_units_idea
@@ -6036,7 +6850,7 @@ country_event = { # Children Of The Revolution
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.177"}
 	title = csa.177.t
 	desc = csa.177.d
-	picture = GFX_CSA_child_soldiers
+	picture = GFX_report_event_CSA_child_soldiers
 	
 	fire_only_once = yes
 	
@@ -6100,7 +6914,7 @@ country_event = { # Court Officers
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.179"}
 	title = csa.179.t
 	desc = csa.179.d
-	picture = GFX_USA_national_guard
+	picture = GFX_report_event_USA_national_guard
 	
 	fire_only_once = yes
 	
@@ -6149,7 +6963,7 @@ country_event = { # Blackmail Material
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.180"}
 	title = csa.180.t
 	desc = csa.180.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 	fire_only_once = yes
 	
 	
@@ -6181,7 +6995,7 @@ country_event = { # Foster Confesses
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.181"}
 	title = csa.181.t
 	desc = csa.181.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 	fire_only_once = yes
 	
 	
@@ -6244,7 +7058,7 @@ country_event = { # Burnham's National Anthem
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.182"}
 	title = csa.182.t
 	desc = csa.182.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 	
 	fire_only_once = yes
 	
@@ -6307,7 +7121,7 @@ country_event = { # The Newish American Woman
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.184"}
 	title = csa.184.t
 	desc = csa.184.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 		tag = CSA
@@ -6337,7 +7151,7 @@ country_event = { # NAT
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.185"}
 	title = csa.185.t
 	desc = csa.185.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	fire_only_once = yes
 
@@ -6391,7 +7205,7 @@ country_event = { # Continental Director
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.186"}
 	title = csa.186.t
 	desc = csa.186.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 		tag = CSA
@@ -6434,7 +7248,7 @@ country_event = { # Flag
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.187"}
 	title = csa.187.t
 	desc = csa.187.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -6498,7 +7312,7 @@ country_event = { # Name
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.188"}
 	title = csa.188.t
 	desc = csa.188.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -6518,7 +7332,7 @@ country_event = { # Name
 	option = { # Worker's Technocracy of America
 		name = csa.188.b
 			add_political_power = 10
-			set_cosmetic_tag = CSA_american_workers_state_6
+			set_cosmetic_tag = CSA_american_GFX_report_event_generic_workers_state_6
 			
 			country_event = {
 				id = csa.189
@@ -6564,7 +7378,7 @@ country_event = { # WTA Flag
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.189"}
 	title = csa.189.t
 	desc = csa.189.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -6574,7 +7388,7 @@ country_event = { # WTA Flag
 		name = csa.189.a
 			add_political_power = 10
 			hidden_effect = {
-			set_cosmetic_tag = CSA_american_workers_state_2
+			set_cosmetic_tag = CSA_american_GFX_report_event_generic_workers_state_2
 			}
 	}
 	
@@ -6582,42 +7396,42 @@ country_event = { # WTA Flag
 		name = csa.189.b
 			add_political_power = 10
 			hidden_effect = {
-			set_cosmetic_tag = CSA_american_workers_state_3
+			set_cosmetic_tag = CSA_american_GFX_report_event_generic_workers_state_3
 			}
 	}
 	option = { # Grain and Gears
 		name = csa.189.c
 			add_political_power = 10
 			hidden_effect = {
-			set_cosmetic_tag = CSA_american_workers_state_4
+			set_cosmetic_tag = CSA_american_GFX_report_event_generic_workers_state_4
 			}
 	}
 	option = { # Socialist Eagle
 		name = csa.189.e
 			add_political_power = 10
 			hidden_effect = {
-			set_cosmetic_tag = CSA_american_workers_state_5
+			set_cosmetic_tag = CSA_american_GFX_report_event_generic_workers_state_5
 			}
 	}
 	option = { # Techno-Socialism
 		name = csa.192.f
 			add_political_power = 10
 			hidden_effect = {
-			set_cosmetic_tag = CSA_american_workers_state_6
+			set_cosmetic_tag = CSA_american_GFX_report_event_generic_workers_state_6
 			}
 	}
 	option = { # US Sword
 		name = csa.192.g
 			add_political_power = 10
 			hidden_effect = {
-			set_cosmetic_tag = CSA_american_workers_state_7
+			set_cosmetic_tag = CSA_american_GFX_report_event_generic_workers_state_7
 			}
 	}
 	option = { # US Gold and Chains
 		name = csa.192.h
 			add_political_power = 10
 			hidden_effect = {
-			set_cosmetic_tag = CSA_american_workers_state_8
+			set_cosmetic_tag = CSA_american_GFX_report_event_generic_workers_state_8
 			}
 	}
 	
@@ -6627,7 +7441,7 @@ country_event = { # ATL
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.190"}
 	title = csa.190.t
 	desc = csa.190.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -6690,7 +7504,7 @@ country_event = { # APS
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.191"}
 	title = csa.191.t
 	desc = csa.191.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -6754,7 +7568,7 @@ country_event = { # UASR
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.192"}
 	title = csa.192.t
 	desc = csa.192.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -6817,7 +7631,7 @@ country_event = { # PCC
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.193"}
 	title = csa.193.t
 	desc = csa.193.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -6878,7 +7692,7 @@ country_event = { # Strengthen Iron Brigades
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.195"}
 	title = csa.195.t
 	desc = csa.195.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 	OR = {
@@ -6965,7 +7779,7 @@ country_event = { # Flamethrowers
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.196"}
 	title = csa.196.t
 	desc = csa.196.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -6998,7 +7812,7 @@ country_event = { # Fate of Foster
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.196"}
 	title = csa.197.t
 	desc = csa.197.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 
@@ -7026,7 +7840,7 @@ country_event = { # Fate of Lindbergh
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.198"}
 	title = csa.198.t
 	desc = csa.198.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 		has_war = yes
@@ -7153,7 +7967,7 @@ country_event = { # War Syndicalism
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.211"}
 	title = csa.211.t
 	desc = csa.211.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 		has_completed_focus = CSA_the_dust_settles
@@ -7182,7 +7996,7 @@ country_event = { # Subservient population
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.212"}
 	title = csa.212.t
 	desc = csa.212.d
-	picture = newyork
+	picture = GFX_report_event_USA_chicago
 
 	fire_only_once = yes
 	
@@ -7255,7 +8069,7 @@ country_event = { # The Purge
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.214"}
 	title = csa.214.t
 	desc = csa.214.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -7312,7 +8126,7 @@ country_event = { # Lindbergh's Redemption
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.216"}
 	title = csa.216.t
 	desc = csa.216.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 	has_country_flag = lindbergh_lives
@@ -7344,7 +8158,7 @@ country_event = { # The Fort
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.217"}
 	title = csa.217.t
 	desc = csa.217.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -7399,7 +8213,7 @@ country_event = { # Futurism
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.218"}
 	title = csa.218.t
 	desc = csa.218.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -7423,7 +8237,7 @@ country_event = { # Core Columbia
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.252"}
 	title = csa.252.t
 	desc = csa.252.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -7442,7 +8256,7 @@ country_event = { # Canadian Liberation Front
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.253"}
 	title = csa.253.t
 	desc = csa.253.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -7474,7 +8288,7 @@ country_event = { # CLF Attacks
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.254"}
 	title = csa.254.t
 	desc = csa.254.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -7494,7 +8308,7 @@ country_event = { # The Loyalists
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.255"}
 	title = csa.255.t
 	desc = csa.255.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -7513,7 +8327,7 @@ country_event = { # American Entertainment in Canada
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.256"}
 	title = csa.256.t
 	desc = csa.256.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -7530,7 +8344,7 @@ country_event = { # Andy Griffith Show
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.257"}
 	title = csa.257.t
 	desc = csa.257.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -7547,7 +8361,7 @@ country_event = { # Coring the Great North
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.258"}
 	title = csa.258.t
 	desc = csa.258.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -7565,7 +8379,7 @@ country_event = { # Coring Greater New England
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.259"}
 	title = csa.259.t
 	desc = csa.259.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -7583,7 +8397,7 @@ country_event = { # North reorganized
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.260"}
 	title = csa.260.t
 	desc = csa.260.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -7619,7 +8433,7 @@ country_event = { # Quebec reorganized
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.261"}
 	title = csa.261.t
 	desc = csa.261.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -7664,7 +8478,7 @@ country_event = { # Ontario reorganized
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.262"}
 	title = csa.262.t
 	desc = csa.262.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -7698,7 +8512,7 @@ country_event = { # Mexico Refuses
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.263"}
 	title = csa.263.t
 	desc = csa.263.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -7734,7 +8548,7 @@ country_event = { # Mexico Accepts
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.264"}
 	title = csa.264.t
 	desc = csa.264.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -7754,7 +8568,7 @@ country_event = { # Commune of France Accepts
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.265"}
 	title = csa.265.t
 	desc = csa.265.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -7775,7 +8589,7 @@ country_event = { # Commune of France Refuses
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.266"}
 	title = csa.266.t
 	desc = csa.266.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -7803,7 +8617,7 @@ country_event = { # Organize Mexico
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.267"}
 	title = csa.267.t
 	desc = csa.267.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -7929,7 +8743,7 @@ country_event = { # Mexican Response
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.268"}
 	title = csa.268.t
 	desc = csa.268.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -7976,7 +8790,7 @@ country_event = { # CoF gets Burnham's demands
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.269"}
 	title = csa.269.t
 	desc = csa.269.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -8030,7 +8844,7 @@ country_event = { # Valois
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.270"}
 	title = csa.270.t
 	desc = csa.270.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 	has_country_leader = {
@@ -8087,7 +8901,7 @@ country_event = { # Technocratic Claims
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.271"}
 	title = csa.271.t
 	desc = csa.271.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 	has_country_leader = {
@@ -8127,7 +8941,7 @@ country_event = { # Syndicalist Congress
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.301"}
 	title = csa.301.t
 	desc = csa.301.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -8171,7 +8985,7 @@ country_event = { # Fate of the Party
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.302"}
 	title = csa.302.t
 	desc = csa.302.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -8230,7 +9044,7 @@ country_event = { # Worker Takeover
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.303"}
 	title = csa.303.t
 	desc = csa.303.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -8271,7 +9085,7 @@ country_event = { # GDC
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.304"}
 	title = csa.304.t
 	desc = csa.304.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -8315,7 +9129,7 @@ country_event = { # Military Organization
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.305"}
 	title = csa.305.t
 	desc = csa.305.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -8360,7 +9174,7 @@ country_event = { # Worker's Self Management
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.306"}
 	title = csa.306.t
 	desc = csa.306.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -8405,7 +9219,7 @@ country_event = { # Industrial Democracy
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.307"}
 	title = csa.307.t
 	desc = csa.307.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -8450,7 +9264,7 @@ country_event = { # AFL Leadership Contest
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.325"}
 	title = csa.325.t
 	desc = csa.325.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -8462,10 +9276,131 @@ country_event = { # AFL Leadership Contest
 		create_country_leader = {
 			name = "John Lewis"
 			desc = "POLITICS_JOHN_LEWIS_DESC"
+			picture = "gfx/leaders/CSA/Portrait_CSA_John_Lewis.tga"
+			expire = "1965.1.1"
+			ideology = social_democrat_subtype
+			traits = { captain_of_industry }
+			}
+			country_event = {
+			id = csa.3250
+			days = 1460
+			}
+		}
+		add_ideas = {
+			CSA_Thomas_Kennedy_for_sde
+			CSA_Reuben_Soderstrom_eco_sde
+			CSA_Frank_J_Hayes_sec_sde
+		}
+		set_politics = {
+			ruling_party = social_democrat
+			election_frequency = 48
+			last_election = "1936.11.08"
+			elections_allowed = no
+		}
+		hidden_effect = {
+		country_event = {
+		id = csa.3703
+		days = 3
+		}
+		}
+	}
+	option = { # William Green
+	name = csa.325.b
+	hidden_effect = {
+		create_country_leader = {
+			name = "William Green"
+			desc = "POLITICS_SAMEUL_GREEN_DESC"
+			picture = "gfx/leaders/CSA/Portrait_Samuel_Green.tga"
+			expire = "1965.1.1"
+			ideology = social_democrat_subtype
+			traits = { union_man }
+			}
+			country_event = {
+			id = csa.3250
+			days = 1460
+			}
+		}
+		add_ideas = {
+			CSA_Thomas_Kennedy_for_sde
+			CSA_Reuben_Soderstrom_eco_sde
+			CSA_Frank_J_Hayes_sec_sde
+		}
+		set_politics = {
+			ruling_party = social_democrat
+			election_frequency = 48
+			last_election = "1936.11.08"
+			elections_allowed = no
+		}
+		hidden_effect = {
+		country_event = {
+		id = csa.3703
+		days = 3
+		}
+		}
+	}
+	option = { # David Dubinsky
+	name = csa.325.c
+	hidden_effect = {
+		create_country_leader = {
+					name = "David Dubinsky"
+					desc = "POLITICS_DAVID_DUBINSKY_DESC"
+					picture = "Portrait_CSA_David_Dubinsky.tga"
+					expire = "1965.1.1"
+					ideology = social_democrat_subtype
+					traits = {
+						backroom_backstabber
+					}
+				}
+			country_event = {
+			id = csa.3250
+			days = 1460
+			}
+		}
+		add_ideas = {
+			CSA_Thomas_Kennedy_for_sde
+			CSA_Reuben_Soderstrom_eco_sde
+			CSA_Frank_J_Hayes_sec_sde
+		}
+		set_politics = {
+			ruling_party = social_democrat
+			election_frequency = 48
+			last_election = "1936.11.08"
+			elections_allowed = no
+		}
+		hidden_effect = {
+		country_event = {
+		id = csa.3703
+		days = 3
+		}
+		}
+	}
+}
+
+country_event = { # AFL Leadership Contest
+	id = csa.3250
+	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.3250"}
+	title = csa.3250.t
+	desc = csa.3250.d
+	picture = GFX_report_event_USA_congress
+
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # John Lewis
+	name = csa.3250.a
+	hidden_effect = {
+		create_country_leader = {
+			name = "John Lewis"
+			desc = "POLITICS_JOHN_LEWIS_DESC"
 			picture = "gfx/leaders/CSA/Portrait_John_Lewis.dds"
 			expire = "1965.1.1"
 			ideology = social_democrat_subtype
-			traits = { }
+			traits = { captain_of_industry }
+			}
+		country_event = {
+			id = csa.3251
+			days = 1460
 			}
 		}
 		set_politics = {
@@ -8475,16 +9410,45 @@ country_event = { # AFL Leadership Contest
 			elections_allowed = no
 		}
 	}
-	option = { # Samuel Green
-	name = csa.325.b
+	option = { # William Green
+	name = csa.3250.b
 	hidden_effect = {
 		create_country_leader = {
-			name = "Samuel Green"
+			name = "William Green"
 			desc = "POLITICS_SAMEUL_GREEN_DESC"
 			picture = "gfx/leaders/CSA/Portrait_Samuel_Green.dds"
 			expire = "1965.1.1"
 			ideology = social_democrat_subtype
-			traits = { }
+			traits = { union_man }
+			}
+		country_event = {
+			id = csa.3251
+			days = 1460
+			}
+		}
+		set_politics = {
+			ruling_party = social_democrat
+			election_frequency = 48
+			last_election = "1936.11.08"
+			elections_allowed = no
+		}
+	}
+	option = { # David Dubinsky
+	name = csa.3250.c
+	hidden_effect = {
+		create_country_leader = {
+					name = "David Dubinsky"
+					desc = "POLITICS_DAVID_DUBINSKY_DESC"
+					picture = "Portrait_CSA_David_Dubinsky.tga"
+					expire = "1965.1.1"
+					ideology = social_democrat_subtype
+					traits = {
+						backroom_backstabber
+					}
+				}
+			country_event = {
+			id = csa.3251
+			days = 1460
 			}
 		}
 		set_politics = {
@@ -8496,19 +9460,252 @@ country_event = { # AFL Leadership Contest
 	}
 }
 
-country_event = { # Independence League Leadership Contest
-	id = csa.330
-	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.330"}
-	title = csa.330.t
-	desc = csa.330.d
-	picture = congress
+country_event = { # AFL Leadership Contest
+	id = csa.3251
+	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.3251"}
+	title = csa.3251.t
+	desc = csa.3251.d
+	picture = GFX_report_event_USA_congress
+
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { # John Lewis
+	name = csa.3251.a
+	hidden_effect = {
+		create_country_leader = {
+			name = "John Lewis"
+			desc = "POLITICS_JOHN_LEWIS_DESC"
+			picture = "gfx/leaders/CSA/Portrait_John_Lewis.dds"
+			expire = "1965.1.1"
+			ideology = social_democrat_subtype
+			traits = { captain_of_industry }
+			}
+		}
+		set_politics = {
+			ruling_party = social_democrat
+			election_frequency = 48
+			last_election = "1936.11.08"
+			elections_allowed = no
+		}
+	}
+	option = { # William Green
+	name = csa.3251.b
+	hidden_effect = {
+		create_country_leader = {
+			name = "William Green"
+			desc = "POLITICS_SAMEUL_GREEN_DESC"
+			picture = "gfx/leaders/CSA/Portrait_Samuel_Green.dds"
+			expire = "1965.1.1"
+			ideology = social_democrat_subtype
+			traits = { union_man }
+			}
+		}
+		set_politics = {
+			ruling_party = social_democrat
+			election_frequency = 48
+			last_election = "1936.11.08"
+			elections_allowed = no
+		}
+	}
+	option = { # David Dubinsky
+	name = csa.3251.c
+	hidden_effect = {
+		create_country_leader = {
+					name = "David Dubinsky"
+					desc = "POLITICS_DAVID_DUBINSKY_DESC"
+					picture = "Portrait_CSA_David_Dubinsky.tga"
+					expire = "1965.1.1"
+					ideology = social_democrat_subtype
+					traits = {
+						backroom_backstabber
+					}
+				}
+		}
+		set_politics = {
+			ruling_party = social_democrat
+			election_frequency = 48
+			last_election = "1936.11.08"
+			elections_allowed = no
+		}
+	}
+}
+
+country_event = { # Radical Riots
+	id = csa.326
+	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.326"}
+	title = csa.326.t
+	desc = csa.326.d
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 
 	fire_only_once = yes
 
-	option = { # John Dewey
+	option = { # Send the army
+	name = csa.326.a
+	add_political_power = -30
+	add_popularity = { ideology = totalist popularity = -0.01 }
+	add_popularity = { ideology = syndicalist popularity = -0.01 }
+	}
+	option = { # Wait it out
+	name = csa.326.b
+	add_stability = -0.05
+	add_popularity = { ideology = social_democrat popularity = -0.01 }
+	add_manpower = -200
+	}
+}
+
+country_event = { # Absorbing the CIO
+	id = csa.327
+	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.327"}
+	title = csa.327.t
+	desc = csa.327.d
+	picture = GFX_report_event_USA_congress
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = { # Negotiate with the CIO
+	name = csa.327.a
+	add_political_power = 20
+	add_popularity = { ideology = social_democrat popularity = 0.01 }
+	add_popularity = { ideology = radical_socialist popularity = 0.01 }
+	add_popularity = { ideology = syndicalist popularity = 0.01 }
+	}
+	option = { # We don't need them
+	name = csa.327.b
+	}
+}
+
+country_event = { # AWP offers support
+	id = csa.3270
+	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.3270"}
+	title = csa.3270.t
+	desc = csa.3270.d
+	picture = GFX_report_event_USA_congress
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = { # Accept
+	name = csa.3270.a
+	add_political_power = -20
+	add_popularity = { ideology = totalist popularity = 0.02 }
+	add_stability = 0.01
+	random_owned_controlled_state = {
+				limit = {
+					is_mainland_america = yes
+					free_building_slots = { building = arms_factory size > 0 include_locked = yes }
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+	army_experience = 10
+	}
+	option = { # I don't think so
+	name = csa.3270.b
+	add_political_power = 10
+	add_popularity = { ideology = totalist popularity = -0.01 }
+	}
+}
+
+country_event = { # Fist Fight in Congress
+	id = csa.328
+	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.328"}
+	title = csa.328.t
+	desc = csa.328.d
+	picture = GFX_report_event_USA_congress
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = { # interesting
+	name = csa.328.a
+	add_stability = -0.01
+	add_popularity = { ideology = social_democrat popularity = 0.01 }
+	}
+}
+
+country_event = { # Black Support Offered
+	id = csa.329
+	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.329"}
+	title = csa.329.t
+	desc = csa.329.d
+	picture = GFX_report_event_USA_congress
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = { # Accept
+	name = csa.329.a
+	add_stability = -0.05
+	add_political_power = -35
+	add_popularity = { ideology = social_democrat popularity = 0.04 }
+	add_manpower = 8000
+	}
+	option = { # Decline
+	name = csa.329.b
+	add_stability = 0.01
+	add_political_power = 20
+	add_popularity = { ideology = social_democrat popularity = -0.01 }
+	}
+}
+
+country_event = { # Independence League Leadership Contest
+	id = csa.330
+	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.330"}
+	title = csa.330.t
+	desc = csa.330.d
+	picture = GFX_report_event_USA_congress
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = { # Norman Thomas
 	name = csa.330.a
+	set_country_flag = CSA_1940_cio_election_thomas
+	add_ideas = {
+			CSA_Max_Eastman_for_rso
+			CSA_Daniel_Hoan_eco_rso
+			CSA_Asa_P_Randolph_sec_rso
+		}
+	hidden_effect = {
+		create_country_leader = {
+			name = "Norman Thomas"
+			desc = "POLITICS_NORMAN_THOMAS_DESC"
+			picture = "gfx/leaders/CSA/Portrait_CSA_Norman_Thomas.tga"
+			expire = "1965.1.1"
+			ideology = radical_socialist_subtype
+			traits = { tenacious_negotiator }
+			}
+		}
+		set_politics = {
+			ruling_party = radical_socialist
+			election_frequency = 48
+			last_election = "1936.11.08"
+			elections_allowed = no
+		}
+		hidden_effect = {
+		country_event = {
+		id = csa.3702
+		days = 3
+		}
+		}
+	}
+	option = { # John Dewey
+	name = csa.330.b
+	set_country_flag = CSA_1940_cio_election_dewey
+	add_ideas = {
+			CSA_Asa_P_Randolph_for_rso
+			CSA_John_Gates_eco_rso
+			CSA_Algernon_Lee_sec_rso
+		}
 	hidden_effect = {
 		create_country_leader = {
 			name = "John Dewey"
@@ -8516,7 +9713,7 @@ country_event = { # Independence League Leadership Contest
 			picture = "gfx/leaders/CSA/Portrait_John_Dewey.tga"
 			expire = "1965.1.1"
 			ideology = radical_socialist_subtype
-			traits = { }
+			traits = { staunch_constitutionalist }
 			}
 		}
 		set_politics = {
@@ -8525,9 +9722,21 @@ country_event = { # Independence League Leadership Contest
 			last_election = "1936.11.08"
 			elections_allowed = no
 		}
+		hidden_effect = {
+		country_event = {
+		id = csa.3702
+		days = 3
+		}
+		}
 	}
 	option = { # Roger Nash Baldwin
-	name = csa.330.b
+	name = csa.330.c
+	set_country_flag = CSA_1940_cio_election_baldwin
+	add_ideas = {
+			CSA_Sidney_Hook_for_rso
+			CSA_James_Peter_Warbasse_eco_rso
+			CSA_John_Dewey_sec_rso
+		}
 	hidden_effect = {
 		create_country_leader = {
 			name = "Roger Nash Baldwin"
@@ -8535,7 +9744,7 @@ country_event = { # Independence League Leadership Contest
 			picture = "gfx/leaders/CSA/Portrait_Roger_Nash_Baldwin.tga"
 			expire = "1965.1.1"
 			ideology = radical_socialist_subtype
-			traits = { }
+			traits = { editor }
 			}
 		}
 		set_politics = {
@@ -8544,9 +9753,21 @@ country_event = { # Independence League Leadership Contest
 			last_election = "1936.11.08"
 			elections_allowed = no
 		}
+		hidden_effect = {
+		country_event = {
+		id = csa.3702
+		days = 3
+		}
+		}
 	}
 	option = { # Heywood Broun
-	name = csa.330.c
+	name = csa.330.e
+	set_country_flag = CSA_1940_cio_election_broun
+	add_ideas = {
+			CSA_John_Louis_Engdahl_for_rso
+			CSA_John_Gates_eco_rso
+			CSA_Hellen_Keller_sec_rso
+		}
 	hidden_effect = {
 		create_country_leader = {
 			name = "Heywood Broun"
@@ -8554,7 +9775,7 @@ country_event = { # Independence League Leadership Contest
 			picture = "gfx/leaders/CSA/Portrait_Heywood_Broun.tga"
 			expire = "1965.1.1"
 			ideology = radical_socialist_subtype
-			traits = { }
+			traits = { editor }
 			}
 		}
 		set_politics = {
@@ -8563,9 +9784,21 @@ country_event = { # Independence League Leadership Contest
 			last_election = "1936.11.08"
 			elections_allowed = no
 		}
+		hidden_effect = {
+		country_event = {
+		id = csa.3702
+		days = 3
+		}
+		}
 	}
 	option = { # Arthur Ernest Morgan
-	name = csa.330.c
+	name = csa.330.f
+	set_country_flag = CSA_1940_cio_election_morgan
+	add_ideas = {
+			CSA_Emanuel_Haldeman_Julius_for_rso
+			CSA_Walter_Reuther_eco_rso
+			CSA_John_Dewey_sec_rso
+		}
 	hidden_effect = {
 		create_country_leader = {
 			name = "Arthur Ernest Morgan"
@@ -8573,7 +9806,7 @@ country_event = { # Independence League Leadership Contest
 			picture = "gfx/leaders/CSA/Portrait_Arthur_Ernest_Morgan.tga"
 			expire = "1965.1.1"
 			ideology = radical_socialist_subtype
-			traits = { }
+			traits = { educator }
 			}
 		}
 		set_politics = {
@@ -8581,6 +9814,43 @@ country_event = { # Independence League Leadership Contest
 			election_frequency = 48
 			last_election = "1936.11.08"
 			elections_allowed = no
+		}
+		hidden_effect = {
+		country_event = {
+		id = csa.3702
+		days = 3
+		}
+		}
+	}
+	option = { # Meyer London
+	name = csa.330.g
+	set_country_flag = CSA_1940_cio_election_london
+	add_ideas = {
+			CSA_Asa_P_Randolph_for_rso
+			CSA_John_L_Lewis_eco_rso
+			CSA_Charles_Chaplin_sec_rso
+		}
+	hidden_effect = {
+		create_country_leader = {
+			name = "Meyer London"
+			desc = "POLITICS_MEYER_LONDON_DESC"
+			picture = "gfx/leaders/CSA/Portrait_CSA_Meyer_London.tga"
+			expire = "1965.1.1"
+			ideology = radical_socialist_subtype
+			traits = { tenacious_negotiator }
+			}
+		}
+		set_politics = {
+			ruling_party = radical_socialist
+			election_frequency = 48
+			last_election = "1936.11.08"
+			elections_allowed = no
+		}
+		hidden_effect = {
+		country_event = {
+		id = csa.3702
+		days = 3
+		}
 		}
 	}
 }
@@ -8590,7 +9860,7 @@ country_event = { # Incorporating the AFL
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.331"}
 	title = csa.331.t
 	desc = csa.331.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 
@@ -8614,7 +9884,7 @@ country_event = { # Nationalist Club Growth
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.332"}
 	title = csa.332.t
 	desc = csa.332.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 
@@ -8637,7 +9907,7 @@ country_event = { # Economic Planning
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.333"}
 	title = csa.333.t
 	desc = csa.333.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 
@@ -8717,7 +9987,7 @@ country_event = { # Great Departments Organized
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.334"}
 	title = csa.334.t
 	desc = csa.334.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 
@@ -8741,7 +10011,7 @@ country_event = { # Clubhouses built
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.335"}
 	title = csa.335.t
 	desc = csa.335.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 
@@ -8772,7 +10042,7 @@ country_event = { # General-in-Chief Position Created
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.336"}
 	title = csa.336.t
 	desc = csa.336.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 
@@ -8798,7 +10068,7 @@ country_event = { # General-in-Chief Position Created
 				picture = "Portrait_CSA_smedly_butler_G.tga"
 				expire = "1965.1.1"
 				ideology = radical_socialist_subtype
-				traits = {}
+				traits = { cornered_fox }
 			}
 	}
 }
@@ -8808,7 +10078,7 @@ country_event = { # Appeasing the IWW
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.337"}
 	title = csa.337.t
 	desc = csa.337.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 
@@ -8833,7 +10103,7 @@ country_event = { # Collectivist Cells Attack
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.338"}
 	title = csa.338.t
 	desc = csa.338.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 
@@ -8861,7 +10131,7 @@ country_event = { # Collectivist Cells Destroyed
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.339"}
 	title = csa.339.t
 	desc = csa.339.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 
@@ -8881,7 +10151,7 @@ country_event = { #Public Service Stores
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.340"}
 	title = csa.340.t
 	desc = csa.340.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 
@@ -8900,7 +10170,7 @@ country_event = { #The Nationalization of Land
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.341"}
 	title = csa.341.t
 	desc = csa.341.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 
@@ -8925,7 +10195,7 @@ country_event = { # Gathering the Land
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.400"}
 	title = csa.400.t
 	desc = csa.400.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -8962,7 +10232,7 @@ country_event = { #Production Debate
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.401"}
 	title = csa.401.t
 	desc = csa.401.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -8992,7 +10262,7 @@ country_event = { #Export Debate
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.402"}
 	title = csa.402.t
 	desc = csa.402.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -9026,7 +10296,7 @@ country_event = { #Anger over TUUL Expansion
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.403"}
 	title = csa.403.t
 	desc = csa.403.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -9060,7 +10330,7 @@ country_event = { #Minor Food Shortage
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.404"}
 	title = csa.404.t
 	desc = csa.404.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 	has_country_flag = {
@@ -9093,7 +10363,7 @@ country_event = { #Food Shortage
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.405"}
 	title = csa.405.t
 	desc = csa.405.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 	has_country_flag = {
@@ -9127,7 +10397,7 @@ country_event = { #American Famine
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.406"}
 	title = csa.406.t
 	desc = csa.406.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 	has_country_flag = {
@@ -9161,7 +10431,7 @@ country_event = { #Browderist-Fordist Line Destroyed
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.407"}
 	title = csa.407.t
 	desc = csa.407.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -9180,7 +10450,7 @@ country_event = { #Under the Table deals
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.408"}
 	title = csa.408.t
 	desc = csa.408.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -9211,7 +10481,7 @@ country_event = { #Teachers Attacked
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.409"}
 	title = csa.409.t
 	desc = csa.409.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -9236,7 +10506,7 @@ country_event = { #IWW Liquidations
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.410"}
 	title = csa.410.t
 	desc = csa.410.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -9263,7 +10533,7 @@ country_event = { #A Socialist Culture
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.411"}
 	title = csa.411.t
 	desc = csa.411.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -9283,7 +10553,7 @@ country_event = { #Worker uniformity
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.412"}
 	title = csa.412.t
 	desc = csa.412.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -9309,7 +10579,7 @@ country_event = { #Prisoner Complaints
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.413"}
 	title = csa.413.t
 	desc = csa.413.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -9344,7 +10614,7 @@ country_event = { #AFL Purged
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.414"}
 	title = csa.414.t
 	desc = csa.414.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -9377,7 +10647,7 @@ country_event = { #Southern Purges
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.415"}
 	title = csa.415.t
 	desc = csa.415.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -9413,7 +10683,7 @@ country_event = { #SPA dissolved
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.416"}
 	title = csa.416.t
 	desc = csa.416.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -9432,7 +10702,7 @@ country_event = { #Class Traitors arrested
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.417"}
 	title = csa.417.t
 	desc = csa.417.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -9465,7 +10735,7 @@ country_event = { #Removing Distinctions
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.418"}
 	title = csa.418.t
 	desc = csa.418.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -9509,12 +10779,12 @@ country_event = { #Removing Distinctions
 	}
 }
 
-country_event = { #Foster's call to foreign workers
+country_event = { #Foster's call to foreign GFX_report_event_generic_workers
 	id = csa.419
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.419"}
 	title = csa.419.t
 	desc = csa.419.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -9533,7 +10803,7 @@ country_event = { #A Fit Nation
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.420"}
 	title = csa.420.t
 	desc = csa.420.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -9563,7 +10833,7 @@ country_event = { #Radio Chats
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.430"}
 	title = csa.430.t
 	desc = csa.430.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -9586,7 +10856,7 @@ country_event = { #Dealing with Burnham
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.431"}
 	title = csa.431.t
 	desc = csa.431.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -9619,7 +10889,7 @@ country_event = { #Standard Oil Managers
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.432"}
 	title = csa.432.t
 	desc = csa.432.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -9654,7 +10924,7 @@ country_event = { #Jack Shulman
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.433"}
 	title = csa.433.t
 	desc = csa.433.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -9673,7 +10943,7 @@ country_event = { #Fate of the IWW
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.434"}
 	title = csa.434.t
 	desc = csa.434.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -9698,7 +10968,7 @@ country_event = { #Wage Setting
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.435"}
 	title = csa.435.t
 	desc = csa.435.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -9737,7 +11007,7 @@ country_event = { #Competing Funding
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.436"}
 	title = csa.436.t
 	desc = csa.436.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -9780,7 +11050,7 @@ country_event = { #President Empowered
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.437"}
 	title = csa.437.t
 	desc = csa.437.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -9798,7 +11068,7 @@ country_event = { #Anarchists Angered
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.438"}
 	title = csa.438.t
 	desc = csa.438.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -9832,7 +11102,7 @@ country_event = { #Chicago Brawl
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.439"}
 	title = csa.439.t
 	desc = csa.439.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -9854,7 +11124,7 @@ country_event = { #Surveillance Created
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.440"}
 	title = csa.440.t
 	desc = csa.440.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -9874,7 +11144,7 @@ country_event = { #Accusations of Social Capitalism
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.441"}
 	title = csa.441.t
 	desc = csa.441.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -9891,7 +11161,7 @@ country_event = { #Farmer's Union
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.442"}
 	title = csa.442.t
 	desc = csa.442.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -9914,7 +11184,7 @@ country_event = { #The National Parks
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.443"}
 	title = csa.443.t
 	desc = csa.443.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -9954,7 +11224,7 @@ country_event = { #Black Market Opens
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.444"}
 	title = csa.444.t
 	desc = csa.444.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -9973,7 +11243,7 @@ country_event = { #Funneling Funds
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.445"}
 	title = csa.445.t
 	desc = csa.445.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -9999,7 +11269,7 @@ country_event = { #Universal SPA Membership
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.446"}
 	title = csa.446.t
 	desc = csa.446.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -10023,7 +11293,7 @@ country_event = { #Communes Annexed
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.447"}
 	title = csa.447.t
 	desc = csa.447.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -10043,6 +11313,398 @@ country_event = { #Communes Annexed
 	}
 }
 
+country_event = { # Social Patriot Flag
+	id = csa.448
+	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.448"}
+	title = csa.448.t
+	desc = csa.448.d
+	picture = GFX_report_event_USA_congress
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = { # A Commonwealth Flag
+		name = csa.448.b
+		ai_chance = {
+			factor = 50
+		}
+		CSA = {
+			country_event = {
+				id = csa.458
+				days = 1
+			}
+		}
+			hidden_effect = {
+			set_cosmetic_tag = CSA_commonwealth_america
+		}
+	}
+	option = { # A Socialist Republican Flag
+		name = csa.448.c
+		ai_chance = {
+			factor = 50
+		}
+		CSA = {
+			country_event = {
+				id = csa.453
+				days = 1
+			}
+		}
+			hidden_effect = {
+			set_cosmetic_tag = CSA_socialist_republic_totalist
+		}
+	}
+}
+
+country_event = { # Vanguard Flag
+	id = csa.449
+	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.449"}
+	title = csa.449.t
+	desc = csa.449.d
+	picture = GFX_report_event_USA_congress
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = { #A Red Fosterite Flag
+		name = csa.449.a
+		ai_chance = {
+			factor = 33
+		}
+		CSA = {
+			country_event = {
+				id = csa.453
+				days = 1
+			}
+		}
+			hidden_effect = {
+			set_cosmetic_tag = CSA_foster_usa
+		}
+	}
+	option = { #Use the TUUL Emblem
+		name = csa.449.b
+		ai_chance = {
+			factor = 33
+		}
+		CSA = {
+			country_event = {
+				id = csa.454
+				days = 1
+			}
+		}
+			add_political_power = 10
+			hidden_effect = {
+			set_cosmetic_tag = CSA_TUUL_Standard
+		}
+	}
+	option = { #Red USA flag
+		name = csa.449.c
+		ai_chance = {
+			factor = 33
+		}
+		CSA = {
+			country_event = {
+				id = csa.455
+				days = 1
+			}
+		}
+			hidden_effect = {
+			set_cosmetic_tag = CSA_uob_style
+		}
+	}
+}
+
+country_event = { # Syndicalist Flag
+	id = csa.450
+	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.450"}
+	title = csa.450.t
+	desc = csa.450.d
+	picture = GFX_report_event_USA_congress
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = { #Keep the current flag
+		name = csa.450.a
+			add_political_power = 5
+			add_popularity = { ideology = syndicalist popularity = 0.01 }
+	}
+	option = { #Red White and Blue
+		name = csa.450.b
+			hidden_effect = {
+			set_cosmetic_tag = CSA_red_white_and_blue
+		}
+	}
+	option = { #A Red Flag
+		name = csa.450.c
+			hidden_effect = {
+			set_cosmetic_tag = CSA_red_us
+		}
+	}
+}
+
+country_event = { # Pan-Syndicalist Flag
+	id = csa.451
+	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.451"}
+	title = csa.451.t
+	desc = csa.451.d
+	picture = GFX_report_event_USA_congress
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = { #A Traditional Design
+		name = csa.451.a
+		ai_chance = {
+			factor = 33
+		}
+		CSA = {
+			country_event = {
+				id = csa.452
+				days = 1
+			}
+		}
+			hidden_effect = {
+			set_cosmetic_tag = CSA_red_us
+			}
+	}
+	option = { #Revolutionary Libertas
+		name = csa.451.b
+		ai_chance = {
+			factor = 33
+		}
+		CSA = {
+			country_event = {
+				id = csa.456
+				days = 1
+			}
+		}
+			hidden_effect = {
+			set_cosmetic_tag = CSA_socialist_union_of_america
+			}
+	}
+	option = { #Gear
+		name = csa.451.c
+		ai_chance = {
+			factor = 33
+		}
+		CSA = {
+			country_event = {
+				id = csa.457
+				days = 1
+			}
+		}
+			hidden_effect = {
+			set_cosmetic_tag = CSA_lovestone_2
+			}
+	}
+}
+
+country_event = { # Title for the CSA
+	id = csa.452
+	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.452"}
+	title = csa.452.t
+	desc = csa.452.d
+	picture = GFX_report_event_USA_congress
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = { #Keep the current title
+		name = csa.452.a
+		add_war_support = 0.02
+	}
+	option = { #The Socialist Syndicates of America
+		name = csa.452.b
+			hidden_effect = {
+			set_cosmetic_tag = CSA_red_usa
+			}
+	}
+	option = { #Gear
+		name = csa.452.c
+			hidden_effect = {
+			set_cosmetic_tag = CSA_red_ussa
+			}
+	}
+}
+
+country_event = { # Title for the CSA
+	id = csa.453
+	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.453"}
+	title = csa.453.t
+	desc = csa.453.d
+	picture = GFX_report_event_USA_congress
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = { #Keep the current title
+		name = csa.453.a
+		add_war_support = 0.02
+	}
+	option = { #Union of Socialist States of America
+		name = csa.453.b
+			hidden_effect = {
+			set_cosmetic_tag = CSA_foster_ussa
+			}
+	}
+	option = { #United Socialist States of America
+		name = csa.453.c
+			hidden_effect = {
+			set_cosmetic_tag = CSA_foster_home
+			}
+	}
+}
+
+country_event = { # Title for the CSA
+	id = csa.454
+	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.454"}
+	title = csa.454.t
+	desc = csa.454.d
+	picture = GFX_report_event_USA_congress
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = { #Keep the current title
+		name = csa.454.a
+		add_war_support = 0.02
+	}
+	option = { #Union of Socialist States of America
+		name = csa.454.b
+			hidden_effect = {
+			set_cosmetic_tag = CSA_TUUL_Flag
+			}
+	}
+	option = { #United Socialist States of America
+		name = csa.454.c
+			hidden_effect = {
+			set_cosmetic_tag = CSA_TUUL_Emblem
+			}
+	}
+}
+
+country_event = { # Title for the CSA
+	id = csa.455
+	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.455"}
+	title = csa.455.t
+	desc = csa.455.d
+	picture = GFX_report_event_USA_congress
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = { #Keep the current title
+		name = csa.455.a
+		add_war_support = 0.02
+	}
+	option = { #Union of Socialist States of America
+		name = csa.455.b
+			hidden_effect = {
+			set_cosmetic_tag = CSA_uob_flag
+			}
+	}
+	option = { #United Socialist States of America
+		name = csa.455.c
+			hidden_effect = {
+			set_cosmetic_tag = CSA_uob_standard
+			}
+	}
+}
+
+country_event = { # Title for the CSA
+	id = csa.456
+	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.456"}
+	title = csa.456.t
+	desc = csa.456.d
+	picture = GFX_report_event_USA_congress
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = { #Keep the current title
+		name = csa.456.a
+		add_war_support = 0.02
+	}
+	option = { #The Socialist Syndicates of America
+		name = csa.456.b
+			hidden_effect = {
+			set_cosmetic_tag = CSA_socialist_unions_of_america
+			}
+	}
+	option = { #Gear
+		name = csa.456.c
+			hidden_effect = {
+			set_cosmetic_tag = CSA_socialist_uni
+			}
+	}
+}
+
+country_event = { # Title for the CSA
+	id = csa.457
+	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.457"}
+	title = csa.457.t
+	desc = csa.457.d
+	picture = GFX_report_event_USA_congress
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = { #Keep the current title
+		name = csa.457.a
+		add_war_support = 0.02
+	}
+	option = { #The Socialist Syndicates of America
+		name = csa.457.b
+			hidden_effect = {
+			set_cosmetic_tag = CSA_loverstone_2
+			}
+	}
+	option = { #Gear
+		name = csa.457.c
+			hidden_effect = {
+			set_cosmetic_tag = CSA_lovestonetwo_2
+			}
+	}
+}
+
+country_event = { # United States?
+	id = csa.458
+	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.448"}
+	title = csa.458.t
+	desc = csa.458.d
+	picture = GFX_report_event_USA_congress
+
+	is_triggered_only = yes
+
+	trigger = { 
+		tag = CSA
+		has_global_flag = USA_civil_war_over_flag
+		has_country_flag = CSA_america_united
+	}
+
+	fire_only_once = yes
+
+	option = { # Restore the Stripes and Stars
+		name = csa.458.a
+			hidden_effect = {
+			set_cosmetic_tag = CSA_US_socialist_republic
+		}
+	}
+	option = { #Keep the current title
+		name = csa.458.b
+		add_war_support = 0.02
+	}
+}
 
 ###Foreign Policy###
 country_event = { # La Internationale
@@ -10050,7 +11712,7 @@ country_event = { # La Internationale
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.500"}
 	title = csa.500.t
 	desc = csa.500.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -10115,7 +11777,7 @@ country_event = { #Address the Internationale
 	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.501"}
 	title = csa.501.t
 	desc = csa.501.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -10132,3 +11794,499 @@ country_event = { #Address the Internationale
 	create_faction = "true_revolutionary_faction"
 	}
 }
+
+country_event = { #Address the Internationale
+	id = csa.5010
+	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.5010"}
+	title = csa.5010.t
+	desc = csa.5010.d
+	picture = GFX_report_event_USA_congress
+
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { #Fourth Internationale
+	name = csa.5010.a
+	add_political_power = 30
+	create_faction = "fourth_internationale"
+	}
+}
+
+country_event = { #The CSA Denounces Us
+	id = csa.502
+	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.502"}
+	title = csa.502.t
+	desc = csa.502.d
+
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { #Fourth Internationale Reaction
+	name = csa.502.a
+	add_political_power = -45
+	add_stability = -0.02
+	}
+}
+
+country_event = { # asking for New England Back
+	id = csa.2700
+	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.2700"}
+	title = csa.2700.t
+	desc = csa.2700.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	is_triggered_only = yes
+
+	option = { # Lets not risk a war.
+		name = csa.2700.a
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 0
+				NEE = {
+					exists = yes
+					is_ai = no
+				}
+			}
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					NEE = {
+						is_subject_of = ROOT
+					}
+				}
+				end_puppet = NEE
+			}
+			if = {
+				limit = {
+					is_in_faction_with = NEE
+				}
+				NEE = {
+					leave_faction = yes
+				}
+			}
+			if = {
+				limit = {
+					NEE = {
+						exists = yes
+						has_war = yes
+					}
+				}
+				NEE = {
+					separate_peace_all_wars = yes
+				}
+			}
+		}
+		every_state = {
+			limit = {
+				is_owned_by = CAN
+				OR = {
+					state = 357 #Maine
+					state = 934 #New Hampshire
+					state = 933 #Vermont
+					state = 932 #Massachusetts
+					state = 935 #Rhode Island
+					state = 931 #Connecticut
+					state = 796 #Upstate New York
+				}
+			}
+			effect_tooltip = {
+				if = {
+					limit = { is_claimed_by = CAN }
+					remove_claim_by = CAN
+				}
+				FROM = {
+					transfer_state = PREV
+				}
+			}
+		}
+		FROM = {
+			country_event = {
+				id = csa.2701
+				days = 1
+			}
+		}
+	}
+	option = { # We shall never give into yankee arrogance
+		name = csa.2700.b
+		ai_chance = {
+			factor = 80
+			modifier = {
+				factor = 0.1
+				OR = {
+					has_war_with = GER
+					has_war_with = FRA
+					has_war_with = ENG
+				}
+			}
+			modifier = {
+				factor = 0
+				is_in_faction_with = FROM
+				NEE = {
+					OR = {
+						exists = no
+						is_ai = yes
+					}
+				}
+			}
+		}
+		FROM = {
+			country_event = {
+				id = csa.2702
+				days = 1
+			}
+		}
+	}
+}
+
+country_event = { # New England has been returned to us
+	id = csa.2701
+	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.2701"}
+	title = csa.2701.t
+	desc = csa.2701.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	is_triggered_only = yes
+
+	option = {
+		name = csa.2701.a
+		if = {
+			limit = { country_exists = NEE }
+			annex_country = {
+				target = NEE
+				transfer_troops = no
+			}
+		}
+		every_state = {
+			limit = {
+				is_owned_by = CAN
+				OR = {
+					state = 357 #Maine
+					state = 934 #New Hampshire
+					state = 933 #Vermont
+					state = 932 #Massachusetts
+					state = 935 #Rhode Island
+					state = 931 #Connecticut
+					state = 796 #Upstate New York
+				}
+			}
+			if = {
+				limit = { is_claimed_by = CAN }
+				remove_claim_by = CAN
+			}
+			ROOT = {
+				transfer_state = PREV
+			}
+		}
+	}
+}
+
+country_event = { # Canada refuses to return New England
+	id = csa.2702
+	immediate = {log = "[GetDateText]: [Root.GetName]: event csa.2702"}
+	title = csa.2702.t
+	desc = csa.2702.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	is_triggered_only = yes
+
+	option = { # Lets not risk a war.
+		name = csa.2702.a
+		trigger = {
+			CAN = {
+				is_major = yes
+			}
+		}
+		ai_chance = {
+			factor = 70
+		}
+		declare_war_on = {
+			target = CAN
+			type = annex_everything
+		}
+	}
+	option = {
+		name = csa.2702.b
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 0
+				strength_ratio = {
+					tag = CAN
+					ratio > 3.0
+				}
+			}
+		}
+		add_opinion_modifier = {
+			target = CAN
+			modifier = ITA_dislikes_govt
+		}
+		add_opinion_modifier = {
+			target = NEE
+			modifier = ITA_dislikes_govt
+		}
+	}
+}
+
+country_event = { # Time to Retreat?
+	id = csa.2705
+	title = csa.2705.t
+	desc = csa.2705.d
+	picture = GFX_report_event_INC_vietnam
+
+	is_triggered_only = yes
+
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event csa.2705"
+		CSA = {
+			save_event_target_as = white_peace_receiver
+		}
+	}
+
+
+	option = {
+		name = csa.2705.a # Fight!
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 0
+				any_enemy_country = {
+					is_major = yes
+				}
+			}
+			modifier = {
+				factor = 0.75
+				tag = NFA
+			}
+			modifier = {
+				factor = 0.75
+				has_war_support < 0.5
+			}
+			modifier = {
+				factor = 0.3
+				CSA = {
+					controls_state = 739
+				}
+			}
+			modifier = {
+				factor = 0.3
+				CSA = {
+					controls_state = 832
+				}
+			}
+			modifier = {
+				factor = 0.35
+				date > 1937.6.1
+			}
+			modifier = {
+				factor = 0.35
+				date > 1938.6.1
+			}
+			modifier = {
+				factor = 0.25
+				date > 1939.3.1
+			}
+			modifier = {
+				factor = 0
+				date > 1939.7.1
+			}
+		}
+		add_political_power = -25
+		if = {
+			limit = {
+				CSA = {
+					controls_state = 739
+				}
+			}
+			add_war_support = -0.03
+		}
+	}
+	option = {
+		name = csa.2705.b # Time to retreat
+		ai_chance = {
+			factor = 70
+			modifier = {
+				factor = 2
+				CSA = {
+					controls_state = 739
+				}
+			}
+			modifier = {
+				factor = 1.5
+				CSA = {
+					controls_state = 832
+				}
+			}
+		}
+		CAN = {
+			every_owned_state = {
+				CSA = {
+					transfer_state = PREV
+				}
+			}
+		}
+		MEX = {
+			if = {
+			limit = { 
+				MEX = { is_in_faction_with = NFA }
+			every_owned_state = {
+				CSA = {
+					transfer_state = PREV
+				}
+			}
+		}
+	}
+	}
+		NEE = {
+			if = {
+			limit = { 
+				MEX = { is_in_faction_with = NFA }
+			every_owned_state = {
+				CSA = {
+					transfer_state = PREV
+				}
+			}
+		}
+	}
+	}
+		if = {
+			limit = {
+				CAN = {
+					exists = yes
+				}
+			}
+			CSA = {
+				annex_country = {
+					target = CAN
+					transfer_troops = no
+				}
+			}
+		}
+		if = {
+			limit = {
+				MEX = {
+					is_in_faction_with = NFA
+				}
+				CSA = {
+				controls_state = 277
+				}
+			}
+			CSA = {
+				annex_country = {
+					target = MEX
+					transfer_troops = no
+				}
+			}
+		}
+		if = {
+			limit = {
+				NEE = {
+					is_in_faction_with = NFA
+				}
+				CSA = {
+				controls_state = 932
+				}
+			}
+			CSA = {
+				annex_country = {
+					target = NEE
+					transfer_troops = no
+				}
+			}
+		}
+		white_peace_with_TARGET = yes
+		every_enemy_country = {
+			limit = { 
+				is_valid_peace_target = yes 
+				is_in_faction_with = ENT
+			}
+			white_peace_with_TARGET = yes
+			}
+		CAF = {
+			limit = { 
+				is_valid_peace_target = yes 
+			}
+			white_peace_with_TARGET = yes
+			}
+		}
+	}
+
+country_event = { #America demands Suriname!
+	id = csa.558
+	immediate = { log = "[GetDateText]: [Root.GetName]: event csa.558" }
+	title = csa.558.t
+	desc = csa.558.d
+
+	is_triggered_only = yes
+
+	option = { #Never!
+		name = csa.558.a
+		ai_chance = {
+			factor = 50
+		}
+
+		add_political_power = 10
+		CSA = {
+			country_event = {
+				id = csa.559
+				days = 1
+			}
+		}
+	}
+
+	option = { #Give in
+		name = csa.558.b
+		trigger = {
+			OR = {
+				is_ai = no
+				surrender_progress > 0.25
+			}
+		}
+		ai_chance = {
+			factor = 50
+		}
+
+		CSA = {
+			country_event = {
+				id = csa.560
+				days = 1
+			}
+		}
+	}
+}
+
+country_event = { #The Dutch Refuse
+	id = csa.559
+	immediate = { log = "[GetDateText]: [Root.GetName]: event csa.559" }
+	title = csa.559.t
+	desc = csa.559.d
+
+	is_triggered_only = yes
+
+	option = { #Only a small setback...
+		name = csa.559.a
+
+		add_political_power = -10
+	}
+}
+
+country_event = { #The Dutch Fold
+	id = csa.560
+	immediate = { log = "[GetDateText]: [Root.GetName]: event csa.560" }
+	title = csa.560.t
+	desc = csa.560.d
+
+	is_triggered_only = yes
+
+	option = { #Another victory against colonialism!
+		name = csa.560.a
+
+		transfer_state = 309
+		transfer_state = 1038
+		add_political_power = 10
+	}
+}
+

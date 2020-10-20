@@ -143,7 +143,7 @@ focus_tree = {
 				category = infantry_weapons
 				}
 				add_tech_bonus = {
-				name = mountain_bonus
+				name = infantry_bonus
 				bonus = 0.5
 				uses = 1
 				category = mountaineers_tech
@@ -586,7 +586,7 @@ focus_tree = {
 				name = CAL_tank_doctrine
 				bonus = 0.75
 				uses = 1
-				category = tank_equipment
+				category = cat_light_armor
 			}
 		}
 	}
@@ -794,13 +794,13 @@ focus_tree = {
 				name = artillery_bonus
 				bonus = 1.5
 				uses = 2
-				category = antiair
+				category = cat_anti_air
 			}
 			add_tech_bonus = {
 				name = artillery_bonus
 				bonus = 1.5
 				uses = 1
-				category = antitank
+				category = cat_anti_tank
 			}
 			add_tech_bonus = {
 				name = CAL_mcnair_doctrine
@@ -928,7 +928,7 @@ focus_tree = {
 				name = artillery_bonus
 				bonus = 1
 				uses = 1
-				category = antitank
+				category = cat_anti_tank
 			}
 		}
 	}
@@ -953,7 +953,7 @@ focus_tree = {
 			add_tech_bonus = {
 				bonus = 1
 				uses = 1
-				category = cat_naval_bomber
+				category = naval_air
 			}
 		}
 	}
@@ -1268,9 +1268,9 @@ focus_tree = {
 			}
 		}
 		available = {
-			has_global_flag = CAL_civil_war_over_flag
+			has_global_flag = USA_civil_war_over_flag
 			NOT = {
-				country_exists = CAL
+				country_exists = COR
 				country_exists = CSA
 				country_exists = TEX
 			}
@@ -1297,8 +1297,9 @@ focus_tree = {
 				#country_event = { id = ustates.627 days = 70 }#Pentagon Construction
 				country_event = { id = ustates.651 days = 35 }#AUS Trials
 				country_event = { id = ustates.650 days = 45 }#CAL Trials
+				country_event = { id = ustates.6520 days = 55 }#CAR Trials
 			}
-			custom_effect_tooltip = CAL_trials_will_begin
+			custom_effect_tooltip = USA_trials_will_begin
 		}
 	}
 	focus = {# Military Research
@@ -1944,13 +1945,13 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus CAL_liberty_ships"
-			add_ideas = CAL_liberty_ships_idea
+			log = "[GetDateText]: [Root.GetName]: Focus USA_liberty_ships"
+			add_ideas = USA_liberty_ships_idea
 		}
 	}
 
 	focus = {# Maritime Industry
-		id = CAL_maratime_industry
+		id = CAL_maritime_industry
 		icon = GFX_goal_generic_build_navy
 		cost = 5.00
 		prerequisite = {
@@ -1976,7 +1977,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus CAL_maratime_industry"
+			log = "[GetDateText]: [Root.GetName]: Focus CAL_maritime_industry"
 			add_ideas = CAL_maritime_industry_idea
 		}
 	}
@@ -2077,7 +2078,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus CAL_expand_marine_corps"
+			log = "[GetDateText]: [Root.GetName]: Focus USA_expand_marine_corps"
 			add_tech_bonus = {
 				name = marines_bonus
 				bonus = 1
@@ -2114,8 +2115,8 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus CAL_naval_training"
-			add_ideas = CAL_naval_training_idea
+			log = "[GetDateText]: [Root.GetName]: Focus USA_naval_training"
+			add_ideas = USA_naval_training_idea
 		}
 	}
 
@@ -2146,8 +2147,8 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus CAL_urban_warfare"
-			add_ideas = CAL_large_marine_corps
+			log = "[GetDateText]: [Root.GetName]: Focus USA_urban_warfare"
+			add_ideas = USA_large_marine_corps
 		}
 	}
 
@@ -2191,7 +2192,7 @@ focus_tree = {
 		icon = GFX_goal_navy_decision
 		cost = 5.00
 		prerequisite = {
-			focus = CAL_maratime_industry
+			focus = CAL_maritime_industry
 		}
 		prerequisite = {
 			focus = CAL_expand_the_waves
@@ -2698,6 +2699,7 @@ focus_tree = {
 		}
 		available = {
 			has_government = authoritarian_democrat
+			has_country_leader = { ruling_only = yes name = "William Randolph Hearst"}
 		}
 		ai_will_do = {
 			factor = 5
@@ -2725,6 +2727,7 @@ focus_tree = {
 		}
 		available = {
 			has_government = authoritarian_democrat
+			has_country_leader = { ruling_only = yes name = "William Randolph Hearst"}
 		}
 		ai_will_do = {
 			factor = 5
@@ -2755,6 +2758,7 @@ focus_tree = {
 		}
 		available = {
 			has_government = authoritarian_democrat
+			has_country_leader = { ruling_only = yes name = "William Randolph Hearst"}
 		}
 		ai_will_do = {
 			factor = 5
@@ -2830,6 +2834,7 @@ focus_tree = {
 		}
 		available = {
 			has_government = authoritarian_democrat
+			has_country_leader = { ruling_only = yes name = "William Randolph Hearst"}
 		}
 		ai_will_do = {
 			factor = 5
@@ -2880,6 +2885,7 @@ focus_tree = {
 		}
 		available = {
 			has_government = authoritarian_democrat
+			has_country_leader = { ruling_only = yes name = "William Randolph Hearst"}
 		}
 		ai_will_do = {
 			factor = 5
@@ -2915,6 +2921,7 @@ focus_tree = {
 		}
 		available = {
 			has_government = authoritarian_democrat
+			has_country_leader = { ruling_only = yes name = "William Randolph Hearst"}
 		}
 		ai_will_do = {
 			factor = 5
@@ -2972,6 +2979,7 @@ focus_tree = {
 		}
 		available = {
 			has_government = authoritarian_democrat
+			has_country_leader = { ruling_only = yes name = "William Randolph Hearst"}
 		}
 		ai_will_do = {
 			factor = 5
@@ -3003,6 +3011,7 @@ focus_tree = {
 		}
 		available = {
 			has_government = authoritarian_democrat
+			has_country_leader = { ruling_only = yes name = "William Randolph Hearst"}
 		}
 		ai_will_do = {
 			factor = 5
@@ -3037,6 +3046,7 @@ focus_tree = {
 		}
 		available = {
 			has_government = authoritarian_democrat
+			has_country_leader = { ruling_only = yes name = "William Randolph Hearst"}
 		}
 		ai_will_do = {
 			factor = 5
@@ -3072,6 +3082,7 @@ focus_tree = {
 		}
 		available = {
 			has_government = authoritarian_democrat
+			has_country_leader = { ruling_only = yes name = "William Randolph Hearst"}
 		}
 		ai_will_do = {
 			factor = 5
@@ -3099,6 +3110,7 @@ focus_tree = {
 		}
 		available = {
 			has_government = authoritarian_democrat
+			has_country_leader = { ruling_only = yes name = "William Randolph Hearst"}
 		}
 		select_effect = {
 		country_event = {
@@ -3133,6 +3145,7 @@ focus_tree = {
 		}
 		available = {
 			has_government = authoritarian_democrat
+			has_country_leader = { ruling_only = yes name = "William Randolph Hearst"}
 		}
 		ai_will_do = {
 			factor = 5
@@ -3168,6 +3181,7 @@ focus_tree = {
 			has_government = authoritarian_democrat
 			has_government = paternal_autocrat
 			}
+			has_country_leader = { ruling_only = yes name = "William Randolph Hearst"}
 		}
 		ai_will_do = {
 			factor = 5
@@ -3197,6 +3211,7 @@ focus_tree = {
 			has_government = authoritarian_democrat
 			has_government = paternal_autocrat
 			}
+			has_country_leader = { ruling_only = yes name = "William Randolph Hearst"}
 		}
 		ai_will_do = {
 			factor = 5
@@ -3241,6 +3256,7 @@ focus_tree = {
 			has_government = authoritarian_democrat
 			has_government = paternal_autocrat
 			}
+			has_country_leader = { ruling_only = yes name = "William Randolph Hearst"}
 		}
 		ai_will_do = {
 			factor = 5
@@ -3316,6 +3332,7 @@ focus_tree = {
 			has_government = authoritarian_democrat
 			has_government = paternal_autocrat
 			}
+			has_country_leader = { ruling_only = yes name = "William Randolph Hearst"}
 		}
 		ai_will_do = {
 			factor = 5
@@ -3349,6 +3366,7 @@ focus_tree = {
 			has_government = authoritarian_democrat
 			has_government = paternal_autocrat
 			}
+			has_country_leader = { ruling_only = yes name = "William Randolph Hearst"}
 		}
 		ai_will_do = {
 			factor = 5
@@ -3382,6 +3400,7 @@ focus_tree = {
 			has_government = authoritarian_democrat
 			has_government = paternal_autocrat
 			}
+			has_country_leader = { ruling_only = yes name = "William Randolph Hearst"}
 		}
 		ai_will_do = {
 			factor = 5
@@ -3419,6 +3438,7 @@ focus_tree = {
 			has_government = authoritarian_democrat
 			has_government = paternal_autocrat
 			}
+			has_country_leader = { ruling_only = yes name = "William Randolph Hearst"}
 		}
 		ai_will_do = {
 			factor = 5
@@ -3432,7 +3452,7 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_demand_respect_from_canada"
 		CAN = {
 			country_event = {
-			id = pacificstates.240
+			id = pacificstates.2400
 			days = 1
 				}
 			}
@@ -3447,8 +3467,12 @@ focus_tree = {
 		icon = GFX_goal_ideology_paternal_autocrat
 		cost = 5.00
 		available = {
+			date > 1940.11.14
+			OR = {
+			has_government = authoritarian_democrat
 			has_government = paternal_autocrat
-			has_country_flag = CAL_national_democrats_win_twice_flag
+			}
+			has_country_leader = { ruling_only = yes name = "William Randolph Hearst" }
 		}
 		ai_will_do = {
 			factor = 5
@@ -3472,7 +3496,12 @@ focus_tree = {
 			focus = CAL_national_democrats_win_twice
 		}
 		available = {
+			date > 1940.11.14
+			OR = {
 			has_government = authoritarian_democrat
+			has_government = paternal_autocrat
+			}
+			has_country_leader = { ruling_only = yes name = "William Randolph Hearst" }
 		}
 		ai_will_do = {
 			factor = 5
@@ -3525,7 +3554,12 @@ focus_tree = {
 			focus = CAL_national_democrats_win_twice
 		}
 		available = {
+			date > 1940.11.14
+			OR = {
 			has_government = authoritarian_democrat
+			has_government = paternal_autocrat
+			}
+			has_country_leader = { ruling_only = yes name = "William Randolph Hearst" }
 		}
 		ai_will_do = {
 			factor = 5
@@ -3554,7 +3588,12 @@ focus_tree = {
 			focus = CAL_national_democrats_win_twice
 		}
 		available = {
+			date > 1940.11.14
+			OR = {
 			has_government = authoritarian_democrat
+			has_government = paternal_autocrat
+			}
+			has_country_leader = { ruling_only = yes name = "William Randolph Hearst" }
 		}
 		ai_will_do = {
 			factor = 5
@@ -3584,7 +3623,12 @@ focus_tree = {
 			focus = CAL_expand_war_powers
 		}
 		available = {
+			date > 1940.11.14
+			OR = {
 			has_government = authoritarian_democrat
+			has_government = paternal_autocrat
+			}
+			has_country_leader = { ruling_only = yes name = "William Randolph Hearst" }
 		}
 		ai_will_do = {
 			factor = 5
@@ -3610,7 +3654,12 @@ focus_tree = {
 			focus = CAL_expand_war_powers
 		}
 		available = {
+			date > 1940.11.14
+			OR = {
 			has_government = authoritarian_democrat
+			has_government = paternal_autocrat
+			}
+			has_country_leader = { ruling_only = yes name = "William Randolph Hearst" }
 		}
 		ai_will_do = {
 			factor = 5
@@ -3637,7 +3686,12 @@ focus_tree = {
 			focus = CAL_expand_war_powers
 		}
 		available = {
+			date > 1940.11.14
+			OR = {
 			has_government = authoritarian_democrat
+			has_government = paternal_autocrat
+			}
+			has_country_leader = { ruling_only = yes name = "William Randolph Hearst" }
 		}
 		ai_will_do = {
 			factor = 5
@@ -3905,9 +3959,13 @@ focus_tree = {
 		y = 1
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_eastern_patronage"
-			custom_effect_tooltip = unlock_decision_tooltip
+			custom_effect_tooltip = ACW_combat_socialists
 			add_political_power = 50
 			add_stability = 0.05
+			modify_country_flag = {
+				flag = ACW_socialist_resistance
+				value = -2
+			}
 		}
 	}
 	
@@ -3934,6 +3992,8 @@ focus_tree = {
 		y = 2
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_dewitt_raids"
+			custom_effect_tooltip = USA_political_recovery_tooltip
+			USA_political_recovery = yes
 			add_political_power = 50
 			add_stability = 0.05
 			add_popularity = { ideology = syndicalist popularity = -0.03 }
@@ -3964,6 +4024,8 @@ focus_tree = {
 		y = 3
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_media_empire"
+			custom_effect_tooltip = USA_political_recovery_tooltip
+			USA_political_recovery = yes
 			swap_ideas = {
 			remove_idea = CAL_media_regulation_act_idea
 			add_idea = CAL_media_empire_idea
@@ -4000,9 +4062,12 @@ focus_tree = {
 		y = 1
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_southern_old_money"
-			custom_effect_tooltip = unlock_decision_tooltip
-			add_political_power = 40
-			add_stability = 0.03
+			custom_effect_tooltip = ACW_combat_klan
+			add_popularity = { ideology = national_populist popularity = -0.03 }
+			modify_country_flag = {
+				flag = ACW_klan_resistance
+				value = -2
+			}
 		}
 	}
 	
@@ -4029,9 +4094,11 @@ focus_tree = {
 		y = 2
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_oaths_of_loyalty"
+			custom_effect_tooltip = USA_political_recovery_tooltip
+			USA_political_recovery = yes
 			add_political_power = 45
 			add_popularity = { ideology = paternal_autocrat popularity = 0.05 }
-			add_manpower = 2000
+			add_manpower = 200
 		}
 	}
 	
@@ -4058,6 +4125,8 @@ focus_tree = {
 		y = 3
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_reconcilation"
+			custom_effect_tooltip = USA_political_recovery_tooltip
+			USA_political_recovery = yes
 			add_political_power = 55
 		}
 	}
@@ -4091,6 +4160,8 @@ focus_tree = {
 		y = 4
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_absorb_democrats"
+			custom_effect_tooltip = USA_political_recovery_tooltip
+			USA_political_recovery = yes
 			add_political_power = 75
 			add_stability = 0.1
 			add_popularity = {
@@ -4120,6 +4191,8 @@ focus_tree = {
 		y = 5
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_white_house_socials"
+			custom_effect_tooltip = USA_political_recovery_tooltip
+			USA_political_recovery = yes
 			swap_ideas = {
 			remove_idea = CAL_high_tariffs_idea_3
 			add_idea = CAL_high_tariffs_idea_4
@@ -4137,14 +4210,22 @@ focus_tree = {
 		cost = 6.00
 		available = {
 			OR = {
-				has_country_flag = macarthur_gives_up_power
-				has_country_flag = CAL_classical_liberal_mandate_flag
+				has_government = social_conservative
+				has_government = market_liberal
+				has_government = social_liberal
+				has_government = social_democrat
+				has_government = radical_socialist
+				has_government = national_populist
 			}
 		}
 		bypass = {
 			OR = {
-				has_country_flag = macarthur_gives_up_power
-				has_country_flag = CAL_classical_liberal_mandate_flag
+				has_government = social_conservative
+				has_government = market_liberal
+				has_government = social_liberal
+				has_government = social_democrat
+				has_government = radical_socialist
+				has_government = national_populist
 			}
 		}
 		prerequisite = {
@@ -4178,6 +4259,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_future_of_the_afp"
+			custom_effect_tooltip = ACW_combat_minuteman
+			add_popularity = { ideology = authoritarian_democrat popularity = -0.06 }
 			add_political_power = 25
 		}
 	}
@@ -4200,8 +4283,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_court_populists"
-			add_political_power = 45
 			custom_effect_tooltip = ACW_combat_minuteman
+			increase_ruling_party_popularity_by_5 = yes
+			add_political_power = 4
 			modify_country_flag = {
 				flag = ACW_minutemen_resistance
 				value = -2
@@ -4251,6 +4335,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_american_values1"
+			custom_effect_tooltip = USA_political_recovery_tooltip
 			add_ideas = CAL_american_values_ideas
 			USA_political_recovery = yes
 		}
@@ -4274,9 +4359,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_finish_spa"
+			custom_effect_tooltip = ACW_combat_socialists
 			add_popularity = { ideology = syndicalist popularity = -0.03 }
 			add_popularity = { ideology = totalist popularity = -0.03 }
-			custom_effect_tooltip = ACW_combat_socialists
 			modify_country_flag = {
 				flag = ACW_socialist_resistance
 				value = -2
@@ -4292,6 +4377,9 @@ focus_tree = {
 		}
 		mutually_exclusive = {
 			focus = CAL_maintain_nationalizations
+		}
+		available = {
+		NOT = { has_government = national_populist }
 		}
 		relative_position_id = CAL_classical_liberal_mandate
 		x = 4
@@ -4361,8 +4449,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_esmwt"
-			country_event = { id = ustates.125 days = 1 }
 			custom_effect_tooltip = USA_political_recovery_tooltip
+			country_event = { id = ustates.125 days = 1 }
 			USA_political_recovery = yes
 		}
 	}
@@ -4376,6 +4464,9 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = CAL_redeemer_collaboration
 		}
+		available = {
+		NOT = { has_government = national_populist }
+		}
 		relative_position_id = CAL_classical_liberal_mandate
 		x = 1
 		y = 1
@@ -4384,10 +4475,15 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_fight_the_poll_tax"
+			custom_effect_tooltip = ACW_combat_klan
 			add_popularity = { ideology = national_populist popularity = -0.05 }
 			add_war_support = 0.05
 			add_political_power = 45
 			increase_ruling_party_popularity_by_5 = yes
+			modify_country_flag = {
+				flag = ACW_klan_resistance
+				value = -2
+			}
 		}
 	}
 	
@@ -4409,8 +4505,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_redeemer_collaboration"
-			add_stability = 0.05
 			custom_effect_tooltip = ACW_combat_klan
+			add_stability = 0.05
 			modify_country_flag = {
 				flag = ACW_klan_resistance
 				value = -2
@@ -4434,9 +4530,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_hit_radical_redshirts"
+			custom_effect_tooltip = ACW_combat_legion
 			add_popularity = { ideology = paternal_autocrat popularity = -0.03 }
 			add_popularity = { ideology = national_populist popularity = -0.05 }
-			custom_effect_tooltip = ACW_combat_legion
 			modify_country_flag = {
 				flag = ACW_black_legion_resistance
 				value = -3
@@ -4454,6 +4550,9 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = CAL_traditional_machines
 		}
+		available = {
+		NOT = { has_government = national_populist }
+		}
 		relative_position_id = CAL_classical_liberal_mandate
 		x = 1
 		y = 3
@@ -4462,10 +4561,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_end_jim_crow"
+			custom_effect_tooltip = USA_political_recovery_tooltip
 			add_stability = -0.03
 			add_popularity = { ideology = national_populist popularity = -0.03 }
 			add_manpower = 1500
-			custom_effect_tooltip = USA_political_recovery_tooltip
 			USA_political_recovery = yes
 		}
 	}
@@ -4488,9 +4587,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_traditional_machines"
+			custom_effect_tooltip = USA_political_recovery_tooltip
 			add_stability = 0.08
 			add_political_power = 40
-			custom_effect_tooltip = USA_political_recovery_tooltip
 			USA_political_recovery = yes
 		}
 	}
@@ -4521,12 +4620,14 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_trial_of_the_federalists"
-			custom_effect_tooltip = CAL_political_recovery_tooltip
+			custom_effect_tooltip = USA_political_recovery_tooltip
 			USA_political_recovery = yes
 			add_manpower = -3000
 			add_war_support = -0.05
 			add_popularity = { ideology = paternal_autocrat popularity = -0.08 }
 			add_political_power = 70
+			custom_effect_tooltip = ACW_fight_fed_terrorists_tooltip
+
 		}
 	}
 	
@@ -4716,6 +4817,7 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_malice_and_charity"
 			custom_effect_tooltip = USA_political_recovery_tooltip
 			USA_political_recovery = yes
+			country_event = { id = ustates.118 days = 1 }
 		}
 	}
 	
@@ -4760,7 +4862,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_begin_reconstruction"
-			add_ideas = CAL_civil_reconstruction_idea
+			add_ideas = USA_civil_reconstruction_idea
 		}
 	}
 
@@ -4928,6 +5030,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_rebuild_americas_industry"
+			custom_effect_tooltip = USA_economic_recovery_tooltip
+			USA_depression_recovery = yes
 			add_tech_bonus = {
 				name = industrial_bonus
 				bonus = 1
@@ -4959,6 +5063,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_economic_investments"
+			custom_effect_tooltip = USA_economic_recovery_tooltip
+			USA_depression_recovery = yes
 			random_owned_state = {
 				limit = {
 					is_core_of = CAL
@@ -5019,7 +5125,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_american_industry"
-			custom_effect_tooltip = CAL_economic_recovery_tooltip
+			custom_effect_tooltip = USA_economic_recovery_tooltip
 			USA_depression_recovery = yes
 		}
 	}
@@ -5126,29 +5232,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_rebuild_agriculture"
-			add_tech_bonus = {
-				bonus = 1
-				uses = 2
-				category = industry
-			}
-		}
-	}
-	
-	focus = {# rebuild agriculture
-		id = CAL_rebuild_agriculture
-		icon = GFX_focus_AUS_agriculture
-		cost = 6.00
-		prerequisite = {
-			focus = CAL_rebuild_the_roads
-		}
-		relative_position_id = CAL_begin_reconstruction
-		x = 1
-		y = 2
-		ai_will_do = {
-			factor = 40
-		}
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus CAL_rebuild_agriculture"
+			custom_effect_tooltip = USA_economic_recovery_tooltip
+			USA_depression_recovery = yes
 			add_tech_bonus = {
 				bonus = 1
 				uses = 2
@@ -5281,13 +5366,13 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_farming_subsidies"
-			custom_effect_tooltip = CAL_economic_recovery_tooltip
+			custom_effect_tooltip = USA_economic_recovery_tooltip
 			USA_depression_recovery = yes
 		}
 	}
 
-	focus = {# Maritime Industry
-		id = CAL_maritime_industry
+	focus = {# Naval Industry
+		id = CAL_naval_industry
 		icon = GFX_goal_navy_decision
 		cost = 6.00
 		prerequisite = {
@@ -5309,7 +5394,8 @@ focus_tree = {
 			factor = 40
 		}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus CAL_maritime_industry"
+			log = "[GetDateText]: [Root.GetName]: Focus CAL_naval_industry"
+			custom_effect_tooltip = CAL_naval_industry_tooltip
 			362 = {
 				if = {
 					limit = { is_owned_and_controlled_by = CAL }
@@ -5373,7 +5459,7 @@ focus_tree = {
 		icon = GFX_goal_further_oil
 		cost = 5.00
 		prerequisite = {
-			focus = CAL_maritime_industry
+			focus = CAL_naval_industry
 		}
 		relative_position_id = CAL_begin_reconstruction
 		x = 4
@@ -5410,8 +5496,8 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_bill_of_rights"
-			custom_effect_tooltip = CAL_political_recovery_tooltip
-			CAL_increase_recovery = yes
+			custom_effect_tooltip = USA_economic_recovery_tooltip
+			USA_depression_recovery = yes
 		}
 	}
 	
@@ -5463,7 +5549,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_reconstruction_finished"
-			remove_ideas = CAL_civil_reconstruction_idea
+			remove_ideas = USA_civil_reconstruction_idea
 		}
 	}
 	
@@ -5648,10 +5734,7 @@ focus_tree = {
 			focus = CAL_social_conservatives_in_power
 		}
 		available = {
-			OR = {
 			has_government = social_conservative
-			has_government = authoritarian_democrat
-			}
 		}
 		ai_will_do = {
 			factor = 5
@@ -5678,10 +5761,7 @@ focus_tree = {
 			focus = CAL_welfare_reform
 		}
 		available = {
-			OR = {
 			has_government = social_conservative
-			has_government = authoritarian_democrat
-			}
 		}
 		ai_will_do = {
 			factor = 5
@@ -5714,10 +5794,7 @@ focus_tree = {
 			focus = CAL_levering_act
 		}
 		available = {
-			OR = {
 			has_government = social_conservative
-			has_government = authoritarian_democrat
-			}
 		}
 		ai_will_do = {
 			factor = 5
@@ -5858,7 +5935,7 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_business_grants"
 			swap_ideas = {
 			remove_idea = CAL_conservative_business
-			add_ideas = CAL_business_grants_idea
+			add_idea = CAL_business_grants_idea
 			}
 		}
 	}
@@ -5887,7 +5964,7 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_america_business_is_business"
 			swap_ideas = {
 			remove_idea = CAL_business_grants_idea
-			add_ideas = CAL_business_grants_idea_2
+			add_idea = CAL_business_grants_idea_2
 			}
 			random_owned_state = {
 				limit = {
@@ -6089,7 +6166,7 @@ focus_tree = {
 			add_war_support = 0.03
 			hidden_effect = {
 			country_event = {
-			id = ustates.258
+			id = ustates.271
 			days = 2
 				}
 			}
@@ -6235,7 +6312,11 @@ focus_tree = {
 		icon = GFX_goal_COS_American_Staff
 		cost = 5.00
 		available = {
-			has_government = authoritarian_democrat
+			OR = {
+				has_government = social_conservative
+				has_government = authoritarian_democrat
+				has_government = paternal_autocrat
+			}
 		}
 		prerequisite = {
 			focus = CAL_democrats_win_twice
@@ -6263,7 +6344,11 @@ focus_tree = {
 		icon = GFX_CAL_reefer_madness
 		cost = 5.00
 		available = {
-			has_government = authoritarian_democrat
+			OR = {
+				has_government = social_conservative
+				has_government = authoritarian_democrat
+				has_government = paternal_autocrat
+			}
 		}
 		prerequisite = {
 			focus = CAL_patriotic_schooling
@@ -6285,10 +6370,10 @@ focus_tree = {
 	
 	focus = {# Fight Crime
 		id = CAL_vice_squads
-		icon = GFX_goal_CAL_police_state
+		icon = GFX_goal_CAL_fight_crime
 		cost = 5.00
 		available = {
-			has_government = authoritarian_democrat
+			has_government = social_conservative
 		}
 		prerequisite = {
 			focus = CAL_democrats_win_twice
@@ -6314,7 +6399,7 @@ focus_tree = {
 		icon = GFX_goal_CAL_Decency_Laws_icon
 		cost = 5.00
 		available = {
-			has_government = authoritarian_democrat
+			has_government = social_conservative
 		}
 		prerequisite = {
 			focus = CAL_vice_squads
@@ -6338,10 +6423,10 @@ focus_tree = {
 	
 	focus = {# Support Farms
 		id = CAL_support_farms
-		icon = GFX_IRE_farms
+		icon = GFX_goal_agricultural_aid
 		cost = 5.00
 		available = {
-			has_government = authoritarian_democrat
+			has_government = social_conservative
 		}
 		prerequisite = {
 			focus = CAL_vice_squads
@@ -6368,7 +6453,7 @@ focus_tree = {
 		icon = GFX_goal_social_reforms
 		cost = 5.00
 		available = {
-			has_government = authoritarian_democrat
+			has_government = social_conservative
 		}
 		prerequisite = {
 			focus = CAL_vice_squads
@@ -6399,7 +6484,10 @@ focus_tree = {
 			focus = CAL_republicans_win_twice
 		}
 		available = {
-			has_government = authoritarian_democrat
+			OR = {
+				has_government = market_liberal
+				has_government = social_conservative
+			}
 		}
 		ai_will_do = {
 			factor = 5
@@ -6424,8 +6512,8 @@ focus_tree = {
 			focus = CAL_surplus_aid
 		}
 		available = {
-			has_government = social_conservative
 			has_government = market_liberal
+			has_government = social_conservative
 		}
 		ai_will_do = {
 			factor = 5
@@ -6482,10 +6570,6 @@ focus_tree = {
 				has_government = social_conservative
 				has_government = market_liberal
 			}
-			OR = {
-				has_idea = CAL_social_gospel_idea1
-				has_idea = CAL_social_gospel_idea2
-			}
 		}
 		ai_will_do = {
 			factor = 5
@@ -6515,7 +6599,6 @@ focus_tree = {
 				has_government = social_conservative
 				has_government = market_liberal
 			}
-			has_idea = CAL_social_gospel_idea3
 		}
 		ai_will_do = {
 			factor = 5
@@ -6577,7 +6660,6 @@ focus_tree = {
 				has_government = social_conservative
 				has_government = market_liberal
 			}
-			has_idea = CAL_social_gospel_idea4
 		}
 		ai_will_do = {
 			factor = 5
@@ -6631,14 +6713,7 @@ focus_tree = {
 			focus = CAL_market_liberals_in_power
 		}
 		available = {
-			OR = {
-				has_government = social_conservative
-				has_government = market_liberal
-			}
-			OR = {
-				has_idea = CAL_social_gospel_idea1
-				has_idea = CAL_social_gospel_idea2
-			}
+			has_government = market_liberal
 		}
 		ai_will_do = {
 			factor = 5
@@ -6673,7 +6748,7 @@ focus_tree = {
 		y = 2
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_small_business_support"
-			swap = {
+			swap_ideas = {
 			remove_idea = CAL_deregulated_economy
 			add_idea = CAL_deregulated_economy_2
 			}
@@ -6764,7 +6839,7 @@ focus_tree = {
 		y = 2
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_protect_industry"
-			add_ideas = CAL_industrial_tariffs
+			add_ideas = CAL_industrial_tariffs_idea
 			add_tech_bonus = {
 				name = industrial_bonus
 				bonus = 1
@@ -6806,8 +6881,6 @@ focus_tree = {
 				uses = 2
 				category = industry
 			}
-			custom_effect_tooltip = CAL_political_recovery_tooltip
-			CAL_increase_recovery = yes
 			hidden_effect = {
 			country_event = {
 			id = ustates.273
@@ -7155,7 +7228,7 @@ focus_tree = {
 		y = 4
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_give_me_your_poor"
-			add_ideas = CAL_immigration_influx_idea
+			add_ideas = CAL_give_me_your_poor_idea
 			add_manpower = 9500
 			add_political_power = -20
 			add_popularity = { ideology = market_liberal popularity = 0.05 }
@@ -7349,7 +7422,10 @@ focus_tree = {
 			focus = CAL_liberals_win_twice
 		}
 		available = {
-			has_government = authoritarian_democrat
+			OR = {
+				has_government = social_liberal
+				has_government = market_liberal
+			}
 		}
 		ai_will_do = {
 			factor = 5
@@ -7399,7 +7475,10 @@ focus_tree = {
 			focus = CAL_rfc
 		}
 		available = {
-			has_government = authoritarian_democrat
+			OR = {
+				has_government = social_liberal
+				has_government = market_liberal
+			}
 		}
 		ai_will_do = {
 			factor = 5
@@ -7454,7 +7533,7 @@ focus_tree = {
 			focus = CAL_republicans_win_twice
 		}
 		available = {
-			has_government = authoritarian_democrat
+			has_government = market_liberal
 		}
 		ai_will_do = {
 			factor = 5
@@ -7481,7 +7560,7 @@ focus_tree = {
 			focus = CAL_radical_decentralization
 		}
 		available = {
-			has_government = authoritarian_democrat
+			has_government = market_liberal
 		}
 		ai_will_do = {
 			factor = 5
@@ -7508,7 +7587,7 @@ focus_tree = {
 			focus = CAL_radical_decentralization
 		}
 		available = {
-			has_government = authoritarian_democrat
+			has_government = market_liberal
 		}
 		ai_will_do = {
 			factor = 5
@@ -7539,7 +7618,7 @@ focus_tree = {
 			focus = CAL_radical_decentralization
 		}
 		available = {
-			has_government = authoritarian_democrat
+			has_government = market_liberal
 		}
 		ai_will_do = {
 			factor = 5
@@ -7621,7 +7700,7 @@ focus_tree = {
 		}
 	}
 	
-	focus = {# securities Act
+	focus = {# Securities Act
 		id = CAL_securities_act
 		icon = GFX_goal_KTG_Certificate_Focus
 		cost = 5.00
@@ -8212,10 +8291,7 @@ focus_tree = {
 			focus = CAL_national_youth_adminstration
 		}
 		available = {
-			OR = {
-				has_government = social_conservative
-				has_government = social_liberal
-			}
+			has_government = social_liberal
 		}
 		ai_will_do = {
 			factor = 5
@@ -8226,7 +8302,7 @@ focus_tree = {
 		y = 4
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_free_trade1"
-			add_ideas = free_trade
+			add_ideas = free_trade_idea
 			add_popularity = { ideology = social_liberal popularity = 0.03 }
 			add_tech_bonus = {
 				name = assembly_bonus
@@ -8248,10 +8324,7 @@ focus_tree = {
 			focus = CAL_medicare
 		}
 		available = {
-			OR = {
-				has_government = social_conservative
-				has_government = social_liberal
-			}
+			has_government = social_liberal
 		}
 		ai_will_do = {
 			factor = 5
@@ -8288,10 +8361,7 @@ focus_tree = {
 			focus = CAL_mathematical_tables_project
 		}
 		available = {
-			OR = {
-				has_government = social_liberal
-				has_government = social_democrat
-			}
+			has_government = social_liberal
 		}
 		ai_will_do = {
 			factor = 5
@@ -8318,10 +8388,7 @@ focus_tree = {
 			focus = CAL_labor_relations_act
 		}
 		available = {
-			OR = {
-				has_government = social_liberal
-				has_government = social_democrat
-			}
+			has_government = social_liberal
 		}
 		ai_will_do = {
 			factor = 5
@@ -8385,10 +8452,7 @@ focus_tree = {
 			focus = CAL_labor_relations_act
 		}
 		available = {
-			OR = {
-				has_government = social_democrat
-				has_government = social_liberal
-			}
+			has_government = social_liberal
 		}
 		ai_will_do = {
 			factor = 5
@@ -8425,8 +8489,8 @@ focus_tree = {
 		}
 		available = {
 			OR = {
+				has_government = social_democrat
 				has_government = social_liberal
-				has_government = market_liberal
 			}
 		}
 		ai_will_do = {
@@ -8452,8 +8516,8 @@ focus_tree = {
 		}
 		available = {
 			OR = {
+				has_government = social_democrat
 				has_government = social_liberal
-				has_government = market_liberal
 			}
 		}
 		ai_will_do = {
@@ -8516,8 +8580,8 @@ focus_tree = {
 		}
 		available = {
 			OR = {
+				has_government = social_democrat
 				has_government = social_liberal
-				has_government = market_liberal
 			}
 		}
 		ai_will_do = {
@@ -8586,8 +8650,8 @@ focus_tree = {
 		}
 		available = {
 			OR = {
+				has_government = social_democrat
 				has_government = social_liberal
-				has_government = market_liberal
 			}
 		}
 		ai_will_do = {
@@ -9133,7 +9197,7 @@ focus_tree = {
 		available = {
 			has_government = social_democrat
 			NOT = {
-			has_war_with = TEX
+			country_exists = TEX
 			}
 		}
 		ai_will_do = {
@@ -9146,10 +9210,14 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_support_long"
 			add_opinion_modifier = {
-				target = TEX
-				modifier = large_increase
+				target = CAN
+				modifier = small_decrease
 			}
 			set_country_flag = CAL_court_long
+			country_event = {
+			id = pacificstates.400
+			days = 2
+			}
 		}
 	}
 	
@@ -9275,7 +9343,7 @@ focus_tree = {
 			focus = CAL_liberals_win_twice
 		}
 		available = {
-			has_government = authoritarian_democrat
+			has_government = social_liberal
 		}
 		ai_will_do = {
 			factor = 5
@@ -9287,7 +9355,12 @@ focus_tree = {
 		y = 1
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_fpc"
-			custom_effect_tooltip = unlock_focuses
+			add_popularity = { ideology = social_liberal popularity = 0.05 }
+			local_resources = 0.05
+			swap_ideas = {
+			remove_idea = CAL_new_freedom_5
+			add_idea = CAL_new_freedom_6
+			}
 		}
 	}  
 	
@@ -9299,7 +9372,7 @@ focus_tree = {
 			focus = CAL_fpc
 		}
 		available = {
-			has_government = authoritarian_democrat
+			has_government = social_liberal
 		}
 		ai_will_do = {
 			factor = 5
@@ -9311,6 +9384,7 @@ focus_tree = {
 		y = 2
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_glass_steagall"
+			add_ideas = CAL_glass_steagall_idea
 			
 		}
 	}  
@@ -9323,7 +9397,7 @@ focus_tree = {
 			focus = CAL_fpc
 		}
 		available = {
-			has_government = authoritarian_democrat
+			has_government = social_liberal
 		}
 		ai_will_do = {
 			factor = 5
@@ -9335,6 +9409,7 @@ focus_tree = {
 		y = 2
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_FDIC"
+			add_ideas = CAL_fdic_idea
 		}
 	}  
 	
@@ -9346,7 +9421,7 @@ focus_tree = {
 			focus = CAL_fpc
 		}
 		available = {
-			has_government = authoritarian_democrat
+			has_government = social_liberal
 		}
 		ai_will_do = {
 			factor = 5
@@ -9358,6 +9433,7 @@ focus_tree = {
 		y = 2
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_AFDC"
+			add_ideas = CAL_aid_to_families_idea
 		}
 	}
 	
@@ -9460,12 +9536,6 @@ focus_tree = {
 				bonus = 0.55
 				uses = 2
 				category = electronics
-			}
-			hidden_effect = {
-			country_event = {
-			id = ustates.312
-			days = 5
-				}
 			}
 		}
 	}
@@ -9650,7 +9720,10 @@ focus_tree = {
 			focus = CAL_commonwealth_reelection
 		}
 		available = {
-			has_government = social_democrat
+			OR = {
+				has_government = radical_socialist
+				has_government = social_democrat
+			}
 		}
 		ai_will_do = {
 			factor = 5
@@ -9671,7 +9744,10 @@ focus_tree = {
 		icon = GFX_focus_hol_abandon_the_gold_standard
 		cost = 5.00
 		available = {
-			has_government = social_democrat
+			OR = {
+				has_government = radical_socialist
+				has_government = social_democrat
+			}
 		}
 		prerequisite = {
 			focus = CAL_commons_law
@@ -9686,6 +9762,8 @@ focus_tree = {
 		y = 2
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_kill_gold"
+			add_political_power = 20
+			add_stability = 0.05
 		}
 	}
 	
@@ -9698,7 +9776,10 @@ focus_tree = {
 			focus = CAL_social_democrats_reelected
 		}
 		available = {
-			has_government = authoritarian_democrat
+			OR = {
+				has_government = social_democrat
+				has_government = social_liberal
+			}
 		}
 		ai_will_do = {
 			factor = 5
@@ -9710,6 +9791,7 @@ focus_tree = {
 		y = 1
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_tariff_reduction_act"
+			add_ideas = CAL_tariff_reduction_idea
 		}
 	}
 	
@@ -9721,7 +9803,10 @@ focus_tree = {
 			focus = CAL_tariff_reduction_act
 		}
 		available = {
-			has_government = authoritarian_democrat
+			OR = {
+				has_government = social_democrat
+				has_government = social_liberal
+			}
 		}
 		ai_will_do = {
 			factor = 5
@@ -9733,6 +9818,7 @@ focus_tree = {
 		y = 2
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_womens_bill"
+			add_ideas = CAL_american_women_bill_idea
 		}
 	}
 	
@@ -9894,7 +9980,7 @@ focus_tree = {
 	
 	focus = {# Labor Colonies
 		id = CAL_labor_colonies
-		icon = GFX_CAL_focus_collective_housing
+		icon = GFX_CAL_labor_colonies
 		cost = 5.50
 		prerequisite = {
 			focus = CAL_federal_authority_for_land
@@ -10157,9 +10243,6 @@ focus_tree = {
 		prerequisite = {
 			focus = CAL_nationalize_communication
 		}
-		prerequisite = {
-			focus = CAL_national_health_insurance
-		}
 		available = {
 			has_government = radical_socialist
 		}
@@ -10376,6 +10459,9 @@ focus_tree = {
 		prerequisite = {
 			focus = CAL_hit_the_stomach
 		}
+		prerequisite = {
+			focus = CAL_national_health_insurance
+		}
 		available = {
 			has_government = radical_socialist
 		}
@@ -10580,7 +10666,7 @@ focus_tree = {
 		cost = 5.00
 		available = {
 			has_government = radical_socialist
-			has_country_flag = CAL_radicals_won_twice
+			has_country_flag = CAL_radicals_won_twice_flag
 		}
 		ai_will_do = {
 			factor = 5
@@ -10602,7 +10688,7 @@ focus_tree = {
 			focus = CAL_commonwealth_reelection
 		}
 		available = {
-			has_government = social_democrat
+			has_government = radical_socialist
 		}
 		ai_will_do = {
 			factor = 5
@@ -10628,7 +10714,7 @@ focus_tree = {
 			focus = CAL_raise_inheritance_tax
 		}
 		available = {
-			has_government = social_democrat
+			has_government = radical_socialist
 		}
 		ai_will_do = {
 			factor = 5
@@ -10664,7 +10750,7 @@ focus_tree = {
 			focus = CAL_commonwealth_reelection
 		}
 		available = {
-			has_government = social_democrat
+			has_government = radical_socialist
 		}
 		ai_will_do = {
 			factor = 5
@@ -10694,13 +10780,13 @@ focus_tree = {
 	
 	focus = {# Women's Advocacy
 		id = CAL_womens_advocacy
-		icon = GFX_IRE_women_pilots
+		icon = GFX_goal_CAL_women_advocacy
 		cost = 5.00
 		prerequisite = {
 			focus = CAL_reward_productivity
 		}
 		available = {
-			has_government = social_democrat
+			has_government = radical_socialist
 		}
 		ai_will_do = {
 			factor = 5
@@ -10725,7 +10811,7 @@ focus_tree = {
 			focus = CAL_commonwealth_reelection
 		}
 		available = {
-			has_government = social_democrat
+			has_government = radical_socialist
 		}
 		ai_will_do = {
 			factor = 5
@@ -10905,6 +10991,7 @@ focus_tree = {
 		y = 3
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_japan_in_command"
+			JAP = { add_to_faction = ROOT }
 			add_stability = 0.08
 			add_popularity = { ideology = paternal_autocrat popularity = 0.05 }
 		}
@@ -11748,6 +11835,7 @@ focus_tree = {
 			has_government = market_liberal
 			has_government = social_liberal
 			has_government = social_democrat
+			has_government = radical_socialist
 			}
 		}
 		ai_will_do = {
@@ -11846,6 +11934,10 @@ focus_tree = {
 			has_government = paternal_autocrat
 			has_government = national_populist
 			}
+		}
+		mutually_exclusive = {
+		focus = CAL_conditional_black_aid
+		focus = CAL_negro_bureau
 		}
 		ai_will_do = {
 			factor = 5
@@ -12110,7 +12202,7 @@ focus_tree = {
 				tooltip = CAL_civil_war_victor
 				has_global_flag = CAL_civil_war_over_flag
 				NOT = {
-					country_exists = CAL
+					country_exists = COR
 					country_exists = CSA
 					country_exists = TEX
 				}
@@ -13069,8 +13161,8 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_defensive_navy"
 			swap_ideas = {
-			remove_idea = USA_league_of_america_2
-			add_idea = USA_league_of_america_3
+				remove_idea = USA_league_of_america_2
+				add_idea = USA_league_of_america_3
 			}
 			navy_experience = 10
 			add_tech_bonus = {
@@ -14014,6 +14106,132 @@ focus_tree = {
 			}
 			if = {
 			limit = {
+			MEX = { has_socialist_government = yes }
+			}
+			create_wargoal = {
+			type = puppet_wargoal_focus
+			target = MEX
+				}
+			}
+			if = {
+			limit = {
+			CUB = { has_socialist_government = yes }
+			}
+			create_wargoal = {
+			type = puppet_wargoal_focus
+			target = CUB
+				}
+			}
+			if = {
+			limit = {
+			HAI = { has_socialist_government = yes }
+			}
+			create_wargoal = {
+			type = puppet_wargoal_focus
+			target = HAI
+				}
+			}
+			if = {
+			limit = {
+			DOM = { has_socialist_government = yes }
+			}
+			create_wargoal = {
+			type = puppet_wargoal_focus
+			target = DOM
+				}
+			}
+			if = {
+			limit = {
+			NIC = { has_socialist_government = yes }
+			}
+			create_wargoal = {
+			type = puppet_wargoal_focus
+			target = NIC
+				}
+			}
+			if = {
+			limit = {
+			COS = { has_socialist_government = yes }
+			}
+			create_wargoal = {
+			type = puppet_wargoal_focus
+			target = COS
+				}
+			}
+			if = {
+			limit = {
+			COL = { has_socialist_government = yes }
+			}
+			create_wargoal = {
+			type = puppet_wargoal_focus
+			target = COL
+				}
+			}
+			if = {
+			limit = {
+			VEN = { has_socialist_government = yes }
+			}
+			create_wargoal = {
+			type = puppet_wargoal_focus
+			target = VEN
+				}
+			}
+			if = {
+			limit = {
+			ECU = { has_socialist_government = yes }
+			}
+			create_wargoal = {
+			type = puppet_wargoal_focus
+			target = ECU
+				}
+			}
+			if = {
+			limit = {
+			FOP = { has_socialist_government = yes }
+			}
+			create_wargoal = {
+			type = puppet_wargoal_focus
+			target = FOP
+				}
+			}
+			if = {
+			limit = {
+			BRA = { has_socialist_government = yes }
+			}
+			create_wargoal = {
+			type = puppet_wargoal_focus
+			target = BRA
+				}
+			}
+			if = {
+			limit = {
+			PAR = { has_socialist_government = yes }
+			}
+			create_wargoal = {
+			type = puppet_wargoal_focus
+			target = PAR
+				}
+			}
+			if = {
+			limit = {
+			URG = { has_socialist_government = yes }
+			}
+			create_wargoal = {
+			type = puppet_wargoal_focus
+			target = URG
+				}
+			}
+			if = {
+			limit = {
+			BOL = { has_socialist_government = yes }
+			}
+			create_wargoal = {
+			type = puppet_wargoal_focus
+			target = BOL
+				}
+			}
+			if = {
+			limit = {
 			CHL = { has_socialist_government = yes }
 			}
 			create_wargoal = {
@@ -14081,7 +14299,6 @@ focus_tree = {
 			}
 			add_equipment_to_stockpile = { type = convoy amount = 50 }
 			if = {
-			limit = {
 			FROM = {
 			is_puppet_of = CAL
 				}
@@ -14089,7 +14306,6 @@ focus_tree = {
 			add_opinion_modifier = { target = CAL modifier = medium_increase }
 			}
 		}
-	}
 	
 	##American Imperialism##
 	
@@ -14108,8 +14324,14 @@ focus_tree = {
 		available = {
 			is_subject = no
 			is_in_faction = no
-			not_has_democratic_government = yes
-		}
+			OR = {
+			has_government = authoritarian_democrat
+			has_government = paternal_autocrat
+			has_government = national_populist
+			has_country_leader = { ruling_only = yes name = "Charles Martin" }
+			has_country_leader = { ruling_only = yes name = "William Gibbs McAdoo" }
+				}
+			}
 		x = 128
 		y = 1
 
@@ -14134,8 +14356,9 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_american_imperialism"
+			create_faction = "league_of_american_states"
 			add_ideas = USA_american_imperialism_idea
-			add_war_support = 0.15
+			add_war_support = 0.05
 			add_popularity = { ideology = paternal_autocrat popularity = 0.03 }
 			add_popularity = { ideology = national_populist popularity = 0.03 }
 			add_stability = -0.05
@@ -14814,7 +15037,11 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus CAL_vietnam_yesterday"
 			create_wargoal = {
 			type = annex_everything
-			target = VIE
+			target = VIN
+			}
+			create_wargoal = {
+			type = annex_everything
+			target = INC
 			}
 			if = {
 			limit = { GEA = {

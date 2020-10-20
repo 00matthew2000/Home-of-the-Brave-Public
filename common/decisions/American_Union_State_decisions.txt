@@ -7,11 +7,15 @@ TEX_populist_alliance_decision = {
 		icon = generic_prepare_civil_war
 		allowed = { original_tag = TEX }
 		available = {
+			has_completed_focus = TEX_populist_alliance
 			is_major = yes
 			has_war = no
 			is_subject = no
 		}
 		visible = {
+			has_completed_focus = TEX_populist_alliance
+			has_global_flag = USA_civil_war_over_flag
+			can_declare_war_on = FROM
 			FROM = {
 				is_major = no
 				has_war = no
@@ -66,7 +70,7 @@ TEX_populist_alliance_decision = {
 			log = "[GetDateText]: [Root.GetName]: Decision TEX_defend_new_world target: [From.GetName]"
 			FROM = {
 			country_event = {
-				id = unionstate.156
+				id = unionstate.155
 				days = 1
 			}
 			}
@@ -124,7 +128,7 @@ TEX_populist_alliance_decision = {
 			log = "[GetDateText]: [Root.GetName]: Decision TEX_defend_new_world target: [From.GetName]"
 			FROM = {
 			country_event = {
-				id = unionstate.156
+				id = unionstate.155
 				days = 1
 			}
 			}
@@ -238,7 +242,7 @@ TEX_populist_alliance_decision = {
 			log = "[GetDateText]: [Root.GetName]: Decision TEX_defend_new_world target: [From.GetName]"
 			FROM = {
 			country_event = {
-				id = unionstate.156
+				id = unionstate.155
 				days = 1
 			}
 			}

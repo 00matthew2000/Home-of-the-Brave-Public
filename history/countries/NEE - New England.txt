@@ -147,7 +147,7 @@ create_country_leader = {
 			picture = "gfx/leaders/NEE/Robert_R_McCormick.tga"
 			expire = "1965.1.1"
 			ideology = paternal_autocrat_subtype
-			traits = {}
+			traits = { quartermaster_general }
 }
 		
 create_country_leader = {# Du Pont
@@ -187,6 +187,7 @@ create_country_leader = {# Curley
 	expire = "1965.1.1"
 	ideology = social_conservative_subtype
 	traits = {
+		political_boss
 	}
 }
 
@@ -202,6 +203,25 @@ set_variable = {
 set_country_flag = USA_rebuilt_new_england_flag
 
 ### Field Marshals ###
+create_field_marshal = {# 
+	name = "John J. Pershing"
+	portrait_path = "gfx/leaders/NEE/Portrait_NEE_John_Pershing.tga"
+	traits = {
+		old_guard
+		offensive_doctrine
+		aggressive_assaulter
+		war_hero
+		infantry_officer
+		infantry_leader
+		skilled_staffer
+	}
+	skill = 4
+	attack_skill = 4
+	defense_skill = 4
+	planning_skill = 4
+	logistics_skill = 3
+}
+
 create_field_marshal = {# Leslie Groves
 	name = "Leslie Groves"
 	desc = "NEE_LESLIE_GROVES_ARMY_DESC"
@@ -235,6 +255,21 @@ create_corps_commander = {# Merritt A. Edson
 	planning_skill = 1
 	logistics_skill = 2
 }
+create_corps_commander = {# Vanderbilt
+	name = "Cornelius Vanderbilt III"
+	portrait_path = "gfx/leaders/NEE/Portrait_NEE_Cornelius_Vanderbilt_III.tga"
+	traits = {
+		old_guard
+		politically_connected
+		organisational_leader
+		trait_engineer
+	}
+	skill = 2
+	attack_skill = 1
+	defense_skill = 1
+	planning_skill = 3
+	logistics_skill = 2
+}
 create_corps_commander = {# Mark Clark
 	name = "Mark Clark"
 	desc = "NEE_MARK_CLARK_ARMY_DESC"
@@ -249,20 +284,36 @@ create_corps_commander = {# Mark Clark
 	planning_skill = 2
 	logistics_skill = 2
 }
-create_corps_commander = {# George Kenney
-	name = "George Kenney"
-	desc = "NEE_GEORGE_KENNEY_ARMY_DESC"
-	portrait_path = "gfx/leaders/NEE/Portrait_NEE_george_kenney.tga"
+create_corps_commander = {# Hiram Bingham III
+	name = "Hiram Bingham III"
+	portrait_path = "gfx/leaders/NEE/Portrait_NEE_Hiram_Bingham_III.tga"
 	traits = {
-		trait_cautious
-		trickster
+		politically_connected
+		war_hero
+		trait_engineer
+		adaptable
+		media_personality
 	}
 	skill = 2
-	attack_skill = 4
-	defense_skill = 2
-	planning_skill = 3
-	logistics_skill = 1
+	attack_skill = 2
+	defense_skill = 1
+	planning_skill = 1
+	logistics_skill = 3
 }
+#create_corps_commander = {# George Kenney
+	#name = "George Kenney"
+	#desc = "NEE_GEORGE_KENNEY_ARMY_DESC"
+	#portrait_path = "gfx/leaders/NEE/Portrait_NEE_george_kenney.tga"
+	#traits = {
+		#trait_cautious
+		#trickster
+	#}
+	#skill = 2
+	#attack_skill = 4
+	#defense_skill = 2
+	#planning_skill = 3
+	#logistics_skill = 1
+#}
 create_corps_commander = {# Willard G. Wyman
 	name = "Willard G. Wyman"
 	desc = "NEE_WILLARD_G_WYMAN_ARMY_DESC"
@@ -290,6 +341,79 @@ create_corps_commander = {# Lemuel C. Shepherd Jr
 	logistics_skill = 1
 }
 
+create_corps_commander = {# Robert W. Grow
+	name = "Robert W. Grow"
+	portrait_path = "gfx/leaders/NEE/Portrait_NEE_Robert_W_Grow.tga"
+	traits = { 
+		trait_reckless
+		armor_officer
+	}
+	skill = 2
+	attack_skill = 3
+	defense_skill = 2
+	planning_skill = 1
+	logistics_skill = 1
+}
+
+create_corps_commander = {# Pierpont M. Hamilton
+	name = "Pierpont M. Hamilton"
+	portrait_path = "gfx/leaders/NEE/Portrait_NEE_Pierpont_M_Hamilton.tga"
+	traits = { 
+		trait_reckless
+		career_officer
+		organizer
+	}
+	skill = 2
+	attack_skill = 3
+	defense_skill = 2
+	planning_skill = 1
+	logistics_skill = 1
+}
+
+create_corps_commander = {# Herbert Thomas Johnson
+	name = "Herbert Thomas Johnson"
+	portrait_path = "gfx/leaders/NEE/Portrait_NEE_Herbert_Thomas_Johnson.tga"
+	traits = { 
+		politically_connected
+		career_officer
+		war_hero
+	}
+	skill = 2
+	attack_skill = 2
+	defense_skill = 2
+	planning_skill = 2
+	logistics_skill = 2
+}
+
+create_corps_commander = {# Ernest N. Harmon
+	name = "Ernest N. Harmon"
+	portrait_path = "gfx/leaders/NEE/Portrait_NEE_Ernest_Nason_Harmon.tga"
+	traits = { 
+		desert_fox
+		cavalry_officer
+		trait_reckless
+	}
+	skill = 3
+	attack_skill = 3
+	defense_skill = 2
+	planning_skill = 3
+	logistics_skill = 3
+}
+create_corps_commander = {# Adna Chaffee
+	name = "Adna R. Chaffee"
+	desc = "USA_ADNA_CHAFFEE_ARMY_DESC"
+	portrait_path = "gfx/leaders/NEE/Portrait_NEE_Adna_Chaffee.tga"
+	traits = {
+		armor_officer
+	}
+	skill = 4
+
+	attack_skill = 4
+	defense_skill = 3
+	planning_skill = 3
+	logistics_skill = 3
+}
+
 ### Admirals ###
 create_navy_leader = {# Allan Rockwell McCann
 	name = "Allan Rockwell McCann"
@@ -313,7 +437,16 @@ create_navy_leader = {# Edward Ellsberg
 	maneuvering_skill = 2
 	coordination_skill = 2
 }
-
+create_navy_leader = {# Harold Rainsford Stark
+	name = "Harold Rainsford Stark"
+	portrait_path = "gfx/leaders/NEE/Portrait_NEE_Harold_Rainsford_Stark.tga"
+	traits = {spotter blockade_runner}
+	skill = 2
+	attack_skill = 2
+	defense_skill = 2
+	maneuvering_skill = 1
+	coordination_skill = 2
+}
 create_navy_leader = {# Joseph P. Kennedy Jr. - need to delete later, 21 years old
 	name = "Joseph P. Kennedy Jr."
 	portrait_path = "gfx/leaders/NEE/Portrait_NEE_joseph_kennedy.tga"

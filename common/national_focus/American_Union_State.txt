@@ -1874,7 +1874,7 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_modern_farms"
 			swap_ideas = { 
 			remove_idea = TEX_farmer_labor_alliance_idea
-			add_idea TEX_modern_farms_idea
+			add_idea = TEX_modern_farms_idea
 			}
 			add_manpower = 5000
 			random_owned_state = {
@@ -2467,6 +2467,7 @@ focus_tree = {
 			has_global_flag = USA_civil_war_over_flag
 			has_government = social_conservative
 			has_country_flag = AUS_election_occured
+			has_country_leader = { ruling_only = yes name = "William Dudley Pelley" }
 		}
 		select_effect = {
 		country_event = {
@@ -3272,7 +3273,7 @@ focus_tree = {
 
 	focus = {# National Recovery administration
 		id = TEX_national_recovery
-		icon = GFX_goal_USA_nra
+		icon = GFX_AUS_NRA
 		cost = 7.25
 		prerequisite = {
 			focus = TEX_rebuilding_the_country
@@ -3309,6 +3310,7 @@ focus_tree = {
 		y = 2
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_public_works"
+			custom_effect_tooltip = USA_economic_recovery_tooltip
 			random_owned_state = {
 				limit = {
 					is_core_of = TEX
@@ -3362,7 +3364,6 @@ focus_tree = {
 				}
 			}
 			TEX_increase_recovery = yes
-			custom_effect_tooltip = USA_economic_recovery_tooltip
 		}
 	}
 
@@ -3566,7 +3567,8 @@ focus_tree = {
 		y = 2
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_begin_reconstruction"
-			unlock_decision_category_tooltip = USA_reconstruction_decisions
+
+unlock_decision_category_tooltip = USA_reconstruction_decisions
 		}
 	}
 
@@ -3590,6 +3592,12 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_harsh_reconstruction"
 			add_political_power = 100
 			add_manpower = -3000
+			
+			hidden_effect = {
+			#country_event = { id = ustates.627 days = 70 }#Pentagon Construction
+			country_event = { id = ustates.651 days = 35 }#AUS Trials
+			country_event = { id = ustates.650 days = 45 }#CAL Trials
+			}
 		}
 	}
 
@@ -3613,6 +3621,11 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_reconciliation"
 			add_stability = 0.1
 			add_political_power = -25
+			hidden_effect = {
+			#country_event = { id = ustates.627 days = 70 }#Pentagon Construction
+			country_event = { id = ustates.651 days = 35 }#AUS Trials
+			country_event = { id = ustates.650 days = 45 }#CAL Trials
+			}
 		}
 	}
 	
@@ -3632,8 +3645,6 @@ focus_tree = {
 		y = 4
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_employment_expansion"
-			TEX_increase_political_recovery = yes
-			custom_effect_tooltip = USA_political_recovery_tooltip
 			increase_ruling_party_popularity_by_5 = yes
 		}
 	}
@@ -3653,6 +3664,8 @@ focus_tree = {
 		y = 2
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_infrastructure_effort"
+			TEX_increase_political_recovery = yes
+			custom_effect_tooltip = USA_political_recovery_tooltip
 			random_owned_state = {
 				limit = {
 					is_core_of = TEX
@@ -3722,7 +3735,6 @@ focus_tree = {
 		y = 4
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_state_grants"
-			TEX_increase_political_recovery = yes
 			random_owned_state = {
 				limit = {
 					is_core_of = TEX
@@ -3758,6 +3770,7 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_Grand_Army_of_the_Republic"
 			TEX_increase_political_recovery = yes
+			custom_effect_tooltip = USA_political_recovery_tooltip
 			add_stability = 0.05
 			add_political_power = 25
 			add_war_support = 0.05
@@ -3780,6 +3793,8 @@ focus_tree = {
 		y = 1
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_recognize_philantrophers"
+			TEX_increase_political_recovery = yes
+			custom_effect_tooltip = USA_political_recovery_tooltip
 			random_owned_state = {
 				limit = {
 					is_core_of = TEX
@@ -3827,7 +3842,6 @@ focus_tree = {
 		y = 2
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_reconciliation"
-			TEX_increase_political_recovery = yes
 			add_political_power = -40
 		}
 	}
@@ -3847,6 +3861,8 @@ focus_tree = {
 		y = 1
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_department_of_public_safety"
+			TEX_increase_political_recovery = yes
+			custom_effect_tooltip = USA_political_recovery_tooltip
 			random_owned_state = {
 				limit = {
 					is_core_of = TEX
@@ -3971,7 +3987,6 @@ focus_tree = {
 		y = 5
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_reconstruction_is_over"
-			TEX_increase_political_recovery = yes
 			add_stability = 0.1
 			add_political_power = 100
 		}
@@ -4197,6 +4212,242 @@ focus_tree = {
 			type = motorized_equipment
 			amount = 20
 			producer = TEX
+			}
+		}
+	}
+	focus = {# Protecting Columbia
+		id = TEX_protecting_Columbia
+		icon = GFX_goal_america_fortress
+		cost = 5
+		prerequisite = {
+			focus = TEX_aggressive_tactics
+			focus = TEX_faith_and_fire
+			focus = TEX_focus_on_concentration
+			focus = TEX_combined_arms_doctrine
+		}
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+			modifier = {
+				factor = 5
+				NOT = { has_global_flag = CAL_civil_war_over_flag }
+			}
+		}
+		available = {
+			has_global_flag = USA_civil_war_over_flag
+			NOT = {
+				country_exists = CAL
+				country_exists = CSA
+				country_exists = USA
+			}
+		}
+		x = 0
+		y = 8
+		relative_position_id = TEX_From_a_Militia_to_a_force
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAL_protecting_Columbia"
+			add_tech_bonus = {
+				name = doctrine_bonus
+				bonus = 1
+				uses = 2
+				category = land_doctrine
+			}
+			if = {
+				limit = { has_idea = CAL_Marshall_plan_idea_5 }
+				swap_ideas = {
+					remove_idea = CAL_Marshall_plan_idea_5
+					add_idea = CAL_Marshall_plan_idea_6
+				}
+			}
+			hidden_effect = {
+				#country_event = { id = ustates.627 days = 70 }#Pentagon Construction
+				country_event = { id = ustates.652 days = 35 }#AUS Trials
+				country_event = { id = ustates.650 days = 45 }#CAL Trials
+				country_event = { id = ustates.6520 days = 55 }#CAR Trials
+			}
+			custom_effect_tooltip = USA_trials_will_begin
+		}
+	}
+	focus = {# Military Research
+		id = TEX_military_research
+		icon = GFX_goal_double_research
+		cost = 5
+		prerequisite = {
+			focus = TEX_protecting_Columbia
+		}
+		x = -1
+		y = 1
+		relative_position_id = TEX_protecting_Columbia
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+			modifier = {
+				factor = 2
+				NOT = { has_global_flag = CAL_civil_war_over_flag }
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAL_military_research"
+			country_event = { id = ustates.300 days = 1 }
+		}
+	}
+	
+	focus = {# Weapon Designs
+		id = TEX_weapon_designs
+		icon = GFX_goal_national_arsenal
+		cost = 5
+		prerequisite = {
+			focus = TEX_military_research
+		}
+		x = 0
+		y = 1
+		relative_position_id = TEX_military_research
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+			modifier = {
+				factor = 5
+				NOT = { has_global_flag = CAL_civil_war_over_flag }
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAL_weapon_designs"
+			add_tech_bonus = {
+				name = infantry_bonus
+				bonus = 1
+				uses = 2
+				category = infantry_weapons
+			}
+		}
+
+	}
+	focus = { # Bring the 'Complex West
+		id = TEX_bring_the_complex_west
+		icon = GFX_goal_Focus_Military_Mobilisation
+		cost = 5
+		prerequisite = {
+			focus = TEX_protecting_Columbia
+		}
+		x = 1
+		y = 1
+		relative_position_id = TEX_protecting_Columbia
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAL_bring_the_complex_west"
+			random_owned_state = {
+				limit = {
+					is_core_of = TEX
+					is_controlled_by = TEX
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = { # Columbia Needs You
+		id = TEX_Columbia_needs_you
+		icon = GFX_goal_COS_American_Staff
+		cost = 5
+		prerequisite = {
+			focus = TEX_bring_the_complex_west
+		}
+		x = 1
+		y = 2
+		relative_position_id = TEX_protecting_Columbia
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+			modifier = {
+				factor = 5
+				NOT = { has_global_flag = CAL_civil_war_over_flag }
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAL_Columbia_needs_you"
+			add_tech_bonus = {
+				name = doctrine_bonus
+				bonus = 1
+				uses = 2
+				category = land_doctrine
+			}
+		}
+	}
+	focus = {# GI Bill
+		id = TEX_gi_bill
+		icon = GFX_goal_American_Service
+		cost = 5
+		prerequisite = {
+			focus = TEX_military_research
+		}
+		x = -2
+		y = 1
+		relative_position_id = TEX_military_research
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+			modifier = {
+				factor = 5
+				NOT = { has_global_flag = CAL_civil_war_over_flag }
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAL_gi_bill"
+			add_research_slot = 1
+		}
+
+	}
+	focus = {# War Bonds
+		id = TEX_war_bonds
+		icon = GFX_goal_generic_positive_trade_relations
+		cost = 5
+		prerequisite = {
+			focus = TEX_bring_the_complex_west
+		}
+		x = 2
+		y = 1
+		relative_position_id = TEX_bring_the_complex_west
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+			modifier = {
+				factor = 5
+				NOT = { has_global_flag = CAL_civil_war_over_flag }
+			}
+		}
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus CAL_war_bonds"
+			random_owned_state = {
+				limit = {
+					is_core_of = TEX
+					is_controlled_by = TEX
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
 			}
 		}
 	}
@@ -4904,7 +5155,7 @@ focus_tree = {
 	}
 	focus = {
 		id = TEX_focus_on_concentration
-		icon = GFX_goal_FNG_artillery_tactics
+		icon = GFX_goal_artillery_shine
 		cost = 5.00
 		prerequisite = {
 			focus = TEX_top_of_the_line_artillery
@@ -5011,7 +5262,7 @@ focus_tree = {
 				name = motorized_bonus
 				bonus = 1
 				uses = 1
-				category = motorized
+				category = motorized_equipment
 			}
 		}
 	}
@@ -5219,6 +5470,7 @@ focus_tree = {
 				category = artillery
 			}
 		}
+
 	}
 
 	### Air Force Path ###
@@ -5531,11 +5783,10 @@ focus_tree = {
 						uses = 1
 						category = para_tech
 					}
+					}
 				}
 			}
-			country_event = unionstate.501
 		}
-	}
 	focus = {
 		id = TEX_rule_the_skies
 		icon = GFX_goal_USA_freedom_fighters
@@ -6014,7 +6265,7 @@ focus_tree = {
 	}
 
 	focus = {# Coast Guard
-		id = TEX_coast_guard
+		id = TEX_our_coast_guard
 		icon = GFX_goal_USA_coast_guard
 		cost = 7.25
 		prerequisite = {
@@ -6037,7 +6288,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus TEX_coast_guard"
+			log = "[GetDateText]: [Root.GetName]: Focus TEX_our_coast_guard"
 			add_tech_bonus = {
 				name = navy_bonus
 				bonus = 1
@@ -7053,7 +7304,7 @@ focus_tree = {
 	
 	focus = {
 		id = TEX_contain_hostile_leftism
-		icon = GFX_goal_USA_new_interventionism
+		icon = GFX_goal_TEX_strike_left_expansionists
 		cost = 2.00
 		prerequisite = {
 			focus = TEX_break_war_mongerers
@@ -7213,7 +7464,7 @@ focus_tree = {
 			FROM = { add_popularity = { ideology = national_populist popularity = -0.02 }
 			}
 			add_popularity = { ideology = national_populist popularity = -0.03 }
-			unlock_decision_category_tooltip = TEX_break_militarists_desc
+			unlock_decision_category_tooltip = TEX_break_militarists_tooltip
 			set_rule = {
 				    can_guarantee_other_ideologies = yes
 			    }
@@ -7222,7 +7473,7 @@ focus_tree = {
 	}
 	focus = {
 		id = TEX_aid_paraguay
-		icon = GFX_goal_paraguay
+		icon = GFX_goal_PAR_Paz_y_Justicia
 		cost = 1.50
 		prerequisite = {
 			focus = TEX_break_militarists
@@ -7536,11 +7787,6 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus TEX_Northern_boundary_defense"
 			add_command_power = 15
 			388 = {
-				limit = {
-					is_core_of = TEX
-					is_controlled_by = TEX
-					industrial_complex > 0
-				}
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = bunker
@@ -7550,11 +7796,6 @@ focus_tree = {
 				}
 			}
 			389 = {
-				limit = {
-					is_core_of = TEX
-					is_controlled_by = TEX
-					industrial_complex > 0
-				}
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = bunker
@@ -7564,11 +7805,6 @@ focus_tree = {
 				}
 			}
 			389 = {
-				limit = {
-					is_core_of = TEX
-					is_controlled_by = TEX
-					industrial_complex > 0
-				}
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = bunker
@@ -7578,11 +7814,6 @@ focus_tree = {
 				}
 			}
 			389 = {
-				limit = {
-					is_core_of = TEX
-					is_controlled_by = TEX
-					industrial_complex > 0
-				}
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = bunker
@@ -7592,11 +7823,6 @@ focus_tree = {
 				}
 			}
 			391 = {
-				limit = {
-					is_core_of = TEX
-					is_controlled_by = TEX
-					industrial_complex > 0
-				}
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = bunker
@@ -7606,11 +7832,6 @@ focus_tree = {
 				}
 			}
 			391 = {
-				limit = {
-					is_core_of = TEX
-					is_controlled_by = TEX
-					industrial_complex > 0
-				}
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = bunker
@@ -7620,11 +7841,6 @@ focus_tree = {
 				}
 			}
 			1119 = {
-				limit = {
-					is_core_of = TEX
-					is_controlled_by = TEX
-					industrial_complex > 0
-				}
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = bunker
@@ -7634,11 +7850,6 @@ focus_tree = {
 				}
 			}
 			1119 = {
-				limit = {
-					is_core_of = TEX
-					is_controlled_by = TEX
-					industrial_complex > 0
-				}
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = bunker
@@ -7648,11 +7859,6 @@ focus_tree = {
 				}
 			}
 			393 = {
-				limit = {
-					is_core_of = TEX
-					is_controlled_by = TEX
-					industrial_complex > 0
-				}
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = bunker

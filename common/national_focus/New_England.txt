@@ -384,7 +384,18 @@ focus_tree = {
 		complete_tooltip = {}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus NEE_elite_contracts"
-			add_offsite_building = { type = industrial_complex level = 2 }
+			random_owned_state = {
+				limit = {
+					is_core_of = NEE
+					is_controlled_by = NEE
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
 			hidden_effect = {
 			country_event = {
 			id = newengland.111
@@ -712,55 +723,6 @@ focus_tree = {
 					type = infrastructure
 					level = 2
 					instant_build = yes
-					province = 3602
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 2
-					instant_build = yes
-					province = 598
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 2
-					instant_build = yes
-					province = 6778
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 2
-					instant_build = yes
-					province = 6795
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 2
-					instant_build = yes
-					province = 3747
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 2
-					instant_build = yes
-					province = 3733
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 2
-					instant_build = yes
-					province = 734
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 2
-					instant_build = yes
-					province = 796
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-					province = 6707
 				}
 			}
 		}
@@ -1105,9 +1067,12 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus NEE_demand_support"
 			add_war_support = 0.05
 			add_political_power = 20
+			CAN = {
+			country_event = newengland.12
+			}
 		}
 	}
-	
+
 	focus = {
 		id = NEE_lincolnian_republic
 		icon = GFX_NEE_abe
@@ -1130,9 +1095,9 @@ focus_tree = {
 			add_ideas = NEE_lincolnian_republic_idea
 			add_manpower = 6000
 			add_political_power = 30
+			}
 		}
-	}
-	
+
 	focus = {
 		id = NEE_western_intervention
 		icon = GFX_NEE_beyond_new_england
@@ -1151,7 +1116,18 @@ focus_tree = {
 		available_if_capitulated = no
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus NEE_western_intervention"
-			
+			create_wargoal = {
+				type = annex_everything
+				target = USA
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = CSA
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = COR
+			}
 		}
 	}
 	
@@ -1277,6 +1253,12 @@ focus_tree = {
 		cost = 6
 		prerequisite = {
 			focus = NEE_Legitimate_America
+		}
+		available = {
+			OR = {
+				has_government = market_liberal
+				has_government = social_liberal
+			}
 		}
 		x = 14
 		y = 1
@@ -1524,6 +1506,12 @@ focus_tree = {
 			idea = BBR_combatting_the_mob_idea
 			days = 50
 			}
+			hidden_effect = {
+			country_event = {
+				id = newengland.161
+				days = 20
+				}
+			}
 		}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus NEE_fight_the_mob"
@@ -1614,16 +1602,16 @@ focus_tree = {
 		available_if_capitulated = no
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus NEE_housing_expansion"
-			random_owned_state = {
+			random_owned_controlled_state = {
 				add_extra_state_shared_building_slots = 1
 			}
-			random_owned_state = {
+			random_owned_controlled_state = {
 				add_extra_state_shared_building_slots = 1
 			}
-			random_owned_state = {
+			random_owned_controlled_state = {
 				add_extra_state_shared_building_slots = 1
 			}
-			random_owned_state = {
+			random_owned_controlled_state = {
 				add_extra_state_shared_building_slots = 1
 			}
 		}
@@ -1714,6 +1702,12 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus NEE_take_on_machines"
 			add_popularity = { ideology = social_conservative popularity = -0.05 }
 			add_political_power = 50
+			hidden_effect = {
+			country_event = {
+				id = newengland.160
+				days = 1
+				}
+			}
 		}
 	}
 	
@@ -1845,7 +1839,6 @@ focus_tree = {
 			factor = 10
 		}
 		available = {
-			check_variable = { NEE_legitimacy > 20 }
 			is_subject_of = CAN
 			is_in_faction_with = CAN
 			controls_all_owned_states = yes
@@ -1874,6 +1867,9 @@ focus_tree = {
 		cost = 5
 		prerequisite = {
 			focus = NEE_Legitimate_America
+		}
+		available = {
+			has_government = social_conservative
 		}
 		x = 22
 		y = 1
@@ -2353,11 +2349,8 @@ focus_tree = {
 			factor = 10
 		}
 		available = {
-			OR = {
-			has_country_flag = radical_victory
-			has_government = NEE_sentinels
+			has_country_flag = NEE_Radicals_Win
 			}
-		}
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
@@ -2876,6 +2869,7 @@ focus_tree = {
 		available_if_capitulated = no
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus NEE_dissolving_the_state"
+			set_cosmetic_tag = NEE_radical_america_national_populist
 			add_ideas = NEE_stateless_capitalism
 			add_popularity = { ideology = national_populist popularity = 0.1 }
 			add_political_power = -50
@@ -3108,7 +3102,7 @@ focus_tree = {
 
 	focus = {
 		id = NEE_US_Airforce
-		icon = GFX_goal_generic_air_doctrine
+		icon = GFX_goal_NEE_Air_Force
 		cost = 6
 		x = 40
 		y = 1
@@ -3121,7 +3115,7 @@ focus_tree = {
 			}
 		}
 		available = {
-			has_completed_focus = NEE_Home_of_the_Brave
+			has_completed_focus = NEE_Legitimate_America
 		}
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -3367,9 +3361,6 @@ focus_tree = {
 				has_war = yes
 			}
 		}
-		available = {
-			has_completed_focus = NEE_Public_Opinion_Support
-		}
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
@@ -3475,9 +3466,9 @@ focus_tree = {
 ### NAVAL ###
 #############	
 
-	focus = {
+	focus = {# New England's Navy
 		id = NEE_US_Navy
-		icon = GFX_goal_generic_navy_doctrines_tactics
+		icon = GFX_goal_NEE_Navy2
 		cost = 6
 		x = 44
 		y = 1
@@ -3490,7 +3481,7 @@ focus_tree = {
 			}
 		}
 		available = {
-			has_completed_focus = NEE_Home_of_the_Brave
+			has_completed_focus = NEE_Legitimate_America
 			any_owned_state = { is_coastal = yes }
 		}
 		cancel_if_invalid = yes
@@ -3711,7 +3702,7 @@ focus_tree = {
 			factor = 4
 		}
 		available = {
-			has_completed_focus = NEE_Reassure_Financial_Institutions
+			has_completed_focus = NEE_Legitimate_America
 			OR = {
 				933 = { is_owned_and_controlled_by = ROOT }
 				934 = { is_owned_and_controlled_by = ROOT }
@@ -4104,15 +4095,15 @@ focus_tree = {
 		x = 54
 		y = 0
 		relative_position_id = NEE_Legitimate_America
+		available = {
+		has_completed_focus = NEE_Legitimate_America
+		}
 		ai_will_do = {
 			factor = 3
 			modifier = {
 				factor = 3
 				has_war = yes
 			}
-		}
-		available = {
-			has_completed_focus = NEE_Home_of_the_Brave
 		}
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -4673,7 +4664,7 @@ focus_tree = {
 			}
 		}
 		available = {
-			has_completed_focus = NEE_Home_of_the_Brave
+			has_completed_focus = NEE_Legitimate_America
 		}
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -4689,6 +4680,11 @@ focus_tree = {
 	focus = {
 		id = NEE_appoint_chaffee
 		icon = GFX_goal_NEE_chaffee
+		mutually_exclusive = {
+			focus = NEE_general_pershing
+			focus = NEE_old_gravel_voice
+			focus = NEE_green_policy
+		}
 		cost = 6
 		x = -7
 		y = 1
@@ -4702,9 +4698,6 @@ focus_tree = {
 				factor = 3
 				has_war = yes
 			}
-		}
-		available = {
-			has_completed_focus = NEE_Home_of_the_Brave
 		}
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -4753,9 +4746,6 @@ focus_tree = {
 				has_war = yes
 			}
 		}
-		available = {
-			has_completed_focus = NEE_Home_of_the_Brave
-		}
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
@@ -4784,9 +4774,6 @@ focus_tree = {
 		relative_position_id = NEE_appoint_chaffee
 		prerequisite = {
 			focus = NEE_mechanical_cavalry
-		}
-		available = {
-			has_completed_focus = NEE_Home_of_the_Brave
 		}
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -4825,9 +4812,6 @@ focus_tree = {
 				has_war = yes
 			}
 		}
-		available = {
-			has_completed_focus = NEE_Home_of_the_Brave
-		}
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
@@ -4861,9 +4845,6 @@ focus_tree = {
 				factor = 3
 				has_war = yes
 			}
-		}
-		available = {
-			has_completed_focus = NEE_Home_of_the_Brave
 		}
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -4900,9 +4881,6 @@ focus_tree = {
 				factor = 3
 				has_war = yes
 			}
-		}
-		available = {
-			has_completed_focus = NEE_Home_of_the_Brave
 		}
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -4961,9 +4939,6 @@ focus_tree = {
 				has_war = yes
 			}
 		}
-		available = {
-			has_completed_focus = NEE_Home_of_the_Brave
-		}
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
@@ -5016,9 +4991,6 @@ focus_tree = {
 				has_war = yes
 			}
 		}
-		available = {
-			has_completed_focus = NEE_Home_of_the_Brave
-		}
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
@@ -5053,9 +5025,6 @@ focus_tree = {
 				factor = 3
 				has_war = yes
 			}
-		}
-		available = {
-			has_completed_focus = NEE_Home_of_the_Brave
 		}
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -5094,9 +5063,6 @@ focus_tree = {
 				has_war = yes
 			}
 		}
-		available = {
-			has_completed_focus = NEE_Home_of_the_Brave
-		}
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
@@ -5130,6 +5096,11 @@ focus_tree = {
 		cost = 5
 		x = -1
 		y = 1
+		mutually_exclusive = {
+			focus = NEE_appoint_chaffee
+			focus = NEE_old_gravel_voice
+			focus = NEE_green_policy
+		}
 		relative_position_id = NEE_the_future_of_new_england_army
 		prerequisite = {
 			focus = NEE_the_future_of_new_england_army
@@ -5175,10 +5146,6 @@ focus_tree = {
 		complete_tooltip = {}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus NEE_infantry_investments"
-			swap_ideas = {
-			remove_idea = NEE_pershing_plan_idea
-			add_idea = NEE_pershing_plan_idea_2
-			}
 			add_manpower = 3000
 			add_tech_bonus = {
 				name = infantry_bonus
@@ -5218,8 +5185,8 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus NEE_streamlined_staff"
 			swap_ideas = {
-			remove_idea = NEE_pershing_plan_idea_2
-			add_idea = NEE_pershing_plan_idea_3
+			remove_idea = NEE_pershing_plan_idea
+			add_idea = NEE_pershing_plan_idea_2
 			}
 			add_command_power = 30
 			add_tech_bonus = {
@@ -5287,8 +5254,8 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus NEE_natural_defenses"
 			swap_ideas = {
-			remove_idea = NEE_pershing_plan_idea_3
-			add_idea = NEE_pershing_plan_idea_4
+			remove_idea = NEE_pershing_plan_idea_2
+			add_idea = NEE_pershing_plan_idea_3
 			}
 			add_tech_bonus = {
 				name = NEE_grand_battleplan
@@ -5325,8 +5292,8 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus NEE_breakthrough_emphasis"
 			swap_ideas = {
-			remove_idea = NEE_pershing_plan_idea_4
-			add_idea = NEE_pershing_plan_idea_5
+			remove_idea = NEE_pershing_plan_idea_3
+			add_idea = NEE_pershing_plan_idea_4
 			}
 			add_tech_bonus = {
 				name = NEE_grand_battleplan
@@ -5540,8 +5507,8 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus NEE_assault_the_line"
 			swap_ideas = {
-			remove_idea = NEE_pershing_plan_idea_5
-			add_idea = NEE_pershing_plan_idea_6
+			remove_idea = NEE_pershing_plan_idea_4
+			add_idea = NEE_pershing_plan_idea_5
 			}
 			add_tech_bonus = {
 				name = NEE_grand_battleplan
@@ -5561,6 +5528,11 @@ focus_tree = {
 		relative_position_id = NEE_the_future_of_new_england_army
 		prerequisite = {
 			focus = NEE_the_future_of_new_england_army
+		}
+		mutually_exclusive = {
+			focus = NEE_general_pershing
+			focus = NEE_green_policy
+			focus = NEE_appoint_chaffee
 		}
 		ai_will_do = {
 			factor = 3
@@ -5799,7 +5771,7 @@ focus_tree = {
 			add_tech_bonus = {
 				bonus = 1
 				uses = 1
-				category = cat_naval_bomber
+				category = naval_bomber
 			}
 		}
 	}
@@ -5882,7 +5854,7 @@ focus_tree = {
 		complete_tooltip = {}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus NEE_assault_the_line"
-			army_experience = 50
+			army_experience = 10
 			add_tech_bonus = {
 				name = NEE_firepwer_docrine
 				bonus = 1.5
@@ -5915,8 +5887,19 @@ focus_tree = {
 		complete_tooltip = {}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus NEE_assault_the_line"
-			army_experience = 50
-			
+			army_experience = 20
+			add_tech_bonus = {
+				name = NEE_firepwer_docrine
+				bonus = 1.5
+				uses = 1
+				category = cat_superior_firepower
+			}
+			add_tech_bonus = {
+				name = NEE_mechanical_army
+				bonus = 1
+				uses = 1
+				category = motorized_equipment
+			}
 		}
 	}
 	focus = {
@@ -5942,8 +5925,11 @@ focus_tree = {
 		complete_tooltip = {}
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus NEE_firepower_purchase"
-			army_experience = 50
-			
+			add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = 65
+				producer = NEE
+			}
 		}
 	}
 	focus = {
@@ -5952,6 +5938,11 @@ focus_tree = {
 		cost = 5
 		x = 12
 		y = 1
+		mutually_exclusive = {
+			focus = NEE_general_pershing
+			focus = NEE_old_gravel_voice
+			focus = NEE_appoint_chaffee
+		}
 		relative_position_id = NEE_the_future_of_new_england_army
 		prerequisite = {
 			focus = NEE_the_future_of_new_england_army
@@ -6118,7 +6109,7 @@ focus_tree = {
 			}
 		}
 	}
-	focus = {
+	focus = {# Silver Lease
 		id = NEE_silver_military_lease
 		icon = GFX_goal_NEE_silver_lease
 		cost = 5
@@ -6221,12 +6212,12 @@ focus_tree = {
 			}
 		}
 	}
-		focus = {
+		focus = {# New England's Future
 		id = NEE_new_england_future
-		icon = GFX_goal_national_mobilization
+		icon = GFX_goal_NEE_new_england_future
 		cost = 6
-		x = 10
-		y = 7
+		x = 100
+		y = 0
 		ai_will_do = {
 			factor = 3
 			modifier = {
@@ -6242,12 +6233,12 @@ focus_tree = {
 			country_event = newengland.124
 		}
 	}
-	focus = {
+	focus = {# Friend in the North
 		id = NEE_friend_north
-		icon = GFX_goal_national_mobilization
+		icon = GFX_goal_NEE_Freinds_Up_North
 		cost = 0
-		x = 6
-		y = 8
+		x = 95
+		y = 1
 		ai_will_do = {
 			factor = 3
 			modifier = {
@@ -6266,12 +6257,12 @@ focus_tree = {
 		available_if_capitulated = yes
 		complete_tooltip = {}
 	}
-	focus = {
+	focus = {# Joint Entente Exercises
 		id = NEE_joint_exercises
-		icon = GFX_goal_national_mobilization
+		icon = GFX_goal_NEE_joint_entente_excercises
 		cost = 6
-		x = 6
-		y = 9
+		x = 95
+		y = 2
 		ai_will_do = {
 			factor = 3
 			modifier = {
@@ -6290,12 +6281,13 @@ focus_tree = {
 			army_experience = 100
 		}
 	}
-	focus = {
+	focus = {# British Pact
 		id = NEE_british_pact
-		icon = GFX_goal_national_mobilization
+		icon = GFX_goal_NEE_british_pact_3
 		cost = 6
-		x = 4
-		y = 10
+		x = -2
+		y = 1
+		relative_position_id = NEE_joint_exercises
 		ai_will_do = {
 			factor = 3
 			modifier = {
@@ -6316,12 +6308,13 @@ focus_tree = {
 			}
 		}
 	}
-	focus = {
+	focus = {# Joint Coastal Defenses
 		id = NEE_joint_coastal_defenses
-		icon = GFX_goal_national_mobilization
+		icon = GFX_goal_NEE_joint_coastal_defenses
 		cost = 10
-		x = 6
-		y = 10
+		x = 0
+		y = 1
+		relative_position_id = NEE_joint_exercises
 		ai_will_do = {
 			factor = 3
 			modifier = {
@@ -6430,12 +6423,13 @@ focus_tree = {
 			}
 		}
     }
-	focus = {
+	focus = {# Back the French
 		id = NEE_back_french
-		icon = GFX_goal_national_mobilization
+		icon = GFX_goal_NEE_back_the_french
 		cost = 6
-		x = 8
-		y = 10
+		x = 2
+		y = 1
+		relative_position_id = NEE_joint_exercises
 		ai_will_do = {
 			factor = 3
 			modifier = {
@@ -6452,24 +6446,21 @@ focus_tree = {
 		complete_tooltip = {}
 		completion_reward = {
 			NEE = {
-				add_opinion_modifier = {
-					target = NFA
-					modifier = NEE_backed_us
-				}
-				add_opinion_modifier = {
-					target = FRA
-					modifier = NEE_back_french_two
+				add_opinion_modifier = { target = NFA modifier = large_increase }
+			NFA = {
+				add_opinion_modifier = { target = NEE modifier = large_increase }
 				}
 			}
-			add_political_power = 100
+			add_political_power = 20
 		}
 	}
-	focus = {
+	focus = {# Join ISAC
 		id = NEE_join_isac
-		icon = GFX_goal_national_mobilization
+		icon = GFX_goal_NEE_join_ISAC
 		cost = 6
-		x = 5
-		y = 11
+		x = -1
+		y = 2
+		relative_position_id = NEE_joint_exercises
 		ai_will_do = {
 			factor = 3
 			modifier = {
@@ -6510,12 +6501,13 @@ focus_tree = {
 			}
 		}
 	}
-	focus = {
+	focus = {# Boston to Ottawa
 		id = NEE_boston_to_ottawa
-		icon = GFX_goal_national_mobilization
+		icon = GFX_goal_NEE_boston_to_ottawa
 		cost = 6
-		x = 7
-		y = 11
+		x = 1
+		y = 2
+		relative_position_id = NEE_joint_exercises
 		ai_will_do = {
 			factor = 3
 			modifier = {
@@ -6550,12 +6542,13 @@ focus_tree = {
 			}
 		}
 	}
-	focus = {
+	focus = {# Wealth Cooperation
 		id = NEE_wealth_cooperation
-		icon = GFX_goal_national_mobilization
+		icon = GFX_goal_NEE_wealth_cooperation
 		cost = 6
-		x = 6
-		y = 12
+		x = 0
+		y = 3
+		relative_position_id = NEE_joint_exercises
 		ai_will_do = {
 			factor = 3
 			modifier = {
@@ -6574,15 +6567,17 @@ focus_tree = {
 		available_if_capitulated = yes
 		complete_tooltip = {}
 		completion_reward = {
-			add_political_power = 100
+			add_political_power = 50
+			add_ideas = NEE_wealth_cooperation
 		}
 	}
-	focus = {
+	focus = {# Harboring Exiles
 		id = NEE_harbour_exiles
-		icon = GFX_goal_national_mobilization
+		icon = GFX_goal_NEE_harboring_exiles
 		cost = 6
-		x = 10
-		y = 9
+		x = 0
+		y = 2
+		relative_position_id = NEE_new_england_future
 		ai_will_do = {
 			factor = 3
 			modifier = {
@@ -6599,15 +6594,15 @@ focus_tree = {
 		available_if_capitulated = yes
 		complete_tooltip = {}
 		completion_reward = {
-			add_manpower = 250000
+			add_manpower = 25000
 		}
 	}
-	focus = {
+	focus = {# Armed Free Neutrality
 		id = NEE_armed_free_neutrality
-		icon = GFX_goal_national_mobilization
+		icon = GFX_goal_NEE_armed_free_neutrality
 		cost = 0
-		x = 14
-		y = 8
+		x = 105
+		y = 1
 		ai_will_do = {
 			factor = 3
 			modifier = {
@@ -6626,12 +6621,12 @@ focus_tree = {
 		available_if_capitulated = yes
 		complete_tooltip = {}
 	}
-	focus = {
+	focus = {# Boston Line
 		id = NEE_boston_line
-		icon = GFX_goal_national_mobilization
+		icon = GFX_goal_NEE_Boston_line
 		cost = 6
-		x = 14
-		y = 9
+		x = 105
+		y = 2
 		ai_will_do = {
 			factor = 3
 			modifier = {
@@ -6706,12 +6701,13 @@ focus_tree = {
 			}
 		}
 	}
-	focus = {
-		id = NEE_american_infastructure
-		icon = GFX_goal_national_mobilization
+	focus = {# American Infrastructure
+		id = NEE_american_infrastructure
+		icon = GFX_goal_USA_american_industry
 		cost = 6
-		x = 12
-		y = 10
+		x = -2
+		y = 1
+		relative_position_id = NEE_boston_line
 		ai_will_do = {
 			factor = 3
 			modifier = {
@@ -6727,15 +6723,40 @@ focus_tree = {
 		available_if_capitulated = yes
 		complete_tooltip = {}
 		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_mainland_america = yes
+					free_building_slots = { building = infrastructure size > 0 include_locked = yes }
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_mainland_america = yes
+					free_building_slots = { building = infrastructure size > 0 include_locked = yes }
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
 			add_political_power = 100
 		}
 	}
-	focus = {
+	focus = {# New English Fleet
 		id = NEE_new_english_fleet
-		icon = GFX_goal_national_mobilization
+		icon = GFX_goal_NEE_Navy
 		cost = 6
-		x = 14
-		y = 10
+		x = 0
+		y = 1
+		relative_position_id = NEE_boston_line
 		ai_will_do = {
 			factor = 3
 			modifier = {
@@ -6751,15 +6772,16 @@ focus_tree = {
 		available_if_capitulated = yes
 		complete_tooltip = {}
 		completion_reward = {
-			add_political_power = 100
+			add_ideas = NEE_maritime_industry_idea
 		}
 	}
-	focus = {
+	focus = {# Cannon City
 		id = NEE_cannon_city
-		icon = GFX_goal_national_mobilization
+		icon = GFX_goal_NEE_Cannon_City
 		cost = 6
-		x = 16
-		y = 10
+		x = 2
+		y = 1
+		relative_position_id = NEE_boston_line
 		ai_will_do = {
 			factor = 3
 			modifier = {
@@ -6773,17 +6795,25 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
-		complete_tooltip = {}
 		completion_reward = {
-			add_political_power = 100
+			custom_effect_tooltip = boston_line_2
+			hidden_effect = {
+			set_building_level = {
+					type = bunker
+					level = 3
+					province = 3702
+					instant_build = yes
+				}
+			}
 		}
 	}
-	focus = {
+	focus = {# Local Militia
 		id = NEE_local_militia
-		icon = GFX_goal_national_mobilization
+		icon = GFX_goal_NEE_Local_Militias
 		cost = 6
-		x = 12
-		y = 11
+		x = -2
+		y = 2
+		relative_position_id = NEE_boston_line
 		ai_will_do = {
 			factor = 3
 			modifier = {
@@ -6792,22 +6822,23 @@ focus_tree = {
 			}
 		}
 		prerequisite = {
-			focus = NEE_american_infastructure
+			focus = NEE_american_infrastructure
 		}
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		complete_tooltip = {}
 		completion_reward = {
-			add_political_power = 100
+			add_ideas = NEE_local_militia
 		}
 	}
-	focus = {
+	focus = {# New English Gunboat Diplomacy
 		id = NEE_new_english_gunboat_diplomacy
-		icon = GFX_goal_national_mobilization
+		icon = GFX_goal_NEE_Gunboat_Diplomacy
 		cost = 6
-		x = 14
-		y = 11
+		x = 0
+		y = 2
+		relative_position_id = NEE_boston_line
 		ai_will_do = {
 			factor = 3
 			modifier = {
@@ -6823,15 +6854,16 @@ focus_tree = {
 		available_if_capitulated = yes
 		complete_tooltip = {}
 		completion_reward = {
-			add_political_power = 100
+			add_ideas = NEE_american_trade
 		}
 	}
-	focus = {
+	focus = {# Protectionist Trade
 		id = NEE_protectionist_trade
-		icon = GFX_goal_national_mobilization
+		icon = GFX_goal_NEE_Protectionist_Trade
 		cost = 6
-		x = 16
-		y = 11
+		x = 2
+		y = 2
+		relative_position_id = NEE_boston_line
 		ai_will_do = {
 			factor = 3
 			modifier = {
@@ -6847,15 +6879,16 @@ focus_tree = {
 		available_if_capitulated = yes
 		complete_tooltip = {}
 		completion_reward = {
-			add_political_power = 100
+			add_ideas = NEE_protectionist_trade
 		}
 	}
-	focus = {
+	focus = {# Armed Beacon
 		id = NEE_armed_beacon
-		icon = GFX_goal_national_mobilization
+		icon = GFX_goal_NEE_Armed_Beacon
 		cost = 6
-		x = 14
-		y = 12
+		x = 0
+		y = 3
+		relative_position_id = NEE_boston_line
 		ai_will_do = {
 			factor = 3
 			modifier = {
@@ -6877,15 +6910,17 @@ focus_tree = {
 		available_if_capitulated = yes
 		complete_tooltip = {}
 		completion_reward = {
-			add_political_power = 100
+			add_political_power = 10
+			add_ideas = NEE_armed_beacon
 		}
 	}
-	focus = {
+	focus = {# Retake Long Island
 		id = NEE_retake_long_island
-		icon = GFX_goal_national_mobilization
+		icon = GFX_goal_NEE_retake_Long_Island
 		cost = 6
-		x = 9
-		y = 13
+		x = -1
+		y = 6
+		relative_position_id = NEE_new_england_future
 		ai_will_do = {
 			factor = 3
 			modifier = {
@@ -6902,15 +6937,17 @@ focus_tree = {
 		available_if_capitulated = yes
 		complete_tooltip = {}
 		completion_reward = {
-			add_political_power = 100
+			add_political_power = 10
+			add_state_claim = 358 #New York City
 		}
 	}
-	focus = {
+	focus = {# Irish Relations
 		id = NEE_irish_relations
-		icon = GFX_goal_national_mobilization
+		icon = GFX_NEE_irish_ties
 		cost = 6
-		x = 11
-		y = 13
+		x = 1
+		y = 6
+		relative_position_id = NEE_new_england_future
 		ai_will_do = {
 			factor = 3
 			modifier = {
@@ -6927,33 +6964,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		complete_tooltip = {}
 		completion_reward = {
-			add_political_power = 100
+			add_political_power = 10
+			add_opinion_modifier = { target = IRE modifier = small_increase }
 		}
 	}
-	focus = {
-		id = NEE_greater_new_england
-		icon = GFX_goal_national_mobilization
-		cost = 6
-		x = 14
-		y = 13
-		ai_will_do = {
-			factor = 3
-			modifier = {
-				factor = 3
-				has_war = yes
-			}
-		}
-		prerequisite = {
-			focus = NEE_armed_beacon
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-		complete_tooltip = {}
-		completion_reward = {
-			add_political_power = 100
-		}
-	}
-}
-}
-

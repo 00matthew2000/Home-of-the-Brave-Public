@@ -6,6 +6,7 @@ new_england_focus:0 "New England Focus Tree"
 forts_built:0 "§gA series of level 3 forts will be built along the New English and Canadian eastern Coasts.§g"
 canada_forts_built:0 "§gThe New English government has, with New English and Canadian citizens, built a joint coastal defensive line across our eastern coastline. We as a result get level 3 forts across our mainland coastline as well, as part of the deal.§g"
 boston_line:0 "§gA series of level 3 forts will be built along our southern border due to the ongoing conflict.§g"
+boston_line_2:0 "§gA series of level 3 forts will be built in Boston due to the ongoing conflict.§g"
 ### Opinion Modifier ###
 NEE_backed_us:0 "Supported our Government!"
 NEE_back_french_two:0 "Recognized our rival Government!"
@@ -21,11 +22,11 @@ NEE_syndicalist_party_long:0 "Socialist Party of America  -  Essentially an exte
 NEE_radical_socialist_party:0 "Socialist Party of America"
 NEE_radical_socialist_party_long:0 "Socialist Party of America - Essentially an extension of the CSA, the 'Old Guard' members of the New England SPA were once relative moderates who were pushed somewhat left by the Wilson administrations crackdowns and now support cautiously uniting with the Combined Syndicates of America. Their craft union base and more mild positions (by SPA standards) make them more palitable to much of New England and usually their de facto representatives the in the region for that very reason, however like the rest of the New England SPA they are thought to be too weak to hold power on their own and would surely simply desire to see the CSA annex the territory"
 NEE_social_democrat_party:0 "National Party"
-NEE_social_democrat_party_long:0 "National Party"
-NEE_social_liberal_party:0 "Republican Party"
-NEE_social_liberal_party_long:0 "Republican Party (Liberal)"
+NEE_social_democrat_party_long:0 "National Party - The newly-formed National Party is made up of disgruntled Republican and Democratic voters, as well as some independents, who typically agree with the party's progressive platform. The National Party has made various appeals to both farmers and industrial workers, hoping to implement a form of crop insurance and to break monopolies. Eventually, one of the party's goals is to have full employment, so as to combat the Great Depression. The party's rising stars include George Aiken and Frances Perkins, and these figures hope to guide New England through this troubled time."
+NEE_social_liberal_party:0 "Liberal Republican Party"
+NEE_social_liberal_party_long:0 "Liberal Republican Party - When the Intervention occurred, the Republican Party in New England was nearly destroyed. Now, as party officials attempt to put the pieces back together, there are increasing tensions over the party platform. Those more socially liberal-minded members of the party have split from the main party and are now calling themselves the Republican Party, though others have come to term them the "Liberal Republican Party". William Averall Harriman is the party standardbearer for the time being, but others have emerged in hopes of challenging him in the long term. Herbert H. Lehman, John Gilbert Winant, and powerful politician Thomas Dewey all hope to gain a spot at the head of the party, but time will tell to see which of these men will earn it. In the meantime, the party's espousal of education, a program of Social Security, and anti-corruption has made them popular with New Englanders, but with a split party, they may encounter difficulties in winning an election outright."
 NEE_market_liberal_party:0 "Republican Party"
-NEE_market_liberal_party_long:0 "Republican Party" (Conservative)
+NEE_market_liberal_party_long:0 "Republican Party - The battered Republican Party has started to re-form, but it is not the same party that existed before. Now, more laissez-faire minded liberals in the party argue with those who are more in favor of government intervention and social policy. The divide has caused a split in the party, and now the laissez-faire wing, represented first and foremost by Percival P. Baxter, finds itself alone. Baxter leads the party for now, but in the upcoming elections, he will face challenges from Hamilton Fish III, Joseph William Martin Jr., and Christian Herter, all fairly unknown politicians. Any of the three could rise in prominence in coming years however, and the path the party takes may depend on who leads it, and what happens to the other faction of the Republican Party. For now, the Republicans must face a united Democratic Party in the coming races, and will struggle to maintain power in many parts of New England."
 NEE_social_conservative_party:0 "Democratic Party"
 NEE_social_conservative_party_long:0 "Democratic Party - The Democratic Party of New England is both renowned and infamous for it's extreme reliance on political machines (even by the standards of the rest of the nation), mainly the ones in Massachusetts and urban regions. With a strong working class, Catholic and immigrant voter base they semi-openly promote using the patronage system for the public good and often argue it allows a way for the common man to have more direct ties with political leaders through their local machines. Recently they have taken the most moderate stance towards foreign policy with regards to other parties, seemingly wanting to unite America if the opportunity arises but otherwise wanting to stay out of the war, and only maintaining relations with the Entente if it's useful. However given their non-ideological nature all are aware this could change in the future."
 NEE_authoritarian_democrat_party:0 "The Federalist Party"
@@ -55,6 +56,7 @@ NEE_prop_attack_idea:0 "New Englander Subversion"
 NEE_prop_defence_idea:0 "New Englander Subversion"
 NEE_prop_org_idea:0 "New Englander Subversion"
 NEE_prop_production_idea:0 "New Englander Subversion"
+NEE_maritime_industry_idea:0 "Maritime Industry"
 NEE_marine_corps:0 "New England Marines"
 NEE_national_bank:0 "Third National Bank"
 NEE_national_bank_desc:0 "The National Bank makes economic regulation of credit, loans, monetary expansions and other matters of interest to the government far more easy."
@@ -80,6 +82,28 @@ NEE_sentinel_wealth:0 "High Sentinel Influence"
 NEE_sentinel_wealth_desc:0 "The Sentinels have managed to increase their wealth and influence in the region, allowing for more resources to be at their disposal."
 NEE_sentinel_wealth_2:0 "Massive Sentinel Influence"
 NEE_sentinel_wealth_2_desc:0 "The Sentinels have massively expanded their organization to the point where almost everyone in New England at least purchase some goods from Sentinel members allowing a larger army to be placed at their disposal."
+
+### Army ###
+NEE_pershing_plan_idea:0 "Pershing's Command"
+NEE_pershing_plan_idea_2:0 "Pershing's Command"
+NEE_pershing_plan_idea_3:0 "Pershing's Command"
+NEE_pershing_plan_idea_4:0 "Pershing's Command"
+NEE_pershing_plan_idea_5:0 "Pershing's Command"
+NEE_pershing_plan_idea_6:0 "Pershing's Command"
+NEE_green_policy_idea:0 "Green Policy"
+NEE_green_policy_idea_2:0 "Green Policy"
+NEE_green_policy_idea_3:0 "Green Policy"
+NEE_mechanical_army_idea:0 "Mechanical Army"
+NEE_mechanical_army_idea_2:0 "Mechanical Army"
+NEE_mechanical_army_idea_3:0 "Mechanical Army"
+NEE_mechanical_army_idea_4:0 "Mechanical Army"
+NEE_american_marksmenship_idea:0 "Marksmenship Emphasis"
+NEE_american_marksmenship_idea_2:0 "Marksmenship Emphasis"
+NEE_westpoint_idea:0 "Westpoint Expanded"
+NEE_westpoint_idea_2:0 "Westpoint Reform"
+NEE_westpoint_idea_3:0 "Army Reform"
+NEE_open_warfare_idea:0 "Open Warfare"
+NEE_open_warfare_idea_2:0 "Open Warfare"
 
 ### National Party ###
 NEE_national_freedom:0 "Economic Freedom Bill"
@@ -141,6 +165,10 @@ NEE_legitimacy_plus_1_tt:0 "Increases our §YLegitimacy§! by §G1§!"
 NEE_legitimacy_plus_3_tt:0 "Increases our §YLegitimacy§! by §G3§!"
 NEE_legitimacy_plus_5_tt:0 "Increases our §YLegitimacy§! by §G5§!"
 NEE_legitimacy_plus_7_tt:0 "Increases our §YLegitimacy§! by §G7§!"
+NEE_legitimacy_plus_10_tt:0 "Increases our §YLegitimacy§! by §G10§!"
+
+NEE_canadian_influence_plus_5_tt:0 "Increases §YCanadian Influence§! by §G5§!"
+NEE_canadian_influence_plus_10_tt:0 "Increases §YCanadian Influence§! by §G10§!"
 
 NEE_A11_Mathilda_tt:0 "§Y150§! units of Canadian §YVickers A11 'Mathilda'§! is added to the national stockpile\n"
 
@@ -156,6 +184,7 @@ NEE_united_america:0 "America is united"
 NEE_remnant_victory:0 "The Remnant held Congress"
 NEE_sentinels:0 "The Sentinels have taken charge"
 radical_victory:0 "The Radicals have overtaken the Republic of New England!"
+NEE_Radicals_Win:0 "The Radicals have taken control of New England!"
 
 ### Decisions ###
 #Entente Allies
@@ -248,6 +277,9 @@ NEE_GUI_Uprising_locked_TT:0 "§YLaunch an Uprising!\n§gThe day of reckoning ha
 NEE_GUI_Uprising_unlocked_TT:0 "§YLaunch an Uprising!\n§gThe day of reckoning has come and the cells we so carefully fostered are now ready to perform their strikes on the central government. For Liberty!§!"
 
 ### Cosmetic Tags ###
+NEE_america_radical_socialist:0 "United States of America"
+NEE_america_radical_socialist_ADJ:0 "American"
+NEE_america_radical_socialist_DEF:0 "United States of America"
 NEE_america_social_democrat:0 "United States of America"
 NEE_america_social_democrat_ADJ:0 "American"
 NEE_america_social_democrat_DEF:0 "United States of America"
@@ -269,6 +301,10 @@ NEE_america_paternal_autocrat_DEF:0 "United States of America"
 NEE_america_national_populist:0 "United States of America"
 NEE_america_national_populist_ADJ:0 "American"
 NEE_america_national_populist_DEF:0 "United States of America"
+
+NEE_radical_america_national_populist:0 "Territory of New England"
+NEE_radical_america_national_populist_ADJ:0 "Sentinel American"
+NEE_radical_america_national_populist_DEF:0 "Territory of New England"
 
 ### FOCUS TREE ###
 NEE_Legitimate_America:0 "America's Darkest Hour"
@@ -301,9 +337,75 @@ NEE_Battleline_of_Freedom_desc:0 "We are surrounded by history. From the battlef
 NEE_Safeguard_Democracy:0 "Safeguard Democracy"
 NEE_Safeguard_Democracy_desc:0 "'He who would trade liberty for some temporary security, deserves neither liberty nor security.' - Benjamin Franklin"
 
+NEE_new_england_future:0 "New England's Future"
+NEE_new_england_future_desc:0 "We are now separate from our old countrymen. As such, we must find our own path in the world. Canada and National France insist that we help them reclaim their territories in Europe. On the other hand, we could turn inwards and try to salvage what we can, creating a prosperous New England."
+
+NEE_friend_north:0 "Friend in the North"
+NEE_friend_north_desc:0 "We have the strongest English heritage of any region of America, and now the exiles in Canada need our help. They are our neighbors, and our brothers. Let us make an alliance with them, and help them reclaim the lands they rightfully have a claim to."
+
+NEE_armed_free_neutrality:0 "Armed Free Neutrality"
+NEE_armed_free_neutrality_desc:0 "Why should we shed our blood fighting other Americans, or fighting for Canada? We are New England: our own region. There is a saying that many of our people have taken as their own in recent times- "Don't Tread On Me"."
+
+NEE_joint_exercises:0 "Joint Entente Exercises"
+NEE_joint_exercises_desc:0 "We must cooperate more closely with our northern neighbor. To help our military get on its feet, the Canadians have offered to host joint exercises with our military, so that we become accustomed to working together and gain more experience before being thrust into combat."
+
+NEE_harbour_exiles:0 "Harboring Exiles"
+NEE_harbour_exiles_desc:0 "There are people all over America who wish to flee the chaos to the south and west. We will welcome them with open arms. There are also some British exiles in Canada who wish to settle in our region, and we will accept them too. We shall be a land of immigrants, and this new blood will make our independence a certainty."
+
+NEE_boston_line:0 "Boston Line"
+NEE_boston_line_desc:0 "The last thing we want is for fighting to spill over into New England. We plan to build a line of fortifications on our southern border, creating fortifications, trenches, and anything else that will help us hold the line. Those who wish to flee to our country will be allowed in, but enemy soldiers will be shot before they even have a chance to cross into our country."`
+
+NEE_british_pact:0 "British Pact"
+NEE_british_pact_desc:0 "The British exiles in Canada have played a key role in preserving our independence. Now, they ask for our help in their retaking of the Home Isles, something they promise they will carry out soon. We will assure them that we will support them in this effort and be brothers in arms."
+
+NEE_joint_coastal_defenses:0 "Joint Coastal Defenses"
+NEE_joint_coastal_defenses_desc:0 "Our southern border is not the only area where we are threatened. Our coastline is wide open to any naval invasion or bombardment. Let us work with the Entente to conduct joint naval exercises and create defenses along our coast. Canada will also make an effort to fortify its nearby coasts, so that we cannot be invaded through those areas either. New England shall be a fortress."
+
+NEE_back_french:0 "Back the French"
+NEE_back_french_desc:0 "While we are close to our neighbors in Canada, let us not forget the others members of the Entente. France gave everything in the Weltkrieg, only to lose control of their home. We will pursue closer relations with National France and reassure them that we will help them retake their land, too."
+
+NEE_join_isac:0 "Join ISAC"
+NEE_join_isac_desc:0 "The Imperial Scientific and Academic Council is the foremost organization for research in the Entente, if not the world. We would benefit greatly from joining this council and would have access to the latest technology the Entente has to offer. In return, we will share some of our own technologies, and the Entente will be better off for it."
+
+NEE_boston_to_ottawa:0 "Boston to Ottawa"
+NEE_boston_to_ottawa_desc:0 "Our infrastructure is largely outdated for our needs. Let us build new roads that connect to Canadian ones, so that the two nations can be more closely connected. We shall put particular focus on building routes from Boston to Ottawa, as these are the largest hubs of our two nations."
+
+NEE_wealth_cooperation:0 "Wealth Cooperation"
+NEE_wealth_cooperation_desc:0 "We have significantly increased our military cooperation with the Entente. But, we should also get closer to them in economic terms. Let us sign treaties with the Entente regarding trade, and also encourage some of their wealth to flow into New England."
+
+NEE_american_infrastructure:0 "American Infrastructure"
+NEE_american_infrastructure_desc:0 "We still have infrastructure left over from our time in America, obviously. We shouldn't neglect these areas, and in fact, we should make sure they are rebuilt and up to date. That way, we can trade with whoever wins the American Civil War, and benefit from roads already built."
+
+NEE_new_english_fleet:0 "New English Fleet"
+NEE_new_english_fleet_desc:0 "For three hundred years, New England has specialized in lumber and shipbuilding. Let us continue this tradition with a new navy. We will make sure we are never invaded by sea, and that we can even take the fight to other countries should the necessity arise. With a fleet, our country will be that much safer."
+
+NEE_cannon_city:0 "Cannon City"
+NEE_cannon_city_desc:0 "Our borders should not be our only fortified areas. We must also fortify our towns and cities, particularly Boston. We will begin a project that is popularly known as "Cannon City" to make sure Boston never falls to the chaotic forces of the South."
+
+NEE_local_militia:0 "Local Militia"
+NEE_local_militia_desc:0 "The tradition of militias in New England goes back to the Revolutionary War, where militias from Vermont and other areas made a name for themselves during the war. We will continue this tradition into the modern day and form new militias that will guard our southern border from extremists and autocrats."
+
+NEE_new_english_gunboat_diplomacy:0 "New English Gunboat Diplomacy"
+NEE_new_english_gunboat_diplomacy_desc:0 "The British used to conduct gunboat diplomacy across the world, using their navy as a tool in negotiations. We will strive to do the same thing. Let us build a powerful navy capable of assisting our diplomacy anywhere in the world."
+
+NEE_protectionist_trade:0 "Protectionist Trade"
+NEE_protectionist_trade_desc:0 "We will place high tariffs on trade coming from abroad, so that we can protect our own workers. Our industry is blooming, but could be endangered by foreign competition. Let us make sure we are an industrial and economic giant now and for the forseeable future."
+
+NEE_armed_beacon:0 "Armed Beacon"
+NEE_armed_beacon_desc:0 "There are two ways we wish to portray our country. For one thing, we are a nation of immigrants and freedom, a beacon of liberty. We are also armed, and we will not give up our freedom to anyone. These ideas combined have created a unique national story: we are the armed beacon of North America."
+
+NEE_retake_long_island:0 "Retake Long Island"
+NEE_retake_long_island_desc:0 "New York should be a part of New England. While we do control upstate New York, Long Island has evaded our control. The city of New York is one of the most populous and prosperous cities on Earth, and with it under our control, our independence will be secured for quite some time. It is land that is rightfully ours. We will do what we can to secure it."
+
+NEE_irish_relations:0 "Irish Relations"
+NEE_irish_relations_desc:0 "Many of our people can trace their roots to Ireland. It is as much a part of our identity as Britain is. We should pursue closer relations with Ireland, and perhaps take inspiration from them for our own country. As the Irish fought for and won their independence, so shall we if we must. Ireland, here we come!"
+
+NEE_greater_new_england:0 "Greater New England"
+NEE_greater_new_england_desc:0 "While we have secured our independence for now, there are those Americans and even Canadians who should be our brother, but are suffering under other regimes. Let us bring those people into the fold as proud citizens of New England, and defend them from the tyranny and chaos to the south, as only we can."
+
 #Federalists
 NEE_federalists_in_command:0 "Federalist Party In Command"
-NEE_federalists_in_command_desc:0 "The Loyalist Federalist Party has been entrusted with the stewardship of New England! Firmly attacked to the British elite and by extension the Entente they will see to it that order, tradition and security are all respected while hoping to bring the syndicalists to their knees."
+NEE_federalists_in_command_desc:0 "The Loyalist Federalist Party has been entrusted with the stewardship of New England! Firmly attached to the British elite and by extension the Entente they will see to it that order, tradition and security are all respected while hoping to bring the syndicalists to their knees."
 NEE_new_english_nationalism:0 "New English Nationalism"
 NEE_new_english_nationalism_desc:0 "New England is not merely a subsidiary of the United States but a culture and people into itself, one rich with a history dating back to those settlers whom arrived at Pylmouth Rock. We should encourage our people to not merely think of themselves as 'Americans' but as New England Yankees and distant heirs to Britain willing to cultivate our own identity against those whom would attack it."
 NEE_special_relationship:0 "The Special Relationship"
@@ -325,10 +427,6 @@ NEE_american_aristocracy_desc:0 "With our dominance of the political and economi
 NEE_canadian_investments:0 "Canadian Investments"
 NEE_ready_to_strike:0 "Ready to Strike"
 NEE_elite_universities:0 "Ivy League Prestige"
-
-NEE_green_policy_idea_1:0 "Green Policy"
-NEE_green_policy_idea_2:0 "Green Policy"
-NEE_green_policy_idea_3:0 "Green Policy"
 
 #Modern Republicanism
 NEE_progressive_republicans:0 "Liberal Progressivism"
@@ -470,7 +568,7 @@ NEE_expanded_labor_pool_desc:0 "Too many citizens behave as if the old standards
 NEE_WASP:0 "Deploy the WASPs"
 NEE_WASP_desc:0 "The birthplace of American feminism lies in Seneca, in upstate New York. We need to ensure that patriotic women can contribute to the war effort just as their male counterparts. The WASP initiative, aimed at utilizing women in the air force, has already shown promise and its full implementation will both serve as a valuable asset to our thinly-stretched forces."
 
-NEE_US_Navy:0 "US Navy"
+NEE_US_Navy:0 "New England's Navy"
 NEE_US_Navy_desc:0 "Only a few ships, and even fewer sailors, remain under the provisional government's control. We need to take stock of our maritime situation."
 
 NEE_Liberty_Ships:0 "Liberty Ships Dock Project"
@@ -592,49 +690,90 @@ ss_tech_research:0 "§YSubmarine§! Research Time"
 #Military Doctrines
 
 NEE_the_future_of_new_england_army:0 "Congressional Army Decision"
+NEE_the_future_of_new_england_army_desc:0 "The time has come to decide how we will run our military. Congress has four different men they are considering, and each comes with their own doctrine. Adna "Father" Chaffee, General John J. Pershing, Ernest "Old Gravel Voice" Harmon, and politician Theodore F. Green are in the running, and the decision has come: who to appoint?"
 NEE_appoint_chaffee:0 "Father Chaffee"
+NEE_appoint_chaffee_desc:0 "Adna R. Chaffee has been an avid horseman his whole life. Now, however, he urges us to embrace the future. Chaffee is specifically concerned with tanks. He argues that a tank force will allow New England to glide across the vast North American terrain and the smaller battlefields of Western Europe alike. Father Chaffee will lead us to victory."
 NEE_mechanical_cavalry:0 "Mechanical Cavalry"
-NEE_coordination_principal:0 "The Coordination Principal"
+NEE_mechanical_cavalry_desc:0 "Real wars are fought by real men, not solely by tanks. However, we can still use technology to serve these men. As horses served armies in the past, let us send trucks and motorized vehicles alongside our troops. This will make them faster and better supplied. We will strike the enemy with lightning speed."
+NEE_coordination_principal:0 "The Coordination Principle"
+NEE_coordination_principal_desc:0 "As the foremost power in the world, Germany's military should be something to emulate. Some German officials believe that airplanes should work together with infantry and tanks, in order to strike the enemy before they even understand what is coming. Let us emulate this tactic. This will greatly aid our inter-branch cooperation and experience."
 NEE_experimental_organization:0 "Experimental Divisions"
+NEE_experimental_organization_desc:0 "Father Chaffee has relentlessly pressed us to not only modernize our vehicles, but to experiment with new ones. If we can develop a techonlogical edge in tanks and motorized vehicles, Chaffee argues, we could respond to the needs of a large front faster and avoid some of the bloodshed of the Weltkrieg."
 NEE_mobile_emphasis:0 "Mobility Emphasis"
+NEE_mobile_emphasis_desc:0 "Adna Chaffee is past 50 years old, yet he has more energy than most of his men. He has insisted that our army have the same speed and energy he is able to muster. In doing so, we can overwhelm our enemies with our sheer dynamism, and strike faster than a rattlesnake."
 NEE_equipment_update:0 "Equipment Update"
+NEE_equipment_update_desc:0 "It is time to update our army equipment. Like our recent efforts to upgrade our vehicle technology, let us now upgrade other equipment so that our military will be more efficient and our soldiers will be better killing machines."
 NEE_armor_production:0 "Armor Production"
+NEE_armor_production_desc:0 "The Red Belt claims to be the heart of manufacturing in the former United States. Let us prove them wrong in part by ramping up our producting of tanks and tank equipment. These will be put to good use by our army and Father Chaffee has plans to use these new tanks in a lightning war to the south."
 NEE_tank_deployment:0 "Deploy the Tanks"
+NEE_tank_deployment_desc:0 "Our people have been hard at work in producing tanks for the military. Father Chaffee is content to have them released into service, saying that we had the extra boost in production we needed from our patriotic people. The only thing to do now is wait..."
 NEE_research_grants:0 "Research Grants"
+NEE_research_grants_desc:0 "Our breakthroughs in tanks and mobile warfare have inspired our scientists and engineers to push for even more research in those areas, and we now believe that we will have an edge on our opponents in these areas. Such a focus may detract from other technological fronts, but Father Chaffee reassures us that we are doing what we need to to win."
 NEE_industrial_grants:0 "Industrial Grants"
+NEE_industrial_grants_desc:0 "Let us continue our effort to become a North American industrial giant. Specifically, we should focus on military factories that can produce more equipment for our war effort. After all, Chaffee's doctrine is impossible without reinforcements."
 
 NEE_general_pershing:0 "General Pershing"
+NEE_general_pershing_desc:0 "John J. Pershing has been one of America's foremost generals for decades. A staunch supporter of New English autonomy within the Entente, he has his own plan for our military. Though some say he is outdated in his approach, Pershing insists that planning is the key aspect of warfare. He has learned from his observations of the Weltkrieg, and will make sure we outthink our enemies."
 NEE_infantry_investments:0 "Infantry Research Developments"
+NEE_infantry_investments_desc:0 "Some of our officials want us to focus on tanks or artillery. Pershing disagrees. He is quick to point out that in his day, infantry were the driving force behind armies, and he believes they still are. To that end, he has encouraged us to invest in new infantry technology, so each and every one of our soldiers can have an edge over his foe. Pershing is confident that his old tactics can still rout any enemy we face." 
 NEE_streamlined_staff:0 "Streamlined Staff"
+NEE_streamlined_staff_desc:0 "General Pershing has been given a new rank in our army, as a result of his loyalty and his experience. His new "General of the Armies" rank gives him complete control over our military. He believes that we must re-organize our military in a way that allows them to be more efficient and coordinate quicker. With these things, we can outfox the enemy."
 NEE_open_warfare:0 "Open Warfare"
+NEE_open_warfare_desc:0 "America is a great expanse, and battles fought on her soil will be different than those fought in Europe. We must be ready for open warfare. Pershing has suggested we follow the Schlieffen model of a quick encirclement of our enemies. Though it may have failed in the Weltkrieg, he believes we have the necessary technology to make that sort of plan a success today."
 NEE_natural_defenses:0 "Natural Defenses"
+NEE_natural_defenses_desc:0 "New England is a place of varied geography. The Hudson River and the Catskills mountains on our southern border can serve as a natural defense against any who dare cross our border. Pershing has incorporated these natural features into his grand plan, and believes they will not hinder our military, and in fact do just the opposite."
 NEE_breakthrough_emphasis:0 "Breakthrough Emphasis"
+NEE_breakthrough_emphasis_desc:0 "As a man who has been a senior officer in the military long enough to see the Weltkrieg come and go, General Pershing believes breakthroughs are a crucial part of warfare. His plan, like the German plans all those years ago, does not take enemy defenses into account. But, unlike them, Pershing says we have the technology to get around anything they can throw at us."
 NEE_long_range_logistics:0 "Long-Range Logistics"
+NEE_long_range_logistics_desc:0 "To win any modern war, we must be prepared for large fronts. With tanks and planes, we can help our army push deep into enemy lines. With better rations, our army will not suffer the fate of Napoleon's Grand Armee. Combined, these factors will allow greater logistical ability than ever before."
 NEE_expand_westpoint:0 "Expand Westpoint"
+NEE_expand_westpoint_desc:0 "General Pershing graduated from Westpoint over 50 years ago. Despite this, he has never lost his belief in the institution as a necessity for any aspiring officer. Let us expand funding for Westpoint and make sure it is the cutting edge of military training in North America. Our officers are better!"
 NEE_american_marksmenship:0 "American Marksmenship"
+NEE_american_marksmenship_desc:0 "A well-trained army has scouts, and a well-trained modern army has snipers. It also has soldiers who rarely miss. If our soldiers can be rigorously trained in the pursuit of accurate shots, Pershing argues, we can save ammunition and kill more enemies. How could we argue with that?"
 NEE_iron_discipline:0 "Iron Discipline"
+NEE_iron_discipline_desc:0 "Though we may not have the manpower or the industrial capacity of our rivals, we have something they can not match. One advantage Pershing insists we have is in the mental state of our men. The discipline of our soldiers will be unmatched, and they will neither break nor surrender. With an unbreakable will and iron discipline, New England will never be beaten."
 NEE_merit_promotion:0 "Promotion by Merit"
+NEE_merit_promotion_desc:0 "An effective military should always issue promotions based on merit, not bloodline. Such a tradition is deeply American, and is also practiced by the mightiest army on Earth. By emphasizing that anyone with talent can ascend the ranks, we will encourage our brightest and sharpest minds to join our military and serve New England."
 NEE_black_combat_troops:0 "Black Combat Training"
+NEE_black_combat_troops_desc:0 "Pershing is in favor of a "separate-but-equal" approach to Black soldiers. He has encouraged the creation of all-black units and insists that their training is indeed equal to that of any other soldier. This will encourage Black soldiers from our rivals to flee here, he notes, because they will have more control within their own units. Whether he is right or not is yet to be seen."
 NEE_assault_the_line:0 "Assault the Line"
+NEE_assault_the_line_desc:0 "Trench Warfare is still relevant today, as it was in the Weltkrieg. Unlike those poor souls, our soliders will not lose their lives fighting for mere feet or even inches of land. Instead, we will make sure we can break any line we face. Pershing insists we show the Europeans (and our rivals) that we are superior to them in this way."
 
 NEE_old_gravel_voice:0 "Old Gravel Voice"
+NEE_old_gravel_voice_desc:0 "Ernest N. Harmon is one of our top generals, and he has a distinct plan. He calls it "Praise the Lord and Pass the Ammunition", and it is a plan that specifically emphasizes artillery bombardment and has a more general focus on equipment production. With a focus on these things, Old Gravel Voice knows that we will blow our enemies to smithereens."
 NEE_integrated_armor:0 "Integrated Armor"
+NEE_integrated_armor_desc:0 "Tanks are fairly new to warfare, but have similar explosive potential to artillery. Put together, the forces can bring hellfire on our enemy. Though we still need shells and training for these tactics, establishing the plan is the first step to victory. Let us bring armor into the fold."
 NEE_decisive_tactics:0 "Tactical Decisiveness"
+NEE_decisive_tactics_desc:0 "If there is any lesson that should be learned from the Weltkrieg, it is that the enemy should be destroyed decisively before they have a chance to dig in. To avoid prolonged conflicts, we will invest in aggressive and decisive tactics that allow us to use our superior firepower to our advantage."
 NEE_artillery_line:0 "Artillery Offensive"
+NEE_artillery_line_desc:0 "Harmon argues that an investment in artillery would go a long way in breaking through to the south, or in any other theater of war. With artillery coming first, the enemy line will be like melted butter, and our infantry will be the knife that slices through it."
 NEE_counter_attack:0 "Counter-Attack Bias"
+NEE_counter_attack_desc:0 "General Hermon believes that if our men are being pushed back, they should fire with overwhelming artillery force to hold the line and even push the enemy back. In fact, Harmon prefers this strategy, noting it allows the enemy to fall into our artillery's waiting jaws." 
 NEE_shore_bombardment:0 "Shore Bombardment"
+NEE_shore_bombardment_desc:0 "The sea will not be spared from our wrath. We will rain fire on the coastline of our enemies, destroying their ports and harbors, so that they can never invade our homeland."
 NEE_armored_spearhead:0 "Armored Spearhead"
+NEE_armored_spearhead_desc:0 "Though he emphasizes use of artillery and airplanes, Hermon is also a strong proponent of armored warfare. He believes that our tanks can punch holes in enemy lines that can be followed up on by planes, artillery, and infantry, in order to overwhelm our enemy. Let us train our men and build our equipment to serve this purpose."
 NEE_mechanical_drawing:0 "Westpoint Engineering"
+NEE_mechanical_drawing_desc:0 "Westpoint is one of the greatest military institutions in the world, but officers are not the only graduates. There are also engineers with crucial knowledge that could bolster our war effort. Giving more funding to Westpoint and encouraging engineering as a career will help our military overcome some of the greatest annoyances we can encounter in war."
 NEE_bombing_support:0 "Bombing Support"
+NEE_bombing_support_desc:0 "We shall bomb our enemy into submission until they praise the lord. Airplanes can carry heavier loads than ever before, and Old Gravel Voice insists we use this fact to our advantage. Let us fill the sky with planes and make sure that the enemy is soft for our ground forces."
 NEE_firepower_purchase:0 "Heavy Equipment Purchase"
+NEE_firepower_purchase_desc:0 "We will purchase tanks, artillery, motorized vehicles, and other equipment such as bullets to make sure our men are never out of ammo. With this effort, we can win against our more numerous rivals, as we will have many bullets for every soldier they can throw our way. Every soldier shall shout "pass the ammunition!" and we will fire until the enemy is eviscerated."
 
 NEE_green_policy:0 "Green Policy"
+NEE_green_policy_desc:0 "Theodore F. Green may not be a general, but he is one of our foremost politicians. A committed internationalist, he wishes to see New England take its rightful place on the world stage. To do that, Green knows we need a large army, to compete with our rivals. He has pushed legislation ramping up conscription to begin this effort."
 NEE_consistant_conscription:0 "Consistent Conscription"
+NEE_consistant_conscription_desc:0 "Green's bill has passed, and we are now conscripting our young men to build a larger army than ever before. None of our rivals will outnumber us. With such a force, we can project power up and down the East Coast and perhaps across the Atlantic, should we decide to help the Entente retake Europe."
 NEE_moral_idealism:0 "Moral Idealism"
+NEE_moral_idealism_desc:0 "We will fight the good fight, the right fight. The values of America that were once so important to her citizens are still important to us, and we will carry them with us everywhere we go. Let us show Canada our commitment to the fight against Syndicalism. Our commitment to international institutions has never been stronger!"
 NEE_yankee_nationalism:0 "Yankee Patriotism"
+NEE_yankee_nationalism_desc:0 "We are Yankees, and we are proud of it. Reactionaries to the south use this term in a derogatory meaning, but to New Englanders, it is part of our identity. Though we now fight with our old rulers, we will never forget we became in the meantime."
 NEE_farmer_soldiers:0 "Farmers into Soldiers"
+NEE_farmer_soldiers_desc:0 "Farmers should not be exempt from the draft. They are some of our strongest citizens, and could serve us well in the military. Besides, we could use all the men we can get, or so Green says. This will certainly provide us with more manpower, but it may have negative effects on our population's ability to eat."
 NEE_silver_military_lease:0 "Silver Lease"
+NEE_silver_military_lease_desc:0 "Let us release silver that the government owns, in order to help serve our war effort. Now that we have manpower in our military, Green wants us to also ramp up miiltary spending quite a bit, to pay for all the new equipment we will need. We have grudgingly done this, with the understanding that all this money will be put to good use."
 NEE_mass_spending:0 "Mass Spending"
+NEE_mass_spending_desc:0 "Green has seen our willingness to give him increased military spending, and he has run with it. He now makes impassioned speeches calling for a great increase in military spending, so that we can have the largest military in all of North America. While his goal may be outlandish for now, we cannot deny that he has a sort of point. Let us increase the spending once again."
 
 ### Setting up New England ###
 
@@ -697,42 +836,60 @@ newengland.15.d:0 "Chafing ever since we refused them home rule, the New England
 newengland.15.a:0 "So be it."
 newengland.15.b:0 "No, this cannot be allowed!"
 
+newengland.124.t:0 "New England's Foreign Policy?"
+newengland.124.d:0 "Our young nation must now create a foreign policy for itself. Two main schools of thought have presented themselves. One says we move closer to our allies in the North, and help the Entente. The other promotes a more neutral approach to foreign policy that will see us govern ourselves."`
+newengland.124.a:0 "Cooperate with the Entente"
+newengland.124.b:0 "Go our own way"
+
 ### Elections and Primaries ###
 
 newengland.20.t:0 "The Provisional Government"
-newengland.20.d:0 "Following the chaos of the Canadian Intervention, the governors of the New England states met together to select an interim president. The choices were successful businessman Averell Harriman, the bland and uncontroversial former Governor of Maine Percival Baxter, and conservative Representative Joseph William Martin. After many hours of deliberations, they decided on..."
-newengland.20.a:0 "William Averell Harriman."
-newengland.20.b:0 "Percival P. Baxter."
-newengland.20.c:0 "Joseph William Martin Jr."
+newengland.20.d:0 "Following the chaos of the Canadian Intervention, the governors of the New England states met together to select an interim president. The choices were progressive standardbearer George Aiken, successful businessman Averell Harriman, the bland and uncontroversial former Governor of Maine Percival Baxter, and conservative Massachusetts Governor James Michael Curley. After many hours of deliberations, they decided on..."
+newengland.20.a:0 "George Aiken"
+newengland.20.b:0 "William Averell Harriman."
+newengland.20.c:0 "Percival P. Baxter."
+newengland.20.e:0 "James Michael Curley"
 
 newengland.21.t:0 "[GetYear] Progressive Republican Convention"
-newengland.21.d:0 "The new National Party, AKA the Progressive Liberal Party, has met to hold its first convention in Boston, to select a candidate in the [GetYear] election to represent economic interventionism, a move towards egaliatarianism and a more aggressive stance towards reuniting America. The two leading candidates are Governor of Vermont  and progressive activist Frances Perkins. Who will the delegates pick?"
+newengland.21.d:0 "The new National Party, AKA the Progressive Liberal Party, has met to hold its first convention in Boston, to select a candidate in the [GetYear] election to represent economic interventionism, a move towards egaliatarianism and a more aggressive stance towards reuniting America. The two leading candidates are Governor of Vermont George Aiken and progressive activist Frances Perkins. Who will the delegates pick?"
 newengland.21.a:0 "George Aiken"
 newengland.21.b:0 "Frances Perkins"
 
 newengland.22.t:0 "[GetYear] Republican Convention"
-newengland.22.d:0 "While the infastructure of the Republican Party was largely destroyed in the Intervention, wealthy businessman Joseph Kennedy has rebuilt it with his own personal funds, and is currently running the party's nomination in the [GetYear] election. Maine Governor Percival Baxter is also running, but Kennedy's wealth and connections are sure to help him. Who will the delegates pick?"
+newengland.22.d:0 "While the infastructure of the Republican Party was largely destroyed in the Intervention, several little-known but ambitious politicians have risen to fill the void of leadership. Hamilton Fish III, a member of a longtime political dynasty and a former U.S. House Representative, hopes to win the delegates over. Joseph William Martin Jr., a promising former U.S. House Representative from Massachusetts, has challenged Fish, as has Christian Herter, the Speaker of the House in Massachusetts. Who will the delegates pick?"
 newengland.22.a:0 "Hamilton Fish III"
 newengland.22.b:0 "Joseph William Martin Jr."
 newengland.22.c:0 "Christian Herter"
-newengland.22.e:0 "Herbert H. Lehman"
-newengland.22.f:0 "John Gilbert Winant"
-newengland.22.g:0 "Thomas Dewey"
+
+newengland.2200.t:0 "[GetYear] Liberal Republican Convention"
+newengland.2200.d:0 "As the infastructure of the Republican Party was largely destroyed in the Intervention, several members of its liberal wing have separated and decided to hold their own primary to pick a candidate from amongst themselves. Thomas Dewey is the rising star of this new party, but Herbert H. Lehman and John Gilbert Winant hope to contest the position of leadership. Who will the delegates pick?"
+newengland.2200.a:0 "Herbert H. Lehman"
+newengland.2200.b:0 "John Gilbert Winant"
+newengland.2200.c:0 "Thomas Dewey"
 
 newengland.23.t:0 "[GetYear] Democratic Convention"
-newengland.23.d:0 "The [GetYear] Democratic convention is being held in Fanieul Hall in Boston - the party's ancestral home in the city. Amidst raucuous bickering, three candidates have taken a lead among the various delegates: Representative Joseph William Martin Jr., businessman and Democratic Party influencer Joseph Kennedy Sr. and Governor of Massachusetts James Michael Curley. Who will the delegates pick?"
+newengland.23.d:0 "The [GetYear] Democratic convention is being held in Fanieul Hall in Boston - the party's ancestral home in the city. Amidst raucuous bickering, three candidates have taken a lead among the various delegates: Representative Joseph William Martin Jr., businessman, Democratic Party influencer Joseph Kennedy Sr., and Governor of Massachusetts James Michael Curley. Who will the delegates pick?"
 newengland.23.a:0 "Joseph Kennedy Sr"
 newengland.23.b:0 "James Michael Curley"
+newengland.23.c:0 "Al Smith"
 
 newengland.24.t:0 "[GetYear] Presidential Election"
 newengland.24.d:0 "Polls have just closed in New England's first election, and winning the Presidency and a majority of seats in the new Congress is..."
-newengland.24.a:0 "The Progressive Party."
-newengland.24.b:0 "The Democratic Party."
+newengland.24.a:0 "The National Party."
+newengland.24.b:0 "The Liberal Republican Party."
 newengland.24.c:0 "The Republican Party."
+newengland.24.e:0 "The Democratic Party."
 
-newengland.25.t:0 "[GetYear] Progressive Convention"
+newengland.2525.t:0 "[GetYear] Progressive Convention"
+newengland.2525.d.president:0 "As [NEE.GetLeader] is the President, he has unanimously been renominated by his party and avoided any primary challengers."
+newengland.2525.d.not_president:0 "At the Progressive Party's convention, new faces have risen to the forefront to challenge [NEE.GetLeader]. The two leading contenders are prominent politician Frances Perkins and Senator Ernest W. Gibson Jr. Who will the delegates pick?"
+newengland.2525.a:0 "Frances Perkins"
+newengland.2525.b:0 "Ernest W. Gibson Jr."
+newengland.2525.c:0 "Congratulations Mr. President!"
+
+newengland.25.t:0 "[GetYear] Liberal Republican Convention"
 newengland.25.d.president:0 "As [NEE.GetLeader] is the President, he has unanimously been renominated by his party and avoided any primary challengers."
-newengland.25.d.not_president:0 "At the Progressive Party's second convention, new faces have risen to the forefront to challenge [NEE.GetLeader]. The two leading contenders are both from Rhode Island: Governor Dennis Roberts and Senator Peter Gerry. Who will the delegates pick? "
+newengland.25.d.not_president:0 "At the Liberal Republican Party's second convention, new faces have risen to the forefront to challenge [NEE.GetLeader]. The two leading contenders are both from Rhode Island: Governor Dennis Roberts and Senator Peter Gerry. Who will the delegates pick? "
 newengland.25.a:0 "Dennis J. Roberts."
 newengland.25.b:0 "Peter G. Gerry."
 newengland.25.c:0 "Congratulations Mr. President!"
@@ -752,13 +909,14 @@ newengland.27.b:0 "Congratulations Mr. President!"
 
 newengland.28.t:0 "[GetYear] Presidential Election"
 newengland.28.d:0 "Polls have just closed in New England's second election since independance. Winning both the presidency and a large number of seats in Congress is..."
-newengland.28.a:0 "The Liberal Party."
-newengland.28.b:0 "The Republican Party."
-newengland.28.c:0 "The Democratic Party."
+newengland.28.a:0 "The National Party."
+newengland.28.b:0 "The Liberal Republican Party."
+newengland.28.c:0 "The Republican Party."
+newengland.28.e:0 "The Democratic Party."
 
-newengland.29.t:0 "[GetYear] Liberal Convention"
+newengland.29.t:0 "[GetYear] Liberal Republican Convention"
 newengland.29.d.president:0 "As [NEE.GetLeader] is the President, he has unanimously been renominated by his party and avoided any primary challengers."
-newengland.29.d.president_steps_down:0 "As President [NEE.GetLeader] second term is coming to an end, he has decided not to seek re-election to a third term, following a tradition dating back to George Washington. At their convention, the Liberal Party now must decide who will replace him: Mayor Maurice Tobin of Boston, or Massachusetts Attorney General Paul Dever. Who will the delegates pick?"
+newengland.29.d.president_steps_down:0 "As President [NEE.GetLeader] second term is coming to an end, he has decided not to seek re-election to a third term, following a tradition dating back to George Washington. At their convention, the Liberal Republican Party now must decide who will replace him: Mayor Maurice Tobin of Boston, or Massachusetts Attorney General Paul Dever. Who will the delegates pick?"
 newengland.29.d.not_president:0 "The [GetYear] Liberal convention is here and two candidates have already distinguished themselves: Mayor Maurice Tobin of Boston, or Massachusetts Attorney General Paul Dever. Who will the delegates pick?"
 newengland.29.a:0 "Maurice J. Tobin."
 newengland.29.b:0 "Paul A. Dever."
@@ -1147,9 +1305,9 @@ newengland.140.d:0 "Within the Remnant is a still large disagreement over the na
 newengland.140.a:0 "The Nockian Policy"
 newengland.140.b:0 "The Democratic Policy"
 
-newengland.150.t:0: "The Reconstruction of Tammany Hall"
-newengland.150.d:0: "Prior to the civil war, Tammany Hall was at the core of the Democratic Party in New York. Viewed by syndicalists as a symbol of bourgeoisie exploitation and corruption, it was torched when the CSA seized the city in the opening days of the war, and would have been completely destroyed had local leaders not redirected the required resources to more pressing matters. Now with New York City in our hands, we must begin to reestablish symbols of liberalism in the area. Local construction magnates have drafted plans to repair the hall, and are simply awaiting government approval.""
-newengland.150.a:0: "Begin repairs immediately."
+newengland.150.t:0 "The Reconstruction of Tammany Hall"
+newengland.150.d:0 "Prior to the civil war, Tammany Hall was at the core of the Democratic Party in New York. Viewed by syndicalists as a symbol of bourgeoisie exploitation and corruption, it was torched when the CSA seized the city in the opening days of the war, and would have been completely destroyed had local leaders not redirected the required resources to more pressing matters. Now with New York City in our hands, we must begin to reestablish symbols of liberalism in the area. Local construction magnates have drafted plans to repair the hall, and are simply awaiting government approval."
+newengland.150.a:0 "Begin repairs immediately"
 
 ###Democracy###
 
@@ -1161,6 +1319,37 @@ newengland.161.t:0 "Philip Bucola Arrested"
 newengland.161.d:0 "New England Mob Boss Philip Buccola has been arrested for smuggling, tax evasion, murder and a host of other crimes. While a conviction for the head of the Boston crime family is unlikely it at least represents their dwindling power he could be arrested to begin with and is associated with the arrest of mafia soldiers as well."
 newengland.161.a:0 "Good"
 
+
+###Expansion###
+
+newengland.200.t:0 "New England Demands Land"
+newengland.200.d:0 "New England has been a troublesome investment. With a population comparable to our own, they could hinder our plans if we lose their allegiance. They have come to us demanding we cede New Brunswick and Nova Scotia to them. If we accept, they promise greater cooperation with the Entente, and have assured us that they will not join with the victor of the American Civil War, but instead remain within our sphere. If we deny them, it could have greater repercussions..."
+newengland.200.a:0 "Let's see where this goes"
+newengland.200.b:0 "Who do they think they are?"
+
+
+NEE_ancapistan_social_democrat:0 "Ancapistan"
+NEE_ancapistan_social_democrat_ADJ:0 "American"
+NEE_ancapistan_social_democrat_DEF:0 "the Ancapistan"
+NEE_ancapistan_social_liberal:0 "Ancapistan"
+NEE_ancapistan_social_liberal_ADJ:0 "American"
+NEE_ancapistan_social_liberal_DEF:0 "the Ancapistan"
+NEE_ancapistan_market_liberal:0 "Ancapistan"
+NEE_ancapistan_market_liberal_ADJ:0 "American"
+NEE_ancapistan_market_liberal_DEF:0 "the Ancapistan"
+NEE_ancapistan_social_conservative:0 "Ancapistan"
+NEE_ancapistan_social_conservative_ADJ:0 "American"
+NEE_ancapistan_social_conservative_DEF:0 "the Ancapistan"
+NEE_ancapistan_authoritarian_democrat:0 "Ancapistan"
+NEE_ancapistan_authoritarian_democrat_ADJ:0 "American"
+NEE_ancapistan_authoritarian_democrat_DEF:0 "the Ancapistan"
+NEE_ancapistan_paternal_autocrat:0 "Ancapistan"
+NEE_ancapistan_paternal_autocrat_ADJ:0 "American"
+NEE_ancapistan_paternal_autocrat_DEF:0 "the Ancapistan"
+NEE_ancapistan_national_populist:0 "Ancapistan"
+NEE_ancapistan_national_populist_ADJ:0 "American"
+NEE_ancapistan_national_populist_DEF:0 "the Ancapistan"
+
 #Army General Descriptions by Drozdovite#
 
 NEE_LESLIE_GROVES_ARMY_DESC:0 "§YGeneral Description\n§YBorn:§W August 17, 1896, in Albany, New York State, United States of America\n§YMilitary Career:§W Leslie Richard Groves Jr. was born in a family with quite a history in the military, considering his father had served in the Spanish-American War, the Philippines and the Boxer Rebellion. During his late high-school years, Groves started to enroll in courses at the University of Washington, hoping to get an appointment to the United States Military Academy. He got his wish when President Woodrow Wilson himself allowed him to compete for his vacancy, but his grades weren't high enough to be accepted. Instead, Groves joined the Massachusetts Institute of Technology in the meantime while he prepared to retake West Point's entrance exam. In 1916, he took the entrance exam again, and was accepted, visiting the European battlefields on an educational tour in 1919 and graduating in 1920 as a second lieutenant in the Corps of Engineers, thanks to his experience in MIT. He was posted with the 4th Engineer corps stationed at Camp Lewis, and would later be moved to Fort Worden, where he'd meet his future wife, Grace Wilson. In late 1922, he was posted in Hawaii with the 3rd Engineer corps at the Schofield Barracks, where he earned a commendation for helping construct a trail from Kahuku to Pupukea. He would be assigned several times, becoming commander of Company D of the 1st Engineer Battalion, helping during the New England flood of 1927, being sent to Nicaragua in 1929 to conduct surveys for the construction of the Nicaragua Canal, and he being assigned to look over Nicaragua's water supply after the 1931 earthquake. It was upon his return to a shattered United States that he gained his last promotions, rising to the rank of Field Marshall in New England, mainly due to the sheer lack of capable staff in the region.\n§YImportant Notes:§W- A brilliant engineer, he has been following closely the development of Nuclear Fission technology keeping regular contact with Otto Hahn and Lise Meitner."
@@ -1168,3 +1357,9 @@ NEE_MERRITT_A_EDSON_ARMY_DESC:0 "§YGeneral Description\n§YBorn:§W April 25, 1
 NEE_MARK_CLARK_ARMY_DESC:0 "§YGeneral Description\n§YBorn:§W May 1, 1896, in Sackets Harbour, New York State, United States of America\n§YMilitary Career:§W Mark Wayne Clark was born into a family with a great military history. His grandfather was George Rogers Clark, a military general from the times of the American Revolution, and is the cousin of Army General George Marshall. He joined the United States Military Academy at West Point when he was just 17, in 1913, but unfortunately lost time in his career due to his constant illness. In his time in West Point, he met and befriended Dwight Eisenhower, and Clark graduated in April 1917 alongside Matthew Ridgway and J. Lawton Collins as a second lieutenant. Like his grandfather, he chose to serve in the Infantry corps where he was assigned to the 11th Infantry Regiment. He'd later serve in a variety of staff and training roles, gaining the rank of First Lieutenant in 1921, the rank of Captain in 1925 after completing the professional officer course at the US Army Infantry School, and reached rank of Major in 1933 after being assigned as the training instructor of the Indiana Army National Guard. He served as the deputy commander of the Civilian Conservation Corps district in Omaha, Nebraska while doing courses at the U.S. Army Command and General Staff School where he would meet old classmates like Matthew Ridgway once more, as well as meeting Walter Bedell Smith and Geoffrey Keyes, with whom he had a cordial relationship. As the internal situation deteriorated, Clark was on leave in New York, and when hostilities broke out, he moved to New England looking for safety. With the lack of capable staff, Clark has been hastily promoted to Brigadier General, where he'll now have to oversee the creation of a new army.\n§YImportant Notes:§W- While his loyalty is unquestioned, his friendship with now enemy Generals have raised concerns that General Clark will be unable to do his duty when the time comes to face them openly on the battlefield."
 NEE_WILLARD_G_WYMAN_ARMY_DESC:0 "§YGeneral Description\n§YBorn:§W March 21, 1898, in Augusta, Maine, United States of America\n§YMilitary Career:§W Willard Gordon Wyman entered the United States Military Academy in 1917 and was commissioned as a second lieutenant into the Coastal Artillery Branch, and later transferred to the Cavalry Branch of the United States Army. He became an infantry and cavalry instructor in 1921, and would gain valuable experience working as an attaché on China between 1928 and 1932, reaching the rank of Captain upon his return. The lack of capable staff forced an early promotion to Brigadier General for Wyman, but he has shown willingness to learn despite being thrown in such a difficult position."
 NEE_LEMUEL_SHEPHERD_ARMY_DESC:0 "§YGeneral Description\n§YBorn:§W February 10, 1896, in Norfolk, Virginia, United States of America\n§YMilitary Career:§W Lemuel Cornick 'Lem' Shepherd Jr. graduated from the Virginia Military Institute in 1917, and would enter the Marine Corps right after as a second lieutenant. He'd slowly climbed his way to Captain in 1922, where he was assigned to the Marine Company that assisted the Brazil's Centennial Exposition and would be later reassigned to the Marine Detachment in the USS New York. In 1927, he was shipped to Tianjin to serve in the 3rd Marine Brigade guarding the American Legation in the city. Lemuel would return to America in 1929 and graduate from the Field Officers' Course in 1932. He'd be sent to Haiti to serve with the Garde d'Haïti as a District and Department Commander, where he earned his promotion to Major. In 1934, Shepherd was detailed to the Marine Barracks, Washington, D. C., as Executive Officer and as Registrar of the Marine Corps Institute and would be promoted to Lieutenant Colonel in early 1936. After his promotion, he was assigned to the Naval War College at Newport, Rhode Island. With the country spiralling into Civil War and the Canadian seizure of New England, Shepherd presented his services to the New England Government, earning his promotion to Brigadier General and being assigned to the New England Marine Corps, where his experience shall be greatly valued by the small New England staff."
+
+infantry_equipment_research:1 "Infantry Equipment Research"
+mechanized_equipment_research:1 "Mechanized Equipment Research"
+modifier_experience_gain_motorized_training_factor:0 "Motorized Training Experience Gain"
+modifier_experience_gain_mechanized_training_factor:0 "Motorized Training Experience Gain"
+NEE_american_trade:0 "New English Trade"

@@ -2,6 +2,7 @@
 # New England Flavor
 ###################################
 # By herkles and Jeankedezeehond
+# Fun stuff by ClothCoat
 ###################################
 
 add_namespace = newengland
@@ -12,14 +13,21 @@ country_event = { # Occupy New England
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.1"}
 	title = newengland.1.t
 	desc = newengland.1.d
-	picture = GFX_USA_Riots
+	picture = GFX_report_event_USA_Riots
 
 	is_triggered_only = yes
 
 	option = {
 		name = newengland.1.a
 		ai_chance = { # Take New England
-			factor = 4000
+			factor = 100
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = CAN_acw_new_england
+					option = CAN_ACW_NEW_ENGLAND_NOT_TAKE
+				}
+			}
 		}
 		every_state = {
 			limit = {
@@ -53,11 +61,23 @@ country_event = { # Occupy New England
 				days = 1
 			}
 		}
+		hidden_effect = {
+			USA = {
+				remove_unit_leader = 86
+			}
+		}
 	}
 	option = {
 		name = newengland.1.b
 		ai_chance = {
 			factor = 0
+			modifier = {
+				factor = 100
+				has_game_rule = {
+					rule = CAN_acw_new_england
+					option = CAN_ACW_NEW_ENGLAND_NOT_TAKE
+				}
+			}
 		}
 		add_stability = -0.01
 	}
@@ -67,7 +87,7 @@ country_event = { # ACW nation informed that Canada has seized New England
 	id = newengland.2
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.2"}
 	title = newengland.2.t
-	picture = GFX_USA_Riots
+	picture = GFX_report_event_USA_Riots
 	
 	desc = {
 		text = newengland.2.d
@@ -130,7 +150,7 @@ country_event = { # Canada doesn't occupy New England
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.3"}
 	title = newengland.3.t
 	desc = newengland.3.d
-	picture = GFX_USA_Riots
+	picture = GFX_report_event_USA_Riots
 
 	is_triggered_only = yes
 	
@@ -183,7 +203,14 @@ country_event = { # Canada Releases New England
 	option = {
 		name = newengland.5.a
 		ai_chance = {
-			factor = 100
+			factor = 75
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = CAN_acw_new_england
+					option = CAN_ACW_NEW_ENGLAND_NOT_FORM
+				}
+			}
 		}
 		add_stability = 0.01
 		every_owned_state = {
@@ -213,6 +240,20 @@ country_event = { # Canada Releases New England
 			CAN = {
 				NEE = {
 					transfer_technology = yes
+				}
+			}
+			if = {
+				limit = { has_dlc = "La Resistance"	}
+				NEE = {
+					create_operative_leader = {
+						name = "Virginia Hall"
+						GFX = GFX_portrait_kr_virginia_hall
+						traits = { operative_demolition_expert }
+						bypass_recruitment = no
+						available_to_spy_master = yes
+						female = yes
+						nationalities = { NEE USA }
+					}
 				}
 			}
 			NEE = {
@@ -278,6 +319,20 @@ country_event = { # Canada Releases New England
 					transfer_technology = yes
 				}
 			}
+			if = {
+				limit = { has_dlc = "La Resistance"	}
+				NEE = {
+					create_operative_leader = {
+						name = "Virginia Hall"
+						GFX = GFX_portrait_kr_virginia_hall
+						traits = { operative_demolition_expert }
+						bypass_recruitment = no
+						available_to_spy_master = yes
+						female = yes
+						nationalities = { NEE USA }
+					}
+				}
+			}
 			NEE = {
 				country_event = {
 					id = newengland.6
@@ -311,8 +366,37 @@ country_event = { # Canada Releases New England
 	}
 	option = {
 		name = newengland.5.c
-		trigger = {
-			is_ai = no
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 0
+				OR = {
+					has_government = market_liberal
+					has_government = social_liberal
+					has_government = social_democrat
+				}
+				NOT = {
+					has_game_rule = {
+						rule = CAN_acw_new_england
+						option = CAN_ACW_NEW_ENGLAND_NOT_FORM
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				has_government = authoritarian_democrat
+			}
+			modifier = {
+				factor = 3
+				has_government = paternal_autocrat
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = CAN_acw_new_england
+					option = CAN_ACW_NEW_ENGLAND_FORM
+				}
+			}
 		}
 		add_stability = -0.05
 		add_war_support = -0.05
@@ -320,6 +404,20 @@ country_event = { # Canada Releases New England
 		hidden_effect = {
 			set_variable = {
 				CAN_yankee_rebellion = 0
+			}
+			if = {
+				limit = { has_dlc = "La Resistance"	}
+				CAN = {
+					create_operative_leader = {
+						name = "Virginia Hall"
+						GFX = GFX_portrait_kr_virginia_hall
+						traits = { operative_demolition_expert }
+						bypass_recruitment = no
+						available_to_spy_master = yes
+						female = yes
+						nationalities = { CAN USA }
+					}
+				}
 			}
 		}
 	}
@@ -370,7 +468,7 @@ country_event = { # America is reunited
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.7"}
 	title = newengland.7.t
 	desc = newengland.7.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	fire_only_once = yes
 
@@ -478,7 +576,7 @@ country_event = { # New England requests home rule
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.12"}
 	title = newengland.12.t
 	desc = newengland.12.d
-	picture = diplomacy2
+	picture = GFX_report_event_generic_diplomacy2
 
 	is_triggered_only = yes
 
@@ -546,7 +644,7 @@ country_event = { # New England granted home rule
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.13"}
 	title = newengland.13.t
 	desc = newengland.13.d
-	picture = diplomacy3
+	picture = GFX_report_event_generic_diplomacy3
 
 	is_triggered_only = yes
 
@@ -576,7 +674,7 @@ country_event = { # New England refused home rule
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.14"}
 	title = newengland.14.t
 	desc = newengland.14.d
-	picture = diplomacy2
+	picture = GFX_report_event_generic_diplomacy2
 
 	is_triggered_only = yes
 
@@ -601,7 +699,7 @@ country_event = { # Declaration of Independence
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.15"}
 	title = newengland.15.t
 	desc = newengland.15.d
-	picture = diplomacy2
+	picture = GFX_report_event_generic_diplomacy2
 
 	is_triggered_only = yes
 
@@ -648,7 +746,7 @@ country_event = { # The Provisional Government
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.20"}
 	title = newengland.20.t
 	desc = newengland.20.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 		tag = NEE
@@ -658,6 +756,41 @@ country_event = { # The Provisional Government
 	fire_only_once = yes
 	is_triggered_only = yes
 
+	option = { # George Aiken
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = NEE_start_path
+					option = NEE_START_PATH_LIBERAL
+				}
+			}
+		}
+		name = newengland.20.a
+		hidden_effect = {
+			add_ideas = NEE_George_Aiken_hog_sde
+			add_ideas = NEE_Frederick_Hale_for_sde
+			add_ideas = NEE_Scott_Nearing_eco_sde
+			add_ideas = NEE_Edith_Nourse_Rogers_sec_sde
+		}
+		create_country_leader = {
+					name = "George Aiken"
+					desc = "POLITICS_GEORGE_AIKEN_DESC"
+					picture = "gfx/leaders/NEE/George_Aiken.tga"
+					expire = "1965.1.1"
+					ideology = social_democrat_subtype
+					traits = {
+						captain_of_industry
+		}
+		}
+		set_politics = {
+			ruling_party = social_democrat
+			last_election = "1936.11.16"
+			election_frequency = 48
+			elections_allowed = yes
+		}
+	}
 	option = { # William Averell Harriman
 		ai_chance = {
 			factor = 25
@@ -669,12 +802,12 @@ country_event = { # The Provisional Government
 				}
 			}
 		}
-		name = newengland.20.a
+		name = newengland.20.b
 		hidden_effect = {
 			add_ideas = NEE_John_Gilbert_Winant_hog_sli
-			add_ideas = NEE_Frederick_Hale_for_sli
+			add_ideas = NEE_Frederick_Hale_for_sde
 			add_ideas = NEE_Charles_Russell_Clason_eco_sli
-			add_ideas = NEE_Edith_Nourse_Rogers_sec_sli
+			add_ideas = NEE_Edith_Nourse_Rogers_sec_sde
 		}
 		set_politics = {
 			ruling_party = social_liberal
@@ -694,7 +827,7 @@ country_event = { # The Provisional Government
 				}
 			}
 		}
-		name = newengland.20.b
+		name = newengland.20.c
 		hidden_effect = {
 			add_ideas = NEE_Percival_P_Baxter_hog_mli
 			add_ideas = NEE_John_Hay_Whitney_for_mli
@@ -708,7 +841,7 @@ country_event = { # The Provisional Government
 			elections_allowed = yes
 		}
 	}
-	option = { # Joseph William Martin Jr.
+	option = { # James Michael Curley 
 		ai_chance = {
 			factor = 25
 			modifier = {
@@ -719,10 +852,10 @@ country_event = { # The Provisional Government
 				}
 			}
 		}
-		name = newengland.20.c
+		name = newengland.20.e
 		hidden_effect = {
-			add_ideas = NEE_Christian_Herter_hog_sco
-			add_ideas = NEE_Herbert_Claiborne_Pell_Jr_for_sco
+			add_ideas = NEE_Joseph_Kennedy_Sr_hog_sco
+			add_ideas = NEE_Dean_Gooderham_Acheson_for_sco
 			add_ideas = NEE_William_Stuart_Symington_Jr_eco_sco
 			add_ideas = NEE_Wilbur_Lucius_Cross_sec_sco
 		}
@@ -736,12 +869,12 @@ country_event = { # The Provisional Government
 }
 
 ### 1940 Elections and Primaries ###
-country_event = { # 1940 Liberal Primary
+country_event = { # 1940 National Party Primary
 	id = newengland.21
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.21"}
 	title = newengland.21.t
 	desc = newengland.21.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 
@@ -779,7 +912,7 @@ country_event = { # 1940 Republican Primary
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.22"}
 	desc = newengland.22.d
 	title = newengland.22.t
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	
@@ -802,7 +935,7 @@ country_event = { # 1940 Republican Primary
 		}
 		hidden_effect = {
 		country_event = {
-			id = newengland.23
+			id = newengland.2200
 			days = 6
 			}
 		}
@@ -824,7 +957,7 @@ country_event = { # 1940 Republican Primary
 		}
 		hidden_effect = {
 		country_event = {
-			id = newengland.23
+			id = newengland.2200
 			days = 9
 			}
 		}
@@ -839,19 +972,31 @@ country_event = { # 1940 Republican Primary
 		}
 		hidden_effect = {
 		country_event = {
-			id = newengland.23
+			id = newengland.2200
 			days = 9
 			}
 		}
 	}
+}
+
+country_event = { # 1940 Liberal Republican Primary
+	id = newengland.2200
+	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.2200"}
+	desc = newengland.2200.d
+	title = newengland.2200.t
+	picture = GFX_report_event_USA_congress
+
+	is_triggered_only = yes
 	
+	fire_only_once = yes
+
 	option = { # Herbert H. Lehman
-		name = newengland.22.e
+		name = newengland.2200.a
 		ai_chance = {
 			factor = 50
 		}
 		hidden_effect = {
-			set_country_flag = NEE_1940_republican_primary_lehman
+			set_country_flag = NEE_1940_liberal_republican_primary_lehman
 		}
 		hidden_effect = {
 		country_event = {
@@ -862,12 +1007,12 @@ country_event = { # 1940 Republican Primary
 	}
 	
 	option = { # John Gilbert Winant
-		name = newengland.22.f
+		name = newengland.2200.b
 		ai_chance = {
 			factor = 50
 		}
 		hidden_effect = {
-			set_country_flag = NEE_1940_republican_primary_winant
+			set_country_flag = NEE_1940_liberal_republican_primary_winant
 		}
 		hidden_effect = {
 		country_event = {
@@ -878,12 +1023,12 @@ country_event = { # 1940 Republican Primary
 	}
 	
 	option = { # Thomas Dewey
-		name = newengland.22.g
+		name = newengland.2200.c
 		ai_chance = {
 			factor = 50
 		}
 		hidden_effect = {
-			set_country_flag = NEE_1940_republican_primary_dewey
+			set_country_flag = NEE_1940_liberal_republican_primary_dewey
 		}
 		hidden_effect = {
 		country_event = {
@@ -899,7 +1044,7 @@ country_event = { # 1940 Democrat Primary
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.23"}
 	title = newengland.23.t
 	desc = newengland.23.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 
@@ -908,7 +1053,7 @@ country_event = { # 1940 Democrat Primary
 	option = { # Joseph Kennedy Sr.
 		name = newengland.23.a
 		ai_chance = {
-			factor = 50
+			factor = 33
 			modifier = {
 				factor = 2
 				NOT = {
@@ -920,7 +1065,7 @@ country_event = { # 1940 Democrat Primary
 			}
 		}
 		hidden_effect = {
-			set_country_flag = NEE_1940_democrat_primary_kennedy
+			set_country_flag = NEE_1940_democratic_primary_kennedy
 		}
 		hidden_effect = {
 		country_event = {
@@ -932,10 +1077,25 @@ country_event = { # 1940 Democrat Primary
 	option = { # James Michael Curley
 		name = newengland.23.b
 		ai_chance = {
-			factor = 50
+			factor = 33
 		}
 		hidden_effect = {
 			set_country_flag = NEE_1940_democratic_primary_curley
+		}
+		hidden_effect = {
+		country_event = {
+			id = newengland.24
+			days = 9
+			}
+		}
+	}
+	option = { # Al Smith
+		name = newengland.23.c
+		ai_chance = {
+			factor = 33
+		}
+		hidden_effect = {
+			set_country_flag = NEE_1940_democratic_primary_smith
 		}
 		hidden_effect = {
 		country_event = {
@@ -951,7 +1111,7 @@ country_event = { # 1940 Election
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.24"}
 	title = newengland.24.t
 	desc = newengland.24.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	fire_only_once = yes
@@ -960,7 +1120,7 @@ country_event = { # 1940 Election
 		hidden_effect = {
 			if = { # Joseph Kennedy Sr.
 				limit = {
-					has_country_flag = NEE_1940_democrat_primary_kennedy
+					has_country_flag = NEE_1940_democratic_primary_kennedy
 				}
 				create_country_leader = {
 					name = "Joseph Kennedy Sr."
@@ -968,9 +1128,10 @@ country_event = { # 1940 Election
 					picture = "Portrait_NEE_joseph_kennedy_sr.tga"
 					expire = "1965.1.1"
 					ideology = social_conservative_subtype
-					traits = {}
+					traits = { tenacious_negotiator }
 				}
 			}
+
 			else_if = { # James Curley
 				limit = {
 					has_country_flag = NEE_1940_democratic_primary_curley
@@ -982,28 +1143,28 @@ country_event = { # 1940 Election
 					expire = "1965.1.1"
 					ideology = social_conservative_subtype
 					traits = {
+						political_boss
 					}
 				}
 			}
-			
-			else_if = { # Al Smith
+
+			if = { # Al Smith
 				limit = {
 					has_country_flag = NEE_1940_democratic_primary_smith
 				}
-				create_country_leader = {# Curley
+				create_country_leader = {
 					name = "Al Smith"
 					desc = "POLITICS_AL_SMITH_DESC"
-					picture = "gfx/leaders/NEE/Alsmith.tga"
+					picture = "gfx/leaders/NEE/Al_Smith.tga"
 					expire = "1965.1.1"
 					ideology = social_conservative_subtype
-					traits = {
-					}
+					traits = { political_boss }
 				}
 			}
 			
 			if = { # John Gilbert Winant
 				limit = {
-					has_country_flag = NEE_1940_republican_primary_winant
+					has_country_flag = NEE_1940_liberal_republican_primary_winant
 				}
 				create_country_leader = {
 					name = "John Gilbert Winant"
@@ -1019,7 +1180,7 @@ country_event = { # 1940 Election
 			
 			else_if = { # Herbert H. Lehman
 				limit = {
-					has_country_flag = NEE_1940_republican_primary_lehman
+					has_country_flag = NEE_1940_liberal_republican_primary_lehman
 				}
 				create_country_leader = {
 					name = " Herbert H. Lehman"
@@ -1044,6 +1205,7 @@ country_event = { # 1940 Election
 					expire = "1965.1.1"
 					ideology = market_liberal_subtype
 					traits = {
+						hog_reformist_soldier
 					}
 				}
 			}
@@ -1065,11 +1227,11 @@ country_event = { # 1940 Election
 			}
 			
 			else_if = { # Thomas Dewey
-				limit = { has_country_flag = NEE_1940_republican_primary_dewey }
+				limit = { has_country_flag = NEE_1940_liberal_republican_primary_dewey }
 				create_country_leader = {
 					name = "Thomas Dewey"
 					desc = "POLITICS_THOMAS_DEWEY_DESC"
-					picture = "Portrait_USA_Thomas_Dewey_KR.tga"
+					picture = "gfx/leaders/USA/Portrait_USA_Thomas_E_Dewey_Cursed.tga"
 					expire = "1965.1.1"
 					ideology = social_liberal_subtype
 					traits = {
@@ -1089,6 +1251,7 @@ country_event = { # 1940 Election
 					expire = "1965.1.1"
 					ideology = social_democrat_subtype
 					traits = {
+						captain_of_industry
 					}
 				}
 			}
@@ -1104,6 +1267,7 @@ country_event = { # 1940 Election
 					expire = "1965.1.1"
 					ideology = social_democrat_subtype
 					traits = {
+						economic_reformer
 					}
 				}
 			}
@@ -1117,11 +1281,11 @@ country_event = { # 1940 Election
 			set_country_flag = NEE_1940_election_liberal
 		}
 		add_popularity = {
-			ideology = social_liberal
+			ideology = social_democrat
 			popularity = 0.20
 		}
 		set_politics = {
-			ruling_party = social_liberal
+			ruling_party = social_democrat
 			election_frequency = 48
 			elections_allowed = yes
 		}
@@ -1130,10 +1294,10 @@ country_event = { # 1940 Election
 				limit = {
 					has_country_flag = NEE_1940_liberal_primary_aiken
 				}
-				add_ideas = NEE_George_Aiken_hog_mli
-				add_ideas = NEE_Frederick_Hale_for_sli
-				add_ideas = NEE_Scott_Nearing_eco_sli
-				add_ideas = NEE_Edith_Nourse_Rogers_sec_sli
+				add_ideas = NEE_George_Aiken_hog_sde
+				add_ideas = NEE_Frederick_Hale_for_sde
+				add_ideas = NEE_Scott_Nearing_eco_sde
+				add_ideas = NEE_Edith_Nourse_Rogers_sec_sde
 				hidden_effect = {
 					country_event = {
 						id = newengland.60
@@ -1146,15 +1310,51 @@ country_event = { # 1940 Election
 				limit = {
 					has_country_flag = NEE_1940_liberal_primary_perkins
 				}
-				add_ideas = NEE_George_Aiken_hog_mli
-				add_ideas = NEE_Frederick_Hale_for_sli
-				add_ideas = NEE_Scott_Nearing_eco_sli
-				add_ideas = NEE_Edith_Nourse_Rogers_sec_sli
+				add_ideas = NEE_George_Aiken_hog_sde
+				add_ideas = NEE_Frederick_Hale_for_sde
+				add_ideas = NEE_Scott_Nearing_eco_sde
+				add_ideas = NEE_Edith_Nourse_Rogers_sec_sde
+			}
+		}
+	}
+	option = { # Liberal Republican
+		name = newengland.24.b
+		set_country_flag = NEE_had_1940_election
+		hidden_effect = {
+			set_country_flag = NEE_1940_election_liberal_republican
+		}
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.20
+		}
+		set_politics = {
+			ruling_party = social_liberal
+			election_frequency = 48
+			elections_allowed = yes
+		}
+		hidden_effect = {
+			if = { # John Winant
+				limit = {
+					has_country_flag = NEE_1940_republican_primary_winant
+				}
+				add_ideas = NEE_John_Gilbert_Winant_hog_sli
+				add_ideas = NEE_George_Higgins_Moses_for_sli
+				add_ideas = NEE_Donald_L_Harlow_eco_sli
+				add_ideas = NEE_Wallace_Humphrey_White_Jr_sec_sli
+			}
+			else_if = { # Thomas Dewey
+				limit = {
+					has_country_flag = NEE_1940_republican_primary_dewey
+				}
+				add_ideas = NEE_Dennis_J_Roberts_hog_sli
+				add_ideas = NEE_Peter_Hoyt_Dominick_for_sli
+				add_ideas = NEE_Frederick_George_Payne_eco_sli
+				add_ideas = NEE_Ruth_Baker_Pratt_sec_sli
 			}
 		}
 	}
 	option = { # Republican
-		name = newengland.24.b
+		name = newengland.24.c
 		set_country_flag = NEE_had_1940_election
 		hidden_effect = {
 			set_country_flag = NEE_1940_election_republican
@@ -1178,24 +1378,6 @@ country_event = { # 1940 Election
 				add_ideas = NEE_Harry_Gabriel_Hamlet_eco_mli
 				add_ideas = NEE_Pierrepont_Burt_Noyes_sec_mli
 			}
-			else_if = { # John Winant
-				limit = {
-					has_country_flag = NEE_1940_republican_primary_winant
-				}
-				add_ideas = NEE_John_Gilbert_Winant_hog_sli
-				add_ideas = NEE_George_Higgins_Moses_for_sli
-				add_ideas = NEE_Donald_L_Harlow_eco_sli
-				add_ideas = NEE_Wallace_Humphrey_White_Jr_sec_sli
-			}
-			else_if = { # Thomas Dewey
-				limit = {
-					has_country_flag = NEE_1940_republican_primary_dewey
-				}
-				add_ideas = NEE_Dennis_J_Roberts_hog_sli
-				add_ideas = NEE_Peter_Hoyt_Dominick_for_sli
-				add_ideas = NEE_Frederick_George_Payne_eco_sli
-				add_ideas = NEE_Ruth_Baker_Pratt_sec_sli
-			}
 			else_if = { # Hamilton Fish III
 				limit = {
 					has_country_flag = NEE_1940_republican_primary_fish
@@ -1217,7 +1399,7 @@ country_event = { # 1940 Election
 		}
 	}
 	option = { # Democrat
-		name = newengland.24.c
+		name = newengland.24.e
 		set_country_flag = NEE_had_1940_election
 		hidden_effect = {
 			set_country_flag = NEE_1940_election_democrat
@@ -1232,21 +1414,21 @@ country_event = { # 1940 Election
 			elections_allowed = yes
 		}
 		hidden_effect = {
-			else_if = { # Joseph William Martin Jr.
+			else_if = { # Joseph Kennedy
 				limit = {
 					has_country_flag = NEE_1940_democrat_primary_kennedy
 				}
-				add_ideas = NEE_Joseph_Kennedy_Sr_hog_mli
-				add_ideas = NEE_Herbert_Claiborne_Pell_Jr_for_sco
+				add_ideas = NEE_Joseph_Kennedy_Sr_hog_sco
+				add_ideas = NEE_Dean_Gooderham_Acheson_for_sco
 				add_ideas = NEE_William_Stuart_Symington_Jr_eco_sco
 				add_ideas = NEE_Wilbur_Lucius_Cross_sec_sco
 			}
-			else_if = { # Joseph William Martin Jr.
+			else_if = { # Curley
 				limit = {
 					has_country_flag = NEE_1940_democratic_primary_curley
 				}
-				add_ideas = NEE_Joseph_Kennedy_Sr_hog_mli
-				add_ideas = NEE_Herbert_Claiborne_Pell_Jr_for_sco
+				add_ideas = NEE_Joseph_Kennedy_Sr_hog_sco
+				add_ideas = NEE_Dean_Gooderham_Acheson_for_sco
 				add_ideas = NEE_William_Stuart_Symington_Jr_eco_sco
 				add_ideas = NEE_Wilbur_Lucius_Cross_sec_sco
 			}
@@ -1254,8 +1436,8 @@ country_event = { # 1940 Election
 				limit = {
 					has_country_flag = NEE_1940_democratic_primary_smith
 				}
-				add_ideas = NEE_Joseph_Kennedy_Sr_hog_mli
-				add_ideas = NEE_Herbert_Claiborne_Pell_Jr_for_sco
+				add_ideas = NEE_Joseph_Kennedy_Sr_hog_sco
+				add_ideas = NEE_Dean_Gooderham_Acheson_for_sco
 				add_ideas = NEE_William_Stuart_Symington_Jr_eco_sco
 				add_ideas = NEE_Wilbur_Lucius_Cross_sec_sco
 			}
@@ -1264,7 +1446,73 @@ country_event = { # 1940 Election
 }
 
 ### 1944 Elections and Primaries ###
-country_event = { # 1944 Liberal Primary
+country_event = { # 1944 National Party Primary
+	id = newengland.2525
+	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.25"}
+	title = newengland.2525.t
+	desc = { # National Party has the Presidency
+		text = newengland.2525.d.president
+		trigger = {
+			has_government = social_democrat
+		}
+	}
+	desc = { # National Party does not have the Presidency
+		text = newengland.2525.d.not_president
+		trigger = {
+			NOT = {
+				has_government = social_democrat
+			}
+		}
+	}
+	picture = GFX_report_event_USA_congress
+
+	trigger = {
+		tag = NEE
+		date > 1944.6.10
+		has_elected_government = yes
+		has_country_flag = NEE_had_1940_election
+		NOT = {
+			has_country_flag = NEE_had_1944_election
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 10
+	}
+
+	fire_only_once = yes
+
+	option = { # Frances Perkins
+		name = newengland.2525.a
+		trigger = {
+			NOT = {
+				has_government = social_democrat
+			}
+		}
+		hidden_effect = {
+			set_country_flag = NEE_1944_liberal_primary_perkins
+		}
+	}
+	option = { # Ernest W. Gibson
+		name = newengland.2525.b
+		trigger = {
+			NOT = {
+				has_government = social_democrat
+			}
+		}
+		hidden_effect = {
+			set_country_flag = NEE_1944_liberal_primary_gibson
+		}
+	}
+	option = { # President is re-elected
+		name = newengland.2525.c
+		trigger = {
+			has_government = social_democrat
+		}
+	}
+}
+
+country_event = { # 1944 Liberal Republican Primary
 	id = newengland.25
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.25"}
 	title = newengland.25.t
@@ -1282,7 +1530,7 @@ country_event = { # 1944 Liberal Primary
 			}
 		}
 	}
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 		tag = NEE
@@ -1308,7 +1556,7 @@ country_event = { # 1944 Liberal Primary
 			}
 		}
 		hidden_effect = {
-			set_country_flag = NEE_1944_liberal_primary_roberts
+			set_country_flag = NEE_1944_liberal_republican_primary_roberts
 		}
 	}
 	option = { # Peter G. Gerry
@@ -1319,7 +1567,7 @@ country_event = { # 1944 Liberal Primary
 			}
 		}
 		hidden_effect = {
-			set_country_flag = NEE_1944_liberal_primary_gerry
+			set_country_flag = NEE_1944_liberal_republican_primary_gerry
 		}
 	}
 	option = { # President is re-elected
@@ -1348,7 +1596,7 @@ country_event = { # 1944 Republican Primary
 			}
 		}
 	}
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 		tag = NEE
@@ -1414,7 +1662,7 @@ country_event = { # 1944 Democrat Primary
 			}
 		}
 	}
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 		tag = NEE
@@ -1456,7 +1704,7 @@ country_event = { # 1944 election
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.28"}
 	title = newengland.28.t
 	desc = newengland.28.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	fire_only_once = yes
@@ -1472,9 +1720,36 @@ country_event = { # 1944 election
 
 	immediate = {
 		hidden_effect = {
+			if = { # Frances Perkins
+				limit = {
+					has_country_flag = NEE_1944_liberal_primary_perkins
+				}
+				create_country_leader = {
+					name = "Frances Perkins"
+					desc = "POLITICS_FRANCES_PERKINS_DESC"
+					picture = "gfx/leaders/NEE/Frances_Perkins.tga"
+					expire = "1965.1.1"
+					ideology = social_democrat_subtype
+					traits = {
+						economic_reformer
+				}
+			}
+			else_if = { # Ernest W. Gibson
+				limit = {
+					has_country_flag = NEE_1944_liberal_primary_gibson
+				}
+				create_country_leader = {
+					name = "Ernest W. Gibson"
+					desc = "POLITICS_ERNEST_GIBSON_DESC"
+					picture = "Ernest_William_Gibson_Jr.tga"
+					expire = "1965.1.1"
+					ideology = social_democrat_subtype
+					traits = { economic_reformer }
+				}
+			}
 			if = { # Dennis J. Roberts
 				limit = {
-					has_country_flag = NEE_1944_liberal_primary_roberts
+					has_country_flag = NEE_1944_liberal_republican_primary_roberts
 				}
 				create_country_leader = {
 					name = "Dennis J. Roberts "
@@ -1482,12 +1757,12 @@ country_event = { # 1944 election
 					picture = "Portrait_NEE_Dennis_Roberts.tga"
 					expire = "1965.1.1"
 					ideology = social_liberal_subtype
-					traits = {}
+					traits = { economic_reformer }
 				}
 			}
 			else_if = { # Peter G. Gerry
 				limit = {
-					has_country_flag = NEE_1944_liberal_primary_gerry
+					has_country_flag = NEE_1944_liberal_republican_primary_gerry
 				}
 				create_country_leader = {
 					name = "Peter G. Gerry"
@@ -1495,7 +1770,7 @@ country_event = { # 1944 election
 					picture = "Portrait_NEE_Peter_Gerry.tga"
 					expire = "1965.1.1"
 					ideology = social_liberal_subtype
-					traits = {}
+					traits = { great_survivor }
 				}
 			}
 			if = { # Sherman Adams
@@ -1508,7 +1783,7 @@ country_event = { # 1944 election
 					picture = "Portrait_NEE_Sherman_Adams.tga"
 					expire = "1965.1.1"
 					ideology = market_liberal_subtype
-					traits = {}
+					traits = { quartermaster_general }
 				}
 			}
 			else_if = { # Robert F. Bradford
@@ -1521,7 +1796,7 @@ country_event = { # 1944 election
 					picture = "Portrait_NEE_Robert_Bradford.tga"
 					expire = "1965.1.1"
 					ideology = market_liberal_subtype
-					traits = {}
+					traits = { economist }
 				}
 			}
 			if = { # Christian Herter
@@ -1534,17 +1809,53 @@ country_event = { # 1944 election
 					picture = "Portrait_NEE_Christian_Archibald_Herter.tga"
 					expire = "1965.1.1"
 					ideology = social_conservative_subtype
-					traits = {}
+					traits = { tenacious_negotiator }
 				}
 			}
 		}
 	}
 
-	option = { # Liberal
+	option = { # Progressive
 		name = newengland.28.a
 		set_country_flag = NEE_had_1944_election
 		hidden_effect = {
 			set_country_flag = NEE_1944_election_liberal
+		}
+		add_popularity = {
+			ideology = social_democrat
+			popularity = 0.20
+		}
+		set_politics = {
+			ruling_party = social_democrat
+			election_frequency = 48
+			elections_allowed = yes
+		}
+		hidden_effect = {
+			if = { # Frances Perkins
+				limit = {
+					has_country_flag = NEE_1944_liberal_primary_perkins
+				}
+				add_ideas = NEE_George_Aiken_hog_sde
+				add_ideas = NEE_Frederick_Hale_for_sde
+				add_ideas = NEE_Scott_Nearing_eco_sde
+				add_ideas = NEE_Edith_Nourse_Rogers_sec_sde
+			}
+			else_if = { # Ernest W. Gibson
+				limit = {
+					has_country_flag = NEE_1944_liberal_primary_gibson
+				}
+				add_ideas = NEE_George_Aiken_hog_sde
+				add_ideas = NEE_Frederick_Hale_for_sde
+				add_ideas = NEE_Scott_Nearing_eco_sde
+				add_ideas = NEE_Edith_Nourse_Rogers_sec_sde
+			}
+		}
+	}
+	option = { # Liberal Republican
+		name = newengland.28.b
+		set_country_flag = NEE_had_1944_election
+		hidden_effect = {
+			set_country_flag = NEE_1944_election_liberal_republican
 		}
 		add_popularity = {
 			ideology = social_liberal
@@ -1561,7 +1872,7 @@ country_event = { # 1944 election
 					has_country_flag = NEE_1944_liberal_primary_roberts
 				}
 				add_ideas = NEE_Dennis_J_Roberts_hog_sli
-				add_ideas = NEE_Frederick_Hale_for_sli
+				add_ideas = NEE_Frederick_Hale_for_sde
 				add_ideas = NEE_Charles_Russell_Clason_eco_sli
 				add_ideas = NEE_Wallace_Humphrey_White_Jr_sec_sli
 			}
@@ -1570,7 +1881,7 @@ country_event = { # 1944 election
 					has_country_flag = NEE_1944_liberal_primary_gerry
 				}
 				add_ideas = NEE_Peter_G_Gerry_hog_sli
-				add_ideas = NEE_Frederick_Hale_for_sli
+				add_ideas = NEE_Frederick_Hale_for_sde
 				add_ideas = NEE_Charles_Russell_Clason_eco_sli
 				add_ideas = NEE_Wallace_Humphrey_White_Jr_sec_sli
 				hidden_effect = {
@@ -1584,7 +1895,7 @@ country_event = { # 1944 election
 		}
 	}
 	option = { # Republican
-		name = newengland.28.b
+		name = newengland.28.c
 		set_country_flag = NEE_had_1944_election
 		hidden_effect = {
 			set_country_flag = NEE_1944_election_republican
@@ -1620,7 +1931,7 @@ country_event = { # 1944 election
 		}
 	}
 	option = { # Democrat
-		name = newengland.28.c
+		name = newengland.28.e
 		set_country_flag = NEE_had_1944_election
 		hidden_effect = {
 			set_country_flag = NEE_1944_election_democrat
@@ -1640,12 +1951,13 @@ country_event = { # 1944 election
 					has_country_flag = NEE_1944_democratic_primary_herter
 				}
 				add_ideas = NEE_Christian_Herter_hog_sco
-				add_ideas = NEE_Herbert_Claiborne_Pell_Jr_for_sco
+				add_ideas = NEE_Dean_Gooderham_Acheson_for_sco
 				add_ideas = NEE_William_Stuart_Symington_Jr_eco_sco
 				add_ideas = NEE_Wilbur_Lucius_Cross_sec_sco
 			}
 		}
 	}
+}
 }
 
 ### 1948 Elections and Primaries ###
@@ -1677,7 +1989,7 @@ country_event = { # 1948 Liberal Primary
 			}
 		}
 	}
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 		tag = NEE
@@ -1763,7 +2075,7 @@ country_event = { # 1948 Republican Primary
 			}
 		}
 	}
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 		tag = NEE
@@ -1849,7 +2161,7 @@ country_event = { # 1948 Democrat Primary
 			}
 		}
 	}
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 		tag = NEE
@@ -1898,7 +2210,7 @@ country_event = { # 1948 election
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.32"}
 	title = newengland.32.t
 	desc = newengland.32.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	fire_only_once = yes
@@ -1925,7 +2237,7 @@ country_event = { # 1948 election
 					picture = "Portrait_NEE_Maurice_Tobin.tga"
 					expire = "1965.1.1"
 					ideology = social_liberal_subtype
-					traits = {}
+					traits = { divided_interests }
 				}
 			}
 			else_if = { # Paul A. Dever
@@ -1938,7 +2250,7 @@ country_event = { # 1948 election
 					picture = "Portrait_NEE_Paul_A_Dever.tga"
 					expire = "1965.1.1"
 					ideology = social_liberal_subtype
-					traits = {}
+					traits = { armaments_organizer }
 				}
 			}
 			if = { # George Aiken
@@ -1948,10 +2260,10 @@ country_event = { # 1948 election
 				create_country_leader = {
 					name = "George Aiken"
 					desc = "POLITICS_GEORGE_AIKEN_DESC"
-					picture = "Portrait_NEE_George_Aiken.tga"
+					picture = "gfx/leaders/NEE/George_Aiken.tga"
 					expire = "1965.1.1"
-					ideology = market_liberal_subtype
-					traits = {}
+					ideology = social_democrat_subtype
+					traits = { captain_of_industry }
 				}
 			}
 			else_if = { # Robert F. Bradford
@@ -1964,7 +2276,7 @@ country_event = { # 1948 election
 					picture = "Portrait_NEE_Robert_Bradford.tga"
 					expire = "1965.1.1"
 					ideology = market_liberal_subtype
-					traits = {}
+					traits = { economist }
 				}
 			}
 			if = { # Thomas C. Hart
@@ -1977,7 +2289,7 @@ country_event = { # 1948 election
 					picture = "Portrait_NEE_Thomas_Hart.tga"
 					expire = "1965.1.1"
 					ideology = social_conservative_subtype
-					traits = {}
+					traits = { quartermaster_general }
 				}
 			}
 		}
@@ -2006,7 +2318,7 @@ country_event = { # 1948 election
 				add_ideas = NEE_Maurice_J_Tobin_hog_sli
 				add_ideas = NEE_Henry_Styles_Bridges_for_sli
 				add_ideas = NEE_Ralph_Edward_Flanders_eco_sli
-				add_ideas = NEE_Edith_Nourse_Rogers_sec_sli
+				add_ideas = NEE_Edith_Nourse_Rogers_sec_sde
 				hidden_effect = {
 					country_event = {
 						id = newengland.62
@@ -2022,7 +2334,7 @@ country_event = { # 1948 election
 				add_ideas = NEE_Paul_A_Dever_hog_sli
 				add_ideas = NEE_Henry_Styles_Bridges_for_sli
 				add_ideas = NEE_Ralph_Edward_Flanders_eco_sli
-				add_ideas = NEE_Edith_Nourse_Rogers_sec_sli
+				add_ideas = NEE_Edith_Nourse_Rogers_sec_sde
 			}
 		}
 	}
@@ -2046,10 +2358,13 @@ country_event = { # 1948 election
 				limit = {
 					has_country_flag = NEE_1948_republican_primary_aiken
 				}
-				add_ideas = NEE_George_Aiken_hog_mli
+				add_ideas = NEE_George_Aiken_hog_sde
 				add_ideas = NEE_Joseph_Patrick_Kennedy_Jr_for_mli
 				add_ideas = NEE_Leslie_Richard_Groves_Jr_eco_mli
 				add_ideas = NEE_Warren_Fales_Draper_sec_mli
+				set_politics = {
+					ruling_party = social_democrat
+				}
 			}
 			else_if = { # Robert F. Bradford
 				limit = {
@@ -2120,7 +2435,7 @@ country_event = { # 1952 Liberal Primary
 			}
 		}
 	}
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 		tag = NEE
@@ -2207,7 +2522,7 @@ country_event = { # 1952 Republican Primary
 			}
 		}
 	}
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 		tag = NEE
@@ -2294,7 +2609,7 @@ country_event = { # 1952 Democrat Primary
 			}
 		}
 	}
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	trigger = {
 		tag = NEE
@@ -2358,7 +2673,7 @@ country_event = { # 1952 election
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.37"}
 	title = newengland.37.t
 	desc = newengland.37.d
-	picture = congress
+	picture = GFX_report_event_USA_congress
 
 	is_triggered_only = yes
 	fire_only_once = yes
@@ -2386,7 +2701,7 @@ country_event = { # 1952 election
 					picture = "Portrait_NEE_Paul_A_Dever.tga"
 					expire = "1965.1.1"
 					ideology = social_liberal_subtype
-					traits = {}
+					traits = { armaments_organizer }
 				}
 			}
 			else_if = { # Charles Poletti
@@ -2399,7 +2714,7 @@ country_event = { # 1952 election
 					picture = "Portrait_NEE_Charles_Poletti.tga"
 					expire = "1965.1.1"
 					ideology = social_liberal_subtype
-					traits = {}
+					traits = { appeaser }
 				}
 			}
 			if = { # Nelson Rockefeller
@@ -2412,7 +2727,7 @@ country_event = { # 1952 election
 					picture = "Portrait_NEE_Nelson_Rockefeller.tga"
 					expire = "1965.1.1"
 					ideology = market_liberal_subtype
-					traits = {}
+					traits = { financial_expert }
 				}
 			}
 			else_if = { # Henry C. Lodge Jr.
@@ -2425,7 +2740,7 @@ country_event = { # 1952 election
 					picture = "Portrait_NEE_Henry_Lodge.tga"
 					expire = "1965.1.1"
 					ideology = market_liberal_subtype
-					traits = {}
+					traits = { war_industrialist  }
 				}
 			}
 			if = { # Thomas C. Hart
@@ -2438,7 +2753,7 @@ country_event = { # 1952 election
 					picture = "Portrait_NEE_Thomas_Hart.tga"
 					expire = "1965.1.1"
 					ideology = social_conservative_subtype
-					traits = {}
+					traits = { quartermaster_general }
 				}
 			}
 			else_if = { # Styles Bridges
@@ -2451,7 +2766,7 @@ country_event = { # 1952 election
 					picture = "Portrait_NEE_Styles_Bridges.tga"
 					expire = "1965.1.1"
 					ideology = social_conservative_subtype
-					traits = {}
+					traits = { prince_of_terror }
 				}
 			}
 		}
@@ -2480,7 +2795,7 @@ country_event = { # 1952 election
 				add_ideas = NEE_Paul_A_Dever_hog_sli
 				add_ideas = NEE_Henry_Styles_Bridges_for_sli
 				add_ideas = NEE_Ralph_Edward_Flanders_eco_sli
-				add_ideas = NEE_Edith_Nourse_Rogers_sec_sli
+				add_ideas = NEE_Edith_Nourse_Rogers_sec_sde
 			}
 			else_if = { # Charles Poletti
 				limit = {
@@ -2489,7 +2804,7 @@ country_event = { # 1952 election
 				add_ideas = NEE_Charles_Poletti_hog_sli
 				add_ideas = NEE_Henry_Styles_Bridges_for_sli
 				add_ideas = NEE_Ralph_Edward_Flanders_eco_sli
-				add_ideas = NEE_Edith_Nourse_Rogers_sec_sli
+				add_ideas = NEE_Edith_Nourse_Rogers_sec_sde
 			}
 		}
 	}
@@ -3010,7 +3325,7 @@ country_event = { # Creation of the Railroad
 }
 
 #CSA
-country_event = { # Refugees flood in from the Great Lakes (Underground Railroad)
+country_event = { # Refugees GFX_report_event_USA_flood in from the Great Lakes (Underground Railroad)
 	id = newengland.51
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.51"}
 	title = newengland.51.t
@@ -3439,7 +3754,7 @@ country_event = { # Appointing the New England Poet laureate
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.59"}
 	title = newengland.59.t
 	desc = newengland.59.d
-	picture = Diplomacy2
+	picture = GFX_report_event_generic_diplomacy2
 
 	fire_only_once = yes
 
@@ -3463,7 +3778,7 @@ country_event = { # Intervention for John Winant
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.60"}
 	title = newengland.60.t
 	desc = newengland.60.d
-	picture = USA_fireside_chats
+	picture = GFX_report_event_USA_fireside_chats
 
 	fire_only_once = yes
 
@@ -3488,7 +3803,7 @@ country_event = { # Gerry Campaigns for King
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.61"}
 	title = newengland.61.t
 	desc = newengland.61.d
-	picture = USA_victory_celebration
+	picture = GFX_report_event_USA_victory_celebration
 
 	fire_only_once = yes
 
@@ -3516,7 +3831,7 @@ country_event = { # Cocoanut Grove fire traced back to Tobin
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.62"}
 	title = newengland.62.t
 	desc = newengland.62.d
-	picture = USA_reconstruction1
+	picture = GFX_report_event_USA_reconstruction1
 	fire_only_once = yes
 
 	trigger = {
@@ -3540,7 +3855,7 @@ country_event = { # Rockefeller Center artifacts recovered, some defaced
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.63"}
 	title = newengland.63.t
 	desc = newengland.63.d
-	picture = USA_reconstruction
+	picture = GFX_report_event_USA_reconstruction
 
 	fire_only_once = yes
 
@@ -3565,7 +3880,7 @@ country_event = { # Canadians apply for West Point
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.64"}
 	title = newengland.64.t
 	desc = newengland.64.d
-	picture = ACW_soldiers1
+	picture = GFX_report_event_USA_soldiers1
 
 	fire_only_once = yes
 
@@ -3749,6 +4064,38 @@ country_event = { # The Yankee Rebellion
 
 	option = {
 		name = newengland.80.a
+		ai_chance = {
+			factor = 75
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = CAN_acw_new_england
+					option = CAN_ACW_NEW_ENGLAND_FORM
+				}
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_government = market_liberal
+					has_government = social_liberal
+					has_government = social_democrat
+				}
+				NOT = {
+					has_game_rule = {
+						rule = CAN_acw_new_england
+						option = CAN_ACW_NEW_ENGLAND_NOT_FORM
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_government = authoritarian_democrat
+			}
+			modifier = {
+				factor = 2
+				has_government = paternal_autocrat
+			}
+		}
 		add_stability = -0.01
 		set_country_flag = CAN_yankee_rebellion
 		every_owned_state = {
@@ -3776,6 +4123,20 @@ country_event = { # The Yankee Rebellion
 	}
 	option = {
 		name = newengland.80.b
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 0
+				has_country_flag = CAN_no_puppet_new_england
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = CAN_acw_new_england
+					option = CAN_ACW_NEW_ENGLAND_NOT_FORM
+				}
+			}
+		}
 		trigger = {
 			is_ai = no
 		}
@@ -3815,6 +4176,17 @@ country_event = { # The Yankee Rebellion
 				}
 				load_oob = NEE
 			}
+			NEE = {
+					create_operative_leader = {
+						name = "Virginia Hall"
+						GFX = GFX_portrait_kr_virginia_hall
+						traits = { operative_demolition_expert }
+						bypass_recruitment = no
+						available_to_spy_master = yes
+						female = yes
+						nationalities = { NEE USA }
+					}
+				}
 		}
 	}
 }
@@ -5284,6 +5656,8 @@ country_event = { # Minor Syndie Revolts
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.101"}
 	title = newengland.101.t
 	desc = newengland.101.d
+	
+	picture = GFX_report_event_generic_strike
 
 	is_triggered_only = yes
 
@@ -5307,6 +5681,8 @@ country_event = { # Not Ancaps
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.102"}
 	title = newengland.102.t
 	desc = newengland.102.d
+	
+	picture = GFX_report_event_generic_diplomacy1
 
 	is_triggered_only = yes
 
@@ -5331,6 +5707,8 @@ country_event = { # The Great Strike
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.103"}
 	title = newengland.103.t
 	desc = newengland.103.d
+	
+	picture = GFX_report_event_generic_strike
 
 	is_triggered_only = yes
 
@@ -5396,6 +5774,8 @@ country_event = { # Canada gains power
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.104"}
 	title = newengland.104.t
 	desc = newengland.104.d
+	
+	picture = GFX_report_event_USA_soldiers1
 
 	is_triggered_only = yes
 
@@ -5425,6 +5805,8 @@ country_event = { # Canada's Decision
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.105"}
 	title = newengland.105.t
 	desc = newengland.105.d
+	
+	picture = GFX_report_event_generic_diplomacy3
 
 	is_triggered_only = yes
 
@@ -5483,6 +5865,8 @@ country_event = { # Feds appointed
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.106"}
 	title = newengland.106.t
 	desc = newengland.106.d
+	
+	picture = GFX_report_event_generic_diplomacy2
 
 	is_triggered_only = yes
 
@@ -5558,6 +5942,8 @@ country_event = { # Feds appointed
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.107"}
 	title = newengland.107.t
 	desc = newengland.107.d
+	
+	picture = GFX_report_event_generic_diplomacy2
 
 	is_triggered_only = yes
 
@@ -5565,6 +5951,7 @@ country_event = { # Feds appointed
 
 	option = { # John Jacob Astor
 		name = newengland.107.a
+		set_country_flag = NEE_FEDS_APPOINTED
 		add_political_power = 35
 		add_stability = -0.03
 		add_manpower = 500
@@ -5579,10 +5966,10 @@ country_event = { # Feds appointed
 			create_country_leader = {
 				name = "John Jacob Astor"
 				desc = "NEE_JOHN_JACOB_ASTOR_DESC"
-				picture = "gfx/leaders/NEE/john_jacob_astor.tga"
+				picture = "gfx/leaders/NEE/Portrait_NEE_John_Jacob_Astor.tga"
 				expire = "1965.1.1"
 				ideology = authoritarian_democrat_subtype
-				traits = {}
+				traits = { elite_family_ties }
 			}
 		}
 		hidden_effect = {
@@ -5594,6 +5981,7 @@ country_event = { # Feds appointed
 	}
 	option = { # Vincent Astor
 		name = newengland.107.b
+		set_country_flag = NEE_FEDS_APPOINTED
 		add_political_power = 35
 		add_popularity = { ideology = authoritarian_democrat popularity = 0.01 }
 		add_stability = 0.03
@@ -5606,10 +5994,10 @@ country_event = { # Feds appointed
 			create_country_leader = {
 				name = "Vincent Astor"
 				desc = "NEE_VINCENT_ASTOR_DESC"
-				picture = "gfx/leaders/NEE/Vincent_Astor.tga"
+				picture = "gfx/leaders/NEE/Portrait_NEE_Vincent_Astor.tga"
 				expire = "1965.1.1"
 				ideology = authoritarian_democrat_subtype
-				traits = {}
+				traits = { elite_family_ties }
 			}
 		}
 	}
@@ -5631,7 +6019,7 @@ country_event = { # Feds appointed
 				picture = "gfx/leaders/NEE/Harold_Stirling_Vanderbilt.tga"
 				expire = "1965.1.1"
 				ideology = authoritarian_democrat_subtype
-				traits = {}
+				traits = { elite_family_ties }
 			}
 		}
 	}
@@ -5652,7 +6040,7 @@ country_event = { # Feds appointed
 				picture = "gfx/leaders/NEE/William_Kissam_Vanderbilt_II.tga"
 				expire = "1965.1.1"
 				ideology = authoritarian_democrat_subtype
-				traits = {}
+				traits = { elite_family_ties }
 			}
 		}
 	}
@@ -5663,6 +6051,8 @@ country_event = { # Federalist Party Sworn in
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.1070"}
 	title = newengland.1070.t
 	desc = newengland.1070.d
+	
+	picture = GFX_report_event_USA_Inauguration
 
 	is_triggered_only = yes
 
@@ -5686,6 +6076,8 @@ country_event = { # Federalist Party Sworn in
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.108"}
 	title = newengland.108.t
 	desc = newengland.108.d
+	
+	picture = GFX_event_NEE_ship
 
 	is_triggered_only = yes
 
@@ -5720,6 +6112,8 @@ country_event = { # Federalist Party Sworn in
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.109"}
 	title = newengland.109.t
 	desc = newengland.109.d
+	
+	picture = GFX_report_event_CSA_militia
 
 	is_triggered_only = yes
 
@@ -5757,6 +6151,7 @@ country_event = { # Federalist Party Sworn in
 		add_political_power = -20
 		add_popularity = { ideology = radical_socialist popularity = -0.01 }
 		add_stability = 0.02
+		set_capital = 934
 		}
 	}
 	
@@ -5765,6 +6160,8 @@ country_event = { # Ship Contracts
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.111"}
 	title = newengland.111.t
 	desc = newengland.111.d
+	
+	picture = GFX_event_NEE_ship
 
 	is_triggered_only = yes
 
@@ -5783,6 +6180,8 @@ country_event = { # The Hamiltonian Debate
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.112"}
 	title = newengland.112.t
 	desc = newengland.112.d
+	
+	picture = GFX_report_event_generic_diplomacy2
 
 	is_triggered_only = yes
 
@@ -5801,6 +6200,9 @@ country_event = { # Radicals Attack
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.113"}
 	title = newengland.113.t
 	desc = newengland.113.d
+	
+	picture = GFX_report_event_USA_national_guard
+
 
 	is_triggered_only = yes
 
@@ -5819,16 +6221,24 @@ country_event = { # Sentinel Offer
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.114"}
 	title = newengland.114.t
 	desc = newengland.114.d
+	
+	picture = GFX_report_event_generic_diplomacy2
 
 	is_triggered_only = yes
 
 	fire_only_once = yes
 
 	option = { # Just monitor them
-		name = newengland.114.a
+		name = newengland.114.b
 		add_political_power = -20
-		add_popularity = { ideology = radical_socialist popularity = -0.01 }
+		add_popularity = { ideology = national_populist popularity = -0.01 }
 		add_stability = 0.02
+	}
+	option = { # Just monitor them
+		name = newengland.114.a
+		add_political_power = 20
+		add_popularity = { ideology = national_populist popularity = 0.01 }
+		add_stability = -0.02
 	}
 }
 
@@ -5837,6 +6247,8 @@ country_event = { # Absinthe
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.115"}
 	title = newengland.115.t
 	desc = newengland.115.d
+	
+	picture = GFX_event_NEE_Absinthe
 
 	is_triggered_only = yes
 
@@ -5855,6 +6267,8 @@ country_event = { # Hamiltonian Constitution
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.116"}
 	title = newengland.116.t
 	desc = newengland.116.d
+	
+	picture = GFX_report_event_generic_diplomacy1
 
 	is_triggered_only = yes
 
@@ -5880,6 +6294,8 @@ country_event = { # John Jacob Astor
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.1160"}
 	title = newengland.1160.t
 	desc = newengland.1160.d
+	
+	picture = GFX_event_NEE_John_Jacob_Astor
 
 	is_triggered_only = yes
 
@@ -5899,10 +6315,10 @@ country_event = { # John Jacob Astor
 			create_country_leader = {
 				name = "John Jacob Astor"
 				desc = "NEE_JOHN_JACOB_ASTOR_DESC"
-				picture = "gfx/leaders/NEE/astor.tga"
+				picture = "gfx/leaders/NEE/Portrait_John_Jacob_Astor_no_the_other_one.tga"
 				expire = "1965.1.1"
 				ideology = authoritarian_democrat_subtype
-				traits = {}
+				traits = { great_survivor }
 			}
 		}
 		set_politics = {
@@ -5919,6 +6335,8 @@ country_event = { # Radicals Push Back
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.117"}
 	title = newengland.117.t
 	desc = newengland.117.d
+	
+	picture = GFX_report_event_USA_national_guard
 
 	is_triggered_only = yes
 
@@ -5944,6 +6362,8 @@ country_event = { # Out of the Frying Pot
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.118"}
 	title = newengland.118.t
 	desc = newengland.118.d
+	
+	picture = GFX_event_NEE_Ancap_Victory
 
 	is_triggered_only = yes
 
@@ -5972,6 +6392,8 @@ country_event = { # Out of the Frying Pot
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.119"}
 	title = newengland.119.t
 	desc = newengland.119.d
+	
+	picture = GFX_report_event_generic_diplomacy1
 
 	is_triggered_only = yes
 
@@ -5979,6 +6401,7 @@ country_event = { # Out of the Frying Pot
 
 	option = { # Great
 		name = newengland.119.a
+		set_country_flag = NEE_Radicals_Win
 		add_political_power = 20
 		add_popularity = { ideology = market_liberal popularity = 0.04 }
 		add_popularity = { ideology = paternal_autocrat popularity = 0.03 }
@@ -5997,6 +6420,8 @@ country_event = { # Radical Split
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.120"}
 	title = newengland.120.t
 	desc = newengland.120.d
+	
+	picture = GFX_event_NEE_Ancap_Victory
 
 	is_triggered_only = yes
 
@@ -6021,6 +6446,23 @@ country_event = { # Radical Split
 			elections_allowed = yes
 		}
 		set_country_flag = NEE_sentinels
+		create_country_leader = {
+			name = "Irenee du Pont"
+			desc = "POLITICS_Irenee_du_Pont_DESC"
+			picture = "gfx/leaders/NEE/Irenee_du_Pont.tga"
+			expire = "1965.1.1"
+			ideology = national_populist_subtype
+			traits = { anti_statist }
+		}
+		hidden_effect = {
+			set_cosmetic_tag = NEE_national_populist_ancap
+		}
+		hidden_effect = {
+			add_ideas = NEE_Irenee_du_Pont_hog_npo
+			add_ideas = NEE_Alexander_Lincoln_for_npo
+			add_ideas = NEE_Arthur_Atwater_Kent_eco_npo
+			add_ideas = NEE_Pierre_S_du_Pont_sec_npo 
+			}
 	}
 	option = { # Great
 		ai_chance = {
@@ -6040,6 +6482,9 @@ country_event = { # Radical Split
 			days = 4
 		}
 		set_country_flag = NEE_remnant_victory
+		hidden_effect = {
+			set_cosmetic_tag = NEE_paternal_autocrat_ancap
+		}
 	}
 }
 
@@ -6048,6 +6493,8 @@ country_event = { # Remnant Leader Election
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.121"}
 	title = newengland.121.t
 	desc = newengland.121.d
+	
+	picture = GFX_report_event_generic_diplomacy1
 
 	is_triggered_only = yes
 
@@ -6062,13 +6509,19 @@ country_event = { # Remnant Leader Election
 			picture = "gfx/leaders/NEE/Albert_Jay_Nock.tga"
 			expire = "1965.1.1"
 			ideology = paternal_autocrat_subtype
-			traits = {}
+			traits = { anti_statist }
 		}
 		set_politics = {
 			ruling_party = paternal_autocrat
 			election_frequency = 48
 			elections_allowed = yes
 		}
+			hidden_effect = {
+			add_ideas = NEE_Albert_Jay_Nock_hog_pau
+			add_ideas = NEE_H_L_Mencken_for_npo
+			add_ideas = NEE_Leonard_Read_eco_pau
+			add_ideas = NEE_Lewis_Mumford_sec_pau 
+			}
 	}
 	option = { # Robert McCormick
 		name = newengland.121.b
@@ -6079,13 +6532,19 @@ country_event = { # Remnant Leader Election
 			picture = "gfx/leaders/NEE/Robert_R_McCormick.tga"
 			expire = "1965.1.1"
 			ideology = paternal_autocrat_subtype
-			traits = {}
+			traits = { quartermaster_general }
 		}
 		set_politics = {
 			ruling_party = paternal_autocrat
 			election_frequency = 48
 			elections_allowed = yes
 		}
+		hidden_effect = {
+			add_ideas = NEE_Albert_Jay_Nock_hog_pau
+			add_ideas = NEE_H_L_Mencken_for_npo
+			add_ideas = NEE_Leonard_Read_eco_pau
+			add_ideas = NEE_Lewis_Mumford_sec_pau 
+			}
 	}
 }
 
@@ -6094,6 +6553,8 @@ country_event = { # Radical Split
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.122"}
 	title = newengland.122.t
 	desc = newengland.122.d
+	
+	picture = GFX_report_event_generic_diplomacy1
 
 	is_triggered_only = yes
 
@@ -6148,7 +6609,7 @@ country_event = { # New England's Foreign Policy?
 	fire_only_once = yes
 
 	option = { # Alone we must go
-		name = newengland.124.a
+		name = newengland.124.b
 		ai_chance = {
 			factor = 100
 		}
@@ -6158,7 +6619,7 @@ country_event = { # New England's Foreign Policy?
 		}
 	}
 	option = { # To the House of Windsor!
-		name = newengland.124.b
+		name = newengland.124.a
 		ai_chance = {
 			factor = 100
 		}
@@ -6357,6 +6818,8 @@ country_event = { # Settling Business
 	id = newengland.130
 	title = newengland.130.t
 	desc = newengland.130.d
+	
+	picture = GFX_report_event_USA_national_guard
 
 	is_triggered_only = yes
 
@@ -6387,6 +6850,8 @@ country_event = { # Worker's Strike
 	id = newengland.131
 	title = newengland.131.t
 	desc = newengland.131.d
+	
+	picture = GFX_report_event_generic_strike
 
 	is_triggered_only = yes
 
@@ -6409,6 +6874,8 @@ country_event = { # Fate of Jewish Business
 	id = newengland.132
 	title = newengland.132.t
 	desc = newengland.132.d
+	
+	picture = GFX_event_NEE_Jewish_Buisness
 
 	is_triggered_only = yes
 
@@ -6440,6 +6907,8 @@ country_event = { # Independence of Boston
 	id = newengland.133
 	title = newengland.133.t
 	desc = newengland.133.d
+	
+	picture = GFX_event_NEE_Curley
 
 	is_triggered_only = yes
 
@@ -6464,6 +6933,8 @@ country_event = { # Battle with Vermont
 	id = newengland.134
 	title = newengland.134.t
 	desc = newengland.134.d
+	
+	picture = GFX_event_NEE_Aiken
 
 	is_triggered_only = yes
 
@@ -6485,6 +6956,8 @@ country_event = { # Survival of the Fittest
 	id = newengland.135
 	title = newengland.135.t
 	desc = newengland.135.d
+	
+	picture = GFX_report_event_USA_national_guard
 
 	is_triggered_only = yes
 
@@ -6507,6 +6980,8 @@ country_event = { # Children attempt to escape
 	title = newengland.136.t
 	desc = newengland.136.d
 
+	picture = GFX_event_NEE_Child_Labour
+
 	is_triggered_only = yes
 
 	fire_only_once = yes
@@ -6527,6 +7002,8 @@ country_event = { #Fate of Democracy
 	id = newengland.140
 	title = newengland.140.t
 	desc = newengland.140.d
+	
+	picture = GFX_report_event_AST_election
 
 	is_triggered_only = yes
 
@@ -6578,7 +7055,7 @@ country_event = { # Tammany Hall
 	immediate = {log = "[GetDateText]: [Root.GetName]: event newengland.150"}
 	title = newengland.150.t
 	desc = newengland.150.d
-	picture = GFX_new_york
+	picture = GFX_event_NEE_Tammany_Hall
 
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -6622,6 +7099,8 @@ country_event = { #Curley Investigated
 	id = newengland.160
 	title = newengland.160.t
 	desc = newengland.160.d
+	
+	picture = GFX_event_NEE_Curley
 
 	is_triggered_only = yes
 
@@ -6637,6 +7116,8 @@ country_event = { #Philip Bucola Arrested
 	id = newengland.161
 	title = newengland.161.t
 	desc = newengland.161.d
+	
+	picture = GFX_report_event_USA_police
 
 	is_triggered_only = yes
 
